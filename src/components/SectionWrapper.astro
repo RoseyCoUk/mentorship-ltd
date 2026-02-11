@@ -1,0 +1,26 @@
+---
+// src/components/SectionWrapper.astro
+
+interface Props {
+  id?: string;
+  width?: "narrow" | "wide";
+  class?: string;
+}
+
+const {
+  id,
+  width = "wide",
+  class: className,
+} = Astro.props;
+
+const widths = {
+  narrow: "max-w-3xl",
+  wide: "max-w-7xl",
+};
+---
+
+<section id={id} class:list={["section", className]}>
+  <div class:list={[widths[width], "mx-auto px-4 sm:px-6 lg:px-8"]}>
+    <slot />
+  </div>
+</section>

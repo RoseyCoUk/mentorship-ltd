@@ -1,0 +1,33 @@
+---
+// src/components/FormInput.astro
+
+interface Props {
+  type?: string;
+  name: string;
+  placeholder?: string;
+  required?: boolean;
+  class?: string;
+}
+
+const {
+  type = "text",
+  name,
+  placeholder,
+  required = false,
+  class: className,
+} = Astro.props;
+---
+
+<input
+  type={type}
+  name={name}
+  placeholder={placeholder}
+  required={required}
+  class:list={[
+    "w-full bg-navy-800 border border-navy-600 text-white placeholder-text-tertiary",
+    "rounded-lg px-4 py-3 text-body",
+    "focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent",
+    "transition-colors duration-200",
+    className,
+  ]}
+/>

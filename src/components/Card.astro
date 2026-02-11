@@ -1,0 +1,16 @@
+---
+// src/components/Card.astro
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={[
+  "bg-navy-800 border border-navy-700/50 rounded-xl p-6 sm:p-8 transition-colors hover:border-navy-600",
+  className
+]}>
+  <slot />
+</div>
