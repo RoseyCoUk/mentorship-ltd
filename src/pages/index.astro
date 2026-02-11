@@ -100,8 +100,81 @@ import FormInput from "../components/FormInput.astro";
     </div>
   </SectionWrapper>
 
-  <!-- FAQ Section (Plan 02) -->
+  <!-- FAQ Section -->
+  <SectionWrapper width="narrow">
+    <h2 class="text-h2 text-center mb-10">Frequently Asked Questions</h2>
+    <div>
+      <AccordionItem question="Who is Elevateo for?">
+        <p>Elevateo is built for established business owners already generating revenue who want to scale past $500K-$1M+. If you are just getting started, this is not the right fit -- we focus on scaling systems, not startup tactics.</p>
+      </AccordionItem>
+      <AccordionItem question="How is this different from other business coaching?">
+        <p>Most coaching is generic motivation or theory. Elevateo provides specific, proven frameworks for operational scaling -- the systems, team structures, and processes that actually move the needle past seven figures.</p>
+      </AccordionItem>
+      <AccordionItem question="Do I need to be at a certain revenue level?">
+        <p>Our frameworks are designed for businesses generating at least $250K+ in annual revenue. At this stage, you have product-market fit and need to focus on systems, teams, and scalable operations -- which is exactly what we teach.</p>
+      </AccordionItem>
+      <AccordionItem question="What kind of results can I expect?">
+        <p>Results vary by business, but our frameworks focus on three outcomes: removing yourself as the bottleneck, building repeatable revenue systems, and creating operational clarity. Most owners see meaningful progress within 90 days of implementation.</p>
+      </AccordionItem>
+      <AccordionItem question="Is this a course, coaching, or community?">
+        <p>Elevateo is building a library of focused video courses on specific scaling challenges. Each course is designed to be actionable -- not theory you will never use. Coaching and community may be added in the future based on demand.</p>
+      </AccordionItem>
+      <AccordionItem question="What if this does not work for my industry?">
+        <p>The frameworks we teach are industry-agnostic. Whether you run a service business, e-commerce store, or SaaS product, the fundamentals of scaling -- systems, teams, leads, and operations -- remain the same.</p>
+      </AccordionItem>
+    </div>
+  </SectionWrapper>
 
-  <!-- Email Signup Section (Plan 02) -->
+  <!-- Email Signup Section -->
+  <section class="bg-navy-800">
+    <SectionWrapper width="narrow" id="signup" class="text-center">
+      <h2 class="text-h2 mb-4">Stay Ahead of the Curve</h2>
+      <p class="text-body-lg text-text-secondary mb-8 max-w-xl mx-auto">
+        Get actionable scaling insights delivered to your inbox. No spam, no fluff -- just frameworks that work.
+      </p>
+      <form id="email-signup" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <FormInput
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required={true}
+          class="flex-1"
+        />
+        <Button variant="primary" size="md">Get Notified</Button>
+      </form>
+      <p id="form-message" class="text-sm mt-3 hidden"></p>
+      <p class="text-xs text-text-tertiary mt-4">
+        No spam. Unsubscribe anytime. We respect your inbox.
+      </p>
+    </SectionWrapper>
+  </section>
+
+  <script>
+    function setupEmailForm() {
+      const form = document.getElementById('email-signup') as HTMLFormElement;
+      const message = document.getElementById('form-message') as HTMLElement;
+
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = new FormData(form).get('email') as string;
+
+        if (!email || !email.includes('@')) {
+          message.textContent = 'Please enter a valid email address.';
+          message.className = 'text-sm mt-3 text-error';
+          message.classList.remove('hidden');
+          return;
+        }
+
+        // Phase 4 will replace this with Kit API call
+        message.textContent = "You're on the list! We'll be in touch.";
+        message.className = 'text-sm mt-3 text-success';
+        message.classList.remove('hidden');
+        form.reset();
+      });
+    }
+
+    setupEmailForm();
+    document.addEventListener('astro:after-swap', setupEmailForm);
+  </script>
 
 </Base>
