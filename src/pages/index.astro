@@ -3,58 +3,105 @@ import Base from "../layouts/Base.astro";
 import SectionWrapper from "../components/SectionWrapper.astro";
 import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
+import AccordionItem from "../components/AccordionItem.astro";
+import FormInput from "../components/FormInput.astro";
 ---
 
-<Base title="Home" description="Elevateo Co helps established business owners scale past $1M.">
+<Base title="Home" description="Elevateo Co helps established business owners scale past $1M with proven frameworks, systems, and strategies.">
 
   <!-- Hero Section -->
-  <SectionWrapper class="pt-16 sm:pt-20 pb-12 sm:pb-16">
-    <div class="text-center md:text-left">
+  <SectionWrapper width="narrow" class="pt-16 sm:pt-24 pb-12 sm:pb-16">
+    <div class="text-center">
       <h1 class="text-hero font-bold text-white mb-6">
-        Scale Your Business Past $1M
+        Scale Past $1M Without<br class="hidden sm:inline" /> Sacrificing Your Sanity
       </h1>
-      <p class="text-body-lg text-text-secondary max-w-2xl mb-8">
-        Elevateo Co helps established business owners build the systems, teams, and strategies needed to break through revenue plateaus and scale with confidence.
+      <p class="text-body-lg text-text-secondary max-w-2xl mx-auto mb-8">
+        Proven frameworks for established business owners who have hit a ceiling
+        and need systems -- not more hustle -- to break through.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-        <Button variant="primary" size="lg" href="#signup">Get Started</Button>
-        <Button variant="secondary" size="lg" href="/courses/">Learn More</Button>
+      <Button variant="primary" size="lg" href="#signup">
+        Start Scaling Today
+      </Button>
+      <p class="text-sm text-text-tertiary mt-6">
+        Join 2,000+ business owners already scaling with Elevateo
+      </p>
+    </div>
+  </SectionWrapper>
+
+  <!-- Problem Section -->
+  <section class="bg-navy-950">
+    <SectionWrapper width="wide">
+      <div class="text-center mb-12">
+        <h2 class="text-h2 mb-4">The $1M Ceiling Is Real</h2>
+        <p class="text-body-lg text-text-secondary max-w-2xl mx-auto">
+          Every growing business hits the same walls. Here is what is keeping you stuck.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card>
+          <div class="text-accent text-h2 mb-4">01</div>
+          <h3 class="text-h3 mb-3">Bottlenecked by You</h3>
+          <p class="text-text-secondary">
+            Every decision runs through you. Your business cannot grow past your
+            personal capacity without the right systems in place.
+          </p>
+        </Card>
+        <Card>
+          <div class="text-accent text-h2 mb-4">02</div>
+          <h3 class="text-h3 mb-3">Revenue Plateaus</h3>
+          <p class="text-text-secondary">
+            You have hit a ceiling. The tactics that got you to $500K will not get
+            you to $1M. Scaling requires a fundamentally different playbook.
+          </p>
+        </Card>
+        <Card>
+          <div class="text-accent text-h2 mb-4">03</div>
+          <h3 class="text-h3 mb-3">No Clear Roadmap</h3>
+          <p class="text-text-secondary">
+            Most business advice is for startups or Fortune 500s. There is a gap
+            for established owners who need practical, proven frameworks to scale.
+          </p>
+        </Card>
+      </div>
+    </SectionWrapper>
+  </section>
+
+  <!-- Solution Section -->
+  <SectionWrapper width="narrow">
+    <h2 class="text-h2 text-center mb-4">Elevateo Gives You the Playbook</h2>
+    <p class="text-body-lg text-text-secondary text-center max-w-2xl mx-auto mb-10">
+      We built the frameworks, systems, and strategies that have helped business
+      owners break through the $1M ceiling and scale with confidence.
+    </p>
+    <div class="max-w-lg mx-auto space-y-4 mb-10">
+      <div class="flex items-start gap-3">
+        <svg class="h-6 w-6 text-accent shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-body-lg text-text-secondary">Scalable systems that remove you as the bottleneck</span>
+      </div>
+      <div class="flex items-start gap-3">
+        <svg class="h-6 w-6 text-accent shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-body-lg text-text-secondary">Proven frameworks to generate consistent leads and revenue</span>
+      </div>
+      <div class="flex items-start gap-3">
+        <svg class="h-6 w-6 text-accent shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-body-lg text-text-secondary">Operational playbooks used by 7-figure business owners</span>
       </div>
     </div>
-  </SectionWrapper>
-
-  <!-- Problem / Solution Section -->
-  <SectionWrapper width="wide">
-    <h2 class="text-h2 text-center mb-10">The Scaling Challenge</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <Card>
-        <h3 class="text-h3 mb-3">Bottlenecked by You</h3>
-        <p class="text-text-secondary">
-          Every decision, every client, every fire runs through you. Your business can not grow past your personal capacity without the right systems in place.
-        </p>
-      </Card>
-      <Card>
-        <h3 class="text-h3 mb-3">Revenue Plateaus</h3>
-        <p class="text-text-secondary">
-          You have hit a ceiling. The tactics that got you to $500K will not get you to $1M. Scaling requires a fundamentally different playbook.
-        </p>
-      </Card>
-      <Card>
-        <h3 class="text-h3 mb-3">No Clear Roadmap</h3>
-        <p class="text-text-secondary">
-          Most business advice is aimed at startups or Fortune 500s. There is a gap for established owners who need practical, proven frameworks to scale.
-        </p>
-      </Card>
+    <div class="text-center">
+      <Button variant="primary" size="md" href="#signup">
+        Get the Framework
+      </Button>
     </div>
   </SectionWrapper>
 
-  <!-- CTA Section -->
-  <SectionWrapper id="signup" width="narrow" class="text-center">
-    <h2 class="text-h2 mb-4">Ready to Scale?</h2>
-    <p class="text-text-secondary text-body-lg mb-8 max-w-xl mx-auto">
-      Join business owners who are learning to build scalable systems, generate consistent leads, and grow past $1M in annual revenue.
-    </p>
-    <Button variant="primary" size="lg" href="/courses/">Explore Courses</Button>
-  </SectionWrapper>
+  <!-- FAQ Section (Plan 02) -->
+
+  <!-- Email Signup Section (Plan 02) -->
 
 </Base>
