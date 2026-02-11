@@ -1,0 +1,62 @@
+---
+// src/components/AccordionItem.astro
+
+interface Props {
+  question: string;
+  class?: string;
+}
+
+const { question, class: className } = Astro.props;
+---
+
+<div class:list={["accordion-item border-b border-navy-700/50", className]}>
+  <button
+    class="accordion-trigger flex w-full items-center justify-between py-5 text-left text-body-lg font-medium text-white hover:text-accent transition-colors duration-200"
+    type="button"
+    aria-expanded="false"
+  >
+    <span>{question}</span>
+    <svg
+      class="accordion-icon h-5 w-5 shrink-0 text-text-tertiary transition-transform duration-300"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+      aria-hidden="true"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+  <div class="accordion-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+    <div class="pb-5 text-text-secondary">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupAccordions() {
+    const triggers = document.querySelectorAll('.accordion-trigger');
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.accordion-item');
+        const content = item?.querySelector('.accordion-content') as HTMLElement;
+        const icon = item?.querySelector('.accordion-icon');
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+        if (!isOpen) {
+          trigger.setAttribute('aria-expanded', 'true');
+          content.style.maxHeight = content.scrollHeight + 'px';
+          icon?.classList.add('rotate-180');
+        } else {
+          trigger.setAttribute('aria-expanded', 'false');
+          content.style.maxHeight = '0px';
+          icon?.classList.remove('rotate-180');
+        }
+      });
+    });
+  }
+
+  setupAccordions();
+  document.addEventListener('astro:after-swap', setupAccordions);
+</script>
