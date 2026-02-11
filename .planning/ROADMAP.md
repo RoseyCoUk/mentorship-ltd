@@ -13,7 +13,7 @@ Elevateo Co launches as a 3-page business education authority site with dark, bo
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Design system, project scaffolding, navigation, and responsive framework
-- [ ] **Phase 2: Home Page** - Bold hero, problem/solution, FAQ, and first email form
+- [x] **Phase 2: Home Page** - Bold hero, problem/solution, FAQ, and first email form
 - [ ] **Phase 3: About Page** - Founder story, philosophy, and email capture
 - [ ] **Phase 4: Courses + Email Integration** - Course grid, Kit API integration, and form states across all pages
 - [ ] **Phase 5: Animation + Polish** - GSAP scroll animations, performance tuning, and final QA
@@ -49,8 +49,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md -- AccordionItem component, hero section, problem/solution sections (top half of page)
-- [ ] 02-02-PLAN.md -- FAQ accordion section, email signup form with client-side feedback (bottom half of page)
+- [x] 02-01-PLAN.md -- AccordionItem component, hero section, problem/solution sections (top half of page)
+- [x] 02-02-PLAN.md -- FAQ accordion section, email signup form with client-side feedback (bottom half of page)
 
 ### Phase 3: About Page
 **Goal**: A visitor navigating to the About page learns Alan Chan's story, understands what makes Elevateo's approach different, and can sign up for updates
@@ -105,7 +105,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-02-11 |
-| 2. Home Page | 0/2 | Not started | - |
+| 2. Home Page | 2/2 | Complete | 2026-02-11 |
 | 3. About Page | 0/2 | Not started | - |
 | 4. Courses + Email Integration | 0/3 | Not started | - |
 | 5. Animation + Polish | 0/2 | Not started | - |
