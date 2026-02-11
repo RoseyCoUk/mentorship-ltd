@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+/* ============================================
+   DESIGN TOKENS -- Elevateo Co
+   Dark, bold, authority aesthetic
+   ============================================ */
+
+@theme {
+  /* Reset default Tailwind colors to enforce brand consistency */
+  --color-*: initial;
+
+  /* --- Colors: Dark Navy Palette --- */
+  --color-navy-950: #070B14;
+  --color-navy-900: #0B1120;
+  --color-navy-800: #0F172A;
+  --color-navy-700: #1E293B;
+  --color-navy-600: #334155;
+
+  /* --- Colors: Text --- */
+  --color-text-primary: #F1F5F9;
+  --color-text-secondary: #94A3B8;
+  --color-text-tertiary: #64748B;
+
+  /* --- Colors: Accent (Gold -- authority, premium) --- */
+  --color-accent: #D4A843;
+  --color-accent-hover: #E5BE5A;
+
+  /* --- Colors: Semantic --- */
+  --color-success: #22C55E;
+  --color-error: #EF4444;
+
+  /* --- Colors: Pure --- */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* --- Typography --- */
+  --font-heading: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* --- Font Sizes (fluid with clamp) --- */
+  --text-hero: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  --text-h1: clamp(2rem, 4vw + 0.5rem, 3.5rem);
+  --text-h2: clamp(1.5rem, 3vw + 0.25rem, 2.5rem);
+  --text-h3: clamp(1.25rem, 2vw + 0.25rem, 1.75rem);
+  --text-body-lg: clamp(1.0625rem, 1.5vw, 1.25rem);
+  --text-body: clamp(1rem, 1.25vw, 1.125rem);
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+
+  /* --- Spacing --- */
+  --spacing: 0.25rem;
+
+  /* --- Border Radius --- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* --- Shadows (dark-theme-appropriate) --- */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+
+  /* --- Transitions --- */
+  --animate-fade-in: fade-in 0.3s ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* --- Breakpoints --- */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 90rem;
+}
+
+/* --- Non-utility CSS variables --- */
+:root {
+  --header-height: 4.5rem;
+  --max-content-width: 80rem;
+  --transition-base: 300ms ease;
+  --transition-fast: 150ms ease;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-navy-900);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-white);
+  }
+
+  input, select, textarea {
+    font-size: 16px;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-navy-900);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-navy-950);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-navy-600);
+    border-radius: var(--radius-full);
+  }
+}
+
+/* ============================================
+   COMPONENT STYLES
+   ============================================ */
+
+@layer components {
+  .section {
+    padding-block: clamp(4rem, 8vw, 8rem);
+    padding-inline: clamp(1rem, 5vw, 2rem);
+  }
+
+  .container-narrow {
+    max-width: 48rem;
+    margin-inline: auto;
+  }
+
+  .container-wide {
+    max-width: 80rem;
+    margin-inline: auto;
+  }
+}

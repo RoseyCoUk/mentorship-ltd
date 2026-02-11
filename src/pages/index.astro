@@ -1,17 +1,71 @@
 ---
-
+import Base from "../layouts/Base.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title="Design System Test">
+  <section class="section">
+    <div class="container-wide mx-auto">
+      <h1 class="text-hero font-bold mb-8">Design Token Test</h1>
+
+      <!-- Color Palette -->
+      <h2 class="text-h2 mb-4">Color Palette</h2>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+        <div class="p-4 rounded-lg bg-navy-950"><p class="text-sm text-text-secondary">navy-950</p></div>
+        <div class="p-4 rounded-lg bg-navy-900 border border-navy-700"><p class="text-sm text-text-secondary">navy-900</p></div>
+        <div class="p-4 rounded-lg bg-navy-800"><p class="text-sm text-text-secondary">navy-800</p></div>
+        <div class="p-4 rounded-lg bg-navy-700"><p class="text-sm text-text-secondary">navy-700</p></div>
+        <div class="p-4 rounded-lg bg-navy-600"><p class="text-sm text-text-secondary">navy-600</p></div>
+      </div>
+
+      <!-- Accent Colors -->
+      <h2 class="text-h2 mb-4">Accent</h2>
+      <div class="flex gap-4 mb-12">
+        <div class="p-4 px-8 rounded-lg bg-accent text-navy-900 font-bold">Gold Accent</div>
+        <div class="p-4 px-8 rounded-lg bg-accent-hover text-navy-900 font-bold">Gold Hover</div>
+      </div>
+
+      <!-- Typography Scale -->
+      <h2 class="text-h2 mb-4">Typography Scale</h2>
+      <div class="space-y-4 mb-12">
+        <p class="text-hero font-bold">Hero Text (clamp 2.5-4.5rem)</p>
+        <p class="text-h1 font-bold">Heading 1 (clamp 2-3.5rem)</p>
+        <p class="text-h2 font-bold">Heading 2 (clamp 1.5-2.5rem)</p>
+        <p class="text-h3 font-bold">Heading 3 (clamp 1.25-1.75rem)</p>
+        <p class="text-body-lg">Body Large (clamp 1.0625-1.25rem)</p>
+        <p class="text-body">Body (clamp 1-1.125rem)</p>
+        <p class="text-sm text-text-secondary">Small text in secondary color</p>
+        <p class="text-xs text-text-tertiary">Extra small text in tertiary color</p>
+      </div>
+
+      <!-- Text Colors -->
+      <h2 class="text-h2 mb-4">Text Colors</h2>
+      <div class="space-y-2 mb-12">
+        <p class="text-text-primary">Primary text (#F1F5F9)</p>
+        <p class="text-text-secondary">Secondary text (#94A3B8)</p>
+        <p class="text-text-tertiary">Tertiary text (#64748B)</p>
+        <p class="text-accent">Accent text (#D4A843)</p>
+        <p class="text-white">White text (#FFFFFF)</p>
+      </div>
+
+      <!-- Spacing and Radius -->
+      <h2 class="text-h2 mb-4">Cards / Containers</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-navy-800 border border-navy-700/50 rounded-xl p-6">
+          <h3 class="text-h3 mb-2">Card Example</h3>
+          <p class="text-text-secondary">Dark themed card with border and rounded corners.</p>
+        </div>
+        <div class="bg-navy-800 border border-navy-700/50 rounded-xl p-6">
+          <h3 class="text-h3 mb-2">Another Card</h3>
+          <p class="text-text-secondary">Consistent spacing and visual hierarchy.</p>
+        </div>
+      </div>
+
+      <!-- Semantic Colors -->
+      <h2 class="text-h2 mb-4">Semantic Colors</h2>
+      <div class="flex gap-4">
+        <span class="text-success font-bold">Success</span>
+        <span class="text-error font-bold">Error</span>
+      </div>
+    </div>
+  </section>
+</Base>
