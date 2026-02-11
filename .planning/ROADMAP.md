@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md -- Astro project scaffolding with Tailwind CSS 4.x and design token system
+- [x] 01-01-PLAN.md -- Astro project scaffolding with Tailwind CSS 4.x and design token system
 - [ ] 01-02-PLAN.md -- Shared component library (Header, Footer, Button, Card, SectionWrapper, FormInput) with responsive navigation
 - [ ] 01-03-PLAN.md -- Three page shells with layout integration and responsive verification
 
@@ -105,7 +105,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
-| 1. Foundation | 0/3 | Planned | - |
+| 1. Foundation | 1/3 | In progress | - |
 | 2. Home Page | 0/3 | Not started | - |
 | 3. About Page | 0/2 | Not started | - |
 | 4. Courses + Email Integration | 0/3 | Not started | - |
