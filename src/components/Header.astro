@@ -1,0 +1,130 @@
+---
+// src/components/Header.astro
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about/" },
+  { label: "Courses", href: "/courses/" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-navy-900/95 backdrop-blur-sm border-b border-navy-700/50">
+  <div class="container-wide mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-18">
+      <!-- Logo -->
+      <a href="/" class="text-white font-heading font-bold text-xl tracking-tight">
+        Elevateo
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              "text-sm font-medium tracking-wide uppercase transition-colors duration-200",
+              currentPath === link.href
+                ? "text-accent"
+                : "text-text-secondary hover:text-white",
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="#signup"
+          class="bg-accent hover:bg-accent-hover text-navy-900 font-bold text-sm px-5 py-2.5 rounded-lg transition-colors duration-200"
+        >
+          Get Started
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-toggle"
+        class="md:hidden p-2 text-text-secondary hover:text-white transition-colors"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+      >
+        <!-- Hamburger icon -->
+        <svg class="hamburger-icon w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <!-- Close icon (hidden by default) -->
+        <svg class="close-icon w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Panel -->
+  <div id="mobile-menu" class="md:hidden hidden">
+    <nav class="px-4 pb-6 pt-2 border-t border-navy-700/50 bg-navy-900" aria-label="Mobile navigation">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "block py-3 text-base font-medium border-b border-navy-700/30 transition-colors",
+            currentPath === link.href
+              ? "text-accent"
+              : "text-text-secondary hover:text-white",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="#signup"
+        class="block mt-4 bg-accent hover:bg-accent-hover text-navy-900 font-bold text-center py-3 rounded-lg transition-colors"
+      >
+        Get Started
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer to prevent content from hiding behind fixed header -->
+<div class="h-18" aria-hidden="true"></div>
+
+<script>
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const hamburgerIcon = toggle?.querySelector(".hamburger-icon");
+  const closeIcon = toggle?.querySelector(".close-icon");
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = !menu?.classList.contains("hidden");
+
+    menu?.classList.toggle("hidden");
+    hamburgerIcon?.classList.toggle("hidden");
+    closeIcon?.classList.toggle("hidden");
+
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = isOpen ? "" : "hidden";
+  });
+
+  // Close menu on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !menu?.classList.contains("hidden")) {
+      toggle?.click();
+    }
+  });
+
+  // Close menu when clicking a link (for same-page anchors)
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (!menu.classList.contains("hidden")) {
+        toggle?.click();
+      }
+    });
+  });
+</script>
