@@ -14,7 +14,7 @@
 
 ### About Page
 
-- [ ] **ABOUT-01**: Founder story arc — Alan Chan's origin, transformation, and mission narrative
+- [ ] **ABOUT-01**: Founder story arc -- Alan Chan's origin, transformation, and mission narrative
 - [ ] **ABOUT-02**: Philosophy section explaining what makes Elevateo's approach different
 - [ ] **ABOUT-03**: Email signup form on the about page
 
@@ -78,31 +78,31 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| HOME-01 | — | Pending |
-| HOME-02 | — | Pending |
-| HOME-03 | — | Pending |
-| HOME-04 | — | Pending |
-| ABOUT-01 | — | Pending |
-| ABOUT-02 | — | Pending |
-| ABOUT-03 | — | Pending |
-| COURSE-01 | — | Pending |
-| COURSE-02 | — | Pending |
-| EMAIL-01 | — | Pending |
-| EMAIL-02 | — | Pending |
-| EMAIL-03 | — | Pending |
-| DESIGN-01 | — | Pending |
-| DESIGN-02 | — | Pending |
-| DESIGN-03 | — | Pending |
-| DESIGN-04 | — | Pending |
-| NAV-01 | — | Pending |
-| NAV-02 | — | Pending |
-| NAV-03 | — | Pending |
+| DESIGN-01 | Phase 1: Foundation | Pending |
+| DESIGN-02 | Phase 1: Foundation | Pending |
+| DESIGN-03 | Phase 1: Foundation | Pending |
+| NAV-01 | Phase 1: Foundation | Pending |
+| NAV-02 | Phase 1: Foundation | Pending |
+| NAV-03 | Phase 1: Foundation | Pending |
+| HOME-01 | Phase 2: Home Page | Pending |
+| HOME-02 | Phase 2: Home Page | Pending |
+| HOME-03 | Phase 2: Home Page | Pending |
+| HOME-04 | Phase 2: Home Page | Pending |
+| ABOUT-01 | Phase 3: About Page | Pending |
+| ABOUT-02 | Phase 3: About Page | Pending |
+| ABOUT-03 | Phase 3: About Page | Pending |
+| COURSE-01 | Phase 4: Courses + Email Integration | Pending |
+| COURSE-02 | Phase 4: Courses + Email Integration | Pending |
+| EMAIL-01 | Phase 4: Courses + Email Integration | Pending |
+| EMAIL-02 | Phase 4: Courses + Email Integration | Pending |
+| EMAIL-03 | Phase 4: Courses + Email Integration | Pending |
+| DESIGN-04 | Phase 5: Animation + Polish | Pending |
 
 **Coverage:**
 - v1 requirements: 19 total
-- Mapped to phases: 0
-- Unmapped: 19 ⚠️
+- Mapped to phases: 19
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-11*
-*Last updated: 2026-02-11 after initial definition*
+*Last updated: 2026-02-11 after roadmap creation*
