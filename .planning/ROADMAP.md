@@ -46,12 +46,11 @@ Plans:
   2. Visitor scrolls to a problem/solution section that names specific business scaling bottlenecks and positions Elevateo as the answer
   3. Visitor can read an FAQ section that addresses common objections about business coaching and education
   4. Visitor can enter their email in a signup form on the home page (form submits and provides feedback)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: Hero section with headline, subheadline, and primary CTA
-- [ ] 02-02: Problem/solution section and FAQ accordion
-- [ ] 02-03: Email signup form integration on home page
+- [ ] 02-01-PLAN.md -- AccordionItem component, hero section, problem/solution sections (top half of page)
+- [ ] 02-02-PLAN.md -- FAQ accordion section, email signup form with client-side feedback (bottom half of page)
 
 ### Phase 3: About Page
 **Goal**: A visitor navigating to the About page learns Alan Chan's story, understands what makes Elevateo's approach different, and can sign up for updates
@@ -106,7 +105,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-02-11 |
-| 2. Home Page | 0/3 | Not started | - |
+| 2. Home Page | 0/2 | Not started | - |
 | 3. About Page | 0/2 | Not started | - |
 | 4. Courses + Email Integration | 0/3 | Not started | - |
 | 5. Animation + Polish | 0/2 | Not started | - |
