@@ -78,12 +78,12 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DESIGN-01 | Phase 1: Foundation | Pending |
-| DESIGN-02 | Phase 1: Foundation | Pending |
-| DESIGN-03 | Phase 1: Foundation | Pending |
-| NAV-01 | Phase 1: Foundation | Pending |
-| NAV-02 | Phase 1: Foundation | Pending |
-| NAV-03 | Phase 1: Foundation | Pending |
+| DESIGN-01 | Phase 1: Foundation | Complete |
+| DESIGN-02 | Phase 1: Foundation | Complete |
+| DESIGN-03 | Phase 1: Foundation | Complete |
+| NAV-01 | Phase 1: Foundation | Complete |
+| NAV-02 | Phase 1: Foundation | Complete |
+| NAV-03 | Phase 1: Foundation | Complete |
 | HOME-01 | Phase 2: Home Page | Pending |
 | HOME-02 | Phase 2: Home Page | Pending |
 | HOME-03 | Phase 2: Home Page | Pending |
