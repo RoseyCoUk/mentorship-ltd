@@ -1,0 +1,59 @@
+---
+import Base from "../layouts/Base.astro";
+import SectionWrapper from "../components/SectionWrapper.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+---
+
+<Base title="About" description="Learn about Alan Chan and the Elevateo Co mission to help business owners scale.">
+
+  <!-- Hero Section -->
+  <SectionWrapper class="pt-16 sm:pt-20 pb-8 sm:pb-12">
+    <h1 class="text-h1 text-center mb-4">Meet the Founder</h1>
+    <p class="text-body-lg text-text-secondary text-center max-w-2xl mx-auto">
+      Elevateo Co was built on one belief: every established business owner deserves a clear path to scale, not guesswork and generic advice.
+    </p>
+  </SectionWrapper>
+
+  <!-- Founder Section -->
+  <SectionWrapper width="wide">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+      <!-- Photo Placeholder -->
+      <Card class="flex items-center justify-center min-h-[320px] sm:min-h-[400px]">
+        <div class="text-center">
+          <p class="text-text-tertiary text-sm uppercase tracking-wide font-bold mb-2">Photo Coming Soon</p>
+          <p class="text-text-secondary text-sm">Alan Chan, Founder</p>
+        </div>
+      </Card>
+
+      <!-- Founder Story -->
+      <div>
+        <h2 class="text-h2 mb-6">Alan Chan</h2>
+        <p class="text-text-secondary mb-4">
+          After spending years building and scaling businesses across multiple industries, Alan Chan founded Elevateo Co to solve the problem he saw over and over: talented business owners stuck at a revenue ceiling with no clear way through.
+        </p>
+        <p class="text-text-secondary mb-4">
+          His approach is built on real-world experience, not theory. Every framework, every system, and every strategy taught through Elevateo has been tested in the trenches of actual business operations, from lead generation to team building to offer creation.
+        </p>
+        <p class="text-text-secondary">
+          Today, Elevateo Co is focused on giving established owners the tools and knowledge they need to break through plateaus, build high-performing teams, and create businesses that scale without burning out.
+        </p>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- Philosophy Section -->
+  <SectionWrapper width="narrow">
+    <h2 class="text-h2 mb-6">What Makes Us Different</h2>
+    <p class="text-text-secondary mb-4">
+      Most business education is built for people just getting started. Elevateo is built for owners who already have revenue, already have customers, and already know the basics. The challenge at your stage is not learning how to start. It is learning how to scale.
+    </p>
+    <p class="text-text-secondary mb-4">
+      We focus on the specific levers that matter between $500K and $5M: scalable offer design, repeatable lead generation systems, sales processes that do not depend on the founder, and operational frameworks that free you from day-to-day execution.
+    </p>
+    <p class="text-text-secondary">
+      No fluff, no generic motivation, no one-size-fits-all playbooks. Just proven systems tailored to established business owners who are ready to grow.
+    </p>
+  </SectionWrapper>
+
+</Base>

@@ -1,0 +1,88 @@
+---
+import Base from "../layouts/Base.astro";
+import SectionWrapper from "../components/SectionWrapper.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+import FormInput from "../components/FormInput.astro";
+---
+
+<Base title="Courses" description="Expert-led business scaling courses from Elevateo Co. Coming soon.">
+
+  <!-- Hero Section -->
+  <SectionWrapper class="pt-16 sm:pt-20 pb-8 sm:pb-12">
+    <h1 class="text-h1 text-center mb-4">Learn to Scale</h1>
+    <p class="text-body-lg text-text-secondary text-center max-w-2xl mx-auto">
+      Expert-led courses on scaling your business. Each course is built on real-world frameworks, not theory. Coming soon.
+    </p>
+  </SectionWrapper>
+
+  <!-- Course Grid Section -->
+  <SectionWrapper width="wide">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <Card>
+        <div class="mb-4">
+          <span class="bg-navy-700 text-accent rounded-full px-3 py-1 text-xs uppercase font-bold">
+            Coming Soon
+          </span>
+        </div>
+        <h3 class="text-h3 mb-3">Scaling Operations</h3>
+        <p class="text-text-secondary">
+          Build systems and processes that let your business run without you in every decision. Hire, delegate, and automate the right things at the right time.
+        </p>
+      </Card>
+
+      <Card>
+        <div class="mb-4">
+          <span class="bg-navy-700 text-accent rounded-full px-3 py-1 text-xs uppercase font-bold">
+            Coming Soon
+          </span>
+        </div>
+        <h3 class="text-h3 mb-3">Lead Generation Mastery</h3>
+        <p class="text-text-secondary">
+          Create repeatable, predictable lead flow. Learn the channels, systems, and metrics that drive consistent growth without constant hustle.
+        </p>
+      </Card>
+
+      <Card>
+        <div class="mb-4">
+          <span class="bg-navy-700 text-accent rounded-full px-3 py-1 text-xs uppercase font-bold">
+            Coming Soon
+          </span>
+        </div>
+        <h3 class="text-h3 mb-3">Sales Systems</h3>
+        <p class="text-text-secondary">
+          Remove yourself as the bottleneck in sales. Build a sales process and team that closes consistently, with or without you on the call.
+        </p>
+      </Card>
+
+      <Card>
+        <div class="mb-4">
+          <span class="bg-navy-700 text-accent rounded-full px-3 py-1 text-xs uppercase font-bold">
+            Coming Soon
+          </span>
+        </div>
+        <h3 class="text-h3 mb-3">Offer Creation</h3>
+        <p class="text-text-secondary">
+          Design high-value offers that your market actually wants. Price for profit, package for scale, and position for authority.
+        </p>
+      </Card>
+    </div>
+  </SectionWrapper>
+
+  <!-- Notification Section -->
+  <SectionWrapper id="signup" width="narrow" class="text-center">
+    <h2 class="text-h2 mb-4">Get Notified When We Launch</h2>
+    <p class="text-text-secondary mb-8 max-w-lg mx-auto">
+      Be the first to know when courses go live. Enter your email below and we will keep you in the loop.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+      <FormInput
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+      />
+      <Button variant="primary" class="sm:shrink-0">Notify Me</Button>
+    </div>
+  </SectionWrapper>
+
+</Base>

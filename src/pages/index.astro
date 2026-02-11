@@ -1,142 +1,60 @@
 ---
 import Base from "../layouts/Base.astro";
+import SectionWrapper from "../components/SectionWrapper.astro";
 import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
-import SectionWrapper from "../components/SectionWrapper.astro";
-import FormInput from "../components/FormInput.astro";
 ---
 
-<Base title="Component Library Test">
+<Base title="Home" description="Elevateo Co helps established business owners scale past $1M.">
 
-  <!-- Button Variants -->
-  <SectionWrapper>
-    <h1 class="text-hero font-bold mb-4">Component Library</h1>
-    <p class="text-text-secondary text-body-lg mb-12">All shared components rendered for visual verification.</p>
-
-    <h2 class="text-h2 mb-6">Button Variants</h2>
-    <div class="flex flex-wrap items-center gap-4 mb-8">
-      <Button variant="primary">Primary Button</Button>
-      <Button variant="secondary">Secondary Button</Button>
-      <Button variant="ghost">Ghost Button</Button>
-    </div>
-
-    <h2 class="text-h2 mb-6">Button Sizes</h2>
-    <div class="flex flex-wrap items-center gap-4 mb-8">
-      <Button variant="primary" size="sm">Small</Button>
-      <Button variant="primary" size="md">Medium</Button>
-      <Button variant="primary" size="lg">Large</Button>
-    </div>
-
-    <h2 class="text-h2 mb-6">Button as Link</h2>
-    <div class="flex flex-wrap items-center gap-4 mb-8">
-      <Button variant="primary" href="#signup">Primary Link</Button>
-      <Button variant="secondary" href="#signup">Secondary Link</Button>
-      <Button variant="ghost" href="#signup">Ghost Link</Button>
+  <!-- Hero Section -->
+  <SectionWrapper class="pt-16 sm:pt-20 pb-12 sm:pb-16">
+    <div class="text-center md:text-left">
+      <h1 class="text-hero font-bold text-white mb-6">
+        Scale Your Business Past $1M
+      </h1>
+      <p class="text-body-lg text-text-secondary max-w-2xl mb-8">
+        Elevateo Co helps established business owners build the systems, teams, and strategies needed to break through revenue plateaus and scale with confidence.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+        <Button variant="primary" size="lg" href="#signup">Get Started</Button>
+        <Button variant="secondary" size="lg" href="/courses/">Learn More</Button>
+      </div>
     </div>
   </SectionWrapper>
 
-  <!-- Card Components -->
-  <SectionWrapper>
-    <h2 class="text-h2 mb-6">Cards</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-      <Card>
-        <h3 class="text-h3 mb-2">Growth Strategy</h3>
-        <p class="text-text-secondary">Learn how to identify and capitalize on growth opportunities in your market.</p>
-      </Card>
-      <Card>
-        <h3 class="text-h3 mb-2">Team Building</h3>
-        <p class="text-text-secondary">Build a high-performing team that executes without micromanagement.</p>
-      </Card>
-      <Card>
-        <h3 class="text-h3 mb-2">Systems & Ops</h3>
-        <p class="text-text-secondary">Create systems that scale your operations beyond your personal capacity.</p>
-      </Card>
-    </div>
-  </SectionWrapper>
-
-  <!-- Section Width Comparison -->
-  <SectionWrapper width="narrow">
-    <h2 class="text-h2 mb-6">Narrow Section</h2>
-    <p class="text-text-secondary mb-4">This section uses <code class="text-accent">width="narrow"</code> (max-w-3xl). Notice how the content is constrained to a narrower column -- ideal for focused reading.</p>
-    <Card>
-      <p class="text-text-secondary">A card inside a narrow section wrapper. The card fills the available width of the narrow container.</p>
-    </Card>
-  </SectionWrapper>
-
+  <!-- Problem / Solution Section -->
   <SectionWrapper width="wide">
-    <h2 class="text-h2 mb-6">Wide Section</h2>
-    <p class="text-text-secondary mb-4">This section uses <code class="text-accent">width="wide"</code> (max-w-7xl, default). Content spans the full layout width.</p>
-  </SectionWrapper>
-
-  <!-- Form Input -->
-  <SectionWrapper id="signup" width="narrow">
-    <h2 class="text-h2 mb-6">Form Input</h2>
-    <div class="space-y-4">
-      <FormInput
-        type="email"
-        name="email"
-        placeholder="Enter your email"
-        required={true}
-      />
-      <FormInput
-        type="text"
-        name="name"
-        placeholder="Your full name"
-      />
-      <Button variant="primary" size="lg" class="w-full">Subscribe for Updates</Button>
+    <h2 class="text-h2 text-center mb-10">The Scaling Challenge</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <Card>
+        <h3 class="text-h3 mb-3">Bottlenecked by You</h3>
+        <p class="text-text-secondary">
+          Every decision, every client, every fire runs through you. Your business can not grow past your personal capacity without the right systems in place.
+        </p>
+      </Card>
+      <Card>
+        <h3 class="text-h3 mb-3">Revenue Plateaus</h3>
+        <p class="text-text-secondary">
+          You have hit a ceiling. The tactics that got you to $500K will not get you to $1M. Scaling requires a fundamentally different playbook.
+        </p>
+      </Card>
+      <Card>
+        <h3 class="text-h3 mb-3">No Clear Roadmap</h3>
+        <p class="text-text-secondary">
+          Most business advice is aimed at startups or Fortune 500s. There is a gap for established owners who need practical, proven frameworks to scale.
+        </p>
+      </Card>
     </div>
   </SectionWrapper>
 
-  <!-- Design Tokens Reference (retained from 01-01) -->
-  <SectionWrapper>
-    <h2 class="text-h2 mb-6">Design Tokens</h2>
-
-    <!-- Color Palette -->
-    <h3 class="text-h3 mb-4">Color Palette</h3>
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
-      <div class="p-4 rounded-lg bg-navy-950"><p class="text-sm text-text-secondary">navy-950</p></div>
-      <div class="p-4 rounded-lg bg-navy-900 border border-navy-700"><p class="text-sm text-text-secondary">navy-900</p></div>
-      <div class="p-4 rounded-lg bg-navy-800"><p class="text-sm text-text-secondary">navy-800</p></div>
-      <div class="p-4 rounded-lg bg-navy-700"><p class="text-sm text-text-secondary">navy-700</p></div>
-      <div class="p-4 rounded-lg bg-navy-600"><p class="text-sm text-text-secondary">navy-600</p></div>
-    </div>
-
-    <!-- Accent Colors -->
-    <h3 class="text-h3 mb-4">Accent</h3>
-    <div class="flex gap-4 mb-10">
-      <div class="p-4 px-8 rounded-lg bg-accent text-navy-900 font-bold">Gold Accent</div>
-      <div class="p-4 px-8 rounded-lg bg-accent-hover text-navy-900 font-bold">Gold Hover</div>
-    </div>
-
-    <!-- Typography Scale -->
-    <h3 class="text-h3 mb-4">Typography Scale</h3>
-    <div class="space-y-4 mb-10">
-      <p class="text-hero font-bold">Hero Text</p>
-      <p class="text-h1 font-bold">Heading 1</p>
-      <p class="text-h2 font-bold">Heading 2</p>
-      <p class="text-h3 font-bold">Heading 3</p>
-      <p class="text-body-lg">Body Large</p>
-      <p class="text-body">Body</p>
-      <p class="text-sm text-text-secondary">Small text</p>
-      <p class="text-xs text-text-tertiary">Extra small text</p>
-    </div>
-
-    <!-- Text Colors -->
-    <h3 class="text-h3 mb-4">Text Colors</h3>
-    <div class="space-y-2 mb-10">
-      <p class="text-text-primary">Primary text (#F1F5F9)</p>
-      <p class="text-text-secondary">Secondary text (#94A3B8)</p>
-      <p class="text-text-tertiary">Tertiary text (#64748B)</p>
-      <p class="text-accent">Accent text (#D4A843)</p>
-      <p class="text-white">White text (#FFFFFF)</p>
-    </div>
-
-    <!-- Semantic Colors -->
-    <h3 class="text-h3 mb-4">Semantic Colors</h3>
-    <div class="flex gap-4">
-      <span class="text-success font-bold">Success</span>
-      <span class="text-error font-bold">Error</span>
-    </div>
+  <!-- CTA Section -->
+  <SectionWrapper id="signup" width="narrow" class="text-center">
+    <h2 class="text-h2 mb-4">Ready to Scale?</h2>
+    <p class="text-text-secondary text-body-lg mb-8 max-w-xl mx-auto">
+      Join business owners who are learning to build scalable systems, generate consistent leads, and grow past $1M in annual revenue.
+    </p>
+    <Button variant="primary" size="lg" href="/courses/">Explore Courses</Button>
   </SectionWrapper>
 
 </Base>
