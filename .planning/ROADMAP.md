@@ -30,12 +30,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. On mobile, visitor can open a hamburger menu and navigate between all pages
   4. Site layout adapts correctly from mobile (375px) through tablet (768px) to desktop (1400px+) with no broken layouts
   5. Shared components (header, footer, buttons, cards, form inputs) exist and render consistently across all page shells
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Astro project scaffolding with Tailwind CSS 4.x and design token system
-- [ ] 01-02: Shared component library (header, footer, buttons, cards, forms) with responsive navigation
-- [ ] 01-03: Three page shells with layout integration and responsive verification
+- [ ] 01-01-PLAN.md -- Astro project scaffolding with Tailwind CSS 4.x and design token system
+- [ ] 01-02-PLAN.md -- Shared component library (Header, Footer, Button, Card, SectionWrapper, FormInput) with responsive navigation
+- [ ] 01-03-PLAN.md -- Three page shells with layout integration and responsive verification
 
 ### Phase 2: Home Page
 **Goal**: A visitor landing on the home page immediately understands what Elevateo Co offers, sees credibility signals, gets objections addressed, and has a clear path to sign up
@@ -105,7 +105,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
-| 1. Foundation | 0/3 | Not started | - |
+| 1. Foundation | 0/3 | Planned | - |
 | 2. Home Page | 0/3 | Not started | - |
 | 3. About Page | 0/2 | Not started | - |
 | 4. Courses + Email Integration | 0/3 | Not started | - |
