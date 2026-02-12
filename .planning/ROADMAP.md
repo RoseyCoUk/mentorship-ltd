@@ -1,8 +1,8 @@
-# Roadmap: Elevateo Co
+# Roadmap: Elevateo
 
 ## Overview
 
-Elevateo Co launches as a 3-page business education authority site with dark, bold aesthetics and email lead capture. The roadmap builds foundation-first (design system, navigation, responsive framework), then delivers each page as a vertical slice (Home, About, Courses), integrates email capture with Kit, and finishes with scroll animations and polish. By the end, established business owners land on a credible, performant site and sign up to stay connected.
+Elevateo launches as Alan Chan's personal brand site for digital marketing education — 3 pages (Home, About, Courses) with dark charcoal/gold aesthetics and email lead capture. A brand refresh in Phase 3 overhauled all visuals with new assets (logos, icons, heroes, banners), shifted the color palette from cold navy to warm charcoal, and rewrote all content in Alan's personal voice. Remaining work: Kit email integration and scroll animations.
 
 ## Phases
 
@@ -14,8 +14,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Design system, project scaffolding, navigation, and responsive framework
 - [x] **Phase 2: Home Page** - Bold hero, problem/solution, FAQ, and first email form
-- [ ] **Phase 3: About Page** - Founder story, philosophy, and email capture
-- [ ] **Phase 4: Courses + Email Integration** - Course grid, Kit API integration, and form states across all pages
+- [x] **Phase 3: About Page + Brand Refresh** - Founder story, philosophy, email capture, and full visual + content overhaul
+- [ ] **Phase 4: Courses + Email Integration** - Kit API integration and form states across all pages
 - [ ] **Phase 5: Animation + Polish** - GSAP scroll animations, performance tuning, and final QA
 
 ## Phase Details
@@ -52,36 +52,34 @@ Plans:
 - [x] 02-01-PLAN.md -- AccordionItem component, hero section, problem/solution sections (top half of page)
 - [x] 02-02-PLAN.md -- FAQ accordion section, email signup form with client-side feedback (bottom half of page)
 
-### Phase 3: About Page
-**Goal**: A visitor navigating to the About page learns Alan Chan's story, understands what makes Elevateo's approach different, and can sign up for updates
+### Phase 3: About Page + Brand Refresh
+**Goal**: A visitor navigating to the About page learns Alan Chan's story, understands what makes his approach different, and can sign up for updates. Additionally, all pages updated with new brand assets, warm charcoal palette, and personal voice.
 **Depends on**: Phase 2
 **Requirements**: ABOUT-01, ABOUT-02, ABOUT-03
 **Success Criteria** (what must be TRUE):
   1. Visitor reads a founder story arc that follows the pattern: "I was where you are" -> "I figured out X" -> "Now I help others do the same"
-  2. Visitor reads a philosophy section that explains what makes Elevateo's approach different from generic business coaching
+  2. Visitor reads a philosophy section that explains what makes Alan's approach different
   3. Visitor can enter their email in a signup form on the about page
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md -- FormInput type fix, founder story restructured to three-beat arc (empathy, transformation, mission)
-- [ ] 03-02-PLAN.md -- Philosophy section bg-navy-950 background, email signup form with client-side feedback
+- [x] 03-01-PLAN.md -- FormInput type fix, founder story restructured to three-beat arc (empathy, transformation, mission)
+- [x] 03-02-PLAN.md -- Philosophy section bg-navy-950 background, email signup form (superseded by brand refresh)
 
 ### Phase 4: Courses + Email Integration
-**Goal**: A visitor can browse course topics that demonstrate expertise (not empty placeholders), sign up for launch notifications, and all email forms across the site submit to Kit with proper success/error handling
+**Goal**: All email forms across the site submit to Kit with proper success/error handling and the subscriber appears in Kit
 **Depends on**: Phase 3
-**Requirements**: COURSE-01, COURSE-02, EMAIL-01, EMAIL-02, EMAIL-03
+**Requirements**: EMAIL-01, EMAIL-02, EMAIL-03
+**Note**: Course grid layout (COURSE-01, COURSE-02) completed during Phase 3 brand refresh — 6 digital marketing courses with icons, "How It Works" section, and banner.
 **Success Criteria** (what must be TRUE):
-  1. Visitor sees a grid of course cards with titles, descriptions, and "Coming Soon" or "Get Notified" badges -- the page demonstrates curriculum depth, not emptiness
-  2. Visitor can sign up for course launch notifications from the courses page
-  3. All email signup forms across the site (home, about, courses) submit to Kit (ConvertKit) and the subscriber appears in Kit
-  4. Visitor sees a clear success message after submitting their email, or a clear error message if submission fails
-  5. Email forms use a single email field with no page redirect -- submission happens inline via Kit API
+  1. All email signup forms across the site (home, about, courses) submit to Kit (ConvertKit) and the subscriber appears in Kit
+  2. Visitor sees a clear success message after submitting their email, or a clear error message if submission fails
+  3. Email forms use a single email field with no page redirect -- submission happens inline via Kit API
 **Plans**: TBD
 
 Plans:
-- [ ] 04-01: Course grid layout with card placeholders and topic descriptions
-- [ ] 04-02: Kit API integration with custom fetch, success/error states across all pages
-- [ ] 04-03: End-to-end email capture testing and cross-page verification
+- [ ] 04-01: Kit API integration with custom fetch, success/error states across all pages
+- [ ] 04-02: End-to-end email capture testing and cross-page verification
 
 ### Phase 5: Animation + Polish
 **Goal**: The site feels premium with smooth scroll-driven animations, loads fast, and is ready for real traffic
@@ -106,6 +104,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|---------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-02-11 |
 | 2. Home Page | 2/2 | Complete | 2026-02-11 |
-| 3. About Page | 0/2 | Not started | - |
-| 4. Courses + Email Integration | 0/3 | Not started | - |
+| 3. About Page + Brand Refresh | 2/2 | Complete | 2026-02-12 |
+| 4. Courses + Email Integration | 0/2 | Not started | - |
 | 5. Animation + Polish | 0/2 | Not started | - |
