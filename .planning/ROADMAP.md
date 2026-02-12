@@ -60,11 +60,11 @@ Plans:
   1. Visitor reads a founder story arc that follows the pattern: "I was where you are" -> "I figured out X" -> "Now I help others do the same"
   2. Visitor reads a philosophy section that explains what makes Elevateo's approach different from generic business coaching
   3. Visitor can enter their email in a signup form on the about page
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: Founder story arc section with narrative structure
-- [ ] 03-02: Philosophy section and email signup form
+- [ ] 03-01-PLAN.md -- FormInput type fix, founder story restructured to three-beat arc (empathy, transformation, mission)
+- [ ] 03-02-PLAN.md -- Philosophy section bg-navy-950 background, email signup form with client-side feedback
 
 ### Phase 4: Courses + Email Integration
 **Goal**: A visitor can browse course topics that demonstrate expertise (not empty placeholders), sign up for launch notifications, and all email forms across the site submit to Kit with proper success/error handling
