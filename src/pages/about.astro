@@ -62,17 +62,72 @@ import FormInput from "../components/FormInput.astro";
   </SectionWrapper>
 
   <!-- Philosophy Section -->
-  <SectionWrapper width="narrow">
-    <h2 class="text-h2 mb-6">What Makes Us Different</h2>
-    <p class="text-text-secondary mb-4">
-      Most business education is built for people just getting started. Elevateo is built for owners who already have revenue, already have customers, and already know the basics. The challenge at your stage is not learning how to start. It is learning how to scale.
-    </p>
-    <p class="text-text-secondary mb-4">
-      We focus on the specific levers that matter between $500K and $5M: scalable offer design, repeatable lead generation systems, sales processes that do not depend on the founder, and operational frameworks that free you from day-to-day execution.
-    </p>
-    <p class="text-text-secondary">
-      No fluff, no generic motivation, no one-size-fits-all playbooks. Just proven systems tailored to established business owners who are ready to grow.
-    </p>
-  </SectionWrapper>
+  <section class="bg-navy-950">
+    <SectionWrapper width="narrow">
+      <h2 class="text-h2 mb-6">What Makes Us Different</h2>
+      <p class="text-text-secondary mb-4">
+        Most business education is built for people just getting started. Elevateo is built for owners who already have revenue, already have customers, and already know the basics. The challenge at your stage is not learning how to start. It is learning how to scale.
+      </p>
+      <p class="text-text-secondary mb-4">
+        We focus on the specific levers that matter between $500K and $5M: scalable offer design, repeatable lead generation systems, sales processes that do not depend on the founder, and operational frameworks that free you from day-to-day execution.
+      </p>
+      <p class="text-text-secondary">
+        No fluff, no generic motivation, no one-size-fits-all playbooks. Just proven systems tailored to established business owners who are ready to grow.
+      </p>
+    </SectionWrapper>
+  </section>
+
+  <!-- Email Signup Section -->
+  <section class="bg-navy-800">
+    <SectionWrapper width="narrow" id="signup" class="text-center">
+      <h2 class="text-h2 mb-4">Join the Journey</h2>
+      <p class="text-body-lg text-text-secondary mb-8 max-w-xl mx-auto">
+        Get scaling insights from someone who has been in your shoes.
+        No spam, no fluff -- just frameworks that work.
+      </p>
+      <form id="email-signup" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <FormInput
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required={true}
+          class="flex-1"
+        />
+        <Button variant="primary" size="md">Stay Updated</Button>
+      </form>
+      <p id="form-message" class="text-sm mt-3 hidden"></p>
+      <p class="text-xs text-text-tertiary mt-4">
+        No spam. Unsubscribe anytime. We respect your inbox.
+      </p>
+    </SectionWrapper>
+  </section>
+
+  <script>
+    function setupEmailForm() {
+      const form = document.getElementById('email-signup') as HTMLFormElement;
+      const message = document.getElementById('form-message') as HTMLElement;
+
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = new FormData(form).get('email') as string;
+
+        if (!email || !email.includes('@')) {
+          message.textContent = 'Please enter a valid email address.';
+          message.className = 'text-sm mt-3 text-error';
+          message.classList.remove('hidden');
+          return;
+        }
+
+        // Phase 4 will replace this with Kit API call
+        message.textContent = "You're on the list! We'll be in touch.";
+        message.className = 'text-sm mt-3 text-success';
+        message.classList.remove('hidden');
+        form.reset();
+      });
+    }
+
+    setupEmailForm();
+    document.addEventListener('astro:after-swap', setupEmailForm);
+  </script>
 
 </Base>
