@@ -10,7 +10,7 @@ const { currentPath = "/" } = Astro.props;
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about/" },
-  { label: "Courses", href: "/courses/" },
+  { label: "Contact", href: "/contact/" },
 ];
 ---
 
@@ -19,8 +19,7 @@ const navLinks = [
     <div class="flex items-center justify-between h-18">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2 text-white font-heading font-bold text-xl tracking-tight">
-        <img src="/images/logos/logo-icon.webp" alt="" width="36" height="36" class="w-9 h-9" />
-        Elevateo
+        Mentorship Ltd
       </a>
 
       <!-- Desktop Navigation -->
@@ -42,7 +41,7 @@ const navLinks = [
           href="#signup"
           class="bg-accent hover:bg-accent-hover text-navy-900 font-bold text-sm px-5 py-2.5 rounded-lg transition-colors duration-200"
         >
-          Get Started
+          Book a Call
         </a>
       </nav>
 
@@ -85,7 +84,7 @@ const navLinks = [
         href="#signup"
         class="block mt-4 bg-accent hover:bg-accent-hover text-navy-900 font-bold text-center py-3 rounded-lg transition-colors"
       >
-        Get Started
+        Book a Call
       </a>
     </nav>
   </div>

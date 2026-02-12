@@ -6,17 +6,24 @@ import Card from "../components/Card.astro";
 import AccordionItem from "../components/AccordionItem.astro";
 import FormInput from "../components/FormInput.astro";
 
-const skills = [
-  { name: "SEO", icon: "seo", desc: "Rank higher and drive organic traffic that converts." },
-  { name: "Paid Ads", icon: "paid-ads", desc: "Launch profitable campaigns on Google, Meta, and more." },
-  { name: "Email Marketing", icon: "email", desc: "Build sequences that nurture leads and drive sales." },
-  { name: "Social Media", icon: "social-media", desc: "Grow an engaged audience that buys from you." },
-  { name: "Website Strategy", icon: "website", desc: "Turn your site into a lead-generating machine." },
-  { name: "Sales Funnels", icon: "funnel", desc: "Automate your customer journey from click to close." },
+const metrics = [
+  { value: "$XXM+", label: "Revenue Scaled" },
+  { value: "XX+", label: "Businesses Mentored" },
+  { value: "XX+", label: "Years Experience" },
+  { value: "XX%", label: "Client Retention" },
+];
+
+const services = [
+  { name: "Growth Strategy", icon: "analytics", desc: "Map out a clear, numbers-driven plan to scale your business past its current ceiling." },
+  { name: "Sales Systems", icon: "funnel", desc: "Build repeatable sales processes that close deals without you being in every conversation." },
+  { name: "Marketing That Works", icon: "paid-ads", desc: "Get your marketing generating leads consistently — paid, organic, or both." },
+  { name: "Operations & Scale", icon: "automation", desc: "Fix the bottlenecks in your operations so growth does not break everything." },
+  { name: "Offer Development", icon: "pricing", desc: "Refine your offer so it sells easier, retains longer, and commands higher prices." },
+  { name: "Team & Leadership", icon: "team-training", desc: "Build and lead a team that runs without you micromanaging every decision." },
 ];
 ---
 
-<Base title="Home" description="Alan Chan teaches digital marketing — practical courses on SEO, paid ads, email, social media, and web strategy for business owners.">
+<Base title="Home" description="Alan Chan helps business owners scale — mentorship, strategy, and hands-on guidance to grow past your current ceiling.">
 
   <!-- Hero Section -->
   <SectionWrapper width="wide" class="pt-16 sm:pt-24 pb-12 sm:pb-16">
@@ -24,19 +31,19 @@ const skills = [
       <div>
         <p class="text-accent font-bold text-sm uppercase tracking-wide mb-4">Alan Chan</p>
         <h1 class="text-hero font-bold text-white mb-6">
-          I Teach Business Owners<br class="hidden sm:inline" /> Digital Marketing
+          I Help Business Owners Scale Past Their Current Ceiling
         </h1>
         <p class="text-body-lg text-text-secondary max-w-xl mb-8">
-          I spent years and thousands of dollars figuring out what actually works in SEO, paid ads, email, and social media. Now I put everything into courses so you do not have to learn it the hard way.
+          Most business owners hit a wall where what got them here will not get them there. I work with you directly — strategy, systems, and execution — so you break through it.
         </p>
-        <Button variant="primary" size="lg" href="#signup">
-          Join My Email List
+        <Button variant="primary" size="lg" href="/contact/">
+          Book a Free Call
         </Button>
       </div>
       <div class="flex justify-center md:justify-end">
         <img
           src="/images/heroes/flowryse-1.webp"
-          alt="Digital marketing strategy illustration"
+          alt="Business growth strategy illustration"
           width="500"
           height="500"
           class="w-full max-w-md"
@@ -46,67 +53,79 @@ const skills = [
     </div>
   </SectionWrapper>
 
-  <!-- What I Teach Section -->
+  <!-- Authority Metrics Bar -->
   <section class="bg-navy-950">
     <SectionWrapper width="wide">
-      <div class="text-center mb-12">
-        <h2 class="text-h2 mb-4">Here Is What I Cover</h2>
-        <p class="text-body-lg text-text-secondary max-w-2xl mx-auto">
-          Everything I have learned running real campaigns for real businesses — broken into six courses you can take at your own pace.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {skills.map((skill) => (
-          <Card>
-            <div class="flex items-start gap-4">
-              <img
-                src={`/images/icons/${skill.icon}.webp`}
-                alt=""
-                width="48"
-                height="48"
-                class="w-12 h-12 shrink-0"
-                loading="lazy"
-              />
-              <div>
-                <h3 class="text-h3 mb-2">{skill.name}</h3>
-                <p class="text-text-secondary">{skill.desc}</p>
-              </div>
-            </div>
-          </Card>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {metrics.map((metric) => (
+          <div>
+            <p class="text-h2 text-accent font-bold">{metric.value}</p>
+            <p class="text-text-secondary text-sm uppercase tracking-wide mt-1">{metric.label}</p>
+          </div>
         ))}
       </div>
     </SectionWrapper>
   </section>
 
+  <!-- What I Help With Section -->
+  <SectionWrapper width="wide">
+    <div class="text-center mb-12">
+      <h2 class="text-h2 mb-4">What I Help With</h2>
+      <p class="text-body-lg text-text-secondary max-w-2xl mx-auto">
+        I work hands-on with business owners across six core areas — whatever is holding your business back right now.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service) => (
+        <Card>
+          <div class="flex items-start gap-4">
+            <img
+              src={`/images/icons/${service.icon}.webp`}
+              alt=""
+              width="48"
+              height="48"
+              class="w-12 h-12 shrink-0"
+              loading="lazy"
+            />
+            <div>
+              <h3 class="text-h3 mb-2">{service.name}</h3>
+              <p class="text-text-secondary">{service.desc}</p>
+            </div>
+          </div>
+        </Card>
+      ))}
+    </div>
+  </SectionWrapper>
+
   <!-- Why Section -->
   <SectionWrapper width="narrow">
-    <h2 class="text-h2 text-center mb-4">Why I Made These Courses</h2>
+    <h2 class="text-h2 text-center mb-4">Why Business Owners Work With Me</h2>
     <p class="text-body-lg text-text-secondary text-center max-w-2xl mx-auto mb-10">
-      When I started marketing my own business, I wasted so much money on agencies that overpromised and tutorials that taught theory instead of execution. I built the courses I wish existed back then.
+      I am not an advisor who gives you a PDF and disappears. I work alongside you, inside your business, until the problem is solved.
     </p>
     <div class="max-w-lg mx-auto space-y-4 mb-10">
       <div class="flex items-start gap-3">
         <svg class="h-6 w-6 text-accent shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
         </svg>
-        <span class="text-body-lg text-text-secondary">Every lesson is from my real campaigns with real budgets — not a textbook</span>
+        <span class="text-body-lg text-text-secondary">Hands-on, not theoretical — I get in the trenches with you and your team</span>
       </div>
       <div class="flex items-start gap-3">
         <svg class="h-6 w-6 text-accent shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
         </svg>
-        <span class="text-body-lg text-text-secondary">On-demand and beginner-friendly — go at your own speed</span>
+        <span class="text-body-lg text-text-secondary">Custom to your business — no cookie-cutter playbooks or generic frameworks</span>
       </div>
       <div class="flex items-start gap-3">
         <svg class="h-6 w-6 text-accent shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
         </svg>
-        <span class="text-body-lg text-text-secondary">You get the same templates, checklists, and swipe files I actually use</span>
+        <span class="text-body-lg text-text-secondary">The goal is your independence — I build systems so you do not need me forever</span>
       </div>
     </div>
     <div class="text-center">
-      <Button variant="primary" size="md" href="/courses/">
-        See the Courses
+      <Button variant="primary" size="md" href="/contact/">
+        Book a Free Call
       </Button>
     </div>
   </SectionWrapper>
@@ -115,23 +134,23 @@ const skills = [
   <SectionWrapper width="narrow">
     <h2 class="text-h2 text-center mb-10">Questions People Ask Me</h2>
     <div>
-      <AccordionItem question="Who are your courses for?">
-        <p>Anyone who runs a business and wants to learn how to market it themselves. You do not need experience — I start from scratch and build up. Whether you have never run an ad or you are already doing some marketing, you will get something out of it.</p>
+      <AccordionItem question="Who do you work with?">
+        <p>I work with business owners who are already making money but have hit a ceiling. You have revenue, you have customers, but something is keeping you stuck — whether that is operations, sales, marketing, or team. If you are past the startup phase and ready to scale, we are probably a good fit.</p>
       </AccordionItem>
-      <AccordionItem question="Do I need to know marketing already?">
-        <p>Nope. I explain everything in plain language. If you can send an email, you can follow my courses. I walk through every step with real examples, not jargon.</p>
+      <AccordionItem question="What does the mentorship actually look like?">
+        <p>It starts with a deep dive into your business — where you are, where you want to go, and what is in the way. From there I build a custom plan and we work through it together. That means regular calls, async support, and me getting into the details of your business alongside you. It is not a course or a group program — it is direct, one-on-one work.</p>
       </AccordionItem>
-      <AccordionItem question="What is different about your courses vs free YouTube content?">
-        <p>Free content gives you pieces. My courses give you the whole picture — start to finish, in order, with the exact steps I take when I run campaigns. Plus you get my templates and tools so you can start right away instead of figuring it out yourself.</p>
+      <AccordionItem question="How is this different from hiring a consultant?">
+        <p>Most consultants hand you a strategy deck and leave. I stay in it with you through execution. I am not here to tell you what to do and disappear — I am here to help you build the systems, make the decisions, and get the results. Think of it as having a partner who has done this before.</p>
       </AccordionItem>
-      <AccordionItem question="How long do they take?">
-        <p>Most courses are about 4-6 hours. They are broken into short lessons so you can do one a day or knock it out in a weekend — whatever works for you.</p>
+      <AccordionItem question="What kind of results do your clients get?">
+        <p>It depends on where you start, but most clients see meaningful progress within the first few months — whether that is increased revenue, better margins, a team that actually runs without them, or all of the above. I will be honest with you upfront about what is realistic for your situation.</p>
       </AccordionItem>
-      <AccordionItem question="Do I get templates and tools?">
-        <p>Yes, every course comes with the templates, checklists, and swipe files I use in my own work. Just plug in your business details and go.</p>
+      <AccordionItem question="How much does it cost?">
+        <p>It depends on the scope of what we are working on together. I will give you a straight answer on the first call — no hidden fees, no upsells. If it is not the right fit or the right time, I will tell you that too.</p>
       </AccordionItem>
-      <AccordionItem question="When do courses launch?">
-        <p>Soon. Drop your email below and I will let you know the moment they are live. You will also get early pricing that will not be available after launch.</p>
+      <AccordionItem question="How do I get started?">
+        <p>Book a free call below. We will talk about your business, what you are trying to achieve, and whether I can help. No pressure, no pitch — just a conversation to see if we are a good fit.</p>
       </AccordionItem>
     </div>
   </SectionWrapper>
@@ -141,7 +160,7 @@ const skills = [
     <SectionWrapper width="narrow" id="signup" class="text-center">
       <h2 class="text-h2 mb-4">Get on My List</h2>
       <p class="text-body-lg text-text-secondary mb-8 max-w-xl mx-auto">
-        Every week I send out what is working in my marketing — strategies, breakdowns, and things I am testing. It is free and you can unsubscribe whenever.
+        Every week I share what is working for the businesses I mentor — growth strategies, scaling lessons, and things most owners figure out too late. It is free and you can unsubscribe whenever.
       </p>
       <form id="email-signup" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
         <FormInput
