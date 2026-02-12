@@ -2,7 +2,7 @@
 // src/components/FormInput.astro
 
 interface Props {
-  type?: string;
+  type?: "text" | "email" | "password" | "number" | "tel" | "url" | "search";
   name: string;
   placeholder?: string;
   required?: boolean;

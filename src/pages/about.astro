@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import SectionWrapper from "../components/SectionWrapper.astro";
 import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
+import FormInput from "../components/FormInput.astro";
 ---
 
 <Base title="About" description="Learn about Alan Chan and the Elevateo Co mission to help business owners scale.">
@@ -15,7 +16,7 @@ import Card from "../components/Card.astro";
     </p>
   </SectionWrapper>
 
-  <!-- Founder Section -->
+  <!-- Founder Story Section (three-beat arc) -->
   <SectionWrapper width="wide">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
       <!-- Photo Placeholder -->
@@ -26,17 +27,35 @@ import Card from "../components/Card.astro";
         </div>
       </Card>
 
-      <!-- Founder Story -->
+      <!-- Founder Story (three beats) -->
       <div>
         <h2 class="text-h2 mb-6">Alan Chan</h2>
+
+        <!-- Beat 1: Empathy - "I was where you are" -->
         <p class="text-text-secondary mb-4">
-          After spending years building and scaling businesses across multiple industries, Alan Chan founded Elevateo Co to solve the problem he saw over and over: talented business owners stuck at a revenue ceiling with no clear way through.
+          After spending years building and scaling businesses across multiple
+          industries, Alan Chan hit the same wall that most established owners
+          face: a revenue ceiling with no clear way through. He had the drive,
+          the product, and the customers -- but the business could not grow
+          past his personal capacity.
         </p>
+
+        <!-- Beat 2: Transformation - "I figured out X" -->
         <p class="text-text-secondary mb-4">
-          His approach is built on real-world experience, not theory. Every framework, every system, and every strategy taught through Elevateo has been tested in the trenches of actual business operations, from lead generation to team building to offer creation.
+          Through years of testing, failing, and refining, he built the
+          operational frameworks that finally broke through that ceiling. Not
+          theory from a textbook -- real systems forged in the trenches of
+          actual business operations, from lead generation to team building
+          to scalable offer creation.
         </p>
+
+        <!-- Beat 3: Mission - "Now I help others do the same" -->
         <p class="text-text-secondary">
-          Today, Elevateo Co is focused on giving established owners the tools and knowledge they need to break through plateaus, build high-performing teams, and create businesses that scale without burning out.
+          That experience became the foundation of Elevateo Co. Today, Alan
+          is focused on giving established owners the exact tools, frameworks,
+          and systems they need to break through plateaus, build
+          high-performing teams, and create businesses that scale without
+          burning out.
         </p>
       </div>
     </div>
