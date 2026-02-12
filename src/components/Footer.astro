@@ -1,12 +1,6 @@
 ---
 // src/components/Footer.astro
 
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about/" },
-  { label: "Courses", href: "/courses/" },
-];
-
 const socialLinks = [
   { label: "Twitter", href: "#" },
   { label: "LinkedIn", href: "#" },
@@ -17,56 +11,21 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="bg-navy-950 border-t border-navy-700/50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-      <!-- Brand Section -->
-      <div>
-        <h3 class="text-white font-heading font-bold text-lg mb-2">Elevateo Co</h3>
-        <p class="text-text-secondary text-sm">
-          Helping business owners scale.
-        </p>
-      </div>
-
-      <!-- Navigation Section -->
-      <div>
-        <h4 class="text-white font-heading font-bold text-sm uppercase tracking-wide mb-4">Navigation</h4>
-        <ul class="space-y-2">
-          {navLinks.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class="text-text-secondary hover:text-white text-sm transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Social Section -->
-      <div>
-        <h4 class="text-white font-heading font-bold text-sm uppercase tracking-wide mb-4">Follow Us</h4>
-        <ul class="space-y-2">
-          {socialLinks.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class="text-text-secondary hover:text-white text-sm transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-
-    <!-- Bottom Bar -->
-    <div class="mt-10 pt-6 border-t border-navy-700/50">
-      <p class="text-text-tertiary text-sm text-center">
-        &copy; {currentYear} Elevateo Co. All rights reserved.
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-text-tertiary text-sm">
+        &copy; {currentYear} Alan Chan. All rights reserved.
       </p>
+      <div class="flex items-center gap-6">
+        {socialLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-text-tertiary hover:text-white text-sm transition-colors duration-200"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
     </div>
   </div>
 </footer>

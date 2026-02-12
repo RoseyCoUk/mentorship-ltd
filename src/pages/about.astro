@@ -2,77 +2,74 @@
 import Base from "../layouts/Base.astro";
 import SectionWrapper from "../components/SectionWrapper.astro";
 import Button from "../components/Button.astro";
-import Card from "../components/Card.astro";
 import FormInput from "../components/FormInput.astro";
 ---
 
-<Base title="About" description="Learn about Alan Chan and the Elevateo Co mission to help business owners scale.">
+<Base title="About" description="Meet Alan Chan — I teach business owners digital marketing through practical courses built on real campaigns.">
 
   <!-- Hero Section -->
   <SectionWrapper class="pt-16 sm:pt-20 pb-8 sm:pb-12">
-    <h1 class="text-h1 text-center mb-4">Meet the Founder</h1>
+    <h1 class="text-h1 text-center mb-4">Hey, I'm Alan</h1>
     <p class="text-body-lg text-text-secondary text-center max-w-2xl mx-auto">
-      Elevateo Co was built on one belief: every established business owner deserves a clear path to scale, not guesswork and generic advice.
+      I help business owners learn digital marketing without the BS — real campaigns, real numbers, real results.
     </p>
   </SectionWrapper>
 
-  <!-- Founder Story Section (three-beat arc) -->
+  <!-- Story Section -->
   <SectionWrapper width="wide">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-      <!-- Photo Placeholder -->
-      <Card class="flex items-center justify-center min-h-[320px] sm:min-h-[400px]">
-        <div class="text-center">
-          <p class="text-text-tertiary text-sm uppercase tracking-wide font-bold mb-2">Photo Coming Soon</p>
-          <p class="text-text-secondary text-sm">Alan Chan, Founder</p>
-        </div>
-      </Card>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <!-- Illustration -->
+      <div class="flex justify-center">
+        <img
+          src="/images/heroes/flowryse-2.webp"
+          alt="Alan Chan illustration"
+          width="480"
+          height="480"
+          class="w-full max-w-sm"
+          loading="lazy"
+        />
+      </div>
 
-      <!-- Founder Story (three beats) -->
+      <!-- Story -->
       <div>
-        <h2 class="text-h2 mb-6">Alan Chan</h2>
+        <h2 class="text-h2 mb-6">My Story</h2>
 
-        <!-- Beat 1: Empathy - "I was where you are" -->
         <p class="text-text-secondary mb-4">
-          After spending years building and scaling businesses across multiple
-          industries, Alan Chan hit the same wall that most established owners
-          face: a revenue ceiling with no clear way through. He had the drive,
-          the product, and the customers -- but the business could not grow
-          past his personal capacity.
+          A few years ago I was where you probably are — running a business and
+          trying to figure out marketing on my own. I watched every tutorial,
+          hired agencies that charged a fortune and delivered nothing, and
+          burned through ad budgets just guessing. It was frustrating.
         </p>
 
-        <!-- Beat 2: Transformation - "I figured out X" -->
         <p class="text-text-secondary mb-4">
-          Through years of testing, failing, and refining, he built the
-          operational frameworks that finally broke through that ceiling. Not
-          theory from a textbook -- real systems forged in the trenches of
-          actual business operations, from lead generation to team building
-          to scalable offer creation.
+          So I decided to actually learn it. I ran my own campaigns across SEO,
+          Google Ads, Meta Ads, email, and social — and I tracked everything.
+          Every dollar spent, every test, every result. Over time I built
+          frameworks that consistently worked, regardless of the industry or
+          budget.
         </p>
 
-        <!-- Beat 3: Mission - "Now I help others do the same" -->
         <p class="text-text-secondary">
-          That experience became the foundation of Elevateo Co. Today, Alan
-          is focused on giving established owners the exact tools, frameworks,
-          and systems they need to break through plateaus, build
-          high-performing teams, and create businesses that scale without
-          burning out.
+          Now I am turning all of that into courses so you can skip the
+          expensive mistakes and just learn what works. No gatekeeping, no
+          fluff. Just me showing you exactly what I do, step by step.
         </p>
       </div>
     </div>
   </SectionWrapper>
 
-  <!-- Philosophy Section -->
+  <!-- How I Teach Section -->
   <section class="bg-navy-950">
     <SectionWrapper width="narrow">
-      <h2 class="text-h2 mb-6">What Makes Us Different</h2>
+      <h2 class="text-h2 mb-6">How I Teach</h2>
       <p class="text-text-secondary mb-4">
-        Most business education is built for people just getting started. Elevateo is built for owners who already have revenue, already have customers, and already know the basics. The challenge at your stage is not learning how to start. It is learning how to scale.
+        I do not teach theory. Every lesson comes from a real campaign I ran with real money. You will see what I spent, what I tested, what worked, and what did not. I think that is the only way marketing should be taught.
       </p>
       <p class="text-text-secondary mb-4">
-        We focus on the specific levers that matter between $500K and $5M: scalable offer design, repeatable lead generation systems, sales processes that do not depend on the founder, and operational frameworks that free you from day-to-day execution.
+        I do not think you need to become a marketing expert to grow your business. But you do need to know enough to either do it yourself or know when an agency is wasting your money. That is what I am here to help with.
       </p>
       <p class="text-text-secondary">
-        No fluff, no generic motivation, no one-size-fits-all playbooks. Just proven systems tailored to established business owners who are ready to grow.
+        Every course comes with my templates, checklists, and the actual tools I use. You can take what I show you and apply it to your business the same day.
       </p>
     </SectionWrapper>
   </section>
@@ -80,10 +77,9 @@ import FormInput from "../components/FormInput.astro";
   <!-- Email Signup Section -->
   <section class="bg-navy-800">
     <SectionWrapper width="narrow" id="signup" class="text-center">
-      <h2 class="text-h2 mb-4">Join the Journey</h2>
+      <h2 class="text-h2 mb-4">Want to Stay in Touch?</h2>
       <p class="text-body-lg text-text-secondary mb-8 max-w-xl mx-auto">
-        Get scaling insights from someone who has been in your shoes.
-        No spam, no fluff -- just frameworks that work.
+        I send a weekly email with marketing lessons, campaign breakdowns, and stuff I am working on. No pitch every email — just useful things.
       </p>
       <form id="email-signup" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
         <FormInput
@@ -93,11 +89,11 @@ import FormInput from "../components/FormInput.astro";
           required={true}
           class="flex-1"
         />
-        <Button variant="primary" size="md">Stay Updated</Button>
+        <Button variant="primary" size="md">I'm In</Button>
       </form>
       <p id="form-message" class="text-sm mt-3 hidden"></p>
       <p class="text-xs text-text-tertiary mt-4">
-        No spam. Unsubscribe anytime. We respect your inbox.
+        No spam. Unsubscribe anytime.
       </p>
     </SectionWrapper>
   </section>
@@ -119,7 +115,7 @@ import FormInput from "../components/FormInput.astro";
         }
 
         // Phase 4 will replace this with Kit API call
-        message.textContent = "You're on the list! We'll be in touch.";
+        message.textContent = "You're in! I'll be in touch.";
         message.className = 'text-sm mt-3 text-success';
         message.classList.remove('hidden');
         form.reset();

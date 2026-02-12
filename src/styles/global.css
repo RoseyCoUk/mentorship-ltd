@@ -9,21 +9,21 @@
   /* Reset default Tailwind colors to enforce brand consistency */
   --color-*: initial;
 
-  /* --- Colors: Dark Navy Palette --- */
-  --color-navy-950: #070B14;
-  --color-navy-900: #0B1120;
-  --color-navy-800: #0F172A;
-  --color-navy-700: #1E293B;
-  --color-navy-600: #334155;
+  /* --- Colors: Dark Charcoal Palette (warm, matches gold line-art assets) --- */
+  --color-navy-950: #080808;
+  --color-navy-900: #101010;
+  --color-navy-800: #1A1A1A;
+  --color-navy-700: #262626;
+  --color-navy-600: #353535;
 
-  /* --- Colors: Text --- */
-  --color-text-primary: #F1F5F9;
-  --color-text-secondary: #94A3B8;
-  --color-text-tertiary: #64748B;
+  /* --- Colors: Text (warm grays) --- */
+  --color-text-primary: #F0ECE6;
+  --color-text-secondary: #9B9590;
+  --color-text-tertiary: #6E6862;
 
-  /* --- Colors: Accent (Gold -- authority, premium) --- */
-  --color-accent: #D4A843;
-  --color-accent-hover: #E5BE5A;
+  /* --- Colors: Accent (Rich warm gold -- matches logo and line-art) --- */
+  --color-accent: #C9A132;
+  --color-accent-hover: #DCAF40;
 
   /* --- Colors: Semantic --- */
   --color-success: #22C55E;
