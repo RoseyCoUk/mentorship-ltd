@@ -1,29 +1,48 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
 /* ============================================
    DESIGN TOKENS -- Mentorship Ltd
-   Dark, bold, authority aesthetic
+   Blue / white "trust" aesthetic
    ============================================ */
 
+/* --- OLD DARK CHARCOAL + GOLD TOKENS (kept for rollback) ---
 @theme {
-  /* Reset default Tailwind colors to enforce brand consistency */
-  --color-*: initial;
-
-  /* --- Colors: Dark Charcoal Palette (warm, matches gold line-art assets) --- */
   --color-navy-950: #080808;
   --color-navy-900: #101010;
   --color-navy-800: #1A1A1A;
   --color-navy-700: #262626;
   --color-navy-600: #353535;
-
-  /* --- Colors: Text (warm grays) --- */
   --color-text-primary: #F0ECE6;
   --color-text-secondary: #9B9590;
   --color-text-tertiary: #6E6862;
-
-  /* --- Colors: Accent (Rich warm gold -- matches logo and line-art) --- */
   --color-accent: #C9A132;
   --color-accent-hover: #DCAF40;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+}
+--- END OLD TOKENS --- */
+
+@theme {
+  /* Reset default Tailwind colors to enforce brand consistency */
+  --color-*: initial;
+
+  /* --- Colors: Blue / White Palette --- */
+  --color-navy-950: #F8FAFC;
+  --color-navy-900: #FFFFFF;
+  --color-navy-800: #F1F5F9;
+  --color-navy-700: #CBD5E1;
+  --color-navy-600: #94A3B8;
+
+  /* --- Colors: Text --- */
+  --color-text-primary: #1E293B;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #94A3B8;
+
+  /* --- Colors: Accent (blue) --- */
+  --color-accent: #2563EB;
+  --color-accent-hover: #1D4ED8;
 
   /* --- Colors: Semantic --- */
   --color-success: #22C55E;
@@ -57,10 +76,10 @@
   --radius-xl: 1rem;
   --radius-full: 9999px;
 
-  /* --- Shadows (dark-theme-appropriate) --- */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  /* --- Shadows (light-theme-appropriate) --- */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
 
   /* --- Transitions --- */
   --animate-fade-in: fade-in 0.3s ease-out;
@@ -92,7 +111,7 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto; /* Lenis handles smooth scroll */
     scroll-padding-top: var(--header-height);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -111,7 +130,7 @@
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    color: var(--color-white);
+    color: #0F172A;
   }
 
   input, select, textarea {
@@ -120,18 +139,30 @@
 
   ::selection {
     background-color: var(--color-accent);
-    color: var(--color-navy-900);
+    color: var(--color-white);
   }
 
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--color-navy-950);
+    background: #F1F5F9;
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--color-navy-600);
+    background: #94A3B8;
     border-radius: var(--radius-full);
+  }
+
+  /* Motion base rule — elements start hidden until inView triggers */
+  [data-motion] {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-motion] {
+      opacity: 1 !important;
+      transform: none !important;
+    }
   }
 }
 

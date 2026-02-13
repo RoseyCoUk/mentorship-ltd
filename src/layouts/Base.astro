@@ -32,5 +32,60 @@ const {
       <slot />
     </main>
     <Footer />
+
+    <script>
+      import Lenis from "lenis";
+      import { animate, inView } from "motion";
+
+      /* ---------- Lenis smooth scroll ---------- */
+      let lenis: Lenis;
+
+      function initLenis() {
+        lenis?.destroy();
+        lenis = new Lenis();
+
+        function raf(time: number) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+      }
+
+      initLenis();
+      document.addEventListener("astro:after-swap", initLenis);
+
+      /* ---------- Motion scroll-triggered animations ---------- */
+      const presets: Record<string, { from: Record<string, number>; to: Record<string, number> }> = {
+        "fade-up":    { from: { opacity: 0, y: 24 },  to: { opacity: 1, y: 0 } },
+        "fade-left":  { from: { opacity: 0, x: -24 }, to: { opacity: 1, x: 0 } },
+        "fade-right": { from: { opacity: 0, x: 24 },  to: { opacity: 1, x: 0 } },
+        "scale-in":   { from: { opacity: 0, scale: 0.95 }, to: { opacity: 1, scale: 1 } },
+      };
+
+      function initMotion() {
+        const els = document.querySelectorAll<HTMLElement>("[data-motion]");
+        els.forEach((el) => {
+          const name = el.dataset.motion || "fade-up";
+          const preset = presets[name] || presets["fade-up"];
+          const delay = parseFloat(el.dataset.motionDelay || "0");
+
+          // Reset element to initial state
+          Object.assign(el.style, {
+            opacity: "0",
+          });
+
+          inView(el, () => {
+            animate(el, preset.to, {
+              duration: 0.6,
+              delay,
+              ease: [0.25, 0.1, 0.25, 1],
+            });
+          }, { amount: 0.15 });
+        });
+      }
+
+      initMotion();
+      document.addEventListener("astro:after-swap", initMotion);
+    </script>
   </body>
 </html>

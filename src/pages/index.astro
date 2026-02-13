@@ -21,6 +21,12 @@ const services = [
   { name: "Offer Development", icon: "pricing", desc: "Refine your offer so it sells easier, retains longer, and commands higher prices." },
   { name: "Team & Leadership", icon: "team-training", desc: "Build and lead a team that runs without you micromanaging every decision." },
 ];
+
+const results = [
+  { title: "E-Commerce Brand", stat: "3.2x Revenue Growth", period: "8 months", desc: "Restructured their offer suite and acquisition funnels, tripling revenue in under a year." },
+  { title: "B2B Services Firm", stat: "$1.2M Added Annual Revenue", period: "12 months", desc: "Built a repeatable sales system and hired the right team to scale past the founder bottleneck." },
+  { title: "Agency Owner", stat: "25 hrs/week Freed Up", period: "6 months", desc: "Systemised operations and delegated effectively — revenue still grew 40% with less owner involvement." },
+];
 ---
 
 <Base title="Home" description="Alan Chan helps business owners scale — mentorship, strategy, and hands-on guidance to grow past your current ceiling.">
@@ -28,9 +34,9 @@ const services = [
   <!-- Hero Section -->
   <SectionWrapper width="wide" class="pt-16 sm:pt-24 pb-12 sm:pb-16">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-      <div>
+      <div data-motion="fade-up">
         <p class="text-accent font-bold text-sm uppercase tracking-wide mb-4">Alan Chan</p>
-        <h1 class="text-hero font-bold text-white mb-6">
+        <h1 class="text-hero font-bold mb-6">
           I Help Business Owners Scale Past Their Current Ceiling
         </h1>
         <p class="text-body-lg text-text-secondary max-w-xl mb-8">
@@ -40,7 +46,7 @@ const services = [
           Book a Free Call
         </Button>
       </div>
-      <div class="flex justify-center md:justify-end">
+      <div class="flex justify-center md:justify-end" data-motion="fade-right" data-motion-delay="0.15">
         <img
           src="/images/heroes/flowryse-1.webp"
           alt="Business growth strategy illustration"
@@ -57,8 +63,8 @@ const services = [
   <section class="bg-navy-950">
     <SectionWrapper width="wide">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        {metrics.map((metric) => (
-          <div>
+        {metrics.map((metric, i) => (
+          <div data-motion="fade-up" data-motion-delay={`${i * 0.1}`}>
             <p class="text-h2 text-accent font-bold">{metric.value}</p>
             <p class="text-text-secondary text-sm uppercase tracking-wide mt-1">{metric.label}</p>
           </div>
@@ -76,9 +82,9 @@ const services = [
       </p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {services.map((service) => (
+      {services.map((service, i) => (
         <Card>
-          <div class="flex items-start gap-4">
+          <div class="flex items-start gap-4" data-motion="fade-up" data-motion-delay={`${i * 0.08}`}>
             <img
               src={`/images/icons/${service.icon}.webp`}
               alt=""
@@ -104,19 +110,19 @@ const services = [
       I am not an advisor who gives you a PDF and disappears. I work alongside you, inside your business, until the problem is solved.
     </p>
     <div class="max-w-lg mx-auto space-y-4 mb-10">
-      <div class="flex items-start gap-3">
+      <div class="flex items-start gap-3" data-motion="fade-left">
         <svg class="h-6 w-6 text-accent shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
         </svg>
         <span class="text-body-lg text-text-secondary">Hands-on, not theoretical — I get in the trenches with you and your team</span>
       </div>
-      <div class="flex items-start gap-3">
+      <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.1">
         <svg class="h-6 w-6 text-accent shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
         </svg>
         <span class="text-body-lg text-text-secondary">Custom to your business — no cookie-cutter playbooks or generic frameworks</span>
       </div>
-      <div class="flex items-start gap-3">
+      <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.2">
         <svg class="h-6 w-6 text-accent shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
         </svg>
@@ -130,9 +136,33 @@ const services = [
     </div>
   </SectionWrapper>
 
+  <!-- Results Section -->
+  <section class="bg-navy-950">
+    <SectionWrapper width="wide">
+      <div class="text-center mb-12" data-motion="fade-up">
+        <h2 class="text-h2 mb-4">Results That Speak for Themselves</h2>
+        <p class="text-body-lg text-text-secondary max-w-2xl mx-auto">
+          Here is what happens when strategy meets execution. Real businesses, real outcomes.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {results.map((result, i) => (
+          <Card>
+            <div data-motion="fade-up" data-motion-delay={`${i * 0.12}`}>
+              <p class="text-accent font-bold text-sm uppercase tracking-wide mb-2">{result.title}</p>
+              <p class="text-h3 font-bold mb-1">{result.stat}</p>
+              <p class="text-text-tertiary text-sm mb-4">In {result.period}</p>
+              <p class="text-text-secondary">{result.desc}</p>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </SectionWrapper>
+  </section>
+
   <!-- FAQ Section -->
   <SectionWrapper width="narrow">
-    <h2 class="text-h2 text-center mb-10">Questions People Ask Me</h2>
+    <h2 class="text-h2 text-center mb-10" data-motion="fade-up">Questions People Ask Me</h2>
     <div>
       <AccordionItem question="Who do you work with?">
         <p>I work with business owners who are already making money but have hit a ceiling. You have revenue, you have customers, but something is keeping you stuck — whether that is operations, sales, marketing, or team. If you are past the startup phase and ready to scale, we are probably a good fit.</p>
