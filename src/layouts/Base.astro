@@ -1,5 +1,6 @@
 ---
 import "@fontsource-variable/inter";
+import "@fontsource-variable/playfair-display";
 import "../styles/global.css";
 
 import Header from "../components/Header.astro";
@@ -12,7 +13,7 @@ interface Props {
 
 const {
   title,
-  description = "Alan Chan helps business owners scale — mentorship, strategy, and hands-on guidance to grow past your current ceiling.",
+  description = "Elevateo Co — Alan Chan helps business owners scale with mentorship, strategy, and hands-on guidance to grow past your current ceiling.",
 } = Astro.props;
 ---
 
@@ -21,7 +22,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | Mentorship Ltd</title>
+    <title>{title} | Elevateo Co</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/png" href="/images/logos/logo-icon-32.png" />
     <link rel="apple-touch-icon" href="/images/logos/logo-icon-180.png" />
@@ -54,29 +55,59 @@ const {
       initLenis();
       document.addEventListener("astro:after-swap", initLenis);
 
-      /* ---------- Motion scroll-triggered animations ---------- */
-      const presets: Record<string, { from: Record<string, number>; to: Record<string, number> }> = {
-        "fade-up":    { from: { opacity: 0, y: 24 },  to: { opacity: 1, y: 0 } },
-        "fade-left":  { from: { opacity: 0, x: -24 }, to: { opacity: 1, x: 0 } },
-        "fade-right": { from: { opacity: 0, x: 24 },  to: { opacity: 1, x: 0 } },
-        "scale-in":   { from: { opacity: 0, scale: 0.95 }, to: { opacity: 1, scale: 1 } },
+      /* ---------- Animation presets (elevateoco-style) ---------- */
+      const presets: Record<string, { to: Record<string, number> }> = {
+        "fade-up":       { to: { opacity: 1, y: 0 } },
+        "fade-left":     { to: { opacity: 1, x: 0 } },
+        "fade-right":    { to: { opacity: 1, x: 0 } },
+        "scale-in":      { to: { opacity: 1, scale: 1 } },
+        "fade-up-scale": { to: { opacity: 1, y: 0, scale: 1 } },
       };
 
+      /* Set initial styles based on animation type */
+      function setInitialState(el: HTMLElement, name: string) {
+        const styles: Record<string, string> = { opacity: "0" };
+        if (name === "fade-up")          { styles.transform = "translateY(30px)"; }
+        else if (name === "fade-left")   { styles.transform = "translateX(-30px)"; }
+        else if (name === "fade-right")  { styles.transform = "translateX(30px)"; }
+        else if (name === "scale-in")    { styles.transform = "scale(0.95)"; }
+        else if (name === "fade-up-scale") { styles.transform = "translateY(20px) scale(0.95)"; }
+        Object.assign(el.style, styles);
+      }
+
+      /* ---------- Hero entrance animations (load-triggered, staggered) ---------- */
+      function initHeroMotion() {
+        const heroEls = document.querySelectorAll<HTMLElement>("[data-hero-motion]");
+        heroEls.forEach((el) => {
+          const name = el.dataset.heroMotion || "fade-up";
+          const preset = presets[name] || presets["fade-up"];
+          const delay = parseFloat(el.dataset.heroDelay || "0");
+
+          setInitialState(el, name);
+
+          // Animate immediately on page load (like elevateoco hero)
+          animate(el, preset.to, {
+            duration: 0.8,
+            delay,
+            ease: [0.25, 0.1, 0.25, 1],
+          });
+        });
+      }
+
+      /* ---------- Scroll-triggered animations ---------- */
       function initMotion() {
         const els = document.querySelectorAll<HTMLElement>("[data-motion]");
         els.forEach((el) => {
           const name = el.dataset.motion || "fade-up";
           const preset = presets[name] || presets["fade-up"];
           const delay = parseFloat(el.dataset.motionDelay || "0");
+          const duration = parseFloat(el.dataset.motionDuration || "0.6");
 
-          // Reset element to initial state
-          Object.assign(el.style, {
-            opacity: "0",
-          });
+          setInitialState(el, name);
 
           inView(el, () => {
             animate(el, preset.to, {
-              duration: 0.6,
+              duration,
               delay,
               ease: [0.25, 0.1, 0.25, 1],
             });
@@ -84,8 +115,12 @@ const {
         });
       }
 
+      initHeroMotion();
       initMotion();
-      document.addEventListener("astro:after-swap", initMotion);
+      document.addEventListener("astro:after-swap", () => {
+        initHeroMotion();
+        initMotion();
+      });
     </script>
   </body>
 </html>

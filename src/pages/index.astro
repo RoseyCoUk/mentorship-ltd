@@ -29,43 +29,75 @@ const results = [
 ];
 ---
 
-<Base title="Home" description="Alan Chan helps business owners scale — mentorship, strategy, and hands-on guidance to grow past your current ceiling.">
+<Base title="Home" description="Elevateo Co — Alan Chan helps business owners scale with mentorship, strategy, and hands-on guidance to grow past your current ceiling.">
 
   <!-- Hero Section -->
-  <SectionWrapper width="wide" class="pt-16 sm:pt-24 pb-12 sm:pb-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-      <div data-motion="fade-up">
-        <p class="text-accent font-bold text-sm uppercase tracking-wide mb-4">Alan Chan</p>
-        <h1 class="text-hero font-bold mb-6">
-          I Help Business Owners Scale Past Their Current Ceiling
-        </h1>
-        <p class="text-body-lg text-text-secondary max-w-xl mb-8">
-          Most business owners hit a wall where what got them here will not get them there. I work with you directly — strategy, systems, and execution — so you break through it.
-        </p>
-        <Button variant="primary" size="lg" href="/contact/">
-          Book a Free Call
-        </Button>
-      </div>
-      <div class="flex justify-center md:justify-end" data-motion="fade-right" data-motion-delay="0.15">
-        <img
-          src="/images/heroes/flowryse-1.webp"
-          alt="Business growth strategy illustration"
-          width="500"
-          height="500"
-          class="w-full max-w-md"
-          loading="eager"
-        />
+  <section class="relative min-h-[85vh] flex items-center overflow-hidden">
+    <!-- Ambient glow orbs (elevateoco-style) -->
+    <div class="glow-orb w-[500px] h-[500px] bg-white/[0.03] top-[15%] left-[10%] animate-pulse-slow"></div>
+    <div class="glow-orb w-[400px] h-[400px] bg-white/[0.02] bottom-[20%] right-[15%] animate-pulse-slow" style="animation-delay: 2s;"></div>
+    <div class="glow-orb w-[600px] h-[600px] bg-white/[0.015] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+
+    <!-- Decorative lines (elevateoco-style) -->
+    <div class="hero-line top-[25%] origin-left" style="animation-delay: 0.3s;"></div>
+    <div class="hero-line top-[75%] origin-right" style="animation-delay: 0.8s;"></div>
+    <div class="hero-line--v left-[10%] origin-top absolute" style="animation-delay: 1s;"></div>
+    <div class="hero-line--v right-[10%] origin-bottom absolute" style="animation-delay: 1.2s;"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 sm:py-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <!-- Staggered hero entrance (elevateoco-style: load-triggered, increasing delays) -->
+          <p class="text-text-secondary font-bold text-sm uppercase tracking-wide mb-4"
+             data-hero-motion="fade-up-scale" data-hero-delay="0.2">
+            Alan Chan
+          </p>
+          <h1 class="text-hero font-bold mb-6"
+              data-hero-motion="fade-up" data-hero-delay="0.4">
+            I Help Business Owners Scale Past Their Current Ceiling
+          </h1>
+          <p class="text-body-lg text-text-secondary max-w-xl mb-8"
+             data-hero-motion="fade-up" data-hero-delay="0.6">
+            Most business owners hit a wall where what got them here will not get them there. I work with you directly — strategy, systems, and execution — so you break through it.
+          </p>
+          <div data-hero-motion="fade-up" data-hero-delay="0.8">
+            <Button variant="primary" size="lg" href="/contact/">
+              Book a Free Call
+            </Button>
+          </div>
+        </div>
+        <div class="flex justify-center md:justify-end"
+             data-hero-motion="fade-right" data-hero-delay="0.5">
+          <img
+            src="/images/heroes/flowryse-1.webp"
+            alt="Business growth strategy illustration"
+            width="500"
+            height="500"
+            class="w-full max-w-md"
+            loading="eager"
+          />
+        </div>
       </div>
     </div>
-  </SectionWrapper>
+
+    <!-- Scroll indicator (elevateoco-style) -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+         data-hero-motion="fade-up" data-hero-delay="1.2">
+      <span class="text-text-tertiary text-xs uppercase tracking-widest font-medium">Scroll</span>
+      <div class="w-6 h-10 rounded-full border-2 border-navy-600 flex items-start justify-center p-1.5">
+        <div class="w-1.5 h-1.5 rounded-full bg-white animate-bounce-slow"></div>
+      </div>
+    </div>
+  </section>
 
   <!-- Authority Metrics Bar -->
-  <section class="bg-navy-950">
+  <section class="bg-navy-950 border-t border-navy-700/30">
     <SectionWrapper width="wide">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {metrics.map((metric, i) => (
           <div data-motion="fade-up" data-motion-delay={`${i * 0.1}`}>
-            <p class="text-h2 text-accent font-bold">{metric.value}</p>
+            <p class="text-h2 text-white font-bold">{metric.value}</p>
             <p class="text-text-secondary text-sm uppercase tracking-wide mt-1">{metric.label}</p>
           </div>
         ))}
@@ -73,89 +105,135 @@ const results = [
     </SectionWrapper>
   </section>
 
+  <!-- About Section (merged from about page) -->
+  <SectionWrapper width="wide">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Image -->
+      <div class="flex justify-center" data-motion="fade-left" data-motion-duration="0.8">
+        <img
+          src="/images/heroes/flowryse-2.webp"
+          alt="Alan Chan illustration"
+          width="480"
+          height="480"
+          class="w-full max-w-sm"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Story -->
+      <div>
+        <h2 class="text-h2 mb-6" data-motion="fade-right" data-motion-delay="0.1" data-motion-duration="0.8">Hey, I'm Alan</h2>
+
+        <p class="text-text-secondary mb-4" data-motion="fade-right" data-motion-delay="0.2" data-motion-duration="0.8">
+          A few years ago I hit a wall with my own business. Revenue had plateaued,
+          I was working more hours than ever, and nothing I tried seemed to move
+          the needle. I hired consultants, read every business book, attended the
+          conferences — and most of it was either too generic or too theoretical to
+          actually help.
+        </p>
+
+        <p class="text-text-secondary mb-4" data-motion="fade-right" data-motion-delay="0.3" data-motion-duration="0.8">
+          So I went deep. I studied what actually makes businesses scale — the
+          systems, the offers, the operations, the leadership. I tested everything
+          in my own business first, then started helping other owners do the same.
+        </p>
+
+        <p class="text-text-secondary" data-motion="fade-right" data-motion-delay="0.4" data-motion-duration="0.8">
+          Now I work directly with business owners who are in that same spot I was.
+          Not as a consultant who hands you a plan and disappears — as a mentor who
+          gets in the trenches with you until the problem is solved.
+        </p>
+      </div>
+    </div>
+  </SectionWrapper>
+
   <!-- What I Help With Section -->
+  <section class="bg-navy-950">
+    <SectionWrapper width="wide">
+      <div class="text-center mb-12">
+        <h2 class="text-h2 mb-4" data-motion="fade-up">What I Help With</h2>
+        <p class="text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
+          I work hands-on with business owners across six core areas — whatever is holding your business back right now.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service, i) => (
+          <div data-motion="fade-up" data-motion-delay={`${i * 0.1}`} data-motion-duration="0.5">
+            <Card>
+              <div class="flex items-start gap-4">
+                <img
+                  src={`/images/icons/${service.icon}.webp`}
+                  alt=""
+                  width="48"
+                  height="48"
+                  class="w-12 h-12 shrink-0"
+                  loading="lazy"
+                />
+                <div>
+                  <h3 class="text-h3 mb-2">{service.name}</h3>
+                  <p class="text-text-secondary">{service.desc}</p>
+                </div>
+              </div>
+            </Card>
+          </div>
+        ))}
+      </div>
+    </SectionWrapper>
+  </section>
+
+  <!-- Results Section -->
   <SectionWrapper width="wide">
     <div class="text-center mb-12">
-      <h2 class="text-h2 mb-4">What I Help With</h2>
-      <p class="text-body-lg text-text-secondary max-w-2xl mx-auto">
-        I work hands-on with business owners across six core areas — whatever is holding your business back right now.
+      <h2 class="text-h2 mb-4" data-motion="fade-up">Results That Speak for Themselves</h2>
+      <p class="text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
+        Here is what happens when strategy meets execution. Real businesses, real outcomes.
       </p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {services.map((service, i) => (
-        <Card>
-          <div class="flex items-start gap-4" data-motion="fade-up" data-motion-delay={`${i * 0.08}`}>
-            <img
-              src={`/images/icons/${service.icon}.webp`}
-              alt=""
-              width="48"
-              height="48"
-              class="w-12 h-12 shrink-0"
-              loading="lazy"
-            />
-            <div>
-              <h3 class="text-h3 mb-2">{service.name}</h3>
-              <p class="text-text-secondary">{service.desc}</p>
-            </div>
-          </div>
-        </Card>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {results.map((result, i) => (
+        <div data-motion="fade-up" data-motion-delay={`${i * 0.12}`} data-motion-duration="0.5">
+          <Card>
+            <p class="text-text-secondary font-bold text-sm uppercase tracking-wide mb-2">{result.title}</p>
+            <p class="text-h3 font-bold mb-1">{result.stat}</p>
+            <p class="text-text-tertiary text-sm mb-4">In {result.period}</p>
+            <p class="text-text-secondary">{result.desc}</p>
+          </Card>
+        </div>
       ))}
     </div>
   </SectionWrapper>
 
   <!-- Why Section -->
-  <SectionWrapper width="narrow">
-    <h2 class="text-h2 text-center mb-4">Why Business Owners Work With Me</h2>
-    <p class="text-body-lg text-text-secondary text-center max-w-2xl mx-auto mb-10">
-      I am not an advisor who gives you a PDF and disappears. I work alongside you, inside your business, until the problem is solved.
-    </p>
-    <div class="max-w-lg mx-auto space-y-4 mb-10">
-      <div class="flex items-start gap-3" data-motion="fade-left">
-        <svg class="h-6 w-6 text-accent shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-        </svg>
-        <span class="text-body-lg text-text-secondary">Hands-on, not theoretical — I get in the trenches with you and your team</span>
-      </div>
-      <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.1">
-        <svg class="h-6 w-6 text-accent shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-        </svg>
-        <span class="text-body-lg text-text-secondary">Custom to your business — no cookie-cutter playbooks or generic frameworks</span>
-      </div>
-      <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.2">
-        <svg class="h-6 w-6 text-accent shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-        </svg>
-        <span class="text-body-lg text-text-secondary">The goal is your independence — I build systems so you do not need me forever</span>
-      </div>
-    </div>
-    <div class="text-center">
-      <Button variant="primary" size="md" href="/contact/">
-        Book a Free Call
-      </Button>
-    </div>
-  </SectionWrapper>
-
-  <!-- Results Section -->
   <section class="bg-navy-950">
-    <SectionWrapper width="wide">
-      <div class="text-center mb-12" data-motion="fade-up">
-        <h2 class="text-h2 mb-4">Results That Speak for Themselves</h2>
-        <p class="text-body-lg text-text-secondary max-w-2xl mx-auto">
-          Here is what happens when strategy meets execution. Real businesses, real outcomes.
-        </p>
+    <SectionWrapper width="narrow">
+      <h2 class="text-h2 text-center mb-4" data-motion="fade-up">Why Business Owners Work With Me</h2>
+      <p class="text-body-lg text-text-secondary text-center max-w-2xl mx-auto mb-10" data-motion="fade-up" data-motion-delay="0.1">
+        I am not an advisor who gives you a PDF and disappears. I work alongside you, inside your business, until the problem is solved.
+      </p>
+      <div class="max-w-lg mx-auto space-y-4 mb-10">
+        <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.15">
+          <svg class="h-6 w-6 text-white shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <span class="text-body-lg text-text-secondary">Hands-on, not theoretical — I get in the trenches with you and your team</span>
+        </div>
+        <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.25">
+          <svg class="h-6 w-6 text-white shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <span class="text-body-lg text-text-secondary">Custom to your business — no cookie-cutter playbooks or generic frameworks</span>
+        </div>
+        <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.35">
+          <svg class="h-6 w-6 text-white shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <span class="text-body-lg text-text-secondary">The goal is your independence — I build systems so you do not need me forever</span>
+        </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {results.map((result, i) => (
-          <Card>
-            <div data-motion="fade-up" data-motion-delay={`${i * 0.12}`}>
-              <p class="text-accent font-bold text-sm uppercase tracking-wide mb-2">{result.title}</p>
-              <p class="text-h3 font-bold mb-1">{result.stat}</p>
-              <p class="text-text-tertiary text-sm mb-4">In {result.period}</p>
-              <p class="text-text-secondary">{result.desc}</p>
-            </div>
-          </Card>
-        ))}
+      <div class="text-center" data-motion="fade-up" data-motion-delay="0.4">
+        <Button variant="primary" size="md" href="/contact/">
+          Book a Free Call
+        </Button>
       </div>
     </SectionWrapper>
   </section>
@@ -163,7 +241,7 @@ const results = [
   <!-- FAQ Section -->
   <SectionWrapper width="narrow">
     <h2 class="text-h2 text-center mb-10" data-motion="fade-up">Questions People Ask Me</h2>
-    <div>
+    <div data-motion="fade-up" data-motion-delay="0.15">
       <AccordionItem question="Who do you work with?">
         <p>I work with business owners who are already making money but have hit a ceiling. You have revenue, you have customers, but something is keeping you stuck — whether that is operations, sales, marketing, or team. If you are past the startup phase and ready to scale, we are probably a good fit.</p>
       </AccordionItem>
@@ -188,11 +266,11 @@ const results = [
   <!-- Email Signup Section -->
   <section class="bg-navy-800">
     <SectionWrapper width="narrow" id="signup" class="text-center">
-      <h2 class="text-h2 mb-4">Get on My List</h2>
-      <p class="text-body-lg text-text-secondary mb-8 max-w-xl mx-auto">
+      <h2 class="text-h2 mb-4" data-motion="fade-up">Get on My List</h2>
+      <p class="text-body-lg text-text-secondary mb-8 max-w-xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
         Every week I share what is working for the businesses I mentor — growth strategies, scaling lessons, and things most owners figure out too late. It is free and you can unsubscribe whenever.
       </p>
-      <form id="email-signup" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <form id="email-signup" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" data-motion="fade-up" data-motion-delay="0.2">
         <FormInput
           type="email"
           name="email"
