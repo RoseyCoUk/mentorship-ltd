@@ -33,50 +33,44 @@ const results = [
 
   <!-- Hero Section -->
   <section class="relative min-h-[85vh] flex items-center overflow-hidden">
+    <!-- Background image -->
+    <img
+      src="/images/heroes/alan-networking-2x.webp"
+      alt="Allan Chan networking with business owners"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+    />
+    <!-- Dark overlay for text readability -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/40"></div>
+
     <!-- Ambient glow orbs (elevateoco-style) -->
     <div class="glow-orb w-[500px] h-[500px] bg-white/[0.03] top-[15%] left-[10%] animate-pulse-slow"></div>
     <div class="glow-orb w-[400px] h-[400px] bg-white/[0.02] bottom-[20%] right-[15%] animate-pulse-slow" style="animation-delay: 2s;"></div>
-    <div class="glow-orb w-[600px] h-[600px] bg-white/[0.015] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
 
     <!-- Decorative lines (elevateoco-style) -->
     <div class="hero-line top-[25%] origin-left" style="animation-delay: 0.3s;"></div>
     <div class="hero-line top-[75%] origin-right" style="animation-delay: 0.8s;"></div>
-    <div class="hero-line--v left-[10%] origin-top absolute" style="animation-delay: 1s;"></div>
-    <div class="hero-line--v right-[10%] origin-bottom absolute" style="animation-delay: 1.2s;"></div>
 
     <!-- Content -->
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 sm:py-24">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <!-- Staggered hero entrance (elevateoco-style: load-triggered, increasing delays) -->
-          <p class="text-text-secondary font-bold text-sm uppercase tracking-wide mb-4"
-             data-hero-motion="fade-up-scale" data-hero-delay="0.2">
-            Allan Chan
-          </p>
-          <h1 class="text-hero font-bold mb-6"
-              data-hero-motion="fade-up" data-hero-delay="0.4">
-            I Help Business Owners Scale Past Their Current Ceiling
-          </h1>
-          <p class="text-body-lg text-text-secondary max-w-xl mb-8"
-             data-hero-motion="fade-up" data-hero-delay="0.6">
-            Most business owners hit a wall where what got them here will not get them there. I work with you directly — strategy, systems, and execution — so you break through it.
-          </p>
-          <div data-hero-motion="fade-up" data-hero-delay="0.8">
-            <Button variant="primary" size="lg" href="/contact/">
-              Book a Free Call
-            </Button>
-          </div>
-        </div>
-        <div class="flex justify-center md:justify-end"
-             data-hero-motion="fade-right" data-hero-delay="0.5">
-          <img
-            src="/images/heroes/flowryse-1.webp"
-            alt="Business growth strategy illustration"
-            width="500"
-            height="500"
-            class="w-full max-w-md"
-            loading="eager"
-          />
+      <div class="max-w-xl">
+        <!-- Staggered hero entrance (elevateoco-style: load-triggered, increasing delays) -->
+        <p class="text-text-secondary font-bold text-sm uppercase tracking-wide mb-4"
+           data-hero-motion="fade-up-scale" data-hero-delay="0.2">
+          Allan Chan
+        </p>
+        <h1 class="text-hero font-bold mb-6"
+            data-hero-motion="fade-up" data-hero-delay="0.4">
+          I Help Business Owners Scale Past Their Current Ceiling
+        </h1>
+        <p class="text-body-lg text-text-secondary max-w-xl mb-8"
+           data-hero-motion="fade-up" data-hero-delay="0.6">
+          Most business owners hit a wall where what got them here will not get them there. I work with you directly — strategy, systems, and execution — so you break through it.
+        </p>
+        <div data-hero-motion="fade-up" data-hero-delay="0.8">
+          <Button variant="primary" size="lg" href="/contact/">
+            Book a Free Call
+          </Button>
         </div>
       </div>
     </div>
