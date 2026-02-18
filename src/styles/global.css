@@ -226,6 +226,11 @@
     animation: line-reveal-v 2s ease-out forwards;
   }
 
+  /* --- Floating logo animation --- */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
   /* --- Card hover border glow --- */
   .card-hover-glow {
     transition: border-color 500ms ease, box-shadow 500ms ease;
@@ -258,4 +263,9 @@
 @keyframes line-reveal-v {
   from { transform: scaleY(0); }
   to { transform: scaleY(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }

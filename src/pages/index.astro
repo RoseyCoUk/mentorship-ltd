@@ -29,14 +29,14 @@ const results = [
 ];
 ---
 
-<Base title="Home" description="Elevateo Co — Allan Chan helps business owners scale with mentorship, strategy, and hands-on guidance to grow past your current ceiling.">
+<Base title="Home" description="Mentorship Ltd — Allan Chan helps business owners scale with mentorship, strategy, and hands-on guidance to grow past your current ceiling.">
 
   <!-- Hero Section -->
   <section class="relative min-h-[85vh] flex items-center overflow-hidden">
     <!-- Background image -->
     <img
-      src="/images/heroes/alan-networking-2x.webp"
-      alt="Allan Chan networking with business owners"
+      src="/images/heroes/hero-bg.webp"
+      alt="Allan Chan"
       class="absolute inset-0 w-full h-full object-cover object-center"
       loading="eager"
     />
@@ -68,7 +68,7 @@ const results = [
           Most business owners hit a wall where what got them here will not get them there. I work with you directly — strategy, systems, and execution — so you break through it.
         </p>
         <div data-hero-motion="fade-up" data-hero-delay="0.8">
-          <Button variant="primary" size="lg" href="/contact/">
+          <Button variant="primary" size="lg" href="/#signup">
             Book a Free Call
           </Button>
         </div>
@@ -139,38 +139,103 @@ const results = [
     </div>
   </section>
 
-  <!-- What I Help With Section -->
-  <section class="bg-navy-950">
-    <SectionWrapper width="wide">
-      <div class="text-center mb-12">
-        <h2 class="text-h2 mb-4" data-motion="fade-up">What I Help With</h2>
-        <p class="text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
-          I work hands-on with business owners across six core areas — whatever is holding your business back right now.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service, i) => (
-          <div data-motion="fade-up" data-motion-delay={`${i * 0.1}`} data-motion-duration="0.5">
-            <Card>
-              <div class="flex items-start gap-4">
-                <img
-                  src={`/images/icons/${service.icon}.webp`}
-                  alt=""
-                  width="48"
-                  height="48"
-                  class="w-12 h-12 shrink-0"
-                  loading="lazy"
-                />
-                <div>
-                  <h3 class="text-h3 mb-2">{service.name}</h3>
-                  <p class="text-text-secondary">{service.desc}</p>
-                </div>
-              </div>
-            </Card>
+  <!-- Companies Section -->
+  <SectionWrapper width="wide">
+    <div class="text-center mb-12">
+      <h2 class="text-h2 mb-4" data-motion="fade-up">Companies I've Built</h2>
+      <p class="text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
+        I don't just advise — I build. These are the businesses I own and operate.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <a href="https://www.elevateoco.com/en-gb" target="_blank" rel="noopener noreferrer" class="group h-full transition-transform duration-500 hover:scale-[1.03]" data-motion="fade-up" data-motion-delay="0.1">
+        <Card class="h-full">
+          <div class="flex flex-col items-center text-center gap-4 h-full">
+            <img src="/images/logos/elevateoco.webp" alt="Elevateo Co" class="h-16 w-auto object-contain animate-float" style="animation-delay: 0s;" loading="lazy" />
+            <div>
+              <h3 class="text-h3 mb-2 group-hover:text-white transition-colors">Elevateo Co</h3>
+              <p class="text-text-secondary text-sm">AI-driven growth holding company building complete growth engines for ambitious businesses.</p>
+            </div>
           </div>
-        ))}
-      </div>
-    </SectionWrapper>
+        </Card>
+      </a>
+      <a href="https://www.roseyco.com/" target="_blank" rel="noopener noreferrer" class="group h-full transition-transform duration-500 hover:scale-[1.03]" data-motion="fade-up" data-motion-delay="0.2">
+        <Card class="h-full">
+          <div class="flex flex-col items-center text-center gap-4 h-full">
+            <img src="/images/logos/roseyco.webp" alt="Rosey Co" class="h-16 w-auto object-contain animate-float" style="animation-delay: 0.75s;" loading="lazy" />
+            <div>
+              <h3 class="text-h3 mb-2 group-hover:text-white transition-colors">Rosey Co</h3>
+              <p class="text-text-secondary text-sm">Global social media marketing agency helping businesses generate more customers through SEO, social media, and paid ads.</p>
+            </div>
+          </div>
+        </Card>
+      </a>
+      <a href="https://www.boltloop.co/en-GB" target="_blank" rel="noopener noreferrer" class="group h-full transition-transform duration-500 hover:scale-[1.03]" data-motion="fade-up" data-motion-delay="0.3">
+        <Card class="h-full">
+          <div class="flex flex-col items-center text-center gap-4 h-full">
+            <img src="/images/logos/boltloop.webp" alt="Boltloop" class="h-16 w-auto object-contain animate-float" style="animation-delay: 1.5s;" loading="lazy" />
+            <div>
+              <h3 class="text-h3 mb-2 group-hover:text-white transition-colors">Boltloop</h3>
+              <p class="text-text-secondary text-sm">Custom AI and automation solutions that help businesses eliminate repetitive manual tasks.</p>
+            </div>
+          </div>
+        </Card>
+      </a>
+      <a href="https://www.bluepillar.co/" target="_blank" rel="noopener noreferrer" class="group h-full transition-transform duration-500 hover:scale-[1.03]" data-motion="fade-up" data-motion-delay="0.4">
+        <Card class="h-full">
+          <div class="flex flex-col items-center text-center gap-4 h-full">
+            <img src="/images/logos/bluepillar.webp" alt="BluePillar" class="h-16 w-auto object-contain animate-float" style="animation-delay: 2.25s;" loading="lazy" />
+            <div>
+              <h3 class="text-h3 mb-2 group-hover:text-white transition-colors">BluePillar</h3>
+              <p class="text-text-secondary text-sm">E-commerce retailer offering premium quality products crafted for modern living.</p>
+            </div>
+          </div>
+        </Card>
+      </a>
+    </div>
+  </SectionWrapper>
+
+  <!-- What I Help With Section -->
+  <section class="relative overflow-hidden">
+    <img
+      src="/images/heroes/IMG_1081.webp"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-black/80"></div>
+    <div class="relative z-10">
+      <SectionWrapper width="wide">
+        <div class="text-center mb-12">
+          <h2 class="text-h2 mb-4" data-motion="fade-up">What I Help With</h2>
+          <p class="text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
+            I work hands-on with business owners across six core areas — whatever is holding your business back right now.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, i) => (
+            <div data-motion="fade-up" data-motion-delay={`${i * 0.1}`} data-motion-duration="0.5">
+              <Card>
+                <div class="flex items-start gap-4">
+                  <img
+                    src={`/images/icons/${service.icon}.webp`}
+                    alt=""
+                    width="48"
+                    height="48"
+                    class="w-12 h-12 shrink-0"
+                    loading="lazy"
+                  />
+                  <div>
+                    <h3 class="text-h3 mb-2">{service.name}</h3>
+                    <p class="text-text-secondary">{service.desc}</p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </SectionWrapper>
+    </div>
   </section>
 
   <!-- Results Section -->
@@ -183,8 +248,8 @@ const results = [
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {results.map((result, i) => (
-        <div data-motion="fade-up" data-motion-delay={`${i * 0.12}`} data-motion-duration="0.5">
-          <Card>
+        <div class="h-full" data-motion="fade-up" data-motion-delay={`${i * 0.12}`} data-motion-duration="0.5">
+          <Card class="h-full">
             <p class="text-text-secondary font-bold text-sm uppercase tracking-wide mb-2">{result.title}</p>
             <p class="text-h3 font-bold mb-1">{result.stat}</p>
             <p class="text-text-tertiary text-sm mb-4">In {result.period}</p>
@@ -196,38 +261,47 @@ const results = [
   </SectionWrapper>
 
   <!-- Why Section -->
-  <section class="bg-navy-950">
-    <SectionWrapper width="narrow">
-      <h2 class="text-h2 text-center mb-4" data-motion="fade-up">Why Business Owners Work With Me</h2>
-      <p class="text-body-lg text-text-secondary text-center max-w-2xl mx-auto mb-10" data-motion="fade-up" data-motion-delay="0.1">
-        I am not an advisor who gives you a PDF and disappears. I work alongside you, inside your business, until the problem is solved.
-      </p>
-      <div class="max-w-lg mx-auto space-y-4 mb-10">
-        <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.15">
-          <svg class="h-6 w-6 text-white shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-          <span class="text-body-lg text-text-secondary">Hands-on, not theoretical — I get in the trenches with you and your team</span>
+  <section class="relative overflow-hidden">
+    <img
+      src="/images/heroes/IMG_1082.webp"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-black/80"></div>
+    <div class="relative z-10">
+      <SectionWrapper width="narrow">
+        <h2 class="text-h2 text-center mb-4" data-motion="fade-up">Why Business Owners Work With Me</h2>
+        <p class="text-body-lg text-text-secondary text-center max-w-2xl mx-auto mb-10" data-motion="fade-up" data-motion-delay="0.1">
+          I am not an advisor who gives you a PDF and disappears. I work alongside you, inside your business, until the problem is solved.
+        </p>
+        <div class="max-w-lg mx-auto space-y-4 mb-10">
+          <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.15">
+            <svg class="h-6 w-6 text-white shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-body-lg text-text-secondary">Hands-on, not theoretical — I get in the trenches with you and your team</span>
+          </div>
+          <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.25">
+            <svg class="h-6 w-6 text-white shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-body-lg text-text-secondary">Custom to your business — no cookie-cutter playbooks or generic frameworks</span>
+          </div>
+          <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.35">
+            <svg class="h-6 w-6 text-white shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-body-lg text-text-secondary">The goal is your independence — I build systems so you do not need me forever</span>
+          </div>
         </div>
-        <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.25">
-          <svg class="h-6 w-6 text-white shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-          <span class="text-body-lg text-text-secondary">Custom to your business — no cookie-cutter playbooks or generic frameworks</span>
+        <div class="text-center" data-motion="fade-up" data-motion-delay="0.4">
+          <Button variant="primary" size="md" href="/#signup">
+            Book a Free Call
+          </Button>
         </div>
-        <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.35">
-          <svg class="h-6 w-6 text-white shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-          <span class="text-body-lg text-text-secondary">The goal is your independence — I build systems so you do not need me forever</span>
-        </div>
-      </div>
-      <div class="text-center" data-motion="fade-up" data-motion-delay="0.4">
-        <Button variant="primary" size="md" href="/contact/">
-          Book a Free Call
-        </Button>
-      </div>
-    </SectionWrapper>
+      </SectionWrapper>
+    </div>
   </section>
 
   <!-- FAQ Section -->
@@ -256,7 +330,15 @@ const results = [
   </SectionWrapper>
 
   <!-- Email Signup Section -->
-  <section class="bg-navy-800">
+  <section class="relative overflow-hidden">
+    <img
+      src="/images/heroes/IMG_1091.webp"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-black/80"></div>
+    <div class="relative z-10">
     <SectionWrapper width="narrow" id="signup" class="text-center">
       <h2 class="text-h2 mb-4" data-motion="fade-up">Get on My List</h2>
       <p class="text-body-lg text-text-secondary mb-8 max-w-xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
@@ -277,6 +359,7 @@ const results = [
         No spam. Unsubscribe anytime.
       </p>
     </SectionWrapper>
+    </div>
   </section>
 
   <script>
