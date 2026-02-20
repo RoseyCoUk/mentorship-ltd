@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # raw brand assets (optimized copies live in public/images/)
 _zip_temp/
+.vercel

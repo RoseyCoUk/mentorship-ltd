@@ -52,23 +52,23 @@ const results = [
     <div class="hero-line top-[75%] origin-right" style="animation-delay: 0.8s;"></div>
 
     <!-- Content -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 sm:py-24">
+    <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full py-12 sm:py-16 md:py-24">
       <div class="max-w-xl">
         <!-- Staggered hero entrance (elevateoco-style: load-triggered, increasing delays) -->
-        <p class="text-text-secondary font-bold text-sm uppercase tracking-wide mb-4"
+        <p class="text-gold font-bold text-xs sm:text-sm uppercase tracking-wide mb-3 sm:mb-4"
            data-hero-motion="fade-up-scale" data-hero-delay="0.2">
           Allan Chan
         </p>
-        <h1 class="text-hero font-bold mb-6"
+        <h1 class="text-hero font-bold mb-4 sm:mb-6"
             data-hero-motion="fade-up" data-hero-delay="0.4">
           I Help Business Owners Scale Past Their Current Ceiling
         </h1>
-        <p class="text-body-lg text-text-secondary max-w-xl mb-8"
+        <p class="text-sm sm:text-body-lg text-text-secondary max-w-xl mb-6 sm:mb-8"
            data-hero-motion="fade-up" data-hero-delay="0.6">
           Most business owners hit a wall where what got them here will not get them there. I work with you directly — strategy, systems, and execution — so you break through it.
         </p>
         <div data-hero-motion="fade-up" data-hero-delay="0.8">
-          <Button variant="primary" size="lg" href="/#signup">
+          <Button variant="primary" size="lg" href="https://calendly.com/allan-chan-roseyco/one-on-one" target="_blank" rel="noopener noreferrer">
             Book a Free Call
           </Button>
         </div>
@@ -79,8 +79,8 @@ const results = [
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
          data-hero-motion="fade-up" data-hero-delay="1.2">
       <span class="text-text-tertiary text-xs uppercase tracking-widest font-medium">Scroll</span>
-      <div class="w-6 h-10 rounded-full border-2 border-navy-600 flex items-start justify-center p-1.5">
-        <div class="w-1.5 h-1.5 rounded-full bg-white animate-bounce-slow"></div>
+      <div class="w-6 h-10 rounded-full border-2 border-gold/40 flex items-start justify-center p-1.5">
+        <div class="w-1.5 h-1.5 rounded-full bg-gold animate-bounce-slow"></div>
       </div>
     </div>
   </section>
@@ -91,7 +91,7 @@ const results = [
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {metrics.map((metric, i) => (
           <div data-motion="fade-up" data-motion-delay={`${i * 0.1}`}>
-            <p class="text-h2 text-white font-bold">{metric.value}</p>
+            <p class="text-h2 text-gold font-bold">{metric.value}</p>
             <p class="text-text-secondary text-sm uppercase tracking-wide mt-1">{metric.label}</p>
           </div>
         ))}
@@ -100,23 +100,23 @@ const results = [
   </section>
 
   <!-- About Section (merged from about page) -->
-  <section class="relative min-h-[70vh] flex items-center overflow-hidden">
-    <!-- Background image with Allan as focal point -->
-    <img
-      src="/images/heroes/alan-networking-2x.webp"
-      alt="Allan Chan networking with business owners at an event"
-      class="absolute inset-0 w-full h-full object-cover object-center"
-      loading="lazy"
-    />
-    <!-- Dark overlay — heavier on the text side for readability -->
-    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent"></div>
+  <!-- About Section: stacked on mobile, overlay on desktop -->
+  <section class="overflow-hidden">
+    <!-- Mobile: stacked image then text -->
+    <div class="sm:hidden">
+      <div class="relative aspect-[4/3]">
+        <img
+          src="/images/heroes/alan-networking-2x.webp"
+          alt="Allan Chan networking with business owners at an event"
+          class="absolute inset-0 w-full h-full object-cover object-center"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent"></div>
+      </div>
+      <div class="bg-navy-900 px-5 py-8 -mt-8 relative z-10">
+        <h2 class="text-h2 mb-4" data-motion="fade-up" data-motion-delay="0.1" data-motion-duration="0.8">Hey, I'm <span class="text-gold">Allan</span></h2>
 
-    <!-- Content -->
-    <div class="relative z-10 w-full px-6 sm:px-10 lg:px-50 py-20 md:py-28">
-      <div class="max-w-md">
-        <h2 class="text-h2 mb-6" data-motion="fade-right" data-motion-delay="0.1" data-motion-duration="0.8">Hey, I'm Allan</h2>
-
-        <p class="text-text-secondary mb-4" data-motion="fade-right" data-motion-delay="0.2" data-motion-duration="0.8">
+        <p class="text-sm text-text-secondary mb-3" data-motion="fade-up" data-motion-delay="0.2" data-motion-duration="0.8">
           A few years ago I hit a wall with my own business. Revenue had plateaued,
           I was working more hours than ever, and nothing I tried seemed to move
           the needle. I hired consultants, read every business book, attended the
@@ -124,26 +124,63 @@ const results = [
           actually help.
         </p>
 
-        <p class="text-text-secondary mb-4" data-motion="fade-right" data-motion-delay="0.3" data-motion-duration="0.8">
+        <p class="text-sm text-text-secondary mb-3" data-motion="fade-up" data-motion-delay="0.3" data-motion-duration="0.8">
           So I went deep. I studied what actually makes businesses scale — the
           systems, the offers, the operations, the leadership. I tested everything
           in my own business first, then started helping other owners do the same.
         </p>
 
-        <p class="text-text-secondary" data-motion="fade-right" data-motion-delay="0.4" data-motion-duration="0.8">
+        <p class="text-sm text-text-secondary" data-motion="fade-up" data-motion-delay="0.4" data-motion-duration="0.8">
           Now I work directly with business owners who are in that same spot I was.
           Not as a consultant who hands you a plan and disappears — as a mentor who
           gets in the trenches with you until the problem is solved.
         </p>
       </div>
     </div>
+
+    <!-- Desktop: original overlay layout -->
+    <div class="hidden sm:block relative min-h-[70vh]">
+      <img
+        src="/images/heroes/alan-networking-2x.webp"
+        alt="Allan Chan networking with business owners at an event"
+        class="absolute inset-0 w-full h-full object-cover object-center"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent"></div>
+
+      <div class="relative z-10 flex items-center min-h-[70vh] w-full px-10 lg:px-50 py-20 md:py-28">
+        <div class="max-w-md">
+          <h2 class="text-h2 mb-6" data-motion="fade-right" data-motion-delay="0.1" data-motion-duration="0.8">Hey, I'm <span class="text-gold">Allan</span></h2>
+
+          <p class="text-body text-text-secondary mb-4" data-motion="fade-right" data-motion-delay="0.2" data-motion-duration="0.8">
+            A few years ago I hit a wall with my own business. Revenue had plateaued,
+            I was working more hours than ever, and nothing I tried seemed to move
+            the needle. I hired consultants, read every business book, attended the
+            conferences — and most of it was either too generic or too theoretical to
+            actually help.
+          </p>
+
+          <p class="text-body text-text-secondary mb-4" data-motion="fade-right" data-motion-delay="0.3" data-motion-duration="0.8">
+            So I went deep. I studied what actually makes businesses scale — the
+            systems, the offers, the operations, the leadership. I tested everything
+            in my own business first, then started helping other owners do the same.
+          </p>
+
+          <p class="text-body text-text-secondary" data-motion="fade-right" data-motion-delay="0.4" data-motion-duration="0.8">
+            Now I work directly with business owners who are in that same spot I was.
+            Not as a consultant who hands you a plan and disappears — as a mentor who
+            gets in the trenches with you until the problem is solved.
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Companies Section -->
   <SectionWrapper width="wide">
-    <div class="text-center mb-12">
+    <div class="text-center mb-8 sm:mb-12">
       <h2 class="text-h2 mb-4" data-motion="fade-up">Companies I've Built</h2>
-      <p class="text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
+      <p class="text-sm sm:text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
         I don't just advise — I build. These are the businesses I own and operate.
       </p>
     </div>
@@ -206,16 +243,16 @@ const results = [
     <div class="absolute inset-0 bg-black/80"></div>
     <div class="relative z-10">
       <SectionWrapper width="wide">
-        <div class="text-center mb-12">
+        <div class="text-center mb-8 sm:mb-12">
           <h2 class="text-h2 mb-4" data-motion="fade-up">What I Help With</h2>
-          <p class="text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
+          <p class="text-sm sm:text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
             I work hands-on with business owners across six core areas — whatever is holding your business back right now.
           </p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <div data-motion="fade-up" data-motion-delay={`${i * 0.1}`} data-motion-duration="0.5">
-              <Card>
+              <Card variant="gold">
                 <div class="flex items-start gap-4">
                   <img
                     src={`/images/icons/${service.icon}.webp`}
@@ -240,9 +277,9 @@ const results = [
 
   <!-- Results Section -->
   <SectionWrapper width="wide">
-    <div class="text-center mb-12">
+    <div class="text-center mb-8 sm:mb-12">
       <h2 class="text-h2 mb-4" data-motion="fade-up">Results That Speak for Themselves</h2>
-      <p class="text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
+      <p class="text-sm sm:text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
         Here is what happens when strategy meets execution. Real businesses, real outcomes.
       </p>
     </div>
@@ -251,7 +288,7 @@ const results = [
         <div class="h-full" data-motion="fade-up" data-motion-delay={`${i * 0.12}`} data-motion-duration="0.5">
           <Card class="h-full">
             <p class="text-text-secondary font-bold text-sm uppercase tracking-wide mb-2">{result.title}</p>
-            <p class="text-h3 font-bold mb-1">{result.stat}</p>
+            <p class="text-h3 font-bold mb-1 text-gold">{result.stat}</p>
             <p class="text-text-tertiary text-sm mb-4">In {result.period}</p>
             <p class="text-text-secondary">{result.desc}</p>
           </Card>
@@ -277,26 +314,26 @@ const results = [
         </p>
         <div class="max-w-lg mx-auto space-y-4 mb-10">
           <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.15">
-            <svg class="h-6 w-6 text-white shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <svg class="h-6 w-6 text-gold shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
             </svg>
-            <span class="text-body-lg text-text-secondary">Hands-on, not theoretical — I get in the trenches with you and your team</span>
+            <span class="text-sm sm:text-body-lg text-text-secondary">Hands-on, not theoretical — I get in the trenches with you and your team</span>
           </div>
           <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.25">
-            <svg class="h-6 w-6 text-white shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <svg class="h-6 w-6 text-gold shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
             </svg>
-            <span class="text-body-lg text-text-secondary">Custom to your business — no cookie-cutter playbooks or generic frameworks</span>
+            <span class="text-sm sm:text-body-lg text-text-secondary">Custom to your business — no cookie-cutter playbooks or generic frameworks</span>
           </div>
           <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.35">
-            <svg class="h-6 w-6 text-white shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <svg class="h-6 w-6 text-gold shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
             </svg>
-            <span class="text-body-lg text-text-secondary">The goal is your independence — I build systems so you do not need me forever</span>
+            <span class="text-sm sm:text-body-lg text-text-secondary">The goal is your independence — I build systems so you do not need me forever</span>
           </div>
         </div>
         <div class="text-center" data-motion="fade-up" data-motion-delay="0.4">
-          <Button variant="primary" size="md" href="/#signup">
+          <Button variant="primary" size="md" href="https://calendly.com/allan-chan-roseyco/one-on-one" target="_blank" rel="noopener noreferrer">
             Book a Free Call
           </Button>
         </div>
@@ -341,7 +378,7 @@ const results = [
     <div class="relative z-10">
     <SectionWrapper width="narrow" id="signup" class="text-center">
       <h2 class="text-h2 mb-4" data-motion="fade-up">Get on My List</h2>
-      <p class="text-body-lg text-text-secondary mb-8 max-w-xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
+      <p class="text-sm sm:text-body-lg text-text-secondary mb-6 sm:mb-8 max-w-xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
         Every week I share what is working for the businesses I mentor — growth strategies, scaling lessons, and things most owners figure out too late. It is free and you can unsubscribe whenever.
       </p>
       <form id="email-signup" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" data-motion="fade-up" data-motion-delay="0.2">
@@ -366,8 +403,10 @@ const results = [
     function setupEmailForm() {
       const form = document.getElementById('email-signup') as HTMLFormElement;
       const message = document.getElementById('form-message') as HTMLElement;
+      const submitBtn = form?.querySelector('button[type="submit"], button:not([type])') as HTMLButtonElement;
+      const originalText = submitBtn?.textContent || 'Count Me In';
 
-      form?.addEventListener('submit', (e) => {
+      form?.addEventListener('submit', async (e) => {
         e.preventDefault();
         const email = new FormData(form).get('email') as string;
 
@@ -378,11 +417,36 @@ const results = [
           return;
         }
 
-        // Phase 4 will replace this with Kit API call
-        message.textContent = "You're in! I'll be in touch.";
-        message.className = 'text-sm mt-3 text-success';
+        // Disable form while submitting
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        message.classList.add('hidden');
+
+        try {
+          const res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            message.textContent = "You're in! I'll be in touch.";
+            message.className = 'text-sm mt-3 text-success';
+            form.reset();
+          } else {
+            message.textContent = data.error || 'Something went wrong. Please try again.';
+            message.className = 'text-sm mt-3 text-error';
+          }
+        } catch {
+          message.textContent = 'Something went wrong. Please try again.';
+          message.className = 'text-sm mt-3 text-error';
+        }
+
         message.classList.remove('hidden');
-        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
       });
     }
 

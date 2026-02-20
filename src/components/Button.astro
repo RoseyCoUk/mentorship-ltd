@@ -6,6 +6,7 @@ interface Props {
   size?: "sm" | "md" | "lg";
   href?: string;
   class?: string;
+  [key: string]: any;
 }
 
 const {
@@ -13,6 +14,7 @@ const {
   size = "md",
   href,
   class: className,
+  ...attrs
 } = Astro.props;
 
 const baseClasses = "inline-flex items-center justify-center font-bold rounded-lg transition-all duration-300";
@@ -34,6 +36,6 @@ const classes = [baseClasses, variants[variant], sizes[size], className].filter(
 const Tag = href ? "a" : "button";
 ---
 
-<Tag href={href} class={classes}>
+<Tag href={href} class={classes} {...attrs}>
   <slot />
 </Tag>
