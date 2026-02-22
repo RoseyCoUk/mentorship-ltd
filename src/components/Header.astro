@@ -12,7 +12,7 @@ const navLinks = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-navy-900/95 backdrop-blur-sm border-b border-navy-700/50">
+<header class="fixed top-0 left-0 right-0 z-50 bg-navy-900/40 backdrop-blur-xl border-b border-white/5 transition-all duration-500">
   <div class="container-wide mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-18">
       <!-- Logo -->
@@ -26,10 +26,10 @@ const navLinks = [
           <a
             href={link.href}
             class:list={[
-              "text-sm font-medium tracking-wide uppercase transition-colors duration-200",
+              "text-xs tracking-widest uppercase transition-all duration-300",
               currentPath === link.href
-                ? "text-white"
-                : "text-text-secondary hover:text-text-primary",
+                ? "text-white font-bold"
+                : "text-text-secondary hover:text-white font-medium",
             ]}
           >
             {link.label}
@@ -37,7 +37,7 @@ const navLinks = [
         ))}
         <a
           href="https://calendly.com/allan-chan-roseyco/one-on-one" target="_blank" rel="noopener noreferrer"
-          class="border border-white text-white font-bold text-sm px-5 py-2.5 rounded-lg transition-colors duration-200 hover:bg-white hover:text-black"
+          class="relative inline-flex items-center justify-center font-bold text-xs tracking-wider uppercase px-6 py-2.5 rounded-full bg-white text-black btn-shimmer transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:-translate-y-0.5"
         >
           Book a Call
         </a>

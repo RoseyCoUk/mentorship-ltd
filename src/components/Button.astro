@@ -17,18 +17,18 @@ const {
   ...attrs
 } = Astro.props;
 
-const baseClasses = "inline-flex items-center justify-center font-bold rounded-lg transition-all duration-300";
+const baseClasses = "relative inline-flex items-center justify-center font-bold transition-all duration-500 overflow-hidden group";
 
 const variants = {
-  primary: "bg-white text-black hover:bg-accent-hover hover:shadow-lg hover:shadow-white/10 btn-shimmer",
-  secondary: "bg-transparent text-white border border-white hover:bg-white hover:text-black btn-shimmer",
+  primary: "bg-white text-black btn-shimmer hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:-translate-y-0.5",
+  secondary: "bg-transparent text-white border border-white/20 hover:border-white hover:bg-white hover:text-black btn-shimmer hover:-translate-y-0.5 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]",
   ghost: "bg-transparent text-text-secondary hover:text-text-primary",
 };
 
 const sizes = {
-  sm: "text-sm px-4 py-2",
-  md: "text-sm px-6 py-3",
-  lg: "text-body px-8 py-4",
+  sm: "text-xs tracking-wider uppercase px-5 py-2.5 rounded-full",
+  md: "text-sm tracking-wide px-8 py-3.5 rounded-full",
+  lg: "text-body px-10 py-4 rounded-full",
 };
 
 const classes = [baseClasses, variants[variant], sizes[size], className].filter(Boolean).join(" ");

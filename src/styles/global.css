@@ -10,21 +10,30 @@
   /* Reset default Tailwind colors to enforce brand consistency */
   --color-*: initial;
 
-  /* --- Colors: Dark Monochrome Palette --- */
-  --color-navy-950: #000000;
-  --color-navy-900: #0A0A0A;
-  --color-navy-800: #141414;
-  --color-navy-700: #2A2A2A;
-  --color-navy-600: #404040;
+  /* --- Colors: Dark Monochrome Palette (Obsidian) --- */
+  --color-navy-950: #030304;
+  /* Darkest */
+  --color-navy-900: #08080A;
+  /* Background */
+  --color-navy-800: #121215;
+  /* Card surfaces */
+  --color-navy-700: #1A1A20;
+  /* Card borders, hover states */
+  --color-navy-600: #282830;
+  /* Lighter accents */
 
-  /* --- Colors: Text --- */
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #A3A3A3;
-  --color-text-tertiary: #6B6B6B;
+  /* --- Colors: Accent (Warm Sand / Bronze) --- */
+  --color-gold: #C9A985;
+  --color-bronze-400: #D8BD9C;
 
   /* --- Colors: Accent (white — monochrome CTAs) --- */
   --color-accent: #FFFFFF;
   --color-accent-hover: #D4D4D4;
+
+  /* --- Colors: Text --- */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B4B4B8;
+  --color-text-tertiary: #71717A;
 
   /* --- Colors: Semantic --- */
   --color-success: #22C55E;
@@ -38,12 +47,12 @@
   --font-heading: "Playfair Display Variable", "Playfair Display", Georgia, "Times New Roman", serif;
   --font-body: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* --- Font Sizes (fluid with clamp) --- */
-  --text-hero: clamp(2.5rem, 5vw + 1rem, 4.5rem);
-  --text-h1: clamp(2rem, 4vw + 0.5rem, 3.5rem);
-  --text-h2: clamp(1.5rem, 3vw + 0.25rem, 2.5rem);
-  --text-h3: clamp(1.25rem, 2vw + 0.25rem, 1.75rem);
-  --text-body-lg: clamp(1.0625rem, 1.5vw, 1.25rem);
+  /* --- Font Sizes (fluid with clamp for cinematic contrast) --- */
+  --text-hero: clamp(3rem, 7vw + 1rem, 6.5rem);
+  --text-h1: clamp(2.5rem, 5vw + 0.5rem, 4.5rem);
+  --text-h2: clamp(2rem, 4vw + 0.25rem, 3.5rem);
+  --text-h3: clamp(1.5rem, 2vw + 1rem, 2rem);
+  --text-body-lg: clamp(1.125rem, 1.5vw, 1.25rem);
   --text-body: clamp(1rem, 1.25vw, 1.125rem);
   --text-sm: 0.875rem;
   --text-xs: 0.75rem;
@@ -55,7 +64,8 @@
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
   --radius-full: 9999px;
 
   /* --- Shadows (dark-theme-appropriate — stronger opacity) --- */
@@ -67,8 +77,15 @@
   --animate-fade-in: fade-in 0.3s ease-out;
 
   @keyframes fade-in {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* --- Breakpoints --- */
@@ -93,7 +110,8 @@
 
 @layer base {
   html {
-    scroll-behavior: auto; /* Lenis handles smooth scroll */
+    scroll-behavior: auto;
+    /* Lenis handles smooth scroll */
     scroll-padding-top: var(--header-height);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -107,7 +125,12 @@
     line-height: 1.7;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.2;
@@ -115,7 +138,9 @@
     color: var(--color-text-primary);
   }
 
-  input, select, textarea {
+  input,
+  select,
+  textarea {
     font-size: 16px;
   }
 
@@ -127,9 +152,11 @@
   ::-webkit-scrollbar {
     width: 8px;
   }
+
   ::-webkit-scrollbar-track {
     background: #0A0A0A;
   }
+
   ::-webkit-scrollbar-thumb {
     background: #404040;
     border-radius: var(--radius-full);
@@ -138,6 +165,11 @@
   /* Motion base rule — elements start hidden until animation triggers */
   [data-motion] {
     opacity: 0;
+    will-change: transform, opacity, filter;
+  }
+
+  [data-motion="skew-up"] {
+    transform-origin: bottom left;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -145,6 +177,7 @@
       opacity: 1 !important;
       transform: none !important;
     }
+
     .animate-pulse-slow,
     .animate-bounce-slow {
       animation: none !important;
@@ -195,14 +228,16 @@
     position: relative;
     overflow: hidden;
   }
+
   .btn-shimmer::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
     transform: translateX(-100%);
     transition: transform 700ms ease;
   }
+
   .btn-shimmer:hover::after {
     transform: translateX(100%);
   }
@@ -210,15 +245,16 @@
   /* --- Decorative animated line (elevateoco-style) --- */
   .hero-line {
     position: absolute;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.08), transparent);
     height: 1px;
     width: 100%;
     left: 0;
     transform: scaleX(0);
     animation: line-reveal 1.5s ease-out forwards;
   }
+
   .hero-line--v {
-    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.04), transparent);
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.04), transparent);
     width: 1px;
     height: 100%;
     top: 0;
@@ -228,17 +264,84 @@
 
   /* --- Floating logo animation --- */
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
 
-  /* --- Card hover border glow --- */
+  /* --- Card hover border glow (premium glassmorphism w/ sheen) --- */
   .card-hover-glow {
-    transition: border-color 500ms ease, box-shadow 500ms ease;
+    position: relative;
+    background: linear-gradient(180deg, var(--color-navy-800) 0%, var(--color-navy-900) 100%);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+    transition: all 600ms cubic-bezier(0.25, 1, 0.5, 1);
+    /* JS injects --x and --y for the sheen */
+    --x: 50%;
+    --y: 50%;
   }
+
+  .card-hover-glow::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    transition: opacity 600ms ease;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* Dynamic Sheen Layer */
+  .card-hover-glow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(800px circle at var(--x) var(--y),
+        rgba(255, 255, 255, 0.06),
+        transparent 40%);
+    opacity: 0;
+    transition: opacity 500ms ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
   .card-hover-glow:hover {
-    border-color: var(--color-navy-600);
-    box-shadow: 0 0 30px rgba(255,255,255,0.03);
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 0 rgba(201, 169, 133, 0.2);
   }
+
+  .card-hover-glow:hover::before {
+    background: linear-gradient(180deg, var(--color-gold), rgba(255, 255, 255, 0));
+    opacity: 1;
+  }
+
+  .card-hover-glow:hover::after {
+    opacity: 1;
+  }
+
+  /* --- Grain overlay --- */
+  .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* --- Premium Accordion Line --- */
+  .accordion-line {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: border-color 300ms ease;
+  }
+
 }
 
 /* ============================================
@@ -246,26 +349,59 @@
    ============================================ */
 
 @keyframes pulse-slow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
 }
 
 @keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
 }
 
 @keyframes line-reveal {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
 }
 
 @keyframes line-reveal-v {
-  from { transform: scaleY(0); }
-  to { transform: scaleY(1); }
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
 }

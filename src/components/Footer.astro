@@ -10,22 +10,27 @@ const socialLinks = [
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-navy-950 border-t border-navy-700/50">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-text-tertiary text-sm">
-        &copy; {currentYear} Mentorship Ltd. All rights reserved.
+<footer class="bg-navy-950 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+    <div class="flex flex-col items-center text-center gap-6">
+      <a href="/" class="font-heading font-bold text-xl text-text-primary tracking-tight">Mentorship Ltd</a>
+      <p class="text-text-tertiary text-sm max-w-md leading-relaxed">
+        Helping business owners scale past their current ceiling with hands-on mentorship, strategy, and execution.
       </p>
       <div class="flex items-center gap-6">
         {socialLinks.map((link) => (
           <a
             href={link.href}
-            class="text-text-tertiary hover:text-text-primary text-sm transition-colors duration-200"
+            class="text-text-tertiary hover:text-gold text-sm transition-colors duration-300"
           >
             {link.label}
           </a>
         ))}
       </div>
+      <div class="w-16 h-[1px] bg-white/10"></div>
+      <p class="text-text-tertiary text-xs">
+        &copy; {currentYear} Mentorship Ltd. All rights reserved.
+      </p>
     </div>
   </div>
 </footer>

@@ -28,6 +28,9 @@ const {
     <link rel="apple-touch-icon" href="/images/logos/logo-icon-180.png" />
   </head>
   <body class="min-h-screen flex flex-col">
+    <!-- Subtle grain overlay for cinematic texture -->
+    <div class="grain-overlay"></div>
+    
     <Header currentPath={Astro.url.pathname} />
     <main class="flex-1">
       <slot />
@@ -36,14 +39,19 @@ const {
 
     <script>
       import Lenis from "lenis";
-      import { animate, inView } from "motion";
+      import { animate, inView, scroll, stagger } from "motion";
+      import SplitType from "split-type";
 
       /* ---------- Lenis smooth scroll ---------- */
       let lenis: Lenis;
 
       function initLenis() {
         lenis?.destroy();
-        lenis = new Lenis();
+        lenis = new Lenis({
+          lerp: 0.08, // Buttery smooth, slightly heavier for luxury feel
+          wheelMultiplier: 0.8,
+          smoothWheel: true,
+        });
 
         function raf(time: number) {
           lenis.raf(time);
@@ -55,24 +63,35 @@ const {
       initLenis();
       document.addEventListener("astro:after-swap", initLenis);
 
-      /* ---------- Animation presets (elevateoco-style) ---------- */
-      const presets: Record<string, { to: Record<string, number> }> = {
+      /* ---------- Animation presets (Cinematic style + V2 Split-Type) ---------- */
+      const presets: Record<string, { to: Record<string, any> }> = {
         "fade-up":       { to: { opacity: 1, y: 0 } },
         "fade-left":     { to: { opacity: 1, x: 0 } },
         "fade-right":    { to: { opacity: 1, x: 0 } },
         "scale-in":      { to: { opacity: 1, scale: 1 } },
         "fade-up-scale": { to: { opacity: 1, y: 0, scale: 1 } },
+        "blur-reveal":   { to: { opacity: 1, filter: "blur(0px)", y: 0 } },
+        "skew-up":       { to: { opacity: 1, y: 0, skewY: 0 } },
+        "stagger-words": { to: { opacity: 1, y: 0, skewY: 0, filter: "blur(0px)" } }, // For Split-Type chars/words
       };
 
       /* Set initial styles based on animation type */
       function setInitialState(el: HTMLElement, name: string) {
         const styles: Record<string, string> = { opacity: "0" };
-        if (name === "fade-up")          { styles.transform = "translateY(30px)"; }
-        else if (name === "fade-left")   { styles.transform = "translateX(-30px)"; }
-        else if (name === "fade-right")  { styles.transform = "translateX(30px)"; }
-        else if (name === "scale-in")    { styles.transform = "scale(0.95)"; }
-        else if (name === "fade-up-scale") { styles.transform = "translateY(20px) scale(0.95)"; }
+        if (name === "fade-up")          { styles.transform = "translateY(40px)"; }
+        else if (name === "fade-left")   { styles.transform = "translateX(-40px)"; }
+        else if (name === "fade-right")  { styles.transform = "translateX(40px)"; }
+        else if (name === "scale-in")    { styles.transform = "scale(0.92)"; }
+        else if (name === "fade-up-scale") { styles.transform = "translateY(30px) scale(0.95)"; }
+        else if (name === "blur-reveal") { styles.transform = "translateY(30px)"; styles.filter = "blur(12px)"; }
+        else if (name === "skew-up")     { styles.transform = "translateY(60px) skewY(3deg)"; }
+        else if (name === "stagger-words") { styles.opacity = "1"; } // Handled via children
         Object.assign(el.style, styles);
+      }
+
+      /* ---------- Helper: clear will-change after animation completes ---------- */
+      function clearWillChange(el: HTMLElement, delayMs: number) {
+        setTimeout(() => { el.style.willChange = "auto"; }, delayMs);
       }
 
       /* ---------- Hero entrance animations (load-triggered, staggered) ---------- */
@@ -85,12 +104,35 @@ const {
 
           setInitialState(el, name);
 
-          // Animate immediately on page load (like elevateoco hero)
-          animate(el, preset.to, {
-            duration: 0.8,
-            delay,
-            ease: [0.25, 0.1, 0.25, 1],
-          });
+          // SplitType kinetic typography for hero headings
+          if (name === "stagger-words") {
+            const split = new SplitType(el, { types: "lines,words,chars" });
+            const targets = split.chars || split.words;
+            if (targets) {
+              targets.forEach((char: HTMLElement) => {
+                char.style.opacity = "0";
+                char.style.transform = "translateY(40px) skewY(3deg)";
+                char.style.filter = "blur(8px)";
+              });
+              animate(targets as Element[],
+                { opacity: 1, y: 0, skewY: 0, filter: "blur(0px)" },
+                {
+                  duration: 0.8,
+                  delay: stagger(0.02, { startDelay: delay }),
+                  ease: [0.16, 1, 0.3, 1],
+                }
+              );
+              clearWillChange(el, (delay + 0.8 + targets.length * 0.02) * 1000);
+            }
+          } else {
+            // Standard hero animation
+            animate(el, preset.to, {
+              duration: 0.8,
+              delay,
+              ease: [0.25, 0.1, 0.25, 1],
+            });
+            clearWillChange(el, (delay + 0.8) * 1000);
+          }
         });
       }
 
@@ -99,27 +141,90 @@ const {
         const els = document.querySelectorAll<HTMLElement>("[data-motion]");
         els.forEach((el) => {
           const name = el.dataset.motion || "fade-up";
-          const preset = presets[name] || presets["fade-up"];
           const delay = parseFloat(el.dataset.motionDelay || "0");
-          const duration = parseFloat(el.dataset.motionDuration || "0.6");
+          const duration = parseFloat(el.dataset.motionDuration || "0.8");
 
           setInitialState(el, name);
 
-          inView(el, () => {
-            animate(el, preset.to, {
-              duration,
-              delay,
-              ease: [0.25, 0.1, 0.25, 1],
-            });
-          }, { amount: 0.15 });
+          // V2 Split-Type Kinetic Typography Logic
+          if (name === "skew-up" || name === "stagger-words") {
+            const split = new SplitType(el, { types: "lines,words,chars" });
+            const elementsToAnimate = split.chars || split.words;
+            if (elementsToAnimate) {
+                // Parent must be visible — children handle their own opacity
+                el.style.opacity = "1";
+                el.style.transform = "none";
+                // Set initial states for child chars
+                elementsToAnimate.forEach((char: HTMLElement) => {
+                    char.style.opacity = "0";
+                    char.style.transform = "translateY(40px) skewY(3deg)";
+                    char.style.filter = "blur(8px)";
+                });
+                
+                inView(el, () => {
+                    animate(elementsToAnimate as Element[],
+                        { opacity: 1, y: 0, skewY: 0, filter: "blur(0px)" },
+                        {
+                            duration: duration,
+                            delay: stagger(0.02, { startDelay: delay }),
+                            ease: [0.16, 1, 0.3, 1]
+                        }
+                    );
+                    clearWillChange(el, (delay + duration + elementsToAnimate.length * 0.02) * 1000);
+                }, { amount: 0.15 });
+            }
+          } else {
+            // Standard bounding box animation
+            const preset = presets[name] || presets["fade-up"];
+            inView(el, () => {
+                animate(el, preset.to, {
+                  duration,
+                  delay,
+                  ease: [0.16, 1, 0.3, 1],
+                });
+                clearWillChange(el, (delay + duration) * 1000);
+            }, { amount: 0.15 });
+          }
+        });
+      }
+
+      /* ---------- V2 Glassmorphism Mouse-Targeting Sheen ---------- */
+      function initCardSheen() {
+        if (!window.matchMedia("(pointer: fine)").matches) return;
+        const cards = document.querySelectorAll(".card-hover-glow");
+        cards.forEach((card) => {
+          (card as HTMLElement).addEventListener("mousemove", (e: MouseEvent) => {
+            const rect = (card as HTMLElement).getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            (card as HTMLElement).style.setProperty("--x", `${x}px`);
+            (card as HTMLElement).style.setProperty("--y", `${y}px`);
+          });
+        });
+      }
+
+      /* ---------- V2 Continuous Scroll Parallax ---------- */
+      function initParallax() {
+        // Find elements with parallax attributes (e.g. data-parallax="-50")
+        const parallaxEls = document.querySelectorAll<HTMLElement>("[data-parallax]");
+        parallaxEls.forEach((el) => {
+           const offset = parseFloat(el.dataset.parallax || "-30");
+           scroll(
+             animate(el, { y: [0, offset] }),
+             { target: el, offset: ["start end", "end start"] }
+           );
         });
       }
 
       initHeroMotion();
       initMotion();
+      initCardSheen();
+      initParallax();
       document.addEventListener("astro:after-swap", () => {
         initHeroMotion();
         initMotion();
+        initCardSheen();
+        initParallax();
       });
     </script>
   </body>

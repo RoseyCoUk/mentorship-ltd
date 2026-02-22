@@ -32,39 +32,40 @@ const results = [
 <Base title="Home" description="Mentorship Ltd — Allan Chan helps business owners scale with mentorship, strategy, and hands-on guidance to grow past your current ceiling.">
 
   <!-- Hero Section -->
-  <section class="relative min-h-[85vh] flex items-center overflow-hidden">
-    <!-- Background image -->
-    <img
-      src="/images/heroes/hero-bg.webp"
-      alt="Allan Chan"
-      class="absolute inset-0 w-full h-full object-cover object-center"
-      loading="eager"
-    />
-    <!-- Dark overlay for text readability -->
-    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/40"></div>
+  <section class="relative min-h-[95vh] flex items-center justify-center overflow-hidden">
+    <!-- Cinematic slow-zoom background -->
+    <div class="absolute inset-0 w-full h-full overflow-hidden">
+      <img
+        src="/images/heroes/hero-bg.webp"
+        alt="Allan Chan"
+        class="absolute inset-0 w-full h-full object-cover object-center scale-[1.12]"
+        style="animation: slow-zoom 20s cubic-bezier(0.16, 1, 0.3, 1) forwards;"
+        loading="eager"
+      />
+    </div>
+    
+    <!-- Deep luxury vignette overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-navy-900/60 via-navy-900/40 to-navy-900"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--color-navy-900)_120%)]"></div>
 
-    <!-- Ambient glow orbs (elevateoco-style) -->
-    <div class="glow-orb w-[500px] h-[500px] bg-white/[0.03] top-[15%] left-[10%] animate-pulse-slow"></div>
-    <div class="glow-orb w-[400px] h-[400px] bg-white/[0.02] bottom-[20%] right-[15%] animate-pulse-slow" style="animation-delay: 2s;"></div>
-
-    <!-- Decorative lines (elevateoco-style) -->
-    <div class="hero-line top-[25%] origin-left" style="animation-delay: 0.3s;"></div>
-    <div class="hero-line top-[75%] origin-right" style="animation-delay: 0.8s;"></div>
+    <!-- Ambient glow orbs -->
+    <div class="glow-orb w-[600px] h-[600px] bg-gold/[0.04] top-[10%] left-[5%] animate-pulse-slow"></div>
+    <div class="glow-orb w-[500px] h-[500px] bg-gold/[0.03] bottom-[15%] right-[10%] animate-pulse-slow" style="animation-delay: 2s;"></div>
 
     <!-- Content -->
-    <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full py-12 sm:py-16 md:py-24">
-      <div class="max-w-xl">
-        <!-- Staggered hero entrance (elevateoco-style: load-triggered, increasing delays) -->
-        <p class="text-gold font-bold text-xs sm:text-sm uppercase tracking-wide mb-3 sm:mb-4"
-           data-hero-motion="fade-up-scale" data-hero-delay="0.2">
+    <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full py-24 sm:py-32 flex flex-col items-center text-center">
+      <div class="max-w-4xl flex flex-col items-center">
+        <p class="text-gold font-bold text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-6 sm:mb-8"
+           data-hero-motion="blur-reveal" data-hero-delay="0.1">
           Allan Chan
         </p>
-        <h1 class="text-hero font-bold mb-4 sm:mb-6"
-            data-hero-motion="fade-up" data-hero-delay="0.4">
-          I Help Business Owners Scale Past Their Current Ceiling
-        </h1>
-        <p class="text-sm sm:text-body-lg text-text-secondary max-w-xl mb-6 sm:mb-8"
-           data-hero-motion="fade-up" data-hero-delay="0.6">
+        <div class="overflow-hidden mb-6 sm:mb-8 pb-2">
+          <h1 class="text-hero leading-tight" data-hero-motion="stagger-words" data-hero-delay="0.3">
+            I Help Business Owners Scale Past Their Current Ceiling
+          </h1>
+        </div>
+        <p class="text-body sm:text-body-lg text-text-secondary max-w-2xl mb-10 sm:mb-12"
+           data-hero-motion="blur-reveal" data-hero-delay="0.6">
           Most business owners hit a wall where what got them here will not get them there. I work with you directly — strategy, systems, and execution — so you break through it.
         </p>
         <div data-hero-motion="fade-up" data-hero-delay="0.8">
@@ -75,116 +76,97 @@ const results = [
       </div>
     </div>
 
-    <!-- Scroll indicator (elevateoco-style) -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-         data-hero-motion="fade-up" data-hero-delay="1.2">
-      <span class="text-text-tertiary text-xs uppercase tracking-widest font-medium">Scroll</span>
-      <div class="w-6 h-10 rounded-full border-2 border-gold/40 flex items-start justify-center p-1.5">
-        <div class="w-1.5 h-1.5 rounded-full bg-gold animate-bounce-slow"></div>
-      </div>
+    <!-- Minimal Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 overflow-hidden"
+         data-hero-motion="blur-reveal" data-hero-delay="1.2">
+      <span class="text-text-tertiary text-[10px] uppercase tracking-[0.2em] font-bold">Discover</span>
+      <div class="h-12 w-[1px] bg-gradient-to-b from-transparent via-white/30 to-transparent"></div>
     </div>
+    
+    <style>
+      @keyframes slow-zoom {
+        from { transform: scale(1.15) translateY(-2%); }
+        to { transform: scale(1) translateY(0); }
+      }
+    </style>
   </section>
 
   <!-- Authority Metrics Bar -->
-  <section class="bg-navy-950 border-t border-navy-700/30">
+  <section class="bg-navy-950 border-y border-white/5 relative z-20 shadow-2xl py-12 sm:py-16">
     <SectionWrapper width="wide">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center divide-x divide-white/5">
         {metrics.map((metric, i) => (
-          <div data-motion="fade-up" data-motion-delay={`${i * 0.1}`}>
-            <p class="text-h2 text-gold font-bold">{metric.value}</p>
-            <p class="text-text-secondary text-sm uppercase tracking-wide mt-1">{metric.label}</p>
+          <div class="px-4" data-motion="blur-reveal" data-motion-delay={`${i * 0.1}`}>
+            <p class="text-[clamp(2.5rem,4vw,3.5rem)] leading-none text-gold font-heading font-bold mb-3">{metric.value}</p>
+            <p class="text-text-secondary text-[10px] tracking-[0.2em] uppercase font-bold">{metric.label}</p>
           </div>
         ))}
       </div>
     </SectionWrapper>
   </section>
 
-  <!-- About Section (merged from about page) -->
-  <!-- About Section: stacked on mobile, overlay on desktop -->
-  <section class="overflow-hidden">
-    <!-- Mobile: stacked image then text -->
-    <div class="sm:hidden">
-      <div class="relative aspect-[4/3]">
-        <img
-          src="/images/heroes/alan-networking-2x.webp"
-          alt="Allan Chan networking with business owners at an event"
-          class="absolute inset-0 w-full h-full object-cover object-center"
-          loading="lazy"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent"></div>
-      </div>
-      <div class="bg-navy-900 px-5 py-8 -mt-8 relative z-10">
-        <h2 class="text-h2 mb-4" data-motion="fade-up" data-motion-delay="0.1" data-motion-duration="0.8">Hey, I'm <span class="text-gold">Allan</span></h2>
+  <!-- About Section (Editorial Layout) -->
+  <section class="overflow-hidden relative py-20 sm:py-32">
+    <!-- Subtle background accent -->
+    <div class="absolute right-0 top-0 w-1/3 h-full bg-navy-950/50 block hidden lg:block"></div>
+    <SectionWrapper width="wide">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <!-- Content Side -->
+        <div class="lg:col-span-5 relative z-10 lg:pl-4">
+          <div class="inline-flex items-center gap-4 mb-6" data-motion="blur-reveal">
+            <div class="h-[1px] w-12 bg-gold"></div>
+            <p class="text-gold font-bold text-xs tracking-[0.2em] uppercase">The Mentor</p>
+          </div>
+          <h2 class="text-h2 mb-10 leading-tight" data-motion="stagger-words" data-motion-delay="0.1">
+            Hey, I'm <span class="text-white italic font-light">Allan</span>
+          </h2>
 
-        <p class="text-sm text-text-secondary mb-3" data-motion="fade-up" data-motion-delay="0.2" data-motion-duration="0.8">
-          A few years ago I hit a wall with my own business. Revenue had plateaued,
-          I was working more hours than ever, and nothing I tried seemed to move
-          the needle. I hired consultants, read every business book, attended the
-          conferences — and most of it was either too generic or too theoretical to
-          actually help.
-        </p>
-
-        <p class="text-sm text-text-secondary mb-3" data-motion="fade-up" data-motion-delay="0.3" data-motion-duration="0.8">
-          So I went deep. I studied what actually makes businesses scale — the
-          systems, the offers, the operations, the leadership. I tested everything
-          in my own business first, then started helping other owners do the same.
-        </p>
-
-        <p class="text-sm text-text-secondary" data-motion="fade-up" data-motion-delay="0.4" data-motion-duration="0.8">
-          Now I work directly with business owners who are in that same spot I was.
-          Not as a consultant who hands you a plan and disappears — as a mentor who
-          gets in the trenches with you until the problem is solved.
-        </p>
-      </div>
-    </div>
-
-    <!-- Desktop: original overlay layout -->
-    <div class="hidden sm:block relative min-h-[70vh]">
-      <img
-        src="/images/heroes/alan-networking-2x.webp"
-        alt="Allan Chan networking with business owners at an event"
-        class="absolute inset-0 w-full h-full object-cover object-center"
-        loading="lazy"
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent"></div>
-
-      <div class="relative z-10 flex items-center min-h-[70vh] w-full px-10 lg:px-50 py-20 md:py-28">
-        <div class="max-w-md">
-          <h2 class="text-h2 mb-6" data-motion="fade-right" data-motion-delay="0.1" data-motion-duration="0.8">Hey, I'm <span class="text-gold">Allan</span></h2>
-
-          <p class="text-body text-text-secondary mb-4" data-motion="fade-right" data-motion-delay="0.2" data-motion-duration="0.8">
-            A few years ago I hit a wall with my own business. Revenue had plateaued,
-            I was working more hours than ever, and nothing I tried seemed to move
-            the needle. I hired consultants, read every business book, attended the
-            conferences — and most of it was either too generic or too theoretical to
-            actually help.
-          </p>
-
-          <p class="text-body text-text-secondary mb-4" data-motion="fade-right" data-motion-delay="0.3" data-motion-duration="0.8">
-            So I went deep. I studied what actually makes businesses scale — the
-            systems, the offers, the operations, the leadership. I tested everything
-            in my own business first, then started helping other owners do the same.
-          </p>
-
-          <p class="text-body text-text-secondary" data-motion="fade-right" data-motion-delay="0.4" data-motion-duration="0.8">
-            Now I work directly with business owners who are in that same spot I was.
-            Not as a consultant who hands you a plan and disappears — as a mentor who
-            gets in the trenches with you until the problem is solved.
-          </p>
+          <div class="space-y-6">
+            <p class="text-body text-text-secondary leading-relaxed" data-motion="blur-reveal" data-motion-delay="0.2">
+              A few years ago I hit a wall with my own business. Revenue had plateaued, I was working more hours than ever, and nothing I tried seemed to move the needle. I hired consultants, read every business book, attended the conferences — and most of it was either too generic or too theoretical to actually help.
+            </p>
+            <p class="text-body text-text-secondary leading-relaxed" data-motion="blur-reveal" data-motion-delay="0.3">
+              So I went deep. I studied what actually makes businesses scale — the systems, the offers, the operations, the leadership. I tested everything in my own business first, then started helping other owners do the same.
+            </p>
+            <p class="text-body-lg text-white font-heading italic leading-relaxed pt-2" data-motion="blur-reveal" data-motion-delay="0.4">
+              "Now I work directly with business owners who are in that same spot I was. Not as a consultant who hands you a plan and disappears — as a mentor who gets in the trenches with you until the problem is solved."
+            </p>
+          </div>
+        </div>
+        
+        <!-- Image Side (with V2 Parallax) -->
+        <div class="lg:col-span-7 relative h-full">
+          <div class="aspect-[4/3] sm:aspect-[4/5] lg:aspect-[3/4] relative overflow-hidden rounded-2xl shadow-2xl transition-transform duration-700 hover:scale-[1.02]" data-motion="blur-reveal" data-motion-delay="0.3">
+            <!-- Increased base scale and height to allow room for parallax shifting -->
+            <img
+              src="/images/heroes/alan-networking-2x.webp"
+              alt="Allan Chan networking with business owners at an event"
+              class="absolute inset-x-0 -top-[10%] w-full h-[120%] object-cover object-center"
+              data-parallax="-60"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent z-10"></div>
+          </div>
         </div>
       </div>
-    </div>
+    </SectionWrapper>
   </section>
 
   <!-- Companies Section -->
-  <SectionWrapper width="wide">
-    <div class="text-center mb-8 sm:mb-12">
-      <h2 class="text-h2 mb-4" data-motion="fade-up">Companies I've Built</h2>
-      <p class="text-sm sm:text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
+  <SectionWrapper width="wide" class="py-20 sm:py-32 border-b border-white/5">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-4 mb-4" data-motion="blur-reveal">
+          <p class="text-gold font-bold text-xs tracking-[0.2em] uppercase">The Portfolio</p>
+          <div class="h-[1px] w-12 bg-gold"></div>
+        </div>
+        <h2 class="text-h2" data-motion="stagger-words" data-motion-delay="0.1">Companies I've Built</h2>
+      </div>
+      <p class="text-body text-text-secondary max-w-md pb-1" data-motion="blur-reveal" data-motion-delay="0.2">
         I don't just advise — I build. These are the businesses I own and operate.
       </p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
       <a href="https://www.elevateoco.com/en-gb" target="_blank" rel="noopener noreferrer" class="group h-full transition-transform duration-500 hover:scale-[1.03]" data-motion="fade-up" data-motion-delay="0.1">
         <Card class="h-full">
           <div class="flex flex-col items-center text-center gap-4 h-full">
@@ -232,28 +214,30 @@ const results = [
     </div>
   </SectionWrapper>
 
-  <!-- What I Help With Section -->
-  <section class="relative overflow-hidden">
+  <!-- What I Help With Section (Bento Grid) -->
+  <section class="relative overflow-hidden py-24 sm:py-32">
     <img
       src="/images/heroes/IMG_1081.webp"
       alt=""
       class="absolute inset-0 w-full h-full object-cover object-center"
       loading="lazy"
     />
-    <div class="absolute inset-0 bg-black/80"></div>
+    <div class="absolute inset-0 bg-navy-900/85"></div>
     <div class="relative z-10">
       <SectionWrapper width="wide">
-        <div class="text-center mb-8 sm:mb-12">
-          <h2 class="text-h2 mb-4" data-motion="fade-up">What I Help With</h2>
-          <p class="text-sm sm:text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
+        <div class="text-center mb-16 sm:mb-20">
+          <p class="text-gold font-bold text-xs tracking-[0.2em] uppercase mb-4" data-motion="blur-reveal">Core Focus</p>
+          <h2 class="text-h2 mb-6" data-motion="stagger-words" data-motion-delay="0.1">What I Help With</h2>
+          <p class="text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="blur-reveal" data-motion-delay="0.2">
             I work hands-on with business owners across six core areas — whatever is holding your business back right now.
           </p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, i) => (
-            <div data-motion="fade-up" data-motion-delay={`${i * 0.1}`} data-motion-duration="0.5">
-              <Card variant="gold">
-                <div class="flex items-start gap-4">
+            <!-- V2 Parallax varied by column -->
+            <div data-motion="blur-reveal" data-motion-delay={`${i * 0.1}`} data-motion-duration="0.8" data-parallax={i % 2 === 0 ? "-20" : "-40"}>
+              <Card class="h-full">
+                <div class="flex flex-col gap-6 h-full">
                   <img
                     src={`/images/icons/${service.icon}.webp`}
                     alt=""
@@ -263,8 +247,8 @@ const results = [
                     loading="lazy"
                   />
                   <div>
-                    <h3 class="text-h3 mb-2">{service.name}</h3>
-                    <p class="text-text-secondary">{service.desc}</p>
+                    <h3 class="text-h3 mb-3 font-heading">{service.name}</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed">{service.desc}</p>
                   </div>
                 </div>
               </Card>
@@ -276,21 +260,28 @@ const results = [
   </section>
 
   <!-- Results Section -->
-  <SectionWrapper width="wide">
-    <div class="text-center mb-8 sm:mb-12">
-      <h2 class="text-h2 mb-4" data-motion="fade-up">Results That Speak for Themselves</h2>
-      <p class="text-sm sm:text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
+  <SectionWrapper width="wide" class="py-24 sm:py-32 border-b border-white/5">
+    <div class="flex flex-col items-center text-center mb-16 sm:mb-20">
+      <div class="inline-flex items-center gap-4 mb-4" data-motion="blur-reveal">
+        <div class="h-[1px] w-8 bg-gold"></div>
+        <p class="text-gold font-bold text-xs tracking-[0.2em] uppercase">Outcomes</p>
+        <div class="h-[1px] w-8 bg-gold"></div>
+      </div>
+      <h2 class="text-h2 mb-6" data-motion="stagger-words" data-motion-delay="0.1">Results That Speak for Themselves</h2>
+      <p class="text-body-lg text-text-secondary max-w-2xl mx-auto" data-motion="blur-reveal" data-motion-delay="0.2">
         Here is what happens when strategy meets execution. Real businesses, real outcomes.
       </p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
       {results.map((result, i) => (
-        <div class="h-full" data-motion="fade-up" data-motion-delay={`${i * 0.12}`} data-motion-duration="0.5">
-          <Card class="h-full">
-            <p class="text-text-secondary font-bold text-sm uppercase tracking-wide mb-2">{result.title}</p>
-            <p class="text-h3 font-bold mb-1 text-gold">{result.stat}</p>
-            <p class="text-text-tertiary text-sm mb-4">In {result.period}</p>
-            <p class="text-text-secondary">{result.desc}</p>
+        <div class="h-full" data-motion="blur-reveal" data-motion-delay={`${i * 0.15}`}>
+          <Card class="h-full flex flex-col justify-between group">
+            <div>
+              <p class="text-white/40 font-bold text-[10px] uppercase tracking-[0.2em] mb-6">{result.title}</p>
+              <p class="text-[clamp(1.75rem,2.5vw,2.5rem)] leading-tight font-heading font-bold mb-3 text-gold transition-colors duration-500">{result.stat}</p>
+              <p class="text-gold text-[10px] font-bold tracking-[0.2em] uppercase mb-8">In {result.period}</p>
+            </div>
+            <p class="text-text-secondary text-sm leading-relaxed border-t border-white/10 pt-6 mt-2 group-hover:border-gold/30 transition-colors duration-500">{result.desc}</p>
           </Card>
         </div>
       ))}
@@ -298,42 +289,38 @@ const results = [
   </SectionWrapper>
 
   <!-- Why Section -->
-  <section class="relative overflow-hidden">
+  <section class="relative overflow-hidden py-24 sm:py-32">
     <img
       src="/images/heroes/IMG_1082.webp"
       alt=""
-      class="absolute inset-0 w-full h-full object-cover object-center"
+      class="absolute inset-0 w-full h-full object-cover object-center grayscale opacity-80 mix-blend-luminosity scale-105"
+      style="animation: slow-zoom 30s ease-out forwards;"
       loading="lazy"
     />
-    <div class="absolute inset-0 bg-black/80"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/80 to-navy-950"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--color-navy-900)_100%)]"></div>
     <div class="relative z-10">
       <SectionWrapper width="narrow">
-        <h2 class="text-h2 text-center mb-4" data-motion="fade-up">Why Business Owners Work With Me</h2>
-        <p class="text-body-lg text-text-secondary text-center max-w-2xl mx-auto mb-10" data-motion="fade-up" data-motion-delay="0.1">
-          I am not an advisor who gives you a PDF and disappears. I work alongside you, inside your business, until the problem is solved.
-        </p>
-        <div class="max-w-lg mx-auto space-y-4 mb-10">
-          <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.15">
-            <svg class="h-6 w-6 text-gold shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            <span class="text-sm sm:text-body-lg text-text-secondary">Hands-on, not theoretical — I get in the trenches with you and your team</span>
+        <div class="text-center mb-10 sm:mb-14" data-motion="blur-reveal">
+          <p class="text-gold font-bold text-xs tracking-[0.2em] uppercase mb-4">The Guarantee</p>
+          <h2 class="text-h2 mb-6 leading-tight" data-motion="stagger-words">Why Business Owners Work With Me</h2>
+          <p class="text-body-lg text-text-secondary max-w-2xl mx-auto italic font-heading">
+            "I am not an advisor who gives you a PDF and disappears. I work alongside you, inside your business, until the problem is solved."
+          </p>
+        </div>
+        <div class="max-w-xl mx-auto space-y-8 mb-10">
+          <div class="flex items-start gap-6 border-l border-gold/30 pl-6 py-2 transition-colors duration-500 hover:border-gold group" data-motion="skew-up" data-motion-delay="0.15">
+            <span class="text-body-lg text-white group-hover:text-gold transition-colors duration-500">Hands-on, not theoretical — I get in the trenches with you and your team</span>
           </div>
-          <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.25">
-            <svg class="h-6 w-6 text-gold shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            <span class="text-sm sm:text-body-lg text-text-secondary">Custom to your business — no cookie-cutter playbooks or generic frameworks</span>
+          <div class="flex items-start gap-6 border-l border-gold/30 pl-6 py-2 transition-colors duration-500 hover:border-gold group" data-motion="skew-up" data-motion-delay="0.25">
+            <span class="text-body-lg text-white group-hover:text-gold transition-colors duration-500">Custom to your business — no cookie-cutter playbooks or generic frameworks</span>
           </div>
-          <div class="flex items-start gap-3" data-motion="fade-left" data-motion-delay="0.35">
-            <svg class="h-6 w-6 text-gold shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            <span class="text-sm sm:text-body-lg text-text-secondary">The goal is your independence — I build systems so you do not need me forever</span>
+          <div class="flex items-start gap-6 border-l border-gold/30 pl-6 py-2 transition-colors duration-500 hover:border-gold group" data-motion="skew-up" data-motion-delay="0.35">
+            <span class="text-body-lg text-white group-hover:text-gold transition-colors duration-500">The goal is your independence — I build systems so you do not need me forever</span>
           </div>
         </div>
-        <div class="text-center" data-motion="fade-up" data-motion-delay="0.4">
-          <Button variant="primary" size="md" href="https://calendly.com/allan-chan-roseyco/one-on-one" target="_blank" rel="noopener noreferrer">
+        <div class="text-center" data-motion="blur-reveal" data-motion-delay="0.4">
+          <Button variant="primary" size="lg" href="https://calendly.com/allan-chan-roseyco/one-on-one" target="_blank" rel="noopener noreferrer">
             Book a Free Call
           </Button>
         </div>
@@ -342,9 +329,12 @@ const results = [
   </section>
 
   <!-- FAQ Section -->
-  <SectionWrapper width="narrow">
-    <h2 class="text-h2 text-center mb-10" data-motion="fade-up">Questions People Ask Me</h2>
-    <div data-motion="fade-up" data-motion-delay="0.15">
+  <SectionWrapper width="narrow" class="py-24 sm:py-32">
+    <div class="text-center mb-16 sm:mb-20" data-motion="blur-reveal">
+      <p class="text-gold font-bold text-xs tracking-[0.2em] uppercase mb-4">Clarity</p>
+      <h2 class="text-h2" data-motion="stagger-words">Questions People Ask Me</h2>
+    </div>
+    <div data-motion="blur-reveal" data-motion-delay="0.15">
       <AccordionItem question="Who do you work with?">
         <p>I work with business owners who are already making money but have hit a ceiling. You have revenue, you have customers, but something is keeping you stuck — whether that is operations, sales, marketing, or team. If you are past the startup phase and ready to scale, we are probably a good fit.</p>
       </AccordionItem>
@@ -367,32 +357,32 @@ const results = [
   </SectionWrapper>
 
   <!-- Email Signup Section -->
-  <section class="relative overflow-hidden">
+  <section class="relative overflow-hidden py-24 sm:py-32">
     <img
       src="/images/heroes/IMG_1091.webp"
       alt=""
       class="absolute inset-0 w-full h-full object-cover object-center"
       loading="lazy"
     />
-    <div class="absolute inset-0 bg-black/80"></div>
+    <div class="absolute inset-0 bg-navy-900/85"></div>
     <div class="relative z-10">
     <SectionWrapper width="narrow" id="signup" class="text-center">
-      <h2 class="text-h2 mb-4" data-motion="fade-up">Get on My List</h2>
-      <p class="text-sm sm:text-body-lg text-text-secondary mb-6 sm:mb-8 max-w-xl mx-auto" data-motion="fade-up" data-motion-delay="0.1">
+      <h2 class="text-h2 mb-6" data-motion="skew-up">Get on My List</h2>
+      <p class="text-body-lg text-text-secondary mb-10 sm:mb-12 max-w-xl mx-auto leading-relaxed" data-motion="blur-reveal" data-motion-delay="0.1">
         Every week I share what is working for the businesses I mentor — growth strategies, scaling lessons, and things most owners figure out too late. It is free and you can unsubscribe whenever.
       </p>
-      <form id="email-signup" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" data-motion="fade-up" data-motion-delay="0.2">
+      <form id="email-signup" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" data-motion="blur-reveal" data-motion-delay="0.2">
         <FormInput
           type="email"
           name="email"
           placeholder="Enter your email"
           required={true}
-          class="flex-1"
+          class="flex-1 bg-navy-900 border-white/10 text-white placeholder-text-tertiary focus:border-gold rounded-full px-8 text-center sm:text-left"
         />
-        <Button variant="primary" size="md">Count Me In</Button>
+        <Button variant="primary" size="md" class="w-full sm:w-auto">Count Me In</Button>
       </form>
-      <p id="form-message" class="text-sm mt-3 hidden"></p>
-      <p class="text-xs text-text-tertiary mt-4">
+      <p id="form-message" class="text-sm mt-4 hidden"></p>
+      <p class="text-[10px] text-text-tertiary uppercase tracking-widest mt-6" data-motion="blur-reveal" data-motion-delay="0.3">
         No spam. Unsubscribe anytime.
       </p>
     </SectionWrapper>
