@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-02-11)
 
 **Core value:** Business owners land on Alan Chan's personal site, immediately see him as a credible digital marketing educator, and sign up to stay connected.
-**Current focus:** Phase 3 complete — ready for Phase 4 (Kit email integration)
+**Current focus:** All 5 phases complete — site shipped as Mentorship Ltd (pivoted from Elevateo Co)
 
 ## Current Position
 
-Phase: 3 of 5 (About Page + Brand Refresh) — COMPLETE
+Phase: 5 of 5 (Animation + Polish) — COMPLETE
 Plan: 2 of 2 in current phase — COMPLETE
-Status: Phase 3 complete. Brand refresh superseded remaining plans.
-Last activity: 2026-02-12 — Brand refresh commit (fcf5cc2)
+Status: All phases complete. Phases 4 & 5 completed outside GSD tracking. Site live as Mentorship Ltd.
+Last activity: 2026-04-23 — Backfilled Phase 4 & 5 completion (quick task 260423-bvx)
 
 Progress: [############] 100%
 
@@ -82,11 +82,29 @@ None.
 
 ### Blockers/Concerns
 
-- Kit (ConvertKit) API key and form ID needed before Phase 4 can integrate real email submission
-- Course topic definitions are now in place (6 digital marketing courses) — no longer a blocker
+None. All phases complete.
+
+**Resolved blockers:**
+- Kit API → replaced with Resend (RESEND_API_KEY, RESEND_AUDIENCE_ID env vars required in deployment)
+- Course page → merged into single index.astro during Mentorship Ltd pivot
+
+### Untracked Pivot (2026-02-12 to 2026-04-23)
+
+9 commits made outside GSD between Phase 3 and now:
+- **Brand pivot:** Elevateo Co (3 pages) → Mentorship Ltd (single-page)
+- **Email provider:** Kit/ConvertKit → Resend API
+- **Animation library:** GSAP → Motion One + Lenis + SplitType
+- **Design iterations:** 3 full visual redesigns (blue/white → dark mono → cinematic)
+- **Content:** Calendly booking links added, company logos section, real stats
+
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 260423-bvx | check if phases 4 and 5 have been completed already but were not tracked in gsd | 2026-04-23 | — | [260423-bvx-check-if-phases-4-and-5-have-been-comple](./quick/260423-bvx-check-if-phases-4-and-5-have-been-comple/) |
 
 ## Session Continuity
 
-Last session: 2026-02-12T18:49Z
-Stopped at: Phase 3 complete — brand refresh committed (fcf5cc2)
+Last session: 2026-04-23
+Stopped at: All 5 phases confirmed complete. Tracking backfilled.
 Resume file: None

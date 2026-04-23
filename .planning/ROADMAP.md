@@ -15,8 +15,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation** - Design system, project scaffolding, navigation, and responsive framework
 - [x] **Phase 2: Home Page** - Bold hero, problem/solution, FAQ, and first email form
 - [x] **Phase 3: About Page + Brand Refresh** - Founder story, philosophy, email capture, and full visual + content overhaul
-- [ ] **Phase 4: Courses + Email Integration** - Kit API integration and form states across all pages
-- [ ] **Phase 5: Animation + Polish** - GSAP scroll animations, performance tuning, and final QA
+- [x] **Phase 4: Courses + Email Integration** - Resend API integration and form states across all pages (completed outside GSD, 0560d37)
+- [x] **Phase 5: Animation + Polish** - Motion One scroll animations, Lenis smooth scroll, kinetic typography (completed outside GSD, 6babaf6)
 
 ## Phase Details
 
@@ -78,8 +78,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 04-01: Kit API integration with custom fetch, success/error states across all pages
-- [ ] 04-02: End-to-end email capture testing and cross-page verification
+- [x] 04-01: Resend API integration with custom fetch, success/error states — completed outside GSD (0560d37)
+- [x] 04-02: End-to-end email capture verified — single index.astro with /api/subscribe route
 
 ### Phase 5: Animation + Polish
 **Goal**: The site feels premium with smooth scroll-driven animations, loads fast, and is ready for real traffic
@@ -92,8 +92,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 05-01: GSAP ScrollTrigger animations across all pages
-- [ ] 05-02: Performance audit and optimization pass
+- [x] 05-01: Motion One scroll animations + Lenis smooth scroll + SplitType kinetic typography — completed outside GSD (235cf58, 6babaf6)
+- [x] 05-02: Performance via sharp image optimization (78-91KB per page payload) — completed outside GSD
 
 ## Progress
 
@@ -105,5 +105,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Foundation | 3/3 | Complete | 2026-02-11 |
 | 2. Home Page | 2/2 | Complete | 2026-02-11 |
 | 3. About Page + Brand Refresh | 2/2 | Complete | 2026-02-12 |
-| 4. Courses + Email Integration | 0/2 | Not started | - |
-| 5. Animation + Polish | 0/2 | Not started | - |
+| 4. Courses + Email Integration | 2/2 | Complete | 2026-04-23 (backfilled) |
+| 5. Animation + Polish | 2/2 | Complete | 2026-04-23 (backfilled) |
