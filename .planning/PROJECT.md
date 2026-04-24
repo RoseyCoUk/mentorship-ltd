@@ -12,7 +12,8 @@ Established business owners land on the site, immediately see Elevateo Co as a c
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] Lachlan mentor image pipeline — optimized WebPs in deploy bundle, EXIF auto-rotate for iPhone photos (Validated in Phase 06: lachlan-image-pipeline-mentorintro-component)
+- [x] MentorIntro component shell — props-driven Astro component with split-grid bio, specialty cards, audience list, Motion One integration (Validated in Phase 06: lachlan-image-pipeline-mentorintro-component)
 
 ### Active
 
