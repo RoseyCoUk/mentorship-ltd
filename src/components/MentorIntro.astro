@@ -1,0 +1,185 @@
+---
+// src/components/MentorIntro.astro
+//
+// Reusable mentor profile section — bio split-grid + specialty cards + "who he works with" list.
+// Props-driven (D-08). Flip direction is controlled by the `flip` boolean (D-09).
+// Wraps each sub-section in SectionWrapper (D-10). Inherits animations via data-motion attrs (D-11).
+//
+// This component is NOT imported anywhere during Phase 6 — Phase 7 slots it into index.astro.
+
+import SectionWrapper from "./SectionWrapper.astro";
+import Button from "./Button.astro";
+import Card from "./Card.astro";
+
+interface Specialty {
+  icon: string;                 // Filename in public/images/icons/ WITHOUT extension (e.g. "automation")
+                                // Component expands to `/images/icons/${icon}.webp`
+  name: string;                 // Card title (2-5 words)
+  desc: string;                 // Card body (1-2 sentences, <= 180 chars)
+}
+
+interface AudienceItem {
+  title: string;                // Bold lead phrase (2-4 words), rendered as <strong>
+  desc: string;                 // Trailing description after em-dash
+}
+
+interface Props {
+  id?: string;                  // HTML id on outer bio section (enables #lachlan anchor in Phase 7)
+  eyebrow: string;              // Small gold label above H2 (rendered uppercase via CSS)
+  name: string;                 // First name — rendered italic inside H2 via split-on-substring
+  headline: string;             // Full H2 text that contains `name` as a substring
+  credentials: string[];        // 2-4 bio paragraphs
+  image: { src: string; alt: string };
+  flip?: boolean;               // Default false. true = image LEFT, text RIGHT.
+  cta: { label: string; href: string };
+  specialties: Specialty[];     // Recommend 3 items
+  audienceHeading: string;      // H3 above the audience list
+  audienceItems: AudienceItem[];// Recommend 3-4 items
+}
+
+const {
+  id,
+  eyebrow,
+  name,
+  headline,
+  credentials,
+  image,
+  flip = false,
+  cta,
+  specialties,
+  audienceHeading,
+  audienceItems,
+} = Astro.props;
+
+// Split the headline on the first-name substring so we can wrap the name in an italic span.
+// Example: headline="Meet Lachlan", name="Lachlan" -> ["Meet ", ""]
+const [beforeName, afterName = ""] = headline.split(name);
+---
+
+{/* ============ Bio split-grid ============ */}
+<section class="overflow-hidden relative py-20 sm:py-32" id={id}>
+  <SectionWrapper width="wide">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+
+      {/* Image side — DOM-ordered FIRST when flip=true (Lachlan layout: image LEFT, text RIGHT at lg+) */}
+      {flip && (
+        <div class="lg:col-span-7 relative h-full">
+          <div
+            class="aspect-[4/3] sm:aspect-[4/5] lg:aspect-[3/4] relative overflow-hidden rounded-2xl shadow-2xl transition-transform duration-700 hover:scale-[1.02]"
+            data-motion="blur-reveal"
+            data-motion-delay="0.3"
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              class="absolute inset-x-0 -top-[10%] w-full h-[120%] object-cover object-center"
+              data-parallax="-60"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent z-10"></div>
+          </div>
+        </div>
+      )}
+
+      {/* Text side */}
+      <div class="lg:col-span-5 relative z-10 lg:pl-4">
+        <div class="inline-flex items-center gap-4 mb-6" data-motion="blur-reveal">
+          <div class="h-[1px] w-12 bg-gold"></div>
+          <p class="text-gold font-bold text-xs tracking-[0.2em] uppercase">{eyebrow}</p>
+        </div>
+        <h2 class="text-h2 mb-10 leading-tight" data-motion="stagger-words" data-motion-delay="0.1">
+          {beforeName}<span class="text-white italic font-light">{name}</span>{afterName}
+        </h2>
+
+        <div class="space-y-6">
+          {credentials.map((para: string, i: number) => (
+            <p
+              class="text-body text-text-secondary leading-relaxed"
+              data-motion="blur-reveal"
+              data-motion-delay={`${0.2 + i * 0.1}`}
+            >
+              {para}
+            </p>
+          ))}
+        </div>
+
+        <div class="mt-10" data-motion="fade-up" data-motion-delay="0.5">
+          <Button variant="primary" size="lg" href={cta.href} target="_blank" rel="noopener noreferrer">
+            {cta.label}
+          </Button>
+        </div>
+      </div>
+
+      {/* Image side — DOM-ordered LAST when flip=false (Allan layout: text LEFT, image RIGHT at lg+) */}
+      {!flip && (
+        <div class="lg:col-span-7 relative h-full">
+          <div
+            class="aspect-[4/3] sm:aspect-[4/5] lg:aspect-[3/4] relative overflow-hidden rounded-2xl shadow-2xl transition-transform duration-700 hover:scale-[1.02]"
+            data-motion="blur-reveal"
+            data-motion-delay="0.3"
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              class="absolute inset-x-0 -top-[10%] w-full h-[120%] object-cover object-center"
+              data-parallax="-60"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent z-10"></div>
+          </div>
+        </div>
+      )}
+
+    </div>
+  </SectionWrapper>
+</section>
+
+{/* ============ Specialty cards ============ */}
+<SectionWrapper width="wide" class="py-20 sm:py-32">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+    {specialties.map((s: Specialty, i: number) => (
+      <div
+        data-motion="blur-reveal"
+        data-motion-delay={`${i * 0.1}`}
+        data-parallax={i % 2 === 0 ? "-20" : "-40"}
+      >
+        <Card class="h-full">
+          <div class="flex flex-col gap-6 h-full">
+            <img
+              src={`/images/icons/${s.icon}.webp`}
+              alt=""
+              width="48"
+              height="48"
+              class="w-12 h-12 shrink-0"
+              loading="lazy"
+            />
+            <div>
+              <h3 class="text-h3 mb-3 font-heading">{s.name}</h3>
+              <p class="text-text-secondary text-sm leading-relaxed">{s.desc}</p>
+            </div>
+          </div>
+        </Card>
+      </div>
+    ))}
+  </div>
+</SectionWrapper>
+
+{/* ============ "Who he works with" ============ */}
+<SectionWrapper width="narrow" class="py-20 sm:py-32">
+  <div class="text-center mb-12" data-motion="blur-reveal">
+    <h3 class="text-h3">{audienceHeading}</h3>
+  </div>
+  <div class="max-w-xl mx-auto space-y-6">
+    {audienceItems.map((item: AudienceItem, i: number) => (
+      <div
+        class="flex items-start gap-6 border-l border-gold/30 pl-6 py-2 transition-colors duration-500 hover:border-gold group"
+        data-motion="skew-up"
+        data-motion-delay={`${0.1 + i * 0.1}`}
+      >
+        <span class="text-body-lg text-white group-hover:text-gold transition-colors duration-500">
+          <strong class="font-bold">{item.title}</strong> — {item.desc}
+        </span>
+      </div>
+    ))}
+  </div>
+</SectionWrapper>
