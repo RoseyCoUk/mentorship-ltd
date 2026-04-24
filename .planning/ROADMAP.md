@@ -121,8 +121,12 @@ Plans:
   3. Visitor sees three specialty cards covering solo agency scaling, co-founder work, and AI/automation, plus a "Who Lachlan works with" block that lets them self-identify as a fit (or not)
   4. Visitor can click a CTA button on Lachlan's section and is routed to Allan's Calendly link (documented placeholder until Lachlan's own booking link is provided)
   5. Visitor using the site header can click "Allan", "Lachlan", or "FAQ" and the page smoothly scrolls to the corresponding section via `#allan`, `#lachlan`, `#faq` anchors — on both desktop and mobile nav
-**Plans**: TBD
+**Plans**: 2 plans
 **UI hint**: yes
+
+Plans:
+- [ ] 07-01-PLAN.md — Enable Lenis anchor navigation, add Allan/Lachlan/FAQ header nav links, add id="allan" + id="faq" section anchors (NAV-04)
+- [ ] 07-02-PLAN.md — Insert Lachlan MentorIntro section with locked-copy bio + 3 specialty cards + audience block + Calendly CTA + hair-line divider (MENTOR-01..07)
 
 ## Progress
 
@@ -137,4 +141,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 4. Courses + Email Integration | 2/2 | Complete | 2026-04-23 (backfilled) |
 | 5. Animation + Polish | 2/2 | Complete | 2026-04-23 (backfilled) |
 | 6. Lachlan Image Pipeline + MentorIntro Component | 2/2 | Complete   | 2026-04-24 |
-| 7. Lachlan Section Integration + Navigation Anchors | 0/? | Not started | - |
+| 7. Lachlan Section Integration + Navigation Anchors | 0/2 | Planned | - |
