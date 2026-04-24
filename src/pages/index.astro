@@ -171,6 +171,24 @@ const lachlanAudience = [
     </SectionWrapper>
   </section>
 
+  <!-- Allan → Lachlan transition divider (MENTOR-01) -->
+  <div class="border-t border-white/5"></div>
+
+  <!-- Lachlan Section (MENTOR-01..07) -->
+  <MentorIntro
+    id="lachlan"
+    eyebrow="The Specialist"
+    name="Lachlan"
+    headline="Meet Lachlan"
+    credentials={lachlanCredentials}
+    image={{ src: "/images/lachlan/lachlan-portrait.webp", alt: "Lachlan MacDonald" }}
+    flip={true}
+    cta={{ label: "Book a Call", href: "https://calendly.com/allan-chan-roseyco/one-on-one" }}
+    specialties={lachlanSpecialties}
+    audienceHeading="Who Lachlan works with"
+    audienceItems={lachlanAudience}
+  />
+
   <!-- Companies Section -->
   <SectionWrapper width="wide" class="py-20 sm:py-32 border-b border-white/5">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
