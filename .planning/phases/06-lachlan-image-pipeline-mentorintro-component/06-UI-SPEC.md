@@ -47,23 +47,40 @@ The project uses Tailwind 4's `--spacing: 0.25rem` base (4px) — every `py-*` /
 
 Exceptions (all inherited from existing Allan section, not new to this phase):
 1. `mb-10` (40px) between H2 and bio paragraph stack — non-standard step, but matches `index.astro:120`
-2. `py-3.5` (14px) on `<Button size="md">` — inherited from `Button.astro:30`, not Phase 6's choice
-3. `mt-10` (40px) gap from bio copy → CTA button — matches Allan's layout
+2. `mt-10` (40px) gap from bio copy → CTA button — matches Allan's layout
+
+**Button internal padding note:** `Button.astro` at `Button.astro:30` applies `py-3.5` (14px) internally for `size="md"`. This value is **encapsulated within `Button.astro`** — MentorIntro passes `size="md"` to `<Button>` without overriding internal padding, so Button's interior padding is opaque to this component. MentorIntro does not own, declare, or expose this value. If the Button component ever changes its internal padding scale, that change is a Button concern, not a MentorIntro concern.
 
 ---
 
 ## Typography
 
-Sizes and weights are inherited from `global.css @theme` tokens (lines 46-58). Declared token set is intentionally small — Phase 6 uses 4 type roles, 2 weights.
+Sizes and weights are inherited from `global.css @theme` tokens (lines 46-58). Declared token set is intentionally small — Phase 6 uses 4 type roles, 2 weights + 1 approved exception.
 
 | Role | Token | Size | Weight | Line Height | Usage in MentorIntro |
 |------|-------|------|--------|-------------|----------------------|
 | Body | `text-body` | `clamp(1rem, 1.25vw, 1.125rem)` → 16–18px | 400 (regular) | 1.7 base / `leading-relaxed` (1.625) on paragraphs | Bio paragraphs, specialty card descriptions |
 | Label | `text-xs` | 12px | 700 (bold) | 1 / `tracking-[0.2em]` | Gold eyebrow (`THE SPECIALIST`, `THE MENTOR`), button `size="sm"` |
 | Heading H3 | `text-h3` | `clamp(1.5rem, 2vw + 1rem, 2rem)` → 24–32px | 700 | 1.2 (base) | Specialty card title, audience heading |
-| Heading H2 | `text-h2` | `clamp(2rem, 4vw + 0.25rem, 3.5rem)` → 32–56px | 700 regular / **300 italic** for first-name emphasis | 1.2 base / `leading-tight` (1.25) | Bio section headline (e.g. `Meet Lachlan`) |
+| Heading H2 | `text-h2` | `clamp(2rem, 4vw + 0.25rem, 3.5rem)` → 32–56px | 700 | 1.2 base / `leading-tight` (1.25) | Bio section headline (e.g. `Meet Lachlan`) |
 
-Weight inventory: exactly **2 weights** — `font-weight: 400` (body) and `font-weight: 700` (headings, bold labels, CTA button). First-name emphasis uses `font-light` (300) in italic — permitted as a **single** decorative tertiary inherited from Allan's existing headline pattern (`index.astro:121`), not a new weight.
+**Weight inventory (declared contract): exactly 2 weights**
+- `font-weight: 400` (regular) — body copy, first-name italic emphasis
+- `font-weight: 700` (bold) — headings, labels, CTA button
+
+**First-name italic emphasis:** rendered as `italic` (font-style) at **weight 400** — the italic style alone provides sufficient visual differentiation against the surrounding H2 heading at weight 700. No third weight is introduced. Implementation: `<span class="text-white italic">{name}</span>` inside the H2 template.
+
+**Approved exception — `font-light` (300) for first-name emphasis:**
+
+| Property | Value |
+|----------|-------|
+| Status | Approved exception — NOT a third contract weight |
+| Rationale | Must visually match Allan's existing H2 headline pattern in the same page |
+| Locked by | Existing codebase: `src/pages/index.astro:121` uses `<span class="text-white italic font-light">Allan</span>` inside the About-section H2 |
+| Scope | Single use: the first-name `<span>` inside the bio H2 only. Not used anywhere else in MentorIntro. |
+| Review trigger | If Allan's section is ever refactored off `font-light`, MentorIntro must follow in the same commit |
+
+The executor MUST render the first-name span as `<span class="text-white italic font-light">{name}</span>` to match the established site pattern at `index.astro:121`. This single-location decorative weight is carried by the approved exception above; it does not expand MentorIntro's 2-weight inventory.
 
 Font family: `font-heading` (Playfair Display) for all H1/H2/H3 and the italic quote in bio; `font-body` (Inter) for everything else. Tokens already set on `<body>` and `h1-h6` base styles in `global.css:120-139`.
 
@@ -86,7 +103,7 @@ Palette is dark monochrome (60% dominant, 30% secondary, 10% accent). Zero new c
 
 Accent reserved for: the 4 specific elements listed above. **Never** the bio body text, **never** the CTA button fill (monochrome white CTA is deliberate), **never** the card body fill. Gold appears only as (a) the 48px eyebrow rule, (b) the eyebrow uppercase label, (c) the 1px left-border on audience rows, (d) the hover-state text recolor on audience items.
 
-Special case — italic first name: rendered `text-white italic font-light` inside the H2, not gold. This is consistent with Allan's "Hey, I'm *Allan*" pattern — the italic + weight shift provides emphasis; accent color is reserved for the eyebrow above it.
+Special case — italic first name: rendered `text-white italic font-light` inside the H2, not gold. This is consistent with Allan's "Hey, I'm *Allan*" pattern — the italic + weight shift provides emphasis; accent color is reserved for the eyebrow above it. The `font-light` (300) value is carried by the Typography "Approved exception" entry.
 
 ---
 
