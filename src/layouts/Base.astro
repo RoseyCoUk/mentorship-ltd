@@ -51,6 +51,8 @@ const {
           lerp: 0.08, // Buttery smooth, slightly heavier for luxury feel
           wheelMultiplier: 0.8,
           smoothWheel: true,
+          // -72 compensates for fixed 4.5rem (72px) header — see RESEARCH Pitfall 1
+          anchors: { offset: -72 },
         });
 
         function raf(time: number) {
