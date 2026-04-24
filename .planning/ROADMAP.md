@@ -19,7 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: About Page + Brand Refresh** - Founder story, philosophy, email capture, and full visual + content overhaul
 - [x] **Phase 4: Courses + Email Integration** - Resend API integration and form states across all pages (completed outside GSD, 0560d37)
 - [x] **Phase 5: Animation + Polish** - Motion One scroll animations, Lenis smooth scroll, kinetic typography (completed outside GSD, 6babaf6)
-- [ ] **Phase 6: Lachlan Image Pipeline + MentorIntro Component** - Move raw JPGs out of public/, extend optimize-images.mjs for Lachlan, build reusable MentorIntro component
+- [x] **Phase 6: Lachlan Image Pipeline + MentorIntro Component** - Move raw JPGs out of public/, extend optimize-images.mjs for Lachlan, build reusable MentorIntro component (completed 2026-04-24)
 - [ ] **Phase 7: Lachlan Section Integration + Navigation Anchors** - Insert full Lachlan section into index.astro between Allan and Companies, add Allan/Lachlan/FAQ anchor links to header
 
 ## Phase Details
@@ -136,5 +136,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 3. About Page + Brand Refresh | 2/2 | Complete | 2026-02-12 |
 | 4. Courses + Email Integration | 2/2 | Complete | 2026-04-23 (backfilled) |
 | 5. Animation + Polish | 2/2 | Complete | 2026-04-23 (backfilled) |
-| 6. Lachlan Image Pipeline + MentorIntro Component | 1/2 | In Progress|  |
+| 6. Lachlan Image Pipeline + MentorIntro Component | 2/2 | Complete   | 2026-04-24 |
 | 7. Lachlan Section Integration + Navigation Anchors | 0/? | Not started | - |

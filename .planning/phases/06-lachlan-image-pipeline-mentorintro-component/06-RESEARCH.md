@@ -598,27 +598,23 @@ async function processLogos() {
 - `public/Lachlan Pictures/` directory — being removed in Phase 6 per D-03.
 - Original launch research `STACK.md` (pre-2026-04-23) — superseded by v1.1 rewrite in same file.
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Should `toWebp()` be patched globally, or `.rotate()` inlined in `processLachlan()`?**
-   - What we know: patching the helper is safer (covers future iPhone uploads) and the change is backward-compatible (no-op for images without EXIF orientation).
-   - What's unclear: whether the maintainer prefers minimal diffs in existing working code.
-   - Recommendation: **patch the helper** — one-line change, no regression risk, future-proof. Flag for human review in the PR.
+   - **Resolved answer:** Patch the shared `toWebp()` helper globally.
+   - **Reason:** This is the lower-risk choice for Phase 6 because it fixes the known EXIF-orientation gap once, remains backward-compatible for existing PNG/WebP flows, and aligns with the plan's explicit helper-level mitigation.
 
 2. **Does `Portrait.JPG` actually have EXIF Orientation metadata?**
-   - What we know: 8.6 MB source, consistent with an iPhone raw JPG, which almost always ships with orientation tags.
-   - What's unclear: without running `sharp(src).metadata()` (blocked — deps not installed in this session), we can't confirm the orientation flag value.
-   - Recommendation: treat as IF orientation is present, apply `.rotate()` unconditionally. Worst case: no-op.
+   - **Resolved answer:** Treat EXIF orientation as present-or-possible and apply `.rotate()` unconditionally.
+   - **Reason:** The phase does not need to prove the tag exists to choose the safe implementation. `sharp().rotate()` is a no-op when the tag is absent, so the plan remains correct either way.
 
 3. **What target width is optimal — 1400, 1600, or 1800?**
-   - What we know: Allan's `alan-networking-2x.webp` (177 KB) comes in around 1400–1800 px judging by file size vs quality. The image is displayed at max ~700 px wide on desktop (inside `lg:col-span-7` at `max-w-7xl`), so a 2x retina target is ~1400 px.
-   - What's unclear: whether the source has enough resolution at 1800 px — an 8.6 MB iPhone JPG almost certainly does.
-   - Recommendation: **1600 px at quality 82** as the first trial. Adjust if file size misses 150–300 KB band on first build.
+   - **Resolved answer:** Start at **1600 px / quality 82** for `lachlan-portrait.webp`, then tune only if the output misses the 150-300 KB requirement band.
+   - **Reason:** This is the best fit with the Allan reference asset, the actual display width, and the requirement to preserve fast feedback while avoiding unnecessary retuning loops.
 
 4. **Is `Picture_with_War_Room_members.JPG` worth processing at all?**
-   - What we know: D-02 says yes (process now, placement deferred). Prior PITFALLS research says the image is "explicitly forbidden" as hero/feature imagery and should not carry social proof.
-   - What's unclear: whether Phase 7 will actually find a use for it.
-   - Recommendation: process it per D-02, but flag in the phase summary that its existence does not mandate its use. STATE.md already tracks this as a pending concern.
+   - **Resolved answer:** Yes — process it in Phase 6 per D-02, but keep placement and prominence deferred.
+   - **Reason:** The user decision is locked. Processing the asset now satisfies the availability requirement without committing Phase 7 to use it in a prominent position.
 
 ## Environment Availability
 
