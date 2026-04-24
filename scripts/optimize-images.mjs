@@ -139,6 +139,25 @@ async function processBanners() {
   }
 }
 
+// --- Lachlan ---
+async function processLachlan() {
+  console.log("\n👤 Lachlan:");
+  const dir = join(DEST, "lachlan");
+  await ensureDir(dir);
+
+  // NOTE: Do NOT use SRC constant — SRC points to "_zip_temp/Elevateo", not Lachlan's folder.
+  const srcPortrait = join("_zip_temp/Lachlan", "Portrait.JPG");
+  const srcWarRoom  = join("_zip_temp/Lachlan", "Picture_with_War_Room_members.JPG");
+
+  const tasks = [
+    toWebp(srcPortrait, join(dir, "lachlan-portrait.webp"), { width: 1600, quality: 82 }),
+    toWebp(srcWarRoom,  join(dir, "lachlan-warroom.webp"),  { width: 1800, quality: 80 }),
+  ];
+
+  const results = await Promise.all(tasks);
+  results.forEach((f, i) => logResult(["lachlan-portrait.webp", "lachlan-warroom.webp"][i], f));
+}
+
 // --- Main ---
 async function main() {
   console.log("Optimizing Elevateo brand assets...");
@@ -148,6 +167,7 @@ async function main() {
   await processIcons();
   await processHeroes();
   await processBanners();
+  await processLachlan();
 
   console.log("\n✅ Done! All images written to public/images/");
 }
