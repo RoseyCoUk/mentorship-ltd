@@ -1,10 +1,11 @@
 ---
 phase: 7
 slug: lachlan-section-integration-navigation-anchors
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-04-24
+reviewed_at: 2026-04-24
 ---
 
 # Phase 7 — UI Design Contract
