@@ -55,5 +55,32 @@ Established business owners land on the site, immediately see Elevateo Co as a c
 | Full structure at launch (not just landing page) | Site needs to look established and ready even before courses drop | — Pending |
 | Email signup over lead magnet | Simpler to launch, captures interest without needing to create a free resource first | — Pending |
 
+## Current Milestone: v1.1 Add Lachlan MacDonald
+
+**Goal:** Expand the site to feature Lachlan MacDonald as a second mentor alongside Allan, with Allan remaining the primary presence at the top and Lachlan positioned below.
+
+**Target features:**
+- Lachlan's mentor profile/section added to the site
+- Allan remains featured first (primary/top position)
+- Lachlan positioned as secondary mentor (below Allan)
+- Lachlan's key angles: scaled solo agencies, CEO of boltloop.co (a division of Elevateo), works with co-founders, maintains great physical health and is a fighter
+
+## Evolution
+
+This document evolves at phase transitions and milestone boundaries.
+
+**After each phase transition** (via `/gsd:transition`):
+1. Requirements invalidated? → Move to Out of Scope with reason
+2. Requirements validated? → Move to Validated with phase reference
+3. New requirements emerged? → Add to Active
+4. Decisions to log? → Add to Key Decisions
+5. "What This Is" still accurate? → Update if drifted
+
+**After each milestone** (via `/gsd:complete-milestone`):
+1. Full review of all sections
+2. Core Value check — still the right priority?
+3. Audit Out of Scope — reasons still valid?
+4. Update Context with current state
+
 ---
-*Last updated: 2026-02-11 after initialization*
+*Last updated: 2026-04-23 — Milestone v1.1 started*

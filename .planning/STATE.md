@@ -9,10 +9,10 @@ See: .planning/PROJECT.md (updated 2026-02-11)
 
 ## Current Position
 
-Phase: 5 of 5 (Animation + Polish) — COMPLETE
-Plan: 2 of 2 in current phase — COMPLETE
-Status: All phases complete. Phases 4 & 5 completed outside GSD tracking. Site live as Mentorship Ltd.
-Last activity: 2026-04-23 — Backfilled Phase 4 & 5 completion (quick task 260423-bvx)
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-04-23 — Milestone v1.1 started (Add Lachlan MacDonald)
 
 Progress: [############] 100%
 
