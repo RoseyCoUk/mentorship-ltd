@@ -74,6 +74,23 @@
 | Chatbot / live chat | Premature for a site with no traffic yet |
 | Social media feed integration | Adds third-party dependencies and clutter |
 
+## v1.1 Requirements (Milestone: Add Lachlan MacDonald)
+
+### Lachlan Mentor Section
+
+- [ ] **MENTOR-01**: Visitor sees a clear visual break between Allan's content and Lachlan's section (section divider or design transition element)
+- [ ] **MENTOR-02**: Visitor reads Lachlan's bio in a split-grid layout — photo left, text right (layout flipped from Allan's About section)
+- [ ] **MENTOR-03**: Visitor learns Lachlan's credentials: co-founder of Bellum Advisors, CEO of boltloop.co, background scaling solo agencies
+- [ ] **MENTOR-04**: Bio includes a subtle reference to Lachlan's physical discipline and fighting background as part of his character
+- [ ] **MENTOR-05**: Visitor sees three specialty/focus cards highlighting Lachlan's core angles (solo agency scaling, co-founder work, AI/automation)
+- [ ] **MENTOR-06**: Visitor can identify if Lachlan is the right mentor for them via a "Who Lachlan works with" block
+- [ ] **MENTOR-07**: Visitor can book a call via a CTA button on Lachlan's section (routes to Allan's Calendly link as placeholder)
+- [ ] **MENTOR-08**: Lachlan's portrait is processed to WebP (~150–300 KB) and renders consistently with the site's existing image quality
+
+### Navigation
+
+- [ ] **NAV-04**: Visitor can navigate directly to Allan's section, Lachlan's section, or the FAQ via anchor links in the site header
+
 ## Traceability
 
 | Requirement | Phase | Status |
@@ -93,16 +110,26 @@
 | ABOUT-03 | Phase 3: About Page | Complete |
 | COURSE-01 | Phase 3: Brand Refresh | Complete |
 | COURSE-02 | Phase 3: Brand Refresh | Complete |
-| EMAIL-01 | Phase 4: Courses + Email Integration | Pending |
-| EMAIL-02 | Phase 4: Courses + Email Integration | Pending |
-| EMAIL-03 | Phase 4: Courses + Email Integration | Pending |
-| DESIGN-04 | Phase 5: Animation + Polish | Pending |
+| EMAIL-01 | Phase 4: Courses + Email Integration | Complete |
+| EMAIL-02 | Phase 4: Courses + Email Integration | Complete |
+| EMAIL-03 | Phase 4: Courses + Email Integration | Complete |
+| DESIGN-04 | Phase 5: Animation + Polish | Complete |
+| MENTOR-01 | TBD — v1.1 roadmap | Pending |
+| MENTOR-02 | TBD — v1.1 roadmap | Pending |
+| MENTOR-03 | TBD — v1.1 roadmap | Pending |
+| MENTOR-04 | TBD — v1.1 roadmap | Pending |
+| MENTOR-05 | TBD — v1.1 roadmap | Pending |
+| MENTOR-06 | TBD — v1.1 roadmap | Pending |
+| MENTOR-07 | TBD — v1.1 roadmap | Pending |
+| MENTOR-08 | TBD — v1.1 roadmap | Pending |
+| NAV-04 | TBD — v1.1 roadmap | Pending |
 
 **Coverage:**
-- v1 requirements: 19 total
-- Mapped to phases: 19
-- Unmapped: 0
+- v1 requirements: 19 total — all Complete
+- v1.1 requirements: 9 total
+- Mapped to phases: TBD (roadmap pending)
+- Unmapped: 9
 
 ---
 *Requirements defined: 2026-02-11*
-*Last updated: 2026-02-12 after Phase 3 completion (brand refresh)*
+*Last updated: 2026-04-23 — v1.1 milestone requirements added*
