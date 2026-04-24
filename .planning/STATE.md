@@ -2,24 +2,24 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-02-11)
+See: .planning/PROJECT.md (updated 2026-04-23)
 
-**Core value:** Business owners land on Alan Chan's personal site, immediately see him as a credible digital marketing educator, and sign up to stay connected.
-**Current focus:** All 5 phases complete — site shipped as Mentorship Ltd (pivoted from Elevateo Co)
+**Core value:** Business owners land on Mentorship Ltd and immediately see Allan Chan (primary) and Lachlan MacDonald (secondary) as credible mentors they can book calls with.
+**Current focus:** Milestone v1.1 — Add Lachlan MacDonald. Roadmap defined (Phases 6 and 7). Ready for plan-phase on Phase 6.
 
 ## Current Position
 
-Phase: Not started (defining requirements)
+Phase: 6 — Lachlan Image Pipeline + MentorIntro Component
 Plan: —
-Status: Defining requirements
-Last activity: 2026-04-23 — Milestone v1.1 started (Add Lachlan MacDonald)
+Status: Roadmap defined, awaiting plan-phase
+Last activity: 2026-04-23 — v1.1 roadmap created (Phases 6, 7 added)
 
-Progress: [############] 100%
+Progress: [############......] 71% (5 of 7 phases complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
+- Total plans completed: 8 (across v1.0)
 - Average duration: 3.6 min
 - Total execution time: 27 min
 
@@ -30,10 +30,13 @@ Progress: [############] 100%
 | 1. Foundation | 3/3 | 18 min | 6 min |
 | 2. Home Page | 2/2 | 7 min | 3.5 min |
 | 3. About Page + Brand Refresh | 2/2 | 2 min | 1 min |
+| 4. Courses + Email Integration | 2/2 | backfilled | — |
+| 5. Animation + Polish | 2/2 | backfilled | — |
+| 6. Lachlan Image Pipeline + MentorIntro | 0/? | — | — |
+| 7. Lachlan Section Integration + Nav | 0/? | — | — |
 
 **Recent Trend:**
-- Last 5 plans: 02-01 (2 min), 02-02 (5 min), 03-01 (1 min), 03-02 (0 min, superseded)
-- Trend: Fast execution
+- v1.0 shipped. v1.1 just started.
 
 *Updated after each plan completion*
 
@@ -44,49 +47,37 @@ Progress: [############] 100%
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [v1.1 Roadmap]: Split Lachlan work into Phase 6 (foundational: images + component) and Phase 7 (integration: section + nav) so the component is reusable and the image pipeline change is isolated
+- [v1.1 Roadmap]: MENTOR-08 (image optimization) lives in Phase 6 because Phase 7 depends on the optimized WebP existing
+- [v1.1 Roadmap]: Raw Lachlan JPGs (~18 MB total) must be moved from `public/Lachlan Pictures/` to `_zip_temp/Lachlan/` before any other work — current location is a deploy bundle risk
+- [v1.1 Roadmap]: New `MentorIntro.astro` component is props-driven and reuses existing `SectionWrapper` + data-attribute animation system (no new JS, animations inherit automatically)
+- [v1.1 Roadmap]: Lachlan's section inserted between Allan's About section and the Companies section in index.astro (~line 153)
+- [v1.1 Roadmap]: Split-grid flipped (photo LEFT, text RIGHT) for Lachlan to visually differentiate from Allan's existing layout
+- [v1.1 Roadmap]: Lachlan's CTA routes to Allan's Calendly as a documented placeholder — will swap to Lachlan's own link when provided
+- [v1.1 Roadmap]: Header anchor links (#allan, #lachlan, #faq) added to Header.astro navLinks array (no page routing needed — single-page site)
+
+**Prior v1.0 decisions (retained for context):**
+
 - [Roadmap]: Astro 5.x + Tailwind CSS 4.x + GSAP + Kit (ConvertKit) + Cloudflare Pages stack per research
-- [Roadmap]: Email integration consolidated into Phase 4 (Kit API + form states finalized with courses page)
-- [Roadmap]: GSAP animations deferred to Phase 5 (can't animate pages that don't exist)
-- [01-01]: Gold (#D4A843) selected as accent color for premium authority feel
-- [01-01]: Inter Variable as single font for heading + body (performance + readability)
-- [01-01]: Reset default Tailwind colors to enforce brand-only palette
-- [01-01]: CSS-first Tailwind v4 with @theme directive -- no tailwind.config.js
-- [01-02]: Header spacer div for fixed header offset (not body padding-top)
-- [01-02]: Button dynamic Tag renders as <a> or <button> based on href prop
-- [01-02]: Footer social links are placeholder text (Twitter, LinkedIn, YouTube) until real URLs provided
-- [01-03]: Course "Coming Soon" badges as styled inline elements
-- [02-01]: Single CTA per section (one button in hero, not two like Phase 1)
-- [02-01]: bg-navy-950 for problem section visual separation from navy-900 body
-- [02-01]: Solution uses checkmark pattern (not cards) for contrast with problem section
-- [02-01]: AccordionItem uses class-based querySelectorAll for Astro script dedup compatibility
-- [02-02]: 6 FAQ items covering courses, experience level, differentiation, duration, templates, and launch timing
-- [02-02]: Email form uses placeholder success logic -- Phase 4 replaces with Kit API fetch call
-- [02-02]: Script re-runs setupEmailForm on astro:after-swap for View Transitions compatibility
-- [03-01]: Union type for FormInput type prop instead of astroHTML.JSX.HTMLInputTypeAttribute
 - [Brand Refresh]: Color palette shifted from cold navy (#0B1120) to warm charcoal (#101010) to match gold line-art assets
 - [Brand Refresh]: Gold accent updated from #D4A843 to #C9A132 (richer, warmer, matches logo gradient)
-- [Brand Refresh]: Text colors shifted from blue-gray to warm gray (text-secondary: #9B9590, text-tertiary: #6E6862)
 - [Brand Refresh]: All page content rewritten from corporate "Elevateo Co" voice to Alan Chan's personal first-person voice
-- [Brand Refresh]: Footer simplified from 3-column corporate grid to single-row personal (copyright + social links)
-- [Brand Refresh]: Header updated with logo-icon.webp next to "Elevateo" text
-- [Brand Refresh]: Favicon changed from SVG to PNG (logo-icon-32.png) with apple-touch-icon
-- [Brand Refresh]: Home page: hero with illustration (flowryse-1), 6-icon skills grid, personal FAQ, "Get on My List" CTA
-- [Brand Refresh]: About page: "Hey, I'm Alan", first-person story, "How I Teach" philosophy, illustration (flowryse-2)
-- [Brand Refresh]: Courses page: 6 digital marketing courses with icons, banner, "How It Works" section, email form
-- [Brand Refresh]: Image optimization: sharp converts PNGs to WebP, per-page payload 78-91KB
-- [Brand Refresh]: Course grid (COURSE-01, COURSE-02) completed early — Phase 4 now only needs Kit API integration
+- [Pivot]: Site pivoted from Elevateo Co (3 pages) to Mentorship Ltd (single-page)
+- [Pivot]: Email provider changed from Kit/ConvertKit to Resend (RESEND_API_KEY, RESEND_AUDIENCE_ID env vars required)
+- [Pivot]: Animation library: GSAP → Motion One + Lenis + SplitType
 
 ### Pending Todos
 
-None.
+- Phase 6 plan creation (run `/gsd:plan-phase 6`)
+- Confirm Lachlan's own Calendly link status (currently placeholder → Allan's)
+- Verify Picture_with_War_Room_members.JPG (9.48 MB) is actually needed for the Lachlan section — if not, leave in _zip_temp/ only
 
 ### Blockers/Concerns
 
-None. All phases complete.
+None blocking Phase 6 planning. Phase 7 carries two soft risks:
 
-**Resolved blockers:**
-- Kit API → replaced with Resend (RESEND_API_KEY, RESEND_AUDIENCE_ID env vars required in deployment)
-- Course page → merged into single index.astro during Mentorship Ltd pivot
+1. "Subtle fighting reference" in MENTOR-04 — needs tone calibration during content pass (avoid gym-bro framing)
+2. Lachlan's own Calendly link missing — placeholder to Allan's Calendly is acceptable but should be flagged in release notes
 
 ### Untracked Pivot (2026-02-12 to 2026-04-23)
 
@@ -106,5 +97,5 @@ None. All phases complete.
 ## Session Continuity
 
 Last session: 2026-04-23
-Stopped at: All 5 phases confirmed complete. Tracking backfilled.
+Stopped at: v1.1 roadmap created. Phases 6 and 7 defined. Ready for `/gsd:plan-phase 6`.
 Resume file: None

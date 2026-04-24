@@ -114,22 +114,22 @@
 | EMAIL-02 | Phase 4: Courses + Email Integration | Complete |
 | EMAIL-03 | Phase 4: Courses + Email Integration | Complete |
 | DESIGN-04 | Phase 5: Animation + Polish | Complete |
-| MENTOR-01 | TBD — v1.1 roadmap | Pending |
-| MENTOR-02 | TBD — v1.1 roadmap | Pending |
-| MENTOR-03 | TBD — v1.1 roadmap | Pending |
-| MENTOR-04 | TBD — v1.1 roadmap | Pending |
-| MENTOR-05 | TBD — v1.1 roadmap | Pending |
-| MENTOR-06 | TBD — v1.1 roadmap | Pending |
-| MENTOR-07 | TBD — v1.1 roadmap | Pending |
-| MENTOR-08 | TBD — v1.1 roadmap | Pending |
-| NAV-04 | TBD — v1.1 roadmap | Pending |
+| MENTOR-01 | Phase 7: Lachlan Section Integration + Navigation Anchors | Pending |
+| MENTOR-02 | Phase 7: Lachlan Section Integration + Navigation Anchors | Pending |
+| MENTOR-03 | Phase 7: Lachlan Section Integration + Navigation Anchors | Pending |
+| MENTOR-04 | Phase 7: Lachlan Section Integration + Navigation Anchors | Pending |
+| MENTOR-05 | Phase 7: Lachlan Section Integration + Navigation Anchors | Pending |
+| MENTOR-06 | Phase 7: Lachlan Section Integration + Navigation Anchors | Pending |
+| MENTOR-07 | Phase 7: Lachlan Section Integration + Navigation Anchors | Pending |
+| MENTOR-08 | Phase 6: Lachlan Image Pipeline + MentorIntro Component | Pending |
+| NAV-04 | Phase 7: Lachlan Section Integration + Navigation Anchors | Pending |
 
 **Coverage:**
 - v1 requirements: 19 total — all Complete
-- v1.1 requirements: 9 total
-- Mapped to phases: TBD (roadmap pending)
-- Unmapped: 9
+- v1.1 requirements: 9 total — all mapped (MENTOR-08 → Phase 6; MENTOR-01..07 + NAV-04 → Phase 7)
+- Mapped to phases: 9 / 9
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-11*
-*Last updated: 2026-04-23 — v1.1 milestone requirements added*
+*Last updated: 2026-04-23 — v1.1 milestone requirements mapped to Phases 6 & 7*
