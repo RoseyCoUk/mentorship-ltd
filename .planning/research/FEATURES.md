@@ -1,176 +1,184 @@
-# Feature Landscape
+# Feature Landscape — Second Mentor (Lachlan MacDonald)
 
-**Domain:** Business education authority website (founder-led, scaling focus)
-**Project:** Elevateo Co
-**Researched:** 2026-02-11
-**Overall confidence:** MEDIUM-HIGH
-
----
-
-## Table Stakes
-
-Features users expect. Missing any of these and the site looks amateur or untrustworthy to established business owners. These are non-negotiable for a credibility-first business education site targeting $500k-$1M+ owners.
-
-| # | Feature | Why Expected | Complexity | Confidence | Notes |
-|---|---------|-------------|------------|------------|-------|
-| T1 | **Bold hero with specific promise** | Every reference site (acquisition.com, grantcardone.com, tonyrobbins.com) leads with a clear, outcome-oriented headline. "Do You Want to Scale Your Business?" (Hormozi). Visitors decide in 3-5 seconds whether to stay. | Low | HIGH | Must speak to the visitor's desired outcome, not describe what Elevateo is. "Scale past $1M" not "We teach business." |
-| T2 | **Founder authority section with specific metrics** | Hormozi: "$250M+ portfolio revenue." Cardone: "$4.7B assets under management." Robbins: "50M+ people reached." Established business owners evaluate credibility through concrete numbers, not vague claims. Without metrics, the founder looks like another unproven coach. | Low | HIGH | Alan needs at minimum 2-3 verifiable metrics: revenue generated, businesses helped, years of experience, or similar. If metrics are modest, frame them honestly -- "helped 50+ businesses scale past $500k" beats vague "expert in scaling." |
-| T3 | **Single, clear primary CTA per section** | acquisition.com: one "LEARN TO SCALE" button in hero. Every high-converting authority site has ONE action per viewport. Multiple competing CTAs dilute conversions. The user's own research confirms this pattern. | Low | HIGH | For v1 with no courses, every CTA points to email signup. "Get Scaling Insights" or "Join the Waitlist" -- one action, repeated. |
-| T4 | **Email capture form (hero + footer minimum)** | The primary conversion mechanism for a pre-course site. Bare newsletter signups convert at ~2% of visitors. This is the only monetizable action at launch. Must be present in hero and repeated at page bottom. | Low | HIGH | Single field (email only). Name field reduces conversion 10-15%. Keep it minimal. |
-| T5 | **Social proof section** | 92% of consumers read reviews/testimonials before purchasing. For business education, this means client results, testimonials with names and specifics, or media logos. Every reference site has at least one dedicated proof section. | Medium | HIGH | For v1, if client testimonials don't exist yet, use "as featured in" media logos (even podcast appearances count), specific result metrics, or partner logos. Empty testimonial sections are worse than no section at all. |
-| T6 | **Professional founder photography** | Every reference site uses professional, high-quality founder imagery. Cardone: studio shots with premium lighting. Hormozi: professional portraits. Robbins: stage photography. Stock photos or amateur selfies immediately undercut authority positioning with a $500k+ audience. | Low (site-side) | HIGH | This is a content dependency, not a code dependency. Alan needs professional headshots and at least one "in-action" shot before launch. The site design should be built around professional image slots. |
-| T7 | **Mobile-responsive design** | 60%+ of web traffic is mobile. acquisition.com, grantcardone.com, and tonyrobbins.com all have fully responsive layouts with mobile-specific breakpoints. A broken mobile experience is an instant credibility kill. | Medium | HIGH | Dark themes on mobile need extra attention -- contrast ratios, touch targets (44x44px minimum), readable text sizes. Test on actual devices. |
-| T8 | **Dark, bold visual identity** | Non-negotiable per project brief. acquisition.com: black + purple. russellbrunson.com: black + gold. grantcardone.com: dark + green accents. This is the design language of the "premium authority" space. | Medium | HIGH | WCAG requires 4.5:1 contrast ratio minimum for text. Pure black (#000) causes eye strain and halation -- use dark grays (#0a0a0a to #1a1a1a) with off-white text (#f0f0f0 to #fafafa). Accent color needs to pass contrast on dark backgrounds. |
-| T9 | **Clear navigation (5 items max)** | Research shows coaching sites should limit top-level nav to 5-7 items. "Coming soon" pages in nav are explicitly called out as an anti-pattern. For 3 pages (Home, About, Courses) plus CTA button, this is naturally clean. | Low | HIGH | Nav items: Home, About, Courses, CTA button. No dropdowns needed for v1. |
-| T10 | **About page with founder story arc** | Every authority site has a compelling origin story. The pattern: "I was where you are" -> "I figured out X" -> "Now I help others do the same." This creates relatability and demonstrates expertise simultaneously. | Low-Medium | HIGH | Structure: Origin/struggle -> Discovery/transformation -> Current mission. Include timeline with concrete milestones. |
-| T11 | **Fast page load (<3 seconds)** | Research confirms visitors abandon sites that take >3 seconds to load. Dark-themed sites with large hero images are particularly prone to bloat. Authority is undermined by poor performance. | Medium | HIGH | Optimize images (WebP format), minimize JavaScript, lazy-load below-fold content. Target Lighthouse score 90+. |
-| T12 | **Footer with legal essentials** | acquisition.com includes: DMCA policy, disclaimers about results, copyright notice. Business education sites need earnings disclaimers ("Results not typical"). Absence looks legally naive to sophisticated business owners. | Low | HIGH | Include: copyright, privacy policy link, earnings disclaimer, contact info. |
+**Domain:** Dual-mentor personal brand / coaching site (single-page Astro)
+**Milestone:** Adding Lachlan MacDonald as secondary mentor below primary (Allan Chan)
+**Researched:** 2026-04-23
+**Scope:** New mentor section within existing single-page site — not a rebuild
 
 ---
 
-## Differentiators
+## Context Anchors (from existing site)
 
-Features that set Elevateo Co apart. Not expected at launch, but create competitive advantage when present. Prioritized by impact relative to effort.
+The existing Allan section already establishes these reusable blocks in `src/pages/index.astro`:
 
-| # | Feature | Value Proposition | Complexity | Confidence | Notes |
-|---|---------|-------------------|------------|------------|-------|
-| D1 | **Free resource / lead magnet instead of bare email signup** | Data shows lead magnets double or triple email conversion rates vs. bare signup (3.83% to 7.73% on mobile). A PDF guide like "5 Scaling Bottlenecks Killing Your Growth" gives visitors immediate value and positions Alan as generous with knowledge (the Hormozi model). | Medium | HIGH | This is the single highest-impact differentiator for v1. Even a simple 3-5 page PDF dramatically increases signup rates. Project currently says "email signup" -- upgrading to lead magnet is the most impactful scope change possible. |
-| D2 | **Problem/solution framework section** | acquisition.com and consulting.com both structure their homepages around the visitor's problem, not the company's features. "You're stuck at $500k because of X, Y, Z" then "Here's how we fix each one." This speaks directly to the target audience's pain. | Low-Medium | HIGH | Homepage section that names 3-4 specific scaling bottlenecks the audience faces. Makes the visitor feel understood. Far more effective than listing what Elevateo offers. |
-| D3 | **Specific result metrics displayed prominently** | Hormozi: "$250M+ in annual revenue." Displayed as large, bold numbers. Cardone: "$4.7B in assets." These aren't hidden in paragraphs -- they're designed as visual callouts. Standalone metric displays create instant authority. | Low | HIGH | Design as a "numbers bar" or "stats strip" -- 3-4 metrics in large typography on dark background. E.g., "X+ businesses scaled | $XM+ revenue generated | X years experience | X industries." |
-| D4 | **Course placeholder grid that builds anticipation** | Pre-launch course pages that tease content generate waitlist signups. The pattern: show course cards with titles, brief descriptions, and "Coming Soon -- Get Early Access" CTAs. This is explicitly better than empty pages or "under construction." | Medium | MEDIUM | Each card: course title, one-line description, topic icon or image, "Notify Me" CTA tied to email capture. 4-6 cards is the sweet spot -- enough to show breadth, few enough to feel curated. |
-| D5 | **"How it works" process section** | Coaching sites that explain their methodology in 3-4 clear steps convert higher. "Step 1: Diagnose your bottleneck. Step 2: Get the playbook. Step 3: Execute with support." Makes the abstract tangible. | Low | MEDIUM | 3 steps with icons. Keep it simple. This bridges the gap between "I'm interested" and "I trust this enough to sign up." |
-| D6 | **FAQ section with objection handling** | acquisition.com has an FAQ accordion on the homepage. FAQs that address "Is this for me?" and "Why should I trust you?" objections reduce bounce and support conversion. | Low | HIGH | 5-7 questions. Focus on the actual objections a $500k+ business owner has: "I've seen lots of coaches -- what's different?" "Is this for my industry?" "What if I don't have time?" |
-| D7 | **Video embed (founder intro)** | russellbrunson.com has a sticky video player. tonyrobbins.com embeds video previews. A 60-90 second founder intro video creates "instant rapport" that text cannot. Coaching site research calls this "powerful" for trust building. | Medium | MEDIUM | Content dependency: Alan needs to record a video. Technically simple (embed YouTube/Vimeo). But only include if the video is high-quality -- a bad video is worse than no video. |
-| D8 | **Animated scroll interactions** | grantcardone.com uses hover zoom effects, animated underlines, and scale transforms. Subtle scroll-triggered animations (fade-in, slide-up) make dark-themed sites feel premium rather than static. | Medium | MEDIUM | Use sparingly. The goal is "polished and alive," not "distracting." Fade-in on scroll for sections, subtle hover states on buttons and cards. |
-| D9 | **"As featured in" media logo bar** | russellbrunson.com shows grayscale logos of Forbes, Entrepreneur, etc. Even podcast appearances or industry publications count. This is a visual shortcut for credibility that costs nothing to implement but requires real media presence. | Low | HIGH | Grayscale logos on dark background, 4-6 logos. If Alan has any media appearances, podcast features, or publication mentions, include them. If not, defer -- fake or irrelevant logos destroy credibility with sophisticated audiences. |
-| D10 | **Cookie consent / GDPR compliance** | acquisition.com uses Cookiebot. Any site collecting emails needs consent management. For an audience of business owners, they notice and judge this. | Low | MEDIUM | Simple consent banner. Required for compliance, signals professionalism. |
+| Existing Pattern | Location | Reusable For Lachlan? |
+|------------------|----------|------------------------|
+| Hero with background image + eyebrow + stagger-words H1 + body + CTA | `~L35-92` | **No** — Allan keeps the hero. Lachlan gets a scaled-down intro block. |
+| Authority metrics bar (4 stats, divided columns) | `~L95-106` | **Yes** — Lachlan can have his own 3-4 stat strip (different metric dimensions). |
+| About/Story split grid (`lg:col-span-5` copy / `lg:col-span-7` image with parallax) | `~L109-153` | **Yes — primary reuse candidate.** Same block, image flipped to opposite side for visual rhythm. |
+| "Companies I've Built" 4-card logo grid | `~L156-215` | **Partial** — Boltloop already lives in Allan's portfolio. Don't duplicate; surface as Lachlan's role chip. |
+| Bento grid of services (6 icon cards with image bg) | `~L218-260` | **Yes** — Lachlan gets 3-6 focus cards with distinct angle (scaled solo agencies / co-founder ops / performance & discipline). |
+| Results/outcomes cards | `~L263-289` | **Yes, optional** — only if Lachlan has verifiable client numbers. Do NOT fabricate. |
+| "Why Work With Me" guarantee block + CTA | `~L292-329` | **Yes** — mirror structure with Lachlan's voice. |
+| FAQ accordion | `~L332-357` | **Shared** — extend existing FAQ with 1-2 Lachlan entries. Do NOT create a second FAQ. |
+| Email signup (Resend) | `~L360-390` | **Shared** — one list, not split. |
+
+Design tokens to preserve: warm charcoal `#101010`, gold `#C9A132` accent, glassmorphism, `data-motion="blur-reveal"`, `data-motion="stagger-words"`, `slow-zoom` keyframe, parallax via `data-parallax`.
+
+Assets available: `public/Lachlan Pictures/Portrait.JPG`, `public/Lachlan Pictures/Picture_with_War_Room_members.JPG`.
 
 ---
 
-## Anti-Features
+## Table Stakes (Must-Have)
 
-Features to explicitly NOT build for v1. Common mistakes in business education sites that waste time, add complexity, or actively hurt conversion and credibility.
+Missing any of these makes the second mentor feel tacked-on or confusing.
 
-| # | Anti-Feature | Why Avoid | What to Do Instead |
-|---|-------------|-----------|-------------------|
-| A1 | **Blog / content hub** | Project brief explicitly excludes this. More importantly, a blog with 2-3 posts looks worse than no blog. Authority content takes months to build. An empty blog section screams "abandoned side project" to a $500k+ business owner. | Defer entirely. When content strategy is ready, launch with 10+ posts or don't launch at all. |
-| A2 | **Live chat / chatbot** | tonyrobbins.com has OpenWidget chatbot, but they have a support team. For a v1 authority site with no team, chat implies availability that doesn't exist. Unanswered chats are worse than no chat. | Contact form or email link in footer. Set expectations: "We respond within 24 hours." |
-| A3 | **User accounts / login system** | No courses exist yet, so there's nothing to log into. Building auth infrastructure for an empty system wastes weeks. Every reference site only has accounts tied to actual purchasable products. | Build accounts when courses go live. The email list IS the user database for now. |
-| A4 | **E-commerce / payment integration** | Cardone has Shopify integration, but he sells dozens of products. With zero products to sell, payment infrastructure is pure overhead. | Defer until there's something to sell. Email capture IS the conversion goal. |
-| A5 | **Complex multi-level navigation / mega menus** | With 3 pages, adding dropdowns or mega menus is overengineering. Cardone's complex nav serves dozens of products. Elevateo has 3 pages. Complex nav on a small site signals "trying too hard." | Flat navigation: Home, About, Courses, CTA button. Clean, direct, no dropdowns. |
-| A6 | **Popup modals for email capture** | Popup fatigue is real, especially with sophisticated audiences. Business owners hate popups. For v1, inline forms perform nearly as well without the annoyance factor. | Inline email capture in hero section and before footer. Less aggressive, same conversion path. |
-| A7 | **Social media feed embeds** | grantcardone.com embeds Instagram feeds. These slow page load, require maintenance, and if posting is inconsistent, show stale content. They also pull visitors OFF the site to social platforms. | Social media icon links in footer only. Keep visitors on the site, not leaving to Instagram. |
-| A8 | **Automated email sequences / CRM** | Project brief correctly scopes this out. Email automation is valuable but separate from the website build. Mixing website development with email marketing setup doubles the project scope. | Capture emails to a simple list (Mailchimp free tier, ConvertKit, etc.). Build automation later. |
-| A9 | **Countdown timers / artificial scarcity** | Fake countdown timers are common on low-end coaching sites. Sophisticated $500k+ business owners see through this immediately. Hormozi notably avoids these -- his credibility comes from substance, not pressure tactics. | If there's a real deadline (course launch date), mention it in copy. No fake urgency. |
-| A10 | **Excessive animations / parallax effects** | Dark themes with too many animations feel like a nightclub, not a business authority site. acquisition.com is actually quite restrained -- bold typography and contrast do the heavy lifting, not motion. | Subtle fade-ins on scroll, smooth hover states. The design should feel confident and still, not busy. |
-| A11 | **"Coming soon" labels in navigation** | Explicitly called out as an anti-pattern in coaching website research. Empty pages linked from nav communicate "this site isn't finished." | The Courses page should exist and be functional -- it just shows upcoming course cards with "Get Early Access" CTAs rather than "Coming Soon" labels. |
-| A12 | **Testimonial section without real testimonials** | Placeholder testimonials ("John D., CEO") or AI-generated quotes are instantly detectable by the target audience. An empty testimonial carousel is even worse. | If testimonials don't exist yet, use metric-based social proof (stats bar), media mentions, or skip the section entirely. Add real testimonials as they come in. |
+| Feature | Why Expected | Complexity | Dependencies | Notes |
+|---------|--------------|------------|--------------|-------|
+| **Lachlan profile section with portrait + name + role** | Basic identity — visitors need a face and a one-line "who is this person" within 2 seconds | Low | Reuses About split-grid pattern (L109-153). Uses `Portrait.JPG` | Lives on the single page (anchor: `#lachlan`). Position: AFTER Allan's Why/Guarantee section, BEFORE FAQ. |
+| **Clear differentiator headline** | Visitor must instantly know WHY Lachlan exists alongside Allan. "Two mentors doing the same thing" is the #1 dual-coach anti-pattern. | Low | Copy only | Recommended: lead with scaled solo agencies / co-founder angle. E.g., "Scale Your Agency Without Burning Out." |
+| **Short narrative bio (2-3 paragraphs)** | About content is typically the 2nd-most-read section. Story beats resume for building trust. | Low | Copy + 1 image | Mirror Allan's structure: origin moment → approach → italic pull-quote. Keep shorter than Allan's (he is primary). |
+| **Explicit positioning vs Allan** | Dual-mentor sites fail when visitors can't tell who to book. Must answer "who do I talk to?" | Low | Copy in bio or FAQ | Either inline callout ("Work with Allan if X. Work with Lachlan if Y.") OR a dedicated FAQ entry. **Pick one, not both.** |
+| **Lachlan-specific CTA / booking link** | Each mentor needs their own conversion path. A shared CTA forces a disambiguation step that kills conversion. | Low | Requires Lachlan's Calendly URL (hard blocker) | Button style identical to Allan's. Href differs. Opens in new tab per existing pattern. |
+| **Lachlan's focus areas / what he helps with** | Answers "what does he actually do" — equivalent to Allan's Bento grid but scoped to his angles | Medium | 3-6 service items + icons | Reuse existing icons (`/images/icons/*.webp`) where they map; add new icons only if angle is unique (e.g., martial arts/discipline). Card count <= Allan's 6 so he doesn't visually outweigh primary. |
+| **Visual hierarchy that signals "secondary"** | Allan must stay dominant. Research on primary/secondary hierarchy: visual weight must be clearly differentiated. | Medium | CSS only | Smaller section height, no full-viewport hero, intro strip rather than hero, smaller H2 scale. Do NOT give Lachlan a 95vh hero. |
+| **Section divider / transition between mentors** | Without a clear break, visitors read two bios as one. Dual-founder sites use explicit "Meet [Name]" intro strips. | Low | CSS + 1 copy line | Recommended: gold horizontal rule + eyebrow ("The Second Mentor" / "Also Working With You") + H2 "Meet Lachlan". Matches existing eyebrow pattern (`text-gold font-bold text-xs tracking-[0.2em] uppercase`). |
+| **Anchor navigation (stable IDs)** | Single-page sites with multiple profiles need anchors so people can share/link directly to each mentor. | Low | Add `id` attributes to sections | Add `id="allan"` on Allan's about section and `id="lachlan"` on Lachlan's. No top-nav change required in v1 — just stable anchors. |
+
+---
+
+## Differentiators (Nice-to-Have, Boost Perceived Quality)
+
+These separate a polished dual-mentor site from a tacked-on second bio.
+
+| Feature | Value Proposition | Complexity | Dependencies | Notes |
+|---------|-------------------|------------|--------------|-------|
+| **"Who should you work with?" decision block** | Removes the #1 friction in dual-coach sites — visitor paralysis. A 2-column "Work with Allan if… / Work with Lachlan if…" converts better than inline paragraphs. | Low-Medium | Copy + layout; sits between the two mentor sections OR inside FAQ | Highest-ROI differentiator. Surfaces repeatedly in dual-coach conversion research. |
+| **Lachlan's distinct personality hook** | Agency-bio research: lean into personality. Here: martial arts/fighting, physical health, AI operator energy. Avoids "two men in suits" interchangeability. | Low | Copy + `Picture_with_War_Room_members.JPG` as secondary image | Unapologetic angle: e.g., "Most mentors talk discipline. Lachlan spars at 6am." Pairs physical edge with operator credibility. |
+| **Complementary stats strip** | If Lachlan gets his own 3-4 stat bar, parallel structure is preserved without cloning numbers | Low | Reuses metrics bar CSS (L95-106) | Metrics MUST be different dimensions from Allan's (e.g., "Solo-to-scaled agencies mentored", "Co-founder teams backed", "AI systems deployed"). |
+| **Cross-link / handoff callouts** | "Need deep AI automation or operator-level systems? Lachlan runs point." inside Allan's section, and reverse. Signals partnership, not competition. | Low | Copy only | One line, one direction each. 2 total cross-mentions max site-wide — more than that is clutter. |
+| **Distinct photography treatment** | Allan uses networking event photo (warm, social). Lachlan's "War Room" photo leans leadership/intensity. Different emotional register = differentiated brand. | Low | Use `Portrait.JPG` for primary Lachlan image, `War_Room_members.JPG` for secondary. Apply same `rounded-2xl` + gradient overlay as Allan's (L139-148) for cohesion. Consider grayscale/luminosity blend (like Why section L294-299) for mood contrast. | |
+| **Role/title chip** | Small "CEO, Boltloop" chip under Lachlan's name establishes authority without a long bio. Creates a credibility bridge to Allan's portfolio (Boltloop already listed there). | Low | Copy + a small `Card`/chip variant | Reinforces Lachlan has his own company; implicitly ties back to Allan's empire. |
+| **Shared testimonial treatment (if any name Lachlan)** | If a testimonial mentions Lachlan specifically, tag it. Keeps social proof honest. | Low | Content-dependent | Skip if no real testimonials name him. Do not invent. |
+| **Cohesive scroll rhythm / page reorder** | Current order: Allan hero → Allan metrics → Allan about → portfolio → services → results → why → FAQ → signup. Lachlan insertion requires: … Allan why → **Lachlan intro → Lachlan story → Lachlan services → (optional) Lachlan why** → FAQ → signup. | Medium | Page reorder in `index.astro` | Biggest architectural change. Requires careful scroll-rhythm review so the site doesn't feel like two sites stapled together. |
+| **Joint unified CTA at end** | After separate mentor sections, a "Not sure who to book? Start here." block can route via Calendly Routing or a simple form. | Medium | Calendly Routing config OR a `<select>` → link | Only worth building if analytics show bounce at the two-CTA point. Skip for v1. |
+| **Mobile collapse / prioritization** | On mobile, a long Lachlan section can push FAQ off-screen, hurting drop-off. A "Meet Lachlan ↓" expandable summary can help. | Medium | JS toggle + CSS | Only if drop-off is proven. Not MVP. |
+
+---
+
+## Anti-Features (Explicitly Do NOT Build)
+
+From dual-coach-site failure research and the existing design system's constraints.
+
+| Anti-Feature | Why Avoid | What to Do Instead |
+|--------------|-----------|---------------------|
+| **Separate `/lachlan` page** | Breaks the single-page Astro pattern. Fragments SEO (the domain's primary page is Allan). Extra route, extra layout, harder to keep design cohesion. Research favors single-page anchors for personal brands. | Keep Lachlan as an on-page section with `#lachlan` anchor. |
+| **Equal-weight dual hero (50/50 split-screen at top)** | Confuses positioning — brief explicitly says Allan stays primary. Split hero signals co-equal partnership and breaks the narrative. Also kills Allan's existing strong hero. | Keep Allan's full hero unchanged. Introduce Lachlan mid-page with a scaled-down intro. |
+| **Generic "Meet the Team" grid of 2** | Two-person grids feel thin and corporate. The site tone is cinematic editorial, not SaaS team page. | Editorial dual-bio sections with distinct imagery per mentor. |
+| **Duplicate FAQ for Lachlan** | Doubles maintenance. Confuses visitors. "Cluttered sections" is the #1 flagged coaching-site mistake in research. | Extend existing FAQ with 1-2 shared entries (who to book, do they work together). |
+| **Duplicate email signup / second list** | Splits the audience. Resend infrastructure is already shared. One list. | Single signup; mention both mentors in the list description if relevant. |
+| **Duplicate "Companies I've Built" block for Lachlan** | Boltloop is already in Allan's portfolio. Relisting it under Lachlan reads as padding and weakens per-mention credibility. | Reference Boltloop inline in Lachlan's role chip ("CEO, Boltloop — AI automation division of Elevateo"). |
+| **Symmetric stat strips with identical metrics** | "$1M+ Revenue / 10+ Businesses" for both = reads as fabricated parallelism. | Different metric dimensions for Lachlan; OR skip stats if none are verifiable. |
+| **Calendly Round Robin across both mentors** | Research surfaces this as a common dual-coach pattern, but the brief says each mentor has a distinct angle. Round Robin sends prospects to whoever is free, defeating specialization. | Two separate direct Calendly links, each on its own mentor's CTA. |
+| **Quote-heavy bio (famous historical quotes)** | Research anti-pattern: "Using famous quotes throughout your website positions someone else as the expert on your own site." | Pull-quotes from Lachlan himself, matching Allan's italic `font-heading` pattern (L131). |
+| **Top-nav link to Lachlan before structure is validated** | Adding a "Meet Lachlan" nav item on a currently-nav-less Header is scope creep. | Rely on anchors first. Add a minimal nav (Allan / Lachlan / Book) only if the section proves hard to find. |
+| **Third-mentor placeholder / "more coming soon"** | Scope creep. Weakens the current two-mentor proposition. | Build for two now. Architect section so an array-driven mentor component COULD extend later, but ship exactly two. |
+| **Full-bleed Lachlan hero competing with Allan's** | Breaks hierarchy. Allan = primary. | Lachlan gets a secondary-tier intro (no `95vh`, no scroll indicator, no stagger-words H1). |
+| **Cute labels like "The Dynamic Duo" / "The Mentors Squad"** | Cheapens the cinematic premium tone. | Factual eyebrow language: "The Second Mentor", "Also Working With You", "Meet Lachlan". |
+| **Fabricated testimonials or stats for Lachlan** | Asymmetric credibility vs Allan's real numbers damages trust if scrutinized. | Ship without results/testimonials for Lachlan in v1. Add in v2/v3 as real data arrives. |
 
 ---
 
 ## Feature Dependencies
 
-Understanding what requires what, so the build order is correct.
-
 ```
-CONTENT DEPENDENCIES (Alan must provide):
-  Professional photography ──> Hero section, About page, all imagery
-  Founder metrics/numbers ──> Stats bar, authority section
-  Founder story narrative ──> About page content
-  Lead magnet PDF (if D1) ──> Email capture upgrade
-  Video recording (if D7) ──> Video embed section
+Lachlan portrait + name + role
+  └─► Lachlan narrative bio
+       └─► Lachlan focus areas (services)
+            └─► Lachlan CTA  [needs Calendly URL from client]
 
-TECHNICAL DEPENDENCIES:
-  Dark design system (T8) ──> Every component inherits from this
-  Email capture service setup ──> Email forms (T4), course notify CTAs (D4)
-  Responsive framework (T7) ──> All page layouts
+Section divider ("Meet Lachlan" eyebrow + H2)
+  └─► Anchor IDs (#allan, #lachlan)
+       └─► (optional) Top-nav additions
 
-BUILD ORDER (features that must come first):
-  T8 (design system) ──> T1, T2, T3, T9 (all visual components)
-  T4 (email service) ──> D1 (lead magnet), D4 (course notifications)
-  T6 (photography) ──> T1 (hero), T2 (authority), T10 (about page)
+"Who to work with?" decision block
+  ├─► Depends on: clear differentiator headlines for BOTH mentors
+  └─► Depends on: Lachlan CTA live
 
-FEATURE GROUPS (build together):
-  Homepage hero: T1 + T3 + T4 + T6
-  Credibility strip: T2 + T5 + D3 + D9
-  Homepage conversion: D2 + D5 + D6 + T3
-  Course page: D4 + T4 (shared email capture)
-  About page: T10 + T6 + T2 (shared metrics)
+Cross-link / handoff callouts
+  └─► Depends on: both mentor sections in place
+
+Joint end-of-page routing CTA
+  └─► Depends on: Calendly Routing setup OR equivalent UX
 ```
+
+**Hard blockers (cannot ship without):**
+1. Lachlan's Calendly URL (or explicit fallback — e.g., "email [address]")
+2. Final positioning copy that distinguishes his angle from Allan's
+3. Role/title confirmation (presumed "CEO, Boltloop" — verify with client)
+
+**Soft blockers (can ship with placeholders):**
+- Additional photography beyond the 2 existing files (if Why/Results variants are wanted)
+- Lachlan-specific stats (can launch without a stats bar)
+- Testimonials (skip unless real data exists)
 
 ---
 
 ## MVP Recommendation
 
-For Elevateo Co's v1, prioritize features that establish authority and capture emails. Everything else is premature.
+Ship v1 before attempting any differentiator.
 
-**Must ship (Table Stakes):**
-1. T1: Bold hero with specific promise
-2. T2: Founder authority section with metrics
-3. T3: Single CTA per section (all pointing to email)
-4. T4: Email capture (hero + footer)
-5. T6: Professional photography (content dependency)
-6. T7: Mobile-responsive
-7. T8: Dark, bold design system
-8. T9: Clean navigation
-9. T10: About page with story arc
-10. T11: Fast loading
-11. T12: Footer with legal essentials
+### v1 — Minimum Coherent Dual-Mentor (Table Stakes Only)
+1. Section divider with eyebrow + H2 "Meet Lachlan" immediately after Allan's Why block
+2. Lachlan bio split-grid (portrait + 2-3 paragraph narrative + italic pull-quote) — reuses About pattern
+3. Differentiator headline scoped to scaled-solo-agency / co-founder / performance angle — **client to confirm final copy**
+4. Focus areas — 3 cards (Scaled Solo Agencies / Co-Founder Operations / Performance & Discipline)
+5. Role chip: "CEO, Boltloop"
+6. Lachlan-specific CTA with his Calendly link
+7. Anchor IDs: `id="allan"` on Allan's about section, `id="lachlan"` on Lachlan's intro
 
-**Should ship (high-impact differentiators):**
-1. D1: Lead magnet (doubles email conversion -- highest ROI feature)
-2. D2: Problem/solution framework on homepage
-3. D3: Metrics displayed as visual callouts
-4. D4: Course placeholder grid with "Get Early Access" CTAs
-5. D6: FAQ section with objection handling
+### v2 — Positioning Polish (1-2 differentiators)
+8. "Who should you work with?" 2-column decision block between the two mentor sections
+9. Extend FAQ with 2 new entries (who to book, how Allan and Lachlan work together)
+10. One cross-link callout in each mentor's section
 
-**Nice to have (defer if timeline is tight):**
-1. D5: "How it works" process section
-2. D8: Subtle scroll animations
-3. D9: Media logo bar (only if Alan has real mentions)
-4. D10: Cookie consent
+### v3 — Optional Authority Depth (only if content exists)
+11. Lachlan stats strip (only with verifiable numbers)
+12. Lachlan "Why Work With Me" block (only with distinct angle from Allan's)
+13. Distinct secondary photography treatment (War Room photo, grayscale luminosity à la Why section)
 
-**Defer to post-v1:**
-- D7 (video) -- content dependency, only if high-quality video exists
-- A1 through A12 -- all anti-features remain deferred
+### Defer / Skip Unless Proven Need
+- Joint routing CTA
+- Top nav restructure
+- Mobile-specific collapse
+- Lachlan testimonials / results cards (skip unless real data)
 
 ---
 
-## Content Gaps That Block Features
+## Downstream Notes for Requirements Agent
 
-These are not code decisions but content decisions that Alan must resolve before certain features can ship.
-
-| Content Needed | Blocks Feature | Priority | Notes |
-|---------------|----------------|----------|-------|
-| Professional headshots + action photos | T1, T6, T10 | CRITICAL | Cannot launch without. Book photographer immediately. |
-| 2-3 verifiable authority metrics | T2, D3 | CRITICAL | Revenue, businesses helped, years, or similar. Must be real. |
-| Founder story narrative (500-800 words) | T10 | HIGH | Origin -> transformation -> mission arc. |
-| 3-4 pain points of target audience | D2 | HIGH | Specific scaling bottlenecks the $500k+ audience faces. |
-| 5-7 FAQ questions and answers | D6 | MEDIUM | Address real objections. |
-| Lead magnet content (if D1) | D1 | MEDIUM | 3-5 page PDF on a specific scaling topic. |
-| Course topic names and descriptions | D4 | MEDIUM | Even placeholder titles need to be credible topic names. |
-| Client testimonials (if available) | T5 | MEDIUM | Real names, specific outcomes. If none exist, use alternative proof. |
-| Media mentions / logos (if available) | D9 | LOW | Only include if real. Skip if fabricated. |
+- **Every feature above is labeled:** category (Table Stakes / Differentiator / Anti-Feature), complexity (Low / Medium / High), dependencies.
+- **Existing pattern reuse is explicit** — most Lachlan features are structural clones of Allan's blocks, not new components. Low technical risk.
+- **Hard blockers list** surfaces what client input is required before build can start.
+- **MVP sequencing** (v1 → v2 → v3) lets requirements break this into phases if the roadmap prefers incremental delivery.
+- **Content gaps** flagged as inputs needed: Lachlan's Calendly URL, exact title, verifiable stats, any testimonials.
+- **No new dependencies** — no new libraries, no new page routes, no Supabase/auth work. Pure content + existing-component composition in `src/pages/index.astro`.
 
 ---
 
 ## Sources
 
-### Primary (HIGH confidence)
-- acquisition.com homepage analysis via direct fetch -- confirmed features: hero with revenue metrics, free course cards, FAQ accordion, founder bio with audience metrics, announcement banner, footer disclaimers
-- grantcardone.com homepage analysis via direct fetch -- confirmed features: multiple lead capture forms, Instagram embeds, Shopify integration, animated interactions, social proof badges
-- tonyrobbins.com homepage analysis via direct fetch -- confirmed features: event-focused homepage, video previews, HubSpot forms, Calendly integration, Next.js framework, chatbot widget
-- russellbrunson.com homepage analysis via direct fetch -- confirmed features: dark + gold design, sticky video player, grayscale logo bar, Montserrat typography, premium CTA styling
+- [12 Inspiring Coaching Websites to Model in 2026 — Elementor](https://elementor.com/blog/inspiring-coaching-websites-to-model/)
+- [23 Best Coaching Websites 2026 — EntrepreneursHQ](https://entrepreneurshq.com/coaching-websites/)
+- [Coaches Websites: 30+ Inspiring Examples (2026) — Sitebuilder Report](https://www.sitebuilderreport.com/inspiration/coaching-websites)
+- [Top 10 Coaching Website Mistakes to Avoid — Coaching Sites That Work](https://coachingsitesthatwork.com/10-coaching-website-mistakes/)
+- [11 Website Mistakes Coaches Make — The Fully Booked Coach](https://thefullybookedcoach.com/website-mistakes-coaches-make/)
+- [30 Best Meet the Team Pages Examples — Amasty](https://amasty.com/blog/30-best-meet-the-team-pages-examples-and-trends/)
+- [The 15 best "Meet the Team" pages — HubSpot](https://blog.hubspot.com/marketing/creative-agency-team-pages)
+- [13 Most Creative Agency Meet the Team Pages — Medium](https://medium.com/@gaspfourdigital/13-of-the-most-creative-agency-meet-the-team-pages-we-ve-ever-seen-97d193a3195b)
+- [Primary vs. Secondary Navigation — LogRocket](https://blog.logrocket.com/ux-design/secondary-navigation-best-practices/)
+- [Using One Calendly Link for Multiple Coaches — Calendly Community](https://community.calendly.com/how-do-i-40/using-one-calendly-link-for-multiple-coaches-availability-4675)
+- [Best practices for sharing your Calendly link — Calendly](https://calendly.com/blog/share-scheduling-link)
+- [Building a Strong Coaching Brand — ICF](https://coachingfederation.org/blog/building-a-strong-coaching-brand-6-essential-elements-for-success/)
 
-### Secondary (MEDIUM confidence)
-- [Top 10 Best Coaching Websites of 2026](https://www.gregfaxon.com/blog/coaching-websites) -- coaching website must-have elements
-- [Top 10 Coaching Website Mistakes to Avoid](https://coachingsitesthatwork.com/10-coaching-website-mistakes/) -- anti-patterns for coaching sites
-- [Lead Magnet Statistics](https://mycodelesswebsite.com/lead-magnet-statistics/) -- conversion rate data for lead magnets vs. bare signups
-- [Landing Page Best Practices 2026](https://www.involve.me/blog/landing-page-best-practices) -- current conversion optimization patterns
-- [Dark Mode Accessibility](https://www.boia.org/blog/offering-a-dark-mode-doesnt-satisfy-wcag-color-contrast-requirements) -- WCAG contrast requirements for dark themes
-- [WCAG Contrast Requirements](https://webaim.org/articles/contrast/) -- 4.5:1 ratio requirements
-
-### Tertiary (LOW confidence -- for context only)
-- [20 Best Business Coaching Websites 2026](https://www.cyberoptik.net/blog/20-best-business-coaching-websites/) -- general coaching site trends
-- [Social Proof Examples](https://socialproofexamples.com/) -- social proof pattern catalog
-- [Pre-launching Your Online Course](https://www.podia.com/articles/pre-launching-online-course) -- course placeholder strategies
+**Confidence:** MEDIUM-HIGH. Dual-mentor positioning patterns are well-established in design/coaching literature and reinforced by HubSpot, Smashing Magazine, and ICF guidance. Main uncertainty is Lachlan-specific content (exact title, Calendly URL, verifiable stats) — flagged as hard blockers for build, not for research conclusions.

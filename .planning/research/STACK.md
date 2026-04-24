@@ -1,251 +1,264 @@
-# Technology Stack
+# Technology Stack — Milestone v1.1: Add Lachlan MacDonald
 
-**Project:** Elevateo Co - Business Education Authority Website
-**Researched:** 2026-02-11
-**Overall Confidence:** HIGH
+**Project:** Mentorship Ltd — second mentor addition
+**Researched:** 2026-04-23
+**Mode:** Ecosystem (subsequent milestone, focused scope)
+**Overall confidence:** HIGH
+
+> This file was rewritten for the v1.1 milestone. The original launch-phase stack research (2026-02-11) recommended Astro 5 + Tailwind 4 + Motion One + Lenis + SplitType + Sharp + Resend, all of which shipped and are now in production. This rewrite answers only: **what changes (if any) for adding a second mentor?**
 
 ---
 
-## Recommended Stack
+## Verdict: No New Packages Required
+
+**Every capability needed for adding Lachlan's mentor section already exists in the current stack.** The milestone is purely additive content — a new section (or group of sections) using the same components, image pipeline, and animation primitives already shipping on the site.
+
+| Need | Already in stack? | Answer |
+|------|-------------------|--------|
+| New mentor section markup | Yes — native `.astro` components | Add sections to `src/pages/index.astro` |
+| Image optimization for Lachlan's photos | Yes — `sharp@^0.34.5` + `scripts/optimize-images.mjs` | Extend existing script, reuse WebP pipeline |
+| Parallax + scroll reveals on new section | Yes — `motion@^12.34.0`, `lenis@^1.3.17` via `data-motion` / `data-parallax` | Reuse existing attributes |
+| Heading word-stagger animation | Yes — `split-type@^0.3.4` via `data-motion="stagger-words"` | Reuse |
+| Cards for "what Lachlan helps with" | Yes — `Card.astro` | Reuse |
+| Book-a-call CTA | Yes — `Button.astro` + Calendly link pattern | Reuse (new URL for Lachlan) |
+| Layout/typography tokens | Yes — Tailwind 4 `@theme` tokens (`text-gold`, `text-h2`, `navy-900` etc.) | Reuse |
+
+Rationale: the existing codebase already demonstrates every pattern needed for a mentor profile (hero image with cinematic zoom, editorial portrait with parallax, metric bar, bento grid of service cards, quote-styled testimonial, CTA). Introducing a new package would add weight, build complexity, and regression risk with no functional gain.
+
+---
+
+## Current Stack (Locked — No Changes)
 
 ### Core Framework
 
-| Technology | Version | Purpose | Why | Confidence |
-|------------|---------|---------|-----|------------|
-| **Astro** | 5.17.x (stable) | Static site framework | Zero JS by default, outputs pure HTML/CSS. For a 3-page marketing site with email capture, this is the right tool. Astro ships 95% less JavaScript than Next.js for static sites, resulting in sub-second page loads. Islands architecture means you only pay for interactivity where you need it (e.g., a mobile nav toggle, an email form). Trusted by Google and Trivago. 6.0 is in beta -- stick with 5.x stable. | HIGH |
+| Technology | Version (locked) | Purpose | Why keep |
+|------------|------------------|---------|----------|
+| `astro` | `^5.17.1` | Static-first SSG with island hydration | Already configured; Astro 5 stable branch, no upgrade needed for this milestone |
+| `typescript` | `^5.9.3` | Type safety for inline `<script>` blocks | In use in existing form handler |
 
 ### Styling
 
-| Technology | Version | Purpose | Why | Confidence |
-|------------|---------|---------|-----|------------|
-| **Tailwind CSS** | 4.1.x | Utility-first CSS | Up to 5x faster builds in v4, zero-config setup with Astro 5.2+ via `@tailwindcss/vite` plugin. Built on modern CSS features (cascade layers, `@property`, `color-mix()`). Perfect for the dark-and-bold aesthetic -- rapid prototyping of custom designs without fighting a component library's opinionated styles. | HIGH |
+| Technology | Version | Purpose | Why keep |
+|------------|---------|---------|----------|
+| `tailwindcss` | `^4.1.18` | Utility CSS | `@theme` tokens for `gold`, `navy-900/950`, `text-h2/h3`, `text-body-lg` already defined — reuse without changes |
+| `@tailwindcss/vite` | `^4.1.18` | Tailwind 4 Vite integration | No migration to config.js needed |
 
-### Animation
+Note: Tailwind 4's CSS-first config (no `tailwind.config.js`) means any new typography/colour tokens for Lachlan would be added to the existing `@theme` block in the global stylesheet. None are expected — the mentor section uses the same visual language.
 
-| Technology | Version | Purpose | Why | Confidence |
-|------------|---------|---------|-----|------------|
-| **GSAP** | 3.14.x | Scroll animations, entrance effects | The industry standard for high-end marketing site animations. ScrollTrigger plugin enables the scroll-driven reveals that acquisition.com and similar authority sites use. Now 100% free (including ScrollTrigger, SplitText, all premium plugins) after Webflow acquisition. Battle-tested, works with any framework including Astro. | HIGH |
-| **CSS animations** | native | Simple transitions, hover states | Use native CSS transitions for simple hover effects and state changes. No library needed. Reserve GSAP for scroll-driven and complex choreographed sequences. | HIGH |
+### Animation & Scroll
 
-### Email Capture
+| Technology | Version | Purpose | Why keep |
+|------------|---------|---------|----------|
+| `motion` | `^12.34.0` | Motion One — `animate()`, scroll triggers, `data-motion` driver | Already powers `blur-reveal`, `stagger-words`, `skew-up`, `fade-up` and parallax. Confidence HIGH (Motion v12.x is current on npm as of Apr 2026). |
+| `lenis` | `^1.3.17` | Smooth scroll | Needed for the `data-parallax` system used on Allan's editorial portrait (line 144 of `index.astro`). Same attribute on Lachlan's portrait works unmodified. |
+| `split-type` | `^0.3.4` | DOM word/char splitting for `stagger-words` | Used by the heading reveal pattern — reuse for "Meet Lachlan" headline. |
 
-| Technology | Version | Purpose | Why | Confidence |
-|------------|---------|---------|-----|------------|
-| **Kit** (formerly ConvertKit) | current | Email list management, automations | Built specifically for creators and educators. Higher deliverability (87%) than Mailchimp (85%). Native integrations with Teachable, Kajabi, and other course platforms -- critical when video courses are added later. Supports both JS embed forms and raw HTML embed for full styling control on static sites. API available for custom integrations. Automation sequences for welcome/nurture flows. Starts at $29/month for up to 1,000 subscribers. | HIGH |
+### Fonts
 
-### Image Optimization
+| Technology | Version | Purpose | Why keep |
+|------------|---------|---------|----------|
+| `@fontsource-variable/inter` | `^5.2.8` | Body sans | Already loaded, no second family required |
+| `@fontsource-variable/playfair-display` | `^5.2.8` | Heading serif (italic variants used in editorial blocks like "Hey, I'm *Allan*") | Reuse for "Hey, I'm *Lachlan*" mirror block |
 
-| Technology | Version | Purpose | Why | Confidence |
-|------------|---------|---------|-----|------------|
-| **Astro built-in** (`astro:assets`) | included | Image optimization, WebP/AVIF conversion | Astro's `<Image />` and `<Picture />` components handle automatic format conversion, responsive sizing, lazy loading, and optimal `fetchpriority` attributes. Uses Sharp under the hood. No additional library needed. Outputs modern WebP by default. | HIGH |
+### Build / Deploy
 
-### Analytics
+| Technology | Version | Purpose | Why keep |
+|------------|---------|---------|----------|
+| `@astrojs/vercel` | `^9.0.4` | Adapter (note: `astro.config.mjs` uses Vercel, not Cloudflare Pages as the milestone brief stated) | Works today; do not change mid-milestone |
+| `sharp` | `^0.34.5` | Build-time image optimization | Used by `scripts/optimize-images.mjs` — extend, do not replace |
 
-| Technology | Version | Purpose | Why | Confidence |
-|------------|---------|---------|-----|------------|
-| **Plausible Analytics** | current | Privacy-friendly web analytics | Script is 75x smaller than Google Analytics (under 1KB). No cookies means no consent banner cluttering the dark-and-bold design. GDPR/CCPA compliant out of the box. Shows the metrics that matter for a lead-gen site: traffic sources, page views, conversion goals (email signups). $9/month for 10K pageviews. | MEDIUM |
-| **Google Analytics 4** (alternative) | current | Full analytics suite | Free. Deeper funnel analysis. Use if you need detailed attribution modeling or plan to run paid ads immediately. Tradeoff: requires cookie consent banner, heavier script, more complex setup. | HIGH |
+**Discrepancy flag (MEDIUM confidence):** The milestone context states "Cloudflare Pages for hosting" but `astro.config.mjs` imports and uses `@astrojs/vercel`. Downstream (requirements/roadmap) should confirm the actual deploy target before writing tasks that assume one or the other. This does not block the feature work — both adapters support static output and Sharp image optimization identically.
 
-### Deployment & Hosting
+### Validation / Email
 
-| Technology | Version | Purpose | Why | Confidence |
-|------------|---------|---------|-----|------------|
-| **Cloudflare Pages** | current | Static site hosting & CDN | Unlimited bandwidth on free tier. 300+ global edge locations. Free SSL, DDoS protection. 500 builds/month on free tier (plenty for a 3-page site). Zero cost to start, scales infinitely. Astro has first-class Cloudflare support (Astro 6 beta even uses Cloudflare's workerd runtime for dev). Cloudflare recently acquired Astro's parent company, making this the most aligned deployment target. | HIGH |
-
-### Domain & DNS
-
-| Technology | Version | Purpose | Why | Confidence |
-|------------|---------|---------|-----|------------|
-| **Cloudflare DNS** | current | DNS management | Free. Fastest authoritative DNS. Natural pairing with Cloudflare Pages -- zero-config custom domain setup. | HIGH |
-
-### Version Control & Development
-
-| Technology | Version | Purpose | Why | Confidence |
-|------------|---------|---------|-----|------------|
-| **Git + GitHub** | current | Source control, CI/CD trigger | Cloudflare Pages auto-deploys from GitHub pushes. Industry standard. Free for private repos. | HIGH |
-| **Node.js** | 22.x LTS | JavaScript runtime | Required by Astro 5.x. Node 22 is the current LTS. Note: Astro 6 beta drops Node 18/20 support entirely, so starting on 22 future-proofs the project. | HIGH |
-| **pnpm** | 9.x | Package manager | 2-3x faster installs than npm. Strict dependency resolution prevents phantom dependency issues. Disk-efficient via hard links. | MEDIUM |
+| Technology | Version | Purpose | Notes |
+|------------|---------|---------|-------|
+| `@astrojs/check` | `^0.9.6` | Dev-time type checking | No change |
+| Resend (runtime, via `/api/subscribe` endpoint) | — | Email capture | Untouched by this milestone — the existing signup form is shared across both mentors |
 
 ---
 
-## Supporting Libraries (Add Only If Needed)
+## Image Handling Approach for Lachlan's Photos
 
-These are NOT installed upfront. Add them only when a specific feature requires them.
+Source photos present in `public/Lachlan Pictures/`:
 
-| Library | Version | Purpose | When to Add |
-|---------|---------|---------|-------------|
-| `@fontsource/*` | latest | Self-hosted fonts | When finalizing typography. Eliminates render-blocking Google Fonts requests. |
-| `astro-icon` | latest | SVG icon system | If custom SVG icons are needed beyond inline SVGs. |
-| `astro-seo` | latest | SEO meta tags helper | If you want a component-based approach to meta tags (Astro's built-in `<head>` works fine for 3 pages). |
+| File | Raw size | Intended use |
+|------|----------|--------------|
+| `Portrait.JPG` | 8.7 MB | Editorial portrait (mirrors Allan's `alan-networking-2x.webp`) — likely lg:col-span-7 image in a new "Meet Lachlan" section |
+| `Picture_with_War_Room_members.JPG` | 9.5 MB | Secondary proof-of-work image — e.g. section background with dark overlay (mirrors `IMG_1081.webp` / `IMG_1082.webp` usage) |
+
+These are roughly 50-100x too large to ship directly. The existing Sharp pipeline is the correct tool.
+
+### Recommended approach: extend `scripts/optimize-images.mjs`
+
+Add a new function modelled on `processHeroes()`:
+
+```js
+// --- Lachlan ---
+async function processLachlan() {
+  console.log("\nLachlan:");
+  const dir = join(DEST, "heroes"); // keep flat, same folder as Allan
+  await ensureDir(dir);
+
+  // NOTE: move source files OUT of public/ first -- see critical fix below
+  const SRC_LACHLAN = "_zip_temp/Lachlan";
+
+  const tasks = [
+    // Editorial portrait -- ~1400w is enough for lg:col-span-7 on a 1440 viewport
+    toWebp(
+      join(SRC_LACHLAN, "Portrait.JPG"),
+      join(dir, "lachlan-portrait.webp"),
+      { width: 1400, quality: 80 }
+    ),
+    // Background/proof image -- 1920w mirrors banner sizing
+    toWebp(
+      join(SRC_LACHLAN, "Picture_with_War_Room_members.JPG"),
+      join(dir, "lachlan-warroom.webp"),
+      { width: 1920, quality: 75 }
+    ),
+  ];
+
+  const results = await Promise.all(tasks);
+  results.forEach((f, i) =>
+    logResult(["lachlan-portrait.webp", "lachlan-warroom.webp"][i], f)
+  );
+}
+```
+
+Call `await processLachlan();` from `main()`.
+
+### Critical fix: move source files OUT of `public/`
+
+`public/Lachlan Pictures/` is currently shipped to the browser as 18 MB of unoptimized JPGs. **Before the milestone closes**, move the raw files to `_zip_temp/Lachlan/` (mirroring how `_zip_temp/Elevateo/` is used today) so Vercel/Cloudflare does not serve the originals. This keeps the optimized `.webp` under `public/images/heroes/` as the only shipped assets.
+
+### Expected output sizes
+
+Based on existing ratios (`alan-networking-2x.webp` = 177 KB from a likely multi-MB source at quality 80, width ~1600-2000; `hero-bg.webp` = 102 KB at similar width):
+
+| Target file | Target size | Target dimensions | Quality |
+|-------------|-------------|-------------------|---------|
+| `lachlan-portrait.webp` | 150-250 KB | 1400w | 80 |
+| `lachlan-warroom.webp` | 250-400 KB | 1920w | 75 |
+
+This keeps the page total well inside the existing 78-91 KB-per-page budget (which refers to initial paint only — both Lachlan images would be `loading="lazy"` below the fold).
+
+### Responsive images — do NOT add `@astrojs/image` or `astro:assets`
+
+The site currently uses plain `<img src="/images/...">` with manual `width`/`height`/`loading="lazy"` attributes (see `index.astro` lines 142-147, 220-224). It does **not** use the Astro `<Image>` component or `import` image assets. Sticking with this pattern for Lachlan is correct — introducing `astro:assets` mid-project would require refactoring every existing `<img>` for consistency and is out of scope. The hand-tuned Sharp pipeline already achieves the target sizes.
 
 ---
 
-## What NOT to Use (and Why)
+## Animation Pattern Reuse
 
-### Frameworks That Are Wrong for This Project
+Every motion primitive for the Lachlan section already exists. Mirror these exact attributes from `index.astro`:
 
-| Technology | Why Not |
-|------------|---------|
-| **Next.js** | Massively over-engineered for a 3-page static marketing site. Sends full React bundles to the client. RSC, App Router, middleware -- complexity you will never need. Acquisition.com itself uses Nuxt.js (Vue-based), not Next.js, but even that is more framework than this project needs. |
-| **React / Vue / Svelte (as primary framework)** | This is a content site, not a web app. You do not need a client-side JavaScript framework rendering your pages. Astro renders to static HTML. If you need one interactive widget, Astro islands let you drop in a single React/Preact/Svelte component without adopting the whole framework. |
-| **WordPress** | Slow, security-prone, requires hosting with PHP/MySQL. The dark-bold-custom aesthetic would fight every WordPress theme. Overkill CMS for 3 static pages. |
-| **Webflow / Framer / Squarespace** | Lock-in, limited customization for the exact aesthetic needed, ongoing subscription costs, poor performance compared to static HTML. You lose code-level control over animations, interactions, and email form behavior. |
-| **Gatsby** | Effectively abandoned. Last major release was years ago. Community has moved to Astro for static sites. |
+| Pattern | Attribute | Source line | Use for Lachlan |
+|---------|-----------|-------------|-----------------|
+| Cinematic zoom on hero-style image | `style="animation: slow-zoom 20s cubic-bezier(0.16, 1, 0.3, 1) forwards;"` | L42, L87-90 | Optional — if Lachlan gets his own hero-style band |
+| Blur reveal (paragraphs, labels) | `data-hero-motion="blur-reveal" data-hero-delay="X"` or `data-motion="blur-reveal" data-motion-delay="X"` | L58-68, L116-131 | Lachlan's intro copy paragraphs |
+| Word-stagger headline | `data-motion="stagger-words" data-motion-delay="0.1"` | L120-122 | "Hey, I'm *Lachlan*" headline |
+| Fade-up button | `data-hero-motion="fade-up" data-hero-delay="0.8"` | L71 | Lachlan's Calendly CTA |
+| Skew-up list items | `data-motion="skew-up" data-motion-delay="0.15"` | L312-320 | Lachlan's three angle bullets (solo agencies, boltloop.co, co-founders + athletic) |
+| Parallax image | `data-parallax="-60"` (range -20 to -60 observed) | L144, L238 | Lachlan's editorial portrait — use `-60` to match Allan for visual symmetry |
+| Slow-pulse orb glow | `class="glow-orb ... animate-pulse-slow"` | L52-53 | Optional ambient accent |
+| Hover scale on card/link | `transition-transform duration-500 hover:scale-[1.03]` | L170-213 | Reuse on boltloop.co card if featured |
 
-### Libraries That Are Wrong for This Project
+**No new animation code needs to be written.** The Motion One driver that interprets `data-motion` / `data-hero-motion` / `data-parallax` already scans the DOM on page load; adding Lachlan's section is transparent to it.
 
-| Technology | Why Not |
-|------------|---------|
-| **Framer Motion / Motion** | React-only (v12 added Vue support, but still requires a framework runtime). For a static Astro site, GSAP is the right choice -- it works with vanilla DOM, no framework dependency. Motion adds 30KB+ of React runtime overhead. |
-| **Bootstrap / Material UI / Chakra UI** | Component libraries impose visual opinions that fight the custom dark-and-bold aesthetic. You would spend more time overriding defaults than building from scratch. Tailwind gives you design primitives without opinions. |
-| **jQuery** | It is 2026. |
-| **Mailchimp** | Lower deliverability (85% vs Kit's 87%). Designed for e-commerce, not creators/educators. Kit's automation and future course-platform integrations are a better strategic fit. |
-| **Vercel** | Optimized for Next.js. For a pure static Astro site, Cloudflare Pages offers better free tier (unlimited bandwidth vs Vercel's 100GB), faster global edge, and tighter Astro integration given the Cloudflare-Astro merger. |
+### Considerations for a second animated section
+
+1. **Stagger-delay budget.** Allan's hero uses delays up to 1.2s (`data-hero-delay="1.2"`). Lachlan's section is below the fold, so `data-motion` (scroll-triggered) is the correct prefix — **not** `data-hero-motion` (which runs once on page load). Confirm by checking the driver in `src/scripts/` (out of scope for stack research, but flag for requirements).
+2. **Reduced motion.** Any new `<style>` keyframes added for Lachlan (e.g. a new `slow-zoom` variant) should inherit or replicate the same `@media (prefers-reduced-motion: reduce)` handling used elsewhere. Reuse `animation: slow-zoom 20s ...` — don't define a new keyframe.
+3. **Parallax stacking.** Lenis drives global smooth-scroll; adding a second `data-parallax` image does not cost extra setup. Two parallax images on one page is well within Lenis's normal usage.
 
 ---
 
-## Architecture Decision: Why NOT a Page Builder or CMS
+## Component Reuse Map
 
-This project is 3 pages. The content changes infrequently. Adding a headless CMS (Sanity, Contentful, Strapi) introduces:
-- Another service to manage and pay for
-- Build triggers and webhook complexity
-- API latency during builds
-- A solution searching for a problem
+Every component needed already exists in `src/components/`:
 
-**When to reconsider:** If the site grows beyond 10+ pages with frequently changing content (blog posts, case studies), then a headless CMS becomes justified. At that point, Astro's Content Layer API makes CMS integration clean. But that is a future problem, not a launch problem.
+| Component | Current use on page | Reuse for Lachlan |
+|-----------|---------------------|-------------------|
+| `Base.astro` (layout) | Wraps whole page | Same page, no change |
+| `SectionWrapper.astro` | 7x on page (widths: `wide`, `narrow`) | Wrap Lachlan's section (likely `wide`) |
+| `Card.astro` | Portfolio grid, service grid, results grid | Lachlan's angle cards or boltloop.co featured card |
+| `Button.astro` | Hero CTA, Why section CTA | Lachlan's Calendly CTA (new href) |
+| `AccordionItem.astro` | FAQ section | Unlikely needed for Lachlan's section itself |
+| `FormInput.astro` | Email signup | Not needed — single signup form serves both mentors |
+| `Header.astro` / `Footer.astro` | Site chrome | Optional: add "Meet Lachlan" anchor link if Header has in-page nav |
+
+**No new components need to be created** unless the design calls for a dedicated `MentorProfile.astro` wrapper to DRY-up the Allan and Lachlan sections. That's a refactor decision for the requirements agent, not a stack decision — both options work with the current stack.
+
+---
+
+## Alternatives Considered (and Rejected)
+
+| Addition considered | Why rejected |
+|---------------------|--------------|
+| `astro:assets` / `<Image>` component | Existing page uses plain `<img>` + hand-tuned Sharp. Introducing `<Image>` now means refactoring every existing image for consistency — scope creep. |
+| `@astrojs/image` (legacy) | Deprecated since Astro 3; `astro:assets` is its replacement. Not relevant. |
+| `astro-icon` for new iconography | Existing site uses `.webp` icon images in `/images/icons/` (see L242). No new icons required; if Lachlan's section needs a boltloop logo, reuse `/images/logos/boltloop.webp` which already exists on page. |
+| GSAP / ScrollTrigger | Milestone context explicitly states GSAP is not used. Motion One + Lenis + SplitType cover all needed patterns. |
+| Swiper / Embla for mentor carousel | Design brief places mentors stacked vertically (Allan top, Lachlan below). No carousel needed. |
+| `astro-seo` or structured-data helper | SEO metadata handled by `Base.astro`'s `title`/`description` props today. Adding a second `Person` JSON-LD entry can be done inline in `Base.astro` (or a new `<script type="application/ld+json">` block) without any library. |
+| `@resvg/resvg` or other image lib | Sharp already handles everything needed. |
+| Cloudinary / imgix / Vercel Image Optimization runtime | Runtime costs + external dependency. Build-time Sharp produces equivalent quality at 100-400 KB per image with zero runtime cost. |
 
 ---
 
 ## Installation
 
+**No install commands required.** Existing `node_modules` and lockfile already contain every dependency.
+
+To run the extended image optimization:
+
 ```bash
-# Initialize project
-npm create astro@latest elevateo-co -- --template minimal
+# 1. Move Lachlan's raw JPGs out of public/ (critical -- see above)
+mv "public/Lachlan Pictures" "_zip_temp/Lachlan"
 
-# Core dependencies (installed by Astro scaffolding)
-# astro is the only core dependency
+# 2. After extending scripts/optimize-images.mjs with processLachlan()
+node scripts/optimize-images.mjs
 
-# Add Tailwind CSS v4 (uses Vite plugin, not legacy integration)
-npx astro add tailwind
-
-# Add GSAP for scroll animations
-pnpm add gsap
-
-# Add Plausible (or configure via script tag -- no npm package needed)
-# Plausible is a <script> tag in your layout, not an npm dependency
+# 3. Verify output
+ls -lh public/images/heroes/lachlan-*.webp
 ```
 
-### Project Structure
-
-```
-elevateo-co/
-  src/
-    layouts/
-      Base.astro          # HTML shell, head tags, analytics, global styles
-    pages/
-      index.astro         # Home: hero + credibility + CTA
-      about.astro         # About: Alan's story
-      courses.astro       # Courses: placeholder grid
-    components/
-      Header.astro        # Minimal nav (logo + 3 links)
-      Footer.astro        # Links, copyright, social
-      Hero.astro          # Bold hero section
-      EmailCapture.astro  # Kit form embed (JS or raw HTML)
-      TestimonialCard.astro
-      CourseCard.astro     # Placeholder course grid item
-    styles/
-      global.css          # @import "tailwindcss" + custom properties
-    assets/
-      images/             # Source images (Astro optimizes at build)
-  public/
-    favicon.svg
-    og-image.jpg          # Social sharing image
-  astro.config.mjs
-  tailwind.config.ts      # Only if custom config needed (v4 is CSS-first)
-  package.json
-```
+Expected outputs: `public/images/heroes/lachlan-portrait.webp`, `public/images/heroes/lachlan-warroom.webp`.
 
 ---
 
-## Alternatives Considered
+## Downstream Integration Points (for requirements & roadmap agents)
 
-| Category | Recommended | Alternatives | Why Not the Alternative |
-|----------|-------------|-------------|------------------------|
-| Framework | **Astro 5.x** | Next.js 15, Nuxt 3, SvelteKit, Hugo | Next/Nuxt/SvelteKit are app frameworks -- overkill. Hugo is fast but Go templates are harder to work with than Astro's JSX-like syntax and lack island interactivity. |
-| Styling | **Tailwind CSS 4.x** | Plain CSS, Sass, UnoCSS | Plain CSS is fine but slower to iterate. Sass adds build complexity for minimal gain. UnoCSS is viable but smaller ecosystem and community. |
-| Animation | **GSAP 3.14** | Motion (Framer Motion), Anime.js, CSS-only | Motion needs React runtime. Anime.js is less maintained. CSS-only cannot do scroll-driven choreography at the level authority sites use. |
-| Email | **Kit** | Mailchimp, Brevo, Buttondown | Mailchimp is e-commerce focused. Brevo is good but less creator-ecosystem integration. Buttondown is newsletter-only, no automation. |
-| Hosting | **Cloudflare Pages** | Vercel, Netlify, GitHub Pages | Vercel charges for bandwidth over 100GB. Netlify free tier is 100GB. GitHub Pages lacks edge functions if needed later. Cloudflare is unlimited and free. |
-| Analytics | **Plausible** | GA4, Fathom, Matomo | GA4 is free but heavy + needs cookie consent. Fathom is similar to Plausible but more expensive. Matomo requires self-hosting for free tier. |
+1. **Image pipeline task** — extend `scripts/optimize-images.mjs` with `processLachlan()` and move raw files out of `public/`. Must run before the section references the WebP paths, otherwise build will have broken images.
 
----
+2. **Section placement** — new Lachlan block goes between existing "Why Section" (L292-329) and "FAQ Section" (L332-357), OR mirrored as a second "About-style" block immediately after the existing About section (L108-153). Requirements agent picks; both are stack-compatible.
 
-## Cost at Launch
+3. **Calendly URL for Lachlan** — Allan's URL is `https://calendly.com/allan-chan-roseyco/one-on-one` (L72, L323). Lachlan needs his own Calendly link; reuse the same `Button` component with a different `href`.
 
-| Service | Monthly Cost | Notes |
-|---------|-------------|-------|
-| Cloudflare Pages | $0 | Free tier: unlimited bandwidth, 500 builds/mo |
-| Cloudflare DNS | $0 | Free |
-| Kit (ConvertKit) | $0-$29 | Free up to 10,000 subscribers (limited automations), $29/mo for full features under 1,000 subs |
-| Plausible Analytics | $9 | For up to 10K monthly pageviews |
-| Domain name | ~$10-15/year | One-time annual cost |
-| **Total** | **$9-$29/mo** | Rises only with subscriber count and traffic |
+4. **Metadata update** — `Base.astro`'s default `description` prop currently names only Allan ("Allan Chan helps business owners scale..." — L32). Update to include both mentors, or leave if Lachlan is explicitly secondary.
+
+5. **Header nav (if present)** — add an anchor link to a `#meet-lachlan` `id` on the new section if the header has in-page nav; not a stack concern but a content-task flag.
+
+6. **Deploy-target discrepancy** — confirm Vercel (per `astro.config.mjs`) vs Cloudflare Pages (per milestone brief). Does not affect this milestone's code; flag for ops clarification.
 
 ---
 
-## Version Verification Log
+## Confidence Assessment
 
-| Technology | Claimed Version | Verification Method | Verification Date |
-|------------|----------------|--------------------|--------------------|
-| Astro | 5.17.x stable | npm registry search + Astro blog | 2026-02-11 |
-| Astro 6 | beta only | GitHub releases + Astro blog | 2026-02-11 |
-| Tailwind CSS | 4.1.18 | GitHub releases page | 2026-02-11 |
-| GSAP | 3.14.2 | npm registry search | 2026-02-11 |
-| Node.js | 22.x LTS | Astro 5 requirements docs | 2026-02-11 |
-| Kit (ConvertKit) | SaaS (current) | Kit help center, comparison articles | 2026-02-11 |
-| Cloudflare Pages | SaaS (current) | Cloudflare docs, free tier page | 2026-02-11 |
-| Sharp | 0.34.5 | npm registry (bundled with Astro) | 2026-02-11 |
+| Claim | Confidence | Basis |
+|-------|------------|-------|
+| No new npm packages needed | HIGH | Read `package.json` + full `index.astro` — every capability mapped to existing dep |
+| Sharp pipeline can handle Lachlan's JPGs | HIGH | Sharp handles JPG->WebP natively; existing script already does this for PNG->WebP with the same API (`toWebp` helper) |
+| Motion One / Lenis / SplitType versions current (Apr 2026) | HIGH | `motion@^12.34.0`, `lenis@^1.3.17`, `split-type@^0.3.4` are all present stable lines on npm; caret ranges will pick latest patch |
+| `data-motion` / `data-parallax` attributes will work on a new section without code changes | HIGH | Attribute-driven animation drivers scan the full DOM; adding markup is transparent |
+| Tailwind 4 `@theme` tokens cover all visual needs | HIGH | Every colour/type token used on Allan's section (`text-gold`, `text-h2`, `navy-900`, etc.) is already resolved in production CSS |
+| `public/Lachlan Pictures/` must be moved before deploy | HIGH | Files at 8.7 and 9.5 MB in `public/` would ship to end users — standard static-site rule |
+| Deploy target is Vercel, not Cloudflare Pages | MEDIUM | `astro.config.mjs` imports `@astrojs/vercel`; milestone brief contradicts. Flagged for confirmation. |
+| No `<Image>` component migration needed | HIGH | Existing code uses plain `<img>` uniformly; consistency > nominal improvement |
 
 ---
 
 ## Sources
 
-### Framework Selection
-- [Astro vs Next.js vs Remix: Static Site Generators Comparison 2026](https://octahedroid.com/blog/astro-vs-nextjs-vs-remix-react-router-static-site-generators-comparison-2026)
-- [Best Next.js Alternatives 2026](https://naturaily.com/blog/best-nextjs-alternatives)
-- [Top 10 Full Stack Frameworks in 2026](https://www.nucamp.co/blog/top-10-full-stack-frameworks-in-2026-next.js-remix-nuxt-sveltekit-and-more)
-
-### Astro
-- [Astro 6 Beta Announcement](https://astro.build/blog/astro-6-beta/)
-- [Astro 5.0 Release](https://astro.build/blog/astro-5/)
-- [Astro Images Documentation](https://docs.astro.build/en/guides/images/)
-- [Astro Islands Architecture](https://docs.astro.build/en/concepts/islands/)
-- [What's New in Astro - January 2026](https://astro.build/blog/whats-new-january-2026/)
-
-### Tailwind CSS
-- [Tailwind CSS v4.0 Release](https://tailwindcss.com/blog/tailwindcss-v4)
-- [Install Tailwind CSS with Astro](https://tailwindcss.com/docs/installation/framework-guides/astro)
-- [Astro + Tailwind v4 Setup Guide](https://tailkits.com/blog/astro-tailwind-setup/)
-
-### GSAP
-- [GSAP ScrollTrigger Documentation](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)
-- [GSAP Installation](https://gsap.com/docs/v3/Installation/)
-- [GSAP npm Package](https://www.npmjs.com/package/gsap)
-
-### Email Marketing
-- [Kit vs Mailchimp Comparison 2026](https://moosend.com/blog/convertkit-vs-mailchimp/)
-- [Kit Form Embedding Basics](https://help.kit.com/en/articles/4009572-form-embedding-basics)
-- [Best Email Marketing Software 2026](https://thecmo.com/tools/best-email-marketing-software/)
-
-### Hosting & Deployment
-- [Cloudflare Pages Limits](https://developers.cloudflare.com/pages/platform/limits/)
-- [Cloudflare Pages Free Tier](https://pages.cloudflare.com/)
-- [Best Static Website Hosting Providers 2026](https://crystallize.com/blog/static-hosting)
-- [Vercel vs Netlify vs Cloudflare Pages Comparison](https://bejamas.com/compare/cloudflare-pages-vs-netlify-vs-vercel)
-
-### Analytics
-- [Plausible Analytics](https://plausible.io/)
-- [Best Google Analytics Alternatives 2026](https://backlinko.com/google-analytics-alternatives)
-
-### Acquisition.com Tech Stack Reference
-- [Acquisition.com uses Nuxt.js, Azure, Nginx](https://builtwith.com/) (via BuiltWith/Crunchbase tech details)
+- Local: `package.json`, `astro.config.mjs`, `scripts/optimize-images.mjs`, `src/pages/index.astro`, `public/images/heroes/`, `public/Lachlan Pictures/`
+- Inferred from existing code patterns (no external web research needed for this scope — all answers derivable from the working codebase)

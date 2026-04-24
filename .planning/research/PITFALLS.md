@@ -1,448 +1,563 @@
-# Domain Pitfalls
+# Domain Pitfalls: Adding Lachlan MacDonald as Second Mentor
 
-**Project:** Elevateo Co -- Business Education Authority Website
-**Domain:** Business education / personal brand authority site targeting established business owners
-**Researched:** 2026-02-11
-**Overall Confidence:** MEDIUM-HIGH (synthesis of multiple verified sources, domain-specific reasoning)
+**Domain:** Expanding a single-founder personal brand site to a two-mentor authority site
+**Researched:** 2026-04-23
+**Milestone:** v1.1 — Add Lachlan MacDonald
+**Overall Confidence:** MEDIUM-HIGH (synthesized from web research + direct inspection of existing site + prior milestone research baseline)
 
----
+**Context:** Mentorship Ltd — existing Astro 5 single-page site built around Allan Chan. Adding Lachlan MacDonald (CEO of boltloop.co, AI/automation specialist, solo agency scaler, fighter) as secondary mentor. Per milestone brief, Allan must remain primary authority at the top; Lachlan is positioned below as secondary.
 
-## Critical Pitfalls
-
-Mistakes that undermine the entire project's credibility or require significant rework. Any one of these can make the difference between a site that converts and one that repels the target audience.
+> **Note:** This PITFALLS.md supersedes the prior (greenfield) milestone pitfalls for the scope of v1.1. The original critical pitfalls (Empty Authority Paradox, Dark Design Readability, Over-Engineering) are considered resolved/stable and do not need to be re-addressed in this milestone. The pitfalls below are specific to the "adding a second mentor" scope.
 
 ---
 
-### CRITICAL 1: The Empty Authority Paradox
+## Summary Table
 
-**What goes wrong:** The site claims "we teach business owners how to scale" but has no courses, no blog, no case studies, no free content, and no proof of results. The visitor sees a well-designed shell with nothing inside. For a sophisticated audience of established business owners already generating $500K-$1M+, this immediately triggers "all sizzle, no steak" pattern recognition. These people evaluate dozens of coaches and consultants. An authority site without demonstrated authority is worse than no site at all -- it actively signals incompetence.
+| # | Pitfall | Category | Risk | Phase Target |
+|---|---------|----------|------|--------------|
+| 1 | The Identity Crisis | Brand Dilution | **HIGH** | Requirements |
+| 2 | Authority Split / Primary Mentor Lost | Visual Hierarchy | **HIGH** | Phase 1 (Design) |
+| 3 | Specialty Confusion (Scaling vs AI) | Positioning | **HIGH** | Requirements |
+| 4 | Photo Quality Mismatch | Image / Visual | **HIGH** | Phase 0 (Content Prep) |
+| 5 | Bolted-On Section Feel | Visual Design | **HIGH** | Phase 2 (Implementation) |
+| 6 | Hero Says One Name, Page Has Two | Copy / Messaging | **HIGH** | Phase 1 |
+| 7 | Navigation Becomes Team Directory | UX / Navigation | MEDIUM | Phase 2 |
+| 8 | Dueling CTAs (Two Calendly Links) | Conversion | MEDIUM | Phase 2 |
+| 9 | Copy Inconsistency Between Bios | Copy / Messaging | MEDIUM | Phase 2 |
+| 10 | Lachlan Outshining Allan (Age/Energy Trap) | Visual Hierarchy | MEDIUM | Phase 1 |
+| 11 | Mystery Meat Scroll Anchor | UX / Navigation | MEDIUM | Phase 2 |
+| 12 | Metrics Bar Doesn't Account for Two Mentors | Authority / Copy | MEDIUM | Phase 1 |
+| 13 | "Fighter" Angle Lowering Professional Tone | Copy / Messaging | MEDIUM | Phase 2 |
+| 14 | Companies Section Redundancy (Boltloop card) | IA / Layout | LOW | Phase 2 |
+| 15 | Testimonials Don't Name Which Mentor | Social Proof | LOW | Phase 3 |
+| 16 | OG / Meta Tags Still Singular | SEO / Meta | LOW | Phase 3 |
+| 17 | Two "Hey, I'm ___" H2s Break Hierarchy | Accessibility | LOW | Phase 2 |
 
-**Why it happens:** The project is greenfield. Courses do not exist yet. The founder may not have public track record artifacts (published content, speaking clips, podcast appearances, case studies). The team builds the "container" first and plans to fill it later, but the container alone creates a credibility gap.
+---
+
+## CRITICAL PITFALLS (Project-level risk to the milestone)
+
+### Pitfall 1: The Identity Crisis — Is It a Personal Brand or an Agency?
+
+**Category:** Brand Dilution
+**Risk Level:** HIGH
+
+**What goes wrong:**
+The site currently reads as "Allan Chan's personal brand." Adding a second mentor without strategic positioning turns it into neither a personal brand (two people) nor a proper agency/firm (still positioned as individuals). Visitors hit the hero ("I Help Business Owners Scale") and then scroll to find a completely different person with a different specialty. The mental model breaks: "Who am I hiring — Allan, Lachlan, or Mentorship Ltd?"
+
+**Why it happens:**
+Founders add team members to a personal-brand site without first re-defining what the brand IS. When you go from one face to two, the brand-identity question ("what are we") must be answered BEFORE the design question ("where does the section go"). Skipping this step creates a brand that looks like a personal brand but behaves like an agency — a "jack of all trades" positioning problem that confuses sophisticated buyers.
 
 **Consequences:**
-- Sophisticated visitors bounce immediately, perceiving the site as a wannabe operation
-- Email signup rates collapse because there is no demonstrated value to anticipate
-- The site becomes a liability rather than an asset -- it actively damages brand perception
-- Once a visitor forms a negative first impression, they rarely return
+- Trust collapse for $500K–$1M+ audience (already flagged in prior research as discerning and unforgiving)
+- Sophisticated visitors pattern-match "this site has an identity crisis" and bounce
+- Every subsequent decision (copy voice, CTA targeting, metrics) becomes ambiguous
+- Competing with both solo mentors AND agencies, losing to both
 
-**Warning signs:**
-- The courses page is entirely "Coming Soon" placeholders with no substance
-- The about page has generic claims without specific, verifiable accomplishments
-- No free value exists anywhere on the site (no insights, no frameworks, no proof of thinking)
-- The CTA asks visitors to "stay updated" without showing what they would be updated about
+**Prevention:**
+Before any design work, the product owner must answer ONE question and encode the answer in REQUIREMENTS.md: **"Is Mentorship Ltd (a) Allan's brand with Lachlan as a featured specialist partner, (b) a two-mentor practice with Allan primary, or (c) a mentorship firm with two principals?"**
 
-**Prevention strategy:**
-1. **Do NOT launch a courses page that is just empty cards saying "Coming Soon."** Instead, reframe the courses page as a "curriculum roadmap" or "what we teach" page that describes the frameworks and topics with enough depth to demonstrate expertise, even before video content exists. Show the thinking, not just the packaging.
-2. **Build credibility proof into Phase 1.** Alan Chan's about page must include specific, verifiable credentials: revenue numbers, businesses built, years of experience, specific outcomes achieved. Vague claims like "serial entrepreneur" mean nothing to this audience.
-3. **Include at least one piece of substantive free content at launch.** Even a single well-written framework page ("The 5 Levers of Business Scale") demonstrates more authority than a polished empty site. This is not a blog -- it is a proof-of-competence artifact.
-4. **Use the email signup to promise specific value.** Not "Sign up for updates" but "Get our weekly scaling insight" or "Be first to access [specific course name]." Specificity signals substance.
+The research recommends **option (a)** given the existing site's first-person voice ("I help...") and the explicit milestone requirement that Allan must remain primary. Document the choice explicitly so every downstream decision reinforces it. Pitfalls 2, 6, 8, 10, 12 all depend on this being resolved.
 
-**Which phase should address it:** Phase 1 (Foundation). This is not a "nice to have" -- it is structurally required for the site to function as intended. The site architecture must be designed around this constraint from day one.
-
-**Confidence:** HIGH -- Multiple sources confirm that authority sites without demonstrated content create credibility gaps. Research from Search Engine Land, NN/g, and others consistently shows that E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) requires demonstrated knowledge, not just claimed knowledge. The FTC specifically flags coaching sites with claims but no substance as a consumer warning signal.
+**Detection:**
+Read the full page draft aloud. If the voice switches from "I" to "we" to "Allan and Lachlan" in different sections without deliberate speaker transitions, the identity is unresolved.
 
 ---
 
-### CRITICAL 2: Dark Design That Kills Readability
+### Pitfall 2: Authority Split — Primary Mentor Becomes Co-Equal
 
-**What goes wrong:** The team builds a dark, bold aesthetic inspired by acquisition.com but gets the execution wrong. Text becomes hard to read. Eye strain sets in. The site feels oppressive rather than authoritative. Visitors leave not because the content is bad, but because the experience of consuming it is physically uncomfortable.
+**Category:** Visual Hierarchy
+**Risk Level:** HIGH
 
-**Why it happens:** Dark design is deceptively difficult. acquisition.com uses deep purple (#6F00FF) with dark navy (#131628) plus strategic white space and neutral whites -- it is NOT a pure black background with white text. Most dark design attempts fail because they:
-- Use pure black (#000000) instead of dark grays/navies (causes eye strain and "halation" effect)
-- Get contrast ratios wrong (either too low for readability or too high for comfort)
-- Use thin/light font weights that disappear on dark backgrounds
-- Apply saturated colors that vibrate against dark backgrounds
-- Forget that images, icons, and UI elements all need dark-specific treatment
+**What goes wrong:**
+Even when the stated intent is "Allan primary, Lachlan secondary," visual parity creates narrative parity. Two mentor sections with identical card layouts, identical photo sizes, and identical heading weights read as "co-founders" regardless of scroll order. The milestone brief specifically requires Allan to retain primary authority — visual equality silently destroys that.
+
+**Why it happens:**
+Developers default to "symmetry = fairness" and reuse the existing About section component for Lachlan. Duplicating the `lg:col-span-5 / lg:col-span-7` grid, the `text-h2` heading, the same aspect ratio image, and the same spacing produces visual co-equality regardless of the order on the page.
 
 **Consequences:**
-- Users with astigmatism (roughly 33% of the population) experience halation -- white text appears to bleed into dark backgrounds, making text fuzzy
-- Extended reading becomes fatiguing, which is death for a content/education site
-- Accessibility violations (WCAG 2.1 AA requires 4.5:1 contrast for normal text, 3:1 for large text)
-- The site feels "edgy startup" rather than "established authority" -- exactly the wrong signal for the target audience
+- Allan's 8+ years / $1M+ / 10+ businesses authority is diluted by Lachlan (newer, different specialty)
+- The existing metrics bar ("$1M+ Revenue Generated") becomes ambiguous — whose revenue?
+- Hero promise ("I Help Business Owners Scale") is undercut when a second equal-weighted person appears mid-page with a different promise
 
-**Warning signs:**
-- Body text uses font-weight 300 or 400 on dark backgrounds
-- Background color is #000000 or very close to pure black
-- Accent colors are highly saturated (pure red, pure blue) on dark backgrounds
-- No testing has been done in bright ambient lighting conditions
-- Text sections feel tiring to read after 30 seconds
+**Prevention:**
+Enforce DELIBERATE visual de-escalation for Lachlan's section:
+- **Heading scale:** Allan uses `text-h2`, Lachlan uses `text-h3` or a smaller variant
+- **Image treatment:** Allan gets the larger editorial image (current `col-span-7`); Lachlan gets a smaller portrait (e.g., `col-span-4` or a framed inset)
+- **Eyebrow label:** Allan = "The Mentor"; Lachlan = "The Partner" / "Specialist Partner" — semantically subordinate, not "Co-Founder" or "Mentor 2"
+- **Vertical space:** Allan section fills roughly 100vh of feel; Lachlan section noticeably more compact (60–70vh)
+- **Copy length:** Allan gets 3 paragraphs, Lachlan gets 1–2 max
+- **Section divider:** Include a transitional framing element ("Specialist Support" / "Beyond Strategy") between Allan and Lachlan so Lachlan is framed as an addition, not a replacement
 
-**Prevention strategy:**
-1. **Use dark gray or dark navy, never pure black.** acquisition.com uses #131628 (dark navy). Good alternatives: #121212, #1A1A2E, #0D1117. The slight warmth or color prevents the harsh contrast that causes halation.
-2. **Use off-white for body text, not pure white.** #E0E0E0 or #F5F5F5 on dark backgrounds is more comfortable than #FFFFFF. Reserve pure white for headings only.
-3. **Increase font weight on dark backgrounds.** Body text should be font-weight 400 minimum, with 500 preferred for paragraphs. Thin weights (300) that look elegant on white backgrounds become illegible on dark.
-4. **Use desaturated accent colors.** Instead of pure red (#FF0000), use a muted variant. acquisition.com uses #F1283A -- slightly desaturated. Test every color pairing with WebAIM's contrast checker.
-5. **Test in multiple lighting conditions.** Dark design looks different in a dim room vs. a bright office vs. outdoor mobile use. Test all three.
-6. **Apply generous line-height and letter-spacing.** Dark backgrounds require more breathing room in typography. Line-height 1.6-1.8 for body text (vs. 1.4-1.5 on light backgrounds).
-7. **Handle images deliberately.** Every image needs dark-mode-appropriate treatment. Transparent PNGs may need background adjustments. Photos may need slight opacity or overlay treatment to integrate.
-
-**Which phase should address it:** Phase 1 (Foundation) -- establish the design system with correct dark palette, typography scales, and contrast ratios before any pages are built. Create a "dark design tokens" system that enforces correct values.
-
-**Confidence:** HIGH -- NN/g research, Smashing Magazine, WCAG specifications, and BOIA all provide detailed technical guidance on dark mode failures. The halation problem is well-documented in vision science. acquisition.com's actual color values were extracted via WebFetch.
+**Detection:**
+Squint test: blur the page and scroll. If you can tell which mentor is primary from the blurred layout alone, hierarchy works. If both sections look identically heavy, it doesn't.
 
 ---
 
-### CRITICAL 3: Over-Engineering a Marketing Site
+### Pitfall 3: Specialty Confusion — Scaling vs AI Automation
 
-**What goes wrong:** A developer builds a 3-page marketing site with the architecture of a SaaS application. React component libraries, state management, API layers, authentication scaffolding, database schemas -- all for what is fundamentally a brochure site with an email form. The result: a site that takes weeks to build instead of days, is fragile and hard to update, performs poorly because of JavaScript bundle size, and creates technical debt before there is any technical value.
+**Category:** Positioning
+**Risk Level:** HIGH
 
-**Why it happens:** Developers (and AI assistants) default to their comfort zone: building applications. But this project has three static pages, one email capture form, and no user accounts, no payments, no dynamic content, and no database reads. The "just in case we need it later" mentality introduces complexity that slows everything down.
+**What goes wrong:**
+Allan's positioning is "scale past your current ceiling" — broad business mentorship (offers, sales, operations, team). Lachlan's positioning is AI/automation via boltloop.co — a specific tactical domain, and a DIFFERENT specialization. If both are presented as "mentors" without an explicit through-line, visitors cannot tell what they're buying. The site appears to offer both "business mentorship" AND "AI implementation" with no clear relationship between them.
+
+This is the classic multi-specialty positioning problem: "The confusion from having multiple specialties is real, and it's costing you clients. The question isn't whether multi-niche coaching works; it's how you position it so clients understand what you offer without getting confused. Your positioning needs to create a through-line that connects your niches." (herincomeedit.com)
+
+**Why it happens:**
+The temptation is to let each mentor speak to their own specialty independently. This produces two disconnected value propositions on one page. The more compelling each individual pitch, the MORE confusing the combined message becomes.
 
 **Consequences:**
-- Build time expands from 1-2 weeks to 4-8 weeks
-- JavaScript bundle bloat kills Core Web Vitals (LCP, INP) -- Google penalizes this
-- Non-technical founder cannot update content without developer involvement
-- Hosting becomes unnecessarily complex and expensive
-- The site is optimized for developer comfort, not business outcomes
+- "Do I book Allan or Lachlan?" — decision paralysis kills conversion
+- Visitors self-select wrong (book Allan for AI problems, book Lachlan for scaling problems)
+- Implies "you need AI too, which Allan doesn't do," undermining Allan's authority
+- Dilutes Lachlan by making AI specialty sound like a side-gig instead of a real capability
 
-**Warning signs:**
-- State management library (Redux, Zustand) in a site with no interactive state
-- API routes for a site that only talks to a third-party email service
-- Database setup for a site with no user-generated data
-- Component library with 50+ components for 3 pages
-- Build process takes more than 30 seconds
-- "We might need this later" justifying any technical decision
+**Prevention:**
+Define the **through-line** in REQUIREMENTS.md before writing any Lachlan copy. Three viable narratives in order of recommendation:
 
-**Prevention strategy:**
-1. **Match architecture to actual requirements.** Three static pages + email capture = static site or simple framework with static export. Not a full-stack application.
-2. **Use the simplest technology that solves the problem.** HTML/CSS/JS with a build tool, or Next.js with static export, or Astro. The email form hits a third-party API (Mailchimp, ConvertKit, etc.) directly. No backend needed.
-3. **Define "not yet" boundaries explicitly.** User accounts, payments, course hosting, CMS -- these are all future concerns. Do not scaffold for them. When they are needed, the architecture should be flexible enough to add them, but not pre-built.
-4. **Set a complexity budget.** If any single technical decision takes more than 2 hours to implement for a 3-page site, it is over-engineered. Apply this test rigorously.
-5. **Prioritize content editability over developer ergonomics.** If the founder cannot change text on the site without a code deployment, the architecture is wrong for this stage.
+1. **Complementary tiers (RECOMMENDED):** "Allan mentors the business strategy, Lachlan implements the AI systems that execute it." Matches reality — boltloop is an Elevateo division.
+2. **Sequential journey:** "Allan scales your business, then Lachlan helps you automate the bottlenecks as you grow."
+3. **Audience split:** "Allan works with established owners ($500K+); Lachlan works with solo agency founders specifically." Uses Lachlan's solo-agency angle but narrows his market considerably.
 
-**Which phase should address it:** Phase 1 (Foundation) and every phase thereafter. The technology choice in Phase 1 sets the ceiling for complexity. Choose wrong and every subsequent phase inherits the overhead.
+Whichever narrative is chosen, the Lachlan section copy must explicitly state the relationship to Allan's work. The through-line should appear in the section eyebrow AND the opening paragraph. Do NOT let visitors infer the relationship.
 
-**Confidence:** HIGH -- Standard software engineering principle. Boldist's research on over-engineered websites specifically addresses marketing sites. Google's Core Web Vitals data shows JavaScript-heavy sites consistently underperform static sites.
+**Detection:**
+Show the draft to 3 people cold. Ask: "If you wanted help scaling your business, who would you book?" If any answer is "I'm not sure" or "I'd book Lachlan for some things and Allan for others without knowing which," positioning has failed.
+
+**Sources:**
+- [Positioning Your Coaching Business When You're A Jack Of All Trades (herincomeedit)](https://www.herincomeedit.com/post/positioning-your-coaching-business-when-you-re-a-jack-of-all-trades) — MEDIUM confidence, directly applicable
 
 ---
 
-## Serious Pitfalls
+### Pitfall 4: Photo Quality Mismatch — Event Snapshots vs Editorial Hero
 
-Mistakes that cause significant wasted effort, missed conversions, or require substantial rework.
+**Category:** Image / Visual Quality
+**Risk Level:** HIGH
 
----
+**What goes wrong:**
+Allan's existing imagery (`hero-bg.webp`, `alan-networking-2x.webp`, `IMG_1081.webp`) is cinematic, color-graded, professionally staged. Lachlan's available assets (`public/Lachlan Pictures/Portrait.JPG`, `Picture_with_War_Room_members.JPG`) are event photography — warm ambient lighting, unstaged composition, social/party context. Direct inspection confirms: the Portrait shows Lachlan in a teal suit at what appears to be a gala/event with chandelier lighting; the group photo is with War Room members against an event backdrop. Neither matches the editorial style of Allan's assets.
 
-### SERIOUS 1: Email Capture Without a Reason to Subscribe
+Dropping Lachlan's raw event photos next to Allan's editorial shots produces jarring inconsistency that cheapens the entire site.
 
-**What goes wrong:** The site has an email form that says "Subscribe for updates" or "Join our newsletter." Conversion rates hover at 1-2% because there is no compelling reason for a busy, successful business owner to give up their email. These people are already drowning in email. "Updates" from an unknown brand is not a value proposition.
+Research directly confirms the cost: "Inconsistent team headshots are one of the most common and expensive brand mistakes, with mismatched photos signaling a lack of attention to detail. Brands with inconsistent presentation need **1.75x more media spend** to achieve the same results." (m2mpics)
 
-**Why it happens:** The project explicitly decided against a lead magnet ("Email signup over lead magnet -- simpler to launch, captures interest without needing to create a free resource first"). This is understandable for launch speed, but the data is clear: lead magnets produce 2-4x higher conversion rates than generic newsletter signups. Without a lead magnet, the email form without a lead magnet converts at roughly 1.8-3.8%, while with a lead magnet it converts at 4.7-7.7%.
+**Why it happens:**
+The pictures already exist, they're "good enough," and there's pressure to ship the milestone without scheduling a photoshoot. The existing photos have the right person, wardrobe is acceptable (blue double-breasted suit), and warm gold tones technically align with the site's gold accent palette. So teams rationalize using them as-is.
 
 **Consequences:**
-- Email list grows slowly (hundreds of visits yield single-digit signups)
-- Cost per lead from any paid traffic becomes unsustainable
-- The site's primary conversion goal (email capture) underperforms
-- Months pass before the list is large enough to launch courses to
+- Visual amateur-hour signal to a sophisticated audience (the exact cohort prior research flagged as unforgiving)
+- "This was an afterthought" perception — undermines the care signal the cinematic design currently sends
+- The site's premium feel collapses to the weakest image's level
+- Allan's imagery retroactively feels like overcompensation
 
-**Warning signs:**
-- CTA copy is generic ("Subscribe," "Sign Up," "Stay Updated")
-- No description of what the subscriber will receive
-- No frequency promise (weekly? monthly? when courses launch?)
-- No value preview (what kind of insights? what topics?)
+**Prevention:**
+Three options, in priority order:
 
-**Prevention strategy:**
-1. **If no lead magnet, make the newsletter itself the product.** Give it a name. Describe what subscribers get. "The Scale Letter: One actionable scaling insight every Tuesday" is 10x better than "Subscribe for updates." Acquisition.com does not use a generic "newsletter" -- they offer specific tools like "Get My Custom Scaling Roadmap."
-2. **Consider a minimal lead magnet even for v1.** A single PDF ("The 3 Mistakes Business Owners Make When Trying to Scale Past $1M") takes 2-4 hours to create and can double conversion rates. This is not a course -- it is a one-page insight document.
-3. **Use specificity to create urgency.** "Be the first to access our scaling frameworks when they launch" with a specific course name or topic is better than vague future promises.
-4. **Add social proof to the signup form.** Even at launch: "Join 47 business owners already on the list" (real number, even if small) or "From the team building [specific thing]."
+1. **(PREFERRED) New Lachlan photoshoot** — Match Allan's shoot: editorial lighting, moody/dark background, deliberate pose, same photographer if possible. Budget 1–2 weeks turnaround. Gate the design phase on availability.
+2. **Heavy post-production on existing Portrait.JPG** — Aggressive color grading to match site palette (navy-900 backgrounds, gold highlights, crushed blacks). Crop tightly to eliminate party-context backgrounds. Degraded outcome but viable if photoshoot is impossible.
+3. **Avoid large hero-sized Lachlan imagery entirely** — If photos cannot match quality, use a smaller portrait treatment (e.g., 400×500 cropped tight with heavy vignette) that doesn't invite direct comparison to Allan's editorial shots. This ALSO supports Pitfall 2 (visual de-escalation).
 
-**Which phase should address it:** Phase 1 (Foundation) for the form design and copy. Should be revisited in Phase 2 with conversion data to decide whether a lead magnet is needed.
+**Explicitly forbidden:**
+- Using `Picture_with_War_Room_members.JPG` as-is at any size — the group composition and casual party context cannot be salvaged for a mentor bio section, AND it associates Lachlan with an impressive cohort he doesn't own (stolen social proof)
+- Using `Portrait.JPG` at hero/feature size without color regrading
 
-**Confidence:** HIGH -- Conversion rate data from GetResponse study, Encharge research, and Getsitecontrol A/B tests all show 2-4x improvement with lead magnets. Klipfolio benchmarks confirm 2%+ ECR as "healthy."
+**Detection:**
+Place Allan's image and Lachlan's image side-by-side at target display sizes. If the images "feel" like they came from two different websites, prevention has failed.
+
+**Sources:**
+- [Why Inconsistent Team Photos Are Costing Your Business Clients (m2mpics)](https://www.m2mpics.com/post/why-inconsistent-team-photos-are-costing-your-alpharetta-business-clients-and-how-to-fix-it) — HIGH confidence, directly applicable
+- [How to Get Matching Headshots for Your Entire Remote Team (headshotphoto.io)](https://www.headshotphoto.io/blogs/matching-team-headshots-remote-team) — MEDIUM confidence
 
 ---
 
-### SERIOUS 2: Copying acquisition.com's Aesthetic Without Its Substance
+### Pitfall 5: Bolted-On Section Feel — Cinematic Design Breaks at the Lachlan Boundary
 
-**What goes wrong:** The team replicates the dark, bold visual style of acquisition.com but misses what actually makes that site work. acquisition.com is not successful because of its dark color scheme -- it is successful because it backs its design with: $250M+ portfolio revenue, 12M+ audience, two bestselling books, $46.2M exit, and selective "minimum entry requirements." The design amplifies credibility that already exists. Without that substance, the same design signals "trying too hard."
+**Category:** Visual Design / Integration
+**Risk Level:** HIGH
 
-**Why it happens:** Inspiration becomes imitation. The visual surface is easy to copy; the underlying authority is not. A new brand with no track record using the same visual language as a $250M portfolio company creates a dissonance that sophisticated visitors detect immediately.
+**What goes wrong:**
+The existing site uses a deliberate cinematic rhythm: slow-zoom hero, blur-reveal animations, parallax on editorial images, alternating dark/accent backgrounds, gold eyebrow labels with horizontal-line dividers, consistent GSAP motion timing. A new section that reuses these patterns naively produces redundancy ("another gold eyebrow, another blur-reveal, another parallax image"), but a section that ignores them produces a "bolted-on" break where design cohesion visibly fractures.
+
+**Why it happens:**
+The Phase 2 developer grabs the existing About section as a template, duplicates it with Lachlan content, and ships. The result is either:
+- Exact duplicate = "groundhog day" effect, site feels repetitive
+- Partial duplicate = visual jarring where some elements match and others don't
+- Full redesign = breaks the design language entirely
 
 **Consequences:**
-- The site looks like a knockoff rather than an original
-- Visitors who know acquisition.com (likely, given the target audience) see the imitation and lose trust
-- The "premium" design without premium proof creates cognitive dissonance
-- The brand starts life as a derivative rather than a distinct entity
+- Cinematic identity (the current differentiator per the recent design overhaul) compromised
+- Site reads as "Allan's site with Lachlan tacked on" — the exact perception to avoid
+- User momentum through the page (currently strong with scroll-driven animations) breaks at the Lachlan section
 
-**Warning signs:**
-- Layout, color scheme, and typography are nearly identical to acquisition.com
-- Using "portfolio" language without a portfolio
-- Revenue claims or numbers that cannot be verified
-- Design sophistication far exceeds content sophistication
+**Prevention:**
+Establish Lachlan's section as a **visual variation within the established design language**, not a separate pattern:
+- **Reuse design tokens:** Same gold accent, same navy backgrounds, same typography scale, same motion timing — do not introduce new colors, new type scales, or new animation curves
+- **Invert the composition:** If Allan's About section is text-left/image-right (`col-span-5` text + `col-span-7` image), Lachlan's should be text-right/image-left OR stacked-center. Different composition, same system.
+- **Subordinate motion:** Allan's section uses `stagger-words` on the heading; Lachlan's section uses a simpler `blur-reveal` for deliberate de-escalation
+- **Transitional framing:** Add a small divider section (an eyebrow callout like "Specialist Support" or a single italic line like "There's one more person you should know") between Allan and Lachlan that sets up the new mentor as an extension of the existing narrative rather than a parallel entity
 
-**Prevention strategy:**
-1. **Extract principles, not pixels.** From acquisition.com, take: dark backgrounds, bold typography, generous whitespace, clean hierarchy, restraint over excess. Do NOT take: their exact color palette, their layout structure, their specific UI patterns.
-2. **Develop a distinct visual identity within the dark/bold category.** Different primary accent color (not purple). Different typography (not Poppins). Different layout patterns. The aesthetic category can be shared; the execution must be original.
-3. **Scale credibility signals to what is real.** If Alan Chan has built 3 businesses, say that -- do not imply a $250M portfolio. If the audience is small, do not fake scale. Authenticity resonates more with sophisticated audiences than inflated claims.
-4. **Let the content earn the design.** A slightly less polished site with genuine insights feels more credible to established business owners than a pixel-perfect site with nothing behind it.
-
-**Which phase should address it:** Phase 1 (Foundation) design system. The design should be inspired-by, not copied-from. This decision must be made before any pages are built.
-
-**Confidence:** MEDIUM-HIGH -- Based on analysis of acquisition.com's actual design tokens (fetched via WebFetch), branding research, and FTC warnings about business coaching credibility. The "copying without substance" pattern is well-documented in brand strategy literature.
+**Detection:**
+Scroll through the full page at 2× speed. If the pacing breaks or your eye "trips" at the Lachlan section, integration has failed. The scroll experience should feel like one continuous film reel, not a slideshow with a slide-swap.
 
 ---
 
-### SERIOUS 3: Mobile Experience Afterthought on a Visually Heavy Site
+### Pitfall 6: Hero Says "I Help Business Owners" But Page Has Two People
 
-**What goes wrong:** The desktop experience is designed first with large hero images, bold typography, dramatic spacing, and visual flourishes. Then mobile "adaptation" squishes everything into a narrow viewport. Hero images lose their impact. Typography that looked commanding at 66px becomes either too large (taking up multiple screens) or too small (losing its authority). Dark backgrounds with insufficient contrast become even harder to read on mobile screens in varying lighting conditions.
+**Category:** Copy / Messaging Integrity
+**Risk Level:** HIGH
 
-**Why it happens:** Bold, dark, visually-driven design is inherently desktop-first in its aesthetic instincts. Designers and developers optimize for the impressive wide-screen view and treat mobile as a compromise. But 60%+ of web traffic is mobile, and business owners often browse on their phones between meetings.
+**What goes wrong:**
+The current hero copy is singular first-person: "**I** Help Business Owners Scale Past Their Current Ceiling." The hero eyebrow is "Allan Chan." Below, the metrics bar claims "$1M+ Revenue Generated" (implicitly Allan's). The About section opens "Hey, I'm Allan." Adding Lachlan below creates a glaring voice inconsistency: the hero promises one person, the page delivers two. A visitor who reads "I help you scale" and then scrolls to find a second mentor experiences bait-and-switch.
+
+**Why it happens:**
+The hero was written for a solo brand. During the milestone, nobody edits the hero because "the hero is about Allan, and Allan is still primary." But the hero is the PAGE's hero, not Allan's personal hero; it sets expectations for the entire page.
 
 **Consequences:**
-- More than half of visitors see a degraded experience
-- Mobile Core Web Vitals fail (large images not optimized for mobile, layout shifts)
-- Dark theme readability problems are amplified on smaller screens and outdoor lighting
-- The site that looks "bold and authoritative" on desktop looks "cramped and hard to read" on mobile
-- Google's mobile-first indexing penalizes sites with poor mobile experience
+- Distrust signal: "The site told me one thing and shows me another"
+- Undermines the decision to position Allan as primary — visitor feels Allan oversold
+- Worse than having two mentors from the start — implies dishonesty about what the site is
 
-**Warning signs:**
-- Hero section requires scrolling past 2+ full mobile screens before reaching content
-- Body text is smaller than 16px on mobile
-- Images are served at desktop resolution to mobile devices
-- Touch targets (buttons, links) are smaller than 44x44px
-- No testing done on actual mobile devices in bright light
+**Prevention:**
+Choose ONE of these voice strategies and apply consistently (depends on Pitfall 1 resolution):
 
-**Prevention strategy:**
-1. **Design mobile-first, then scale up to desktop.** This is counterintuitive for a "bold" design, but ensures the core experience works everywhere. Desktop becomes the enhancement, not the default.
-2. **Create mobile-specific typography scales.** Desktop h1 at 48-66px might need to be 28-36px on mobile. Body text minimum 16px on mobile (prevents iOS zoom issues). Test readability on an actual phone held at arm's length.
-3. **Serve responsive images.** Use srcset and sizes attributes. A 2000px hero image served to a 375px phone is a performance disaster. Serve appropriately sized images for each breakpoint.
-4. **Test dark design on mobile specifically.** Dark backgrounds on OLED vs LCD screens look very different. Test on both iPhone (OLED) and budget Android (LCD) in bright outdoor conditions.
-5. **Set performance budgets for mobile.** Target: LCP under 2.5s on 4G connection, Total page weight under 1.5MB on mobile, no layout shifts after initial render.
+1. **Keep hero solo (RECOMMENDED for "Allan's brand with specialist partner" positioning):**
+   - Hero remains "I Help Business Owners Scale" (Allan's voice)
+   - Allan's About section reinforces "I"
+   - Lachlan's section uses third-person framing ("Allan works with a specialist partner, Lachlan MacDonald...") OR explicitly marked first-person speaker transition ("— Lachlan, speaking —")
+   - Metrics bar stays Allan's with explicit attribution (see Pitfall 12)
 
-**Which phase should address it:** Phase 1 (Foundation) -- responsive design is not a "later" concern. Every component must be built responsive from the start. Retrofitting responsive design is 3-5x more expensive than building it in.
+2. **Shift to "we" (only if positioning is truly co-equal — contradicts milestone intent):**
+   - Hero becomes "We Help Business Owners Scale"
+   - All sections use "we"
+   - Metrics combined
 
-**Confidence:** HIGH -- Google Web Vitals documentation, mobile traffic statistics, and dark mode accessibility research all support these findings. WCAG 2.1 mobile accessibility guidelines are well-established.
+3. **Shift to brand voice:**
+   - Hero becomes "Mentorship Ltd Helps Business Owners Scale Past Their Current Ceiling"
+   - Each mentor section uses their own "I" voice, clearly delineated
+   - Metrics attributed to the brand
+
+**Forbidden:** Mixing voices mid-page without explicit speaker markers. Do NOT let "I" from Allan's section bleed into Lachlan's section or vice-versa.
+
+**Detection:**
+Read the full page top-to-bottom. Count pronoun shifts. If "I" refers to two different people in different sections without a clear speaker transition, copy has failed.
 
 ---
 
-### SERIOUS 4: The "Under Construction" Perception
+## SERIOUS PITFALLS (Significant degradation)
 
-**What goes wrong:** Despite having a fully structured site (Home, About, Courses), the courses page communicates "we are not ready yet" rather than "something valuable is coming." Sophisticated business owners interpret "coming soon" as "this person has not done the work yet" or "this might never launch." The site feels like a construction zone rather than a deliberate pre-launch.
+### Pitfall 7: Navigation Becomes a Team Directory
 
-**Why it happens:** The courses page exists because the site "needs" one for navigation completeness, but there is no course content to show. Placeholder cards with "Coming Soon" badges are the path of least resistance. The problem is that this pattern is associated with abandoned projects, vaporware, and amateur operations.
+**Category:** UX / Navigation
+**Risk Level:** MEDIUM
+
+**What goes wrong:**
+Adding nav items like "Meet Allan" + "Meet Lachlan" or a dropdown "Mentors > Allan / Lachlan" converts a clean single-page scroll site into what feels like a team directory. This fights the site's current single-page simplicity and subordinates the brand to the people.
+
+**Why it happens:**
+The single-page architecture (confirmed correct for this scope in prior research) means the only way to "link to Lachlan" is an anchor like `#lachlan`. Someone proposes a nav restructure to accommodate.
 
 **Consequences:**
-- Visitors question whether the brand is legitimate
-- The "coming soon" page becomes a reason NOT to sign up (why give my email to something that might not happen?)
-- The page adds zero value to the visitor's experience
-- It becomes the weakest link in an otherwise polished site
-
-**Warning signs:**
-- Course cards are visually identical empty shells with only titles and "Coming Soon"
-- No timeline, no content preview, no curriculum detail
-- The page could be removed and the site would not lose any value
-- Visitors have no reason to return to this page
-
-**Prevention strategy:**
-1. **Reframe from "coming soon" to "what we teach."** Instead of empty course cards, create a curriculum overview page that describes the topics, frameworks, and outcomes. "What You Will Learn" is forward-looking and authoritative. "Coming Soon" is passive and uncertain.
-2. **Add depth to each topic area.** For each planned course, write 2-3 paragraphs about the problem it solves, who it is for, and what the outcome will be. This demonstrates expertise even without the video content.
-3. **Include a timeline only if you can commit to it.** "Q2 2026" is better than "Coming Soon" but only if it is real. A missed timeline is worse than no timeline.
-4. **Use the page to drive email signups.** "Get early access to [Course Name] when it launches" with topic-specific signup is more compelling than a generic newsletter form.
-5. **Consider launching with only Home + About if courses are not close to ready.** A focused two-page site that does two things well is better than a three-page site where one page undermines credibility.
-
-**Which phase should address it:** Phase 1 (Foundation) -- the courses page architecture and content strategy must be resolved before build, not during.
-
-**Confidence:** HIGH -- Shopify and LaunchBoom research on pre-launch pages, combined with FTC consumer guidance on evaluating business coaching sites, confirm that empty "coming soon" patterns damage credibility with sophisticated audiences.
-
----
-
-## Moderate Pitfalls
-
-Mistakes that cause delays, reduce effectiveness, or create avoidable technical debt.
-
----
-
-### MODERATE 1: Performance Death by Visual Boldness
-
-**What goes wrong:** The bold design aesthetic leads to large hero images, background videos, custom fonts, animations, and visual effects that tank page load performance. A 5MB hero image. Three custom font files. Parallax scrolling JavaScript. The site looks stunning on the developer's fast connection and takes 8 seconds to load on a visitor's mobile connection.
+- Nav bloat contradicting the "5 items max" principle established in prior research
+- Implies the mentors are the product, when the product is the mentorship outcomes
+- Moves the site closer to "agency team page" positioning instead of "authority brand"
 
 **Prevention:**
-- Set hard performance budget: total page weight under 2MB, LCP under 2.5s, no render-blocking resources
-- Use modern image formats (WebP, AVIF) with lazy loading for below-fold content
-- Limit custom fonts to 2 families maximum, use font-display: swap
-- Replace JavaScript animations with CSS transforms and opacity transitions (GPU-accelerated, do not trigger layout)
-- Use responsive images (srcset) to serve appropriate sizes per device
-- Test on throttled connections (Chrome DevTools "Slow 3G" profile)
-- Core Web Vitals are a Google ranking factor -- failing them means less organic traffic
+Do NOT add per-mentor nav items. If a deep-link to Lachlan is genuinely needed (e.g., referral traffic from boltloop.co), add a single "Mentors" or keep "About" anchor that scrolls to a combined section containing both. Keep nav at the existing item count — no person names in nav.
 
-**Which phase should address it:** Phase 1 (Foundation) for the performance budget and image pipeline. Phase 2 for monitoring and optimization.
+**Detection:**
+Look at the nav. If a first-time visitor can tell the site has two founders from the nav alone, it's gone too far.
+
+**Sources:**
+- [Five Best Practices for Single-Page UX Design (Designmodo)](https://designmodo.com/ux-single-page-websites/) — MEDIUM confidence
 
 ---
 
-### MODERATE 2: Speaking Down to the Audience
+### Pitfall 8: Dueling CTAs — Two Calendly Links Create Decision Paralysis
 
-**What goes wrong:** The site copy uses beginner-level language and concepts that insult the intelligence of established business owners. "Do you want to grow your business?" is patronizing to someone already running a $500K+ operation. "Learn the basics of sales" repels someone with a decade of sales experience. The copy signals that this education is for beginners, not for the sophisticated target audience.
+**Category:** Conversion
+**Risk Level:** MEDIUM
+
+**What goes wrong:**
+Current hero CTA points to `https://calendly.com/allan-chan-roseyco/one-on-one`. Adding a parallel "Book with Lachlan" CTA in his section means the page now has TWO primary CTAs competing for clicks. Decision paralysis is a documented conversion killer, especially for $500K+ audiences who resent wasted time.
+
+**Why it happens:**
+"Fair representation" reasoning: if Allan has a CTA, Lachlan should too. This treats the page as a team directory (see Pitfall 7) instead of a conversion funnel.
+
+**Consequences:**
+- Hero's "Book a Free Call" becomes ambiguous ("which call?")
+- Visitor punts on the decision ("I'll figure out who to book later" → never returns)
+- Split attribution makes it impossible to measure which mentor drives bookings
 
 **Prevention:**
-- Write copy that acknowledges where the audience already is: "You have built a successful business. Now you need to scale it past the ceiling you have hit."
-- Use specific, advanced terminology appropriate for experienced operators: "unit economics," "customer acquisition cost," "operational leverage" -- not "how to find customers"
-- Reference problems specific to the $500K-$1M+ stage: hiring challenges, systems breaking at scale, founder bottleneck, margin compression
-- Have an actual established business owner read the copy before launch. If they feel talked down to, rewrite.
-- Study acquisition.com's language: they speak as peers to business owners, not as teachers to students
+One of these patterns (pick based on Pitfall 1 / Pitfall 3 resolution):
 
-**Which phase should address it:** Phase 1 (Foundation) -- copy is a Phase 1 deliverable and must be validated against the target audience.
+1. **(RECOMMENDED) Single unified CTA:** Keep "Book a Free Call" → routes to Allan's calendly OR to an intake form that does routing
+2. **Primary + secondary hierarchy:** Hero CTA goes to Allan's calendly (unchanged). Lachlan's section has a visually subordinate link ("Learn more about Boltloop" or "Email Lachlan directly" as a text link, NOT a button)
+3. **Topic-based CTAs:** "Book a scaling call" (Allan) vs "Book an AI strategy call" (Lachlan) — only works if Pitfall 3 through-line is resolved cleanly AND the visitor can self-diagnose which topic applies
+
+**Never:** two equally-weighted "Book a Call" buttons on the same page.
+
+**Detection:**
+Count button-level CTAs on the page. Should be 1–2 max, and if 2, visually differentiated (not parallel twins).
 
 ---
 
-### MODERATE 3: Navigation Complexity for a Simple Site
+### Pitfall 9: Copy Inconsistency Between Mentor Bios
 
-**What goes wrong:** A three-page site gets a complex navigation structure: dropdown menus, mega-nav, sub-pages, footer navigation maps. This communicates "we are trying to look bigger than we are" -- exactly the wrong signal for a new brand targeting perceptive business owners. Alternatively, including navigation items for sections that do not exist yet (Resources, Blog, Community, Events) creates broken links or stub pages.
+**Category:** Copy / Messaging
+**Risk Level:** MEDIUM
+
+**What goes wrong:**
+Allan's existing bio uses a narrative arc: "A few years ago I hit a wall..." → "So I went deep..." → italicized pull-quote. If Lachlan's bio switches to a different structure (listicle, credentials-first, LinkedIn-style), the two sections feel like they belong on different websites.
+
+Research confirms: "Bios for each team member were completely inconsistent — some were much longer than others, some shared personal information and some didn't. It wasn't a good look." Inconsistency looks confusing and diminishes the trust you're trying to build. (Interior Design Community)
+
+**Why it happens:**
+Each bio gets written separately (or at different times). Without a structural template, voices and structures diverge.
+
+**Consequences:**
+- Tonal whiplash between sections
+- Signals the site lacks editorial oversight
+- Makes one mentor feel more "real" or more "considered" than the other
 
 **Prevention:**
-- Three pages = three nav items. Home, About, Courses (or whatever the reframed courses page becomes). Plus one prominent CTA button.
-- No dropdown menus. No sub-navigation. No footer sitemap.
-- Do NOT add nav items for pages that do not exist yet. A navigation with "Blog (Coming Soon)" and "Resources (Coming Soon)" screams amateur.
-- Look at acquisition.com: clean, minimal navigation despite being a much larger site. The navigation matches the actual content.
-- Add nav items only when the pages behind them have real, substantial content.
+Define a bio template in REQUIREMENTS.md and enforce for both mentors:
+- Eyebrow label (The Mentor / The Partner)
+- H-level greeting ("Hey, I'm [Name]") — but see Pitfall 17 for heading-level rules
+- 2–3 paragraph story arc (origin challenge → what they figured out → what they do now)
+- One italicized pull-quote
+- Same spacing, same motion timing
 
-**Which phase should address it:** Phase 1 (Foundation) -- navigation is part of the site shell.
+Lachlan's version should be STRUCTURALLY identical but CONTENT-different. Example arc: "I scaled agencies the hard way — manual, hours for everything. Then AI changed what solo founders could do. Now I help agency founders build the automation layer that lets them scale without 80-hour weeks."
+
+**Detection:**
+Diff the two bios structurally (not content). If structural outlines don't match, fix before shipping.
+
+**Sources:**
+- [Interior Design Team Recognition: Bios, Tags, and Credit](https://interiordesigncommunity.com/recognition-credit-team/) — MEDIUM confidence
+- [Meet the Team Pages Best Practices (Smashing Magazine)](https://www.smashingmagazine.com/2010/06/meet-the-team-pages-examples-and-trends/) — MEDIUM confidence
 
 ---
 
-### MODERATE 4: Analytics and Conversion Tracking Gaps
+### Pitfall 10: Lachlan Outshining Allan (The Age/Energy Trap)
 
-**What goes wrong:** The site launches without proper analytics, and the team cannot answer basic questions: How many people visit? Where do they come from? How many sign up for email? Where do they drop off? Which page converts best? Without data, every future decision is a guess.
+**Category:** Visual Hierarchy
+**Risk Level:** MEDIUM
+
+**What goes wrong:**
+Lachlan's portrait photo (directly inspected) shows him young, well-dressed in a striking teal suit, against glamorous event lighting — visually compelling. If presented at large size, his image risks being MORE visually arresting than Allan's, inverting the intended hierarchy. Combined with "AI/automation" (trending topic) vs "business mentorship" (less novel), Lachlan can inadvertently become the page's visual and conceptual anchor.
+
+**Why it happens:**
+Designers gravitate toward striking imagery. Trending topics attract attention. Both forces push Lachlan upward in perceived importance without anyone explicitly deciding it.
+
+**Consequences:**
+- Allan's primary-authority positioning undermined despite stated intent
+- Milestone goal ("Allan remains primary") silently fails
+- Visitors remember Lachlan, book Lachlan, undermining Allan's core book of business
 
 **Prevention:**
-- Install analytics before launch (Google Analytics 4 or privacy-focused alternative like Plausible/Fathom)
-- Set up conversion tracking for the email signup form (event tracking, not just pageviews)
-- Track scroll depth on key pages (do visitors read the about page or bounce from the hero?)
-- Set up UTM parameter tracking for any traffic sources
-- Create a simple dashboard with key metrics: visits, email signups, conversion rate by page, device split
-- This takes 1-2 hours to set up. Not doing it wastes weeks of visitor data.
+Explicitly test for this:
+- Size Lachlan's image **smaller** than Allan's, not just equal
+- Place Lachlan's section BELOW a strong Allan reinforcement (results, testimonials, or companies section)
+- Crop Lachlan's portrait to reduce the "striking outfit" impact — tighter crop, more muted color grading
+- Do NOT use the War Room group photo (borrowed social proof, visually compelling, wrong signal)
 
-**Which phase should address it:** Phase 1 (Foundation) -- must be in place at launch, not added after.
+**Detection:**
+Ask 5 first-time visitors: "Who is the main mentor on this site?" If more than 1 says Lachlan, hierarchy has failed.
 
 ---
 
-### MODERATE 5: Ignoring SEO Because "It is Just a Marketing Site"
+### Pitfall 11: Mystery Meat Scroll Anchor
 
-**What goes wrong:** The team assumes SEO does not matter for a three-page marketing site. No meta titles, no descriptions, no structured data, no sitemap, no semantic HTML. The site is invisible to search engines. When potential visitors search "business scaling education" or "how to scale past $1M," Elevateo does not appear.
+**Category:** UX / Navigation
+**Risk Level:** MEDIUM
+
+**What goes wrong:**
+If the site adds a "Mentors" anchor or any deep-link to Lachlan's section, anchor-landing UX matters. If the target heading lands too close to the top of the viewport, users overlook it; if a sticky nav covers the heading, users get disoriented.
+
+"When users click an in-page link, the associated content should be scrolled close to the top of the screen, but show a little bit of the preceding text or a small amount of white space at the very top of the screen to help users orient themselves." (NN/g)
+
+**Why it happens:**
+Anchor scroll-target offset is frequently forgotten during implementation. The existing site should be audited for sticky-nav behavior that might occlude scroll-targets.
+
+**Consequences:**
+- Referral visitors from boltloop.co or partner links land on a broken-looking anchor
+- Bounce rate on anchor-landed sessions significantly higher than top-landed
 
 **Prevention:**
-- Every page needs a unique, keyword-informed title tag and meta description
-- Use semantic HTML (h1, h2, h3 hierarchy, not styled divs)
-- Create and submit a sitemap.xml
-- Add structured data (Organization, Person for Alan Chan, potentially Course schema for the curriculum page)
-- Ensure proper heading hierarchy (one h1 per page, logical h2/h3 nesting)
-- Set up Google Search Console at launch
-- Even for a small site, basic SEO takes 2-3 hours and compounds over time
+If implementing a deep-link to Lachlan's section:
+- Add `scroll-margin-top` equal to sticky nav height + 16px breathing room
+- Test with direct URL entry (`site.com/#lachlan`) not just in-page clicks — browser behavior differs
+- Keep a small preceding element (eyebrow label or divider) visible so the user sees orientation context, not a heading slammed against the top edge
 
-**Which phase should address it:** Phase 1 (Foundation) -- SEO foundations are built into the HTML structure, not bolted on later.
+**Detection:**
+Open `site.com/#lachlan` in a fresh tab. Does the Lachlan section land with breathing room at the top, with the eyebrow/divider visible above the heading? If not, fix the scroll offset.
 
----
-
-## Minor Pitfalls
-
-Mistakes that cause friction or missed opportunities but are straightforward to fix.
+**Sources:**
+- [Anchors OK? Re-Assessing In-Page Links (NN/g)](https://www.nngroup.com/articles/in-page-links/) — HIGH confidence
 
 ---
 
-### MINOR 1: Social Proof Chicken-and-Egg Problem
+### Pitfall 12: Metrics Bar Doesn't Account for Two Mentors
 
-**What goes wrong:** The site has no testimonials, no client logos, no case study numbers because it is a new brand. Sections reserved for social proof sit empty or are filled with generic stock quotes.
+**Category:** Authority / Copy Integrity
+**Risk Level:** MEDIUM
+
+**What goes wrong:**
+Current metrics bar: $1M+ Revenue Generated, 10+ Businesses Mentored, 8+ Years Experience, 100% Client Retention. These are presented as the site's authority proof — implicitly Allan's (based on hero positioning and About section). Once Lachlan appears below, the metrics become ambiguous: are these Allan's? Combined? Whose 8+ years? If Lachlan is newer (which his visible age suggests), silent combined-attribution inflates his numbers via Allan's track record.
+
+**Why it happens:**
+The metrics bar is "done" from the previous milestone and feels untouchable. Nobody asks whether it still means the same thing with a second mentor present.
+
+**Consequences:**
+- Implicit authority-padding — reads as slightly dishonest to discerning visitors who pattern-match
+- When Lachlan's section reveals he's newer, the "8+ years" number retroactively feels like it was reaching
+- Vulnerable to direct contradiction if Lachlan's actual experience is stated explicitly elsewhere
 
 **Prevention:**
-- Do not include empty testimonial sections. A "Testimonials" section with no testimonials is worse than no section at all.
-- Use what exists: Alan Chan's personal track record, businesses built, specific results achieved
-- If there are no third-party endorsements yet, lead with credentials and specific claims that can be verified ("Built 3 businesses to $X revenue" rather than a testimonial from a client)
-- Plan to add real testimonials as soon as they exist (Phase 2+)
-- Consider LinkedIn recommendations or professional endorsements as interim social proof
+Three options:
+1. **Attribute explicitly (RECOMMENDED):** Add small eyebrow above the metrics bar — "Allan's Track Record" or "Since 2017"
+2. **Combine honestly:** Rewrite metrics as combined aggregate numbers with explicit "Across our mentors" labels — only if combined numbers are legitimately bigger AND stated honestly
+3. **Split:** Allan's metrics in the main bar; Lachlan's smaller metrics (e.g., "Solo agencies scaled to $X") within his section
+
+**Forbidden:** Leaving the metrics bar unchanged while silently implying it represents "both mentors."
+
+**Detection:**
+Ask any reviewer: "Whose numbers are these?" If answers differ, attribution has failed.
 
 ---
 
-### MINOR 2: Form Friction in the Email Signup
+### Pitfall 13: "Fighter" Angle Lowering Professional Tone
 
-**What goes wrong:** The email signup form asks for too much information (first name, last name, company, revenue, phone number) when all that is needed is an email address. Every additional field reduces conversion rates by approximately 11%.
+**Category:** Copy / Messaging
+**Risk Level:** MEDIUM
+
+**What goes wrong:**
+Lachlan's context includes "maintains great physical health and fights." In a dark, cinematic, authority-focused business mentorship site targeting $500K+ owners, the fighting/martial-arts angle is double-edged: done well, it reinforces discipline and intensity; done badly, it reads as "bro marketing" or personal vanity — both of which alienate sophisticated buyers.
+
+Research confirms: "Be aware of how humorous or campy information can come across to professionals from different industries. What might be acceptable for a creative site might not go over so well in the finance or legal industries." (Interior Design Community)
+
+**Why it happens:**
+Personal-brand instinct says "add personality." The fighting angle is a genuine differentiator for Lachlan. But at the site level, the audience is buying business outcomes, not personality.
+
+**Consequences:**
+- Tonal mismatch with Allan's restrained, strategy-focused voice
+- "Trying too hard" perception (echoes prior research's warning about aesthetic over substance)
+- Filter that eliminates the most sophisticated prospects (finance/legal/older operators who over-index on restraint)
 
 **Prevention:**
-- v1 form: email only. One field. One button.
-- If segmentation is needed later, use progressive profiling (ask for more info after signup, in follow-up emails)
-- Button text should be specific and action-oriented ("Get Early Access" or "Join the Scale Letter") not generic ("Submit" or "Sign Up")
-- Place the form above the fold on the home page and at the bottom of every page
+- **(RECOMMENDED) Option A:** Keep the fighter angle OUT of the primary site. If Lachlan wants to showcase it, add to his dedicated LinkedIn, personal site, or a potential future `/lachlan` subpage — not the main landing page.
+- **Option B:** Reference it obliquely as a discipline signal ("Lachlan brings the same intensity to his clients as he does to training") — one sentence max, never a section
+- **Forbidden:** Dedicated "fighter" imagery, fight-branded copy, gym photos, or any "warrior/grind" tonal shift in the Lachlan section
+
+**Detection:**
+Read the Lachlan section to someone in finance or law. If their reaction is "oh, one of those" or a raised eyebrow, cut it.
 
 ---
 
-### MINOR 3: Inconsistent Dark Design Across All States
+## MODERATE PITFALLS (Polish / refinement)
 
-**What goes wrong:** The main pages look great in dark mode, but error states, loading states, form interactions, success messages, and tooltips revert to light-mode styling. A white flash when a form submits, a light-background toast notification, or a default browser-styled input field breaks the immersion.
+### Pitfall 14: Companies Section Redundancy (Boltloop Card)
+
+**Category:** Information Architecture
+**Risk Level:** LOW
+
+**What goes wrong:**
+The current "Companies I've Built" section features Boltloop as one of four cards under Allan's implicit ownership ("I don't just advise — I build. These are the businesses I own and operate."). If Lachlan's new section explicitly frames him as "CEO of boltloop.co," the Boltloop card becomes contradictory: is it Allan's company or Lachlan's?
 
 **Prevention:**
-- Audit every interaction state: form focus, form error, form success, button hover, button active, link hover, scroll indicators, loading spinners
-- Style all browser defaults (input focus rings, selection highlight, scrollbar)
-- Ensure third-party embeds (email form widgets) match the dark theme, or use API-based integrations that can be styled
-- Create a checklist of every interactive state and verify dark styling for each
+Reframe the companies section. Options:
+- Change the header copy to "The Portfolio" / "Our Companies" and remove the first-person framing
+- Keep section as Allan's portfolio but add a visible indicator on Boltloop card ("Led by Lachlan MacDonald")
+- Move Boltloop out of this section and into Lachlan's section as HIS company
+
+Do not leave the ambiguity unresolved — it implies Allan took credit for Lachlan's company.
 
 ---
 
-### MINOR 4: Missing Favicon and Open Graph Metadata
+### Pitfall 15: Testimonials Don't Name Which Mentor Helped
 
-**What goes wrong:** The site looks professional on-page but shows a blank icon in browser tabs and generic previews when shared on LinkedIn or in text messages. For a brand targeting business owners who network digitally, every shared link is a branding opportunity.
+**Category:** Social Proof
+**Risk Level:** LOW
+
+**What goes wrong:**
+Results section has "3.2x Revenue Growth," "$1.2M Added Annual Revenue," "25 hrs/week Freed Up." Currently these implicitly belong to Allan. Once Lachlan is on the page, visitors may assume one of these was Lachlan's result, inflating his track record.
 
 **Prevention:**
-- Create a favicon set (16x16, 32x32, apple-touch-icon) in dark-compatible format
-- Set up Open Graph tags (og:title, og:description, og:image) for every page
-- Create a branded social sharing image (1200x630px) that looks good on dark and light social media feeds
-- Test link previews in LinkedIn, Twitter/X, and iMessage before launch
+If Lachlan has zero real testimonials for this milestone, explicitly attribute existing results to Allan (e.g., subsection header "Allan's Client Results"). If Lachlan has real testimonials, add them in a visually differentiated way — do not blend them into Allan's results.
 
 ---
 
-## Phase-Specific Warning Matrix
+### Pitfall 16: OG / Meta Tags Still Singular
 
-| Phase Topic | Likely Pitfall | Severity | Mitigation |
-|---|---|---|---|
-| Foundation: Design System | Dark palette that kills readability | CRITICAL | Establish color tokens with verified contrast ratios before building any pages |
-| Foundation: Site Architecture | Over-engineering (SaaS patterns for a brochure site) | CRITICAL | Choose static-first architecture, enforce complexity budget |
-| Foundation: Courses Page | Empty "Coming Soon" page that damages credibility | SERIOUS | Reframe as curriculum/topic overview with substantive content |
-| Foundation: Copy | Generic language that insults sophisticated audience | SERIOUS | Write for $500K+ business owners, not beginners. Peer tone, not teacher tone |
-| Foundation: Email Capture | "Subscribe for updates" with no compelling reason | SERIOUS | Name the newsletter, describe specific value, consider minimal lead magnet |
-| Foundation: Mobile | Desktop-first dark design that breaks on mobile | SERIOUS | Mobile-first responsive approach, test dark theme on actual devices |
-| Foundation: Performance | Heavy visuals that tank load times | MODERATE | Performance budget, modern image formats, CSS-only animations |
-| Foundation: Analytics | Launching without conversion tracking | MODERATE | GA4 or equivalent + form submission tracking before launch |
-| Foundation: SEO | No meta tags, no semantic HTML, no sitemap | MODERATE | Basic SEO checklist as part of launch requirements |
-| Post-Launch: Identity | Looking like an acquisition.com clone | SERIOUS | Distinct color palette, typography, and layout within dark/bold category |
+**Category:** SEO / Social Meta
+**Risk Level:** LOW
+
+**What goes wrong:**
+Current `<Base>` description: "Mentorship Ltd — Allan Chan helps business owners scale with mentorship, strategy, and hands-on guidance to grow past your current ceiling." Still names only Allan. When shared on LinkedIn/Twitter post-launch, the preview card contradicts the actual page contents.
+
+**Prevention:**
+- Update meta description, OG description, and Twitter card to reflect the new positioning from Pitfall 1
+- Ensure OG image (hero share image) doesn't feature only Allan if positioning shifts
+- If JSON-LD Person schema is present, handle two people correctly OR switch to Organization schema
 
 ---
 
-## Key Insight: The "Sophistication Mismatch" Meta-Pitfall
+### Pitfall 17: Two "Hey, I'm ___" H2s Break Heading Hierarchy
 
-The single most dangerous pattern across all these pitfalls is the **sophistication mismatch**: building a site that looks premium but feels hollow to the exact audience it targets.
+**Category:** Accessibility / Semantic HTML
+**Risk Level:** LOW
 
-Established business owners making $500K-$1M+ are the most discerning audience in the business education space. They have:
-- Evaluated dozens of coaches, courses, and consultants
-- Built real businesses and can distinguish substance from performance
-- Limited time and zero patience for empty promises
-- High pattern-recognition for "guru" red flags (big claims, no proof, slick design, no substance)
+**What goes wrong:**
+Allan's About section currently uses `text-h2` ("Hey, I'm Allan" — confirmed at line 120 of `index.astro`). If Lachlan's section copies the pattern ("Hey, I'm Lachlan") with the same H2 level, screen readers announce TWO top-level mentor sections, fighting the intended hierarchy where Allan is primary.
 
-Every pitfall above is a manifestation of this meta-pitfall. The solution is consistent: **substance before style, proof before polish, specificity before scale.**
-
-The site does not need to be perfect. It needs to be honest about where it is, specific about what it offers, and genuinely useful to the visitor -- even before courses exist.
+**Prevention:**
+- If Lachlan is subordinate (per Pitfall 2): use H3 for Lachlan's greeting, not H2
+- Alternatively: wrap both mentors under a single H2 container ("The Team Behind Mentorship Ltd" or "Meet Your Mentors"), with H3 for each individual
+- Add `aria-labelledby` on each section pointing to its heading
+- Run axe-core or Lighthouse accessibility check after implementation
 
 ---
 
-## Sources
+## Phase-Specific Guidance
 
-### Verified (HIGH confidence)
-- [NN/g: Dark Mode Users and Issues](https://www.nngroup.com/articles/dark-mode-users-issues/) -- Dark mode usability research
-- [Smashing Magazine: Inclusive Dark Mode Design](https://www.smashingmagazine.com/2025/04/inclusive-dark-mode-designing-accessible-dark-themes/) -- Technical dark mode implementation
-- [W3C WCAG 2.2: Contrast Minimum](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) -- Accessibility contrast requirements
-- [WebAIM: Contrast and Color Accessibility](https://webaim.org/articles/contrast/) -- WCAG contrast guidance
-- [BOIA: Dark Mode and Text Readability](https://www.boia.org/blog/dark-mode-can-improve-text-readability-but-not-for-everyone) -- Accessibility research on dark mode
-- [Google web.dev: Top Core Web Vitals](https://web.dev/articles/top-cwv) -- Performance optimization
-- [MDN: Color Contrast Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast) -- Technical contrast guidance
-- acquisition.com design analysis via direct WebFetch -- Color palette, typography, design patterns
+| Phase Topic | Primary Pitfalls to Address | Mitigation Approach |
+|-------------|------------------------------|---------------------|
+| Requirements | 1 (Identity Crisis), 3 (Specialty Confusion), 13 (Fighter Tone) | Resolve positioning questions and tone boundaries in writing BEFORE roadmap finalization |
+| Phase 0 / Content Prep | 4 (Photo Mismatch) | Schedule Lachlan photoshoot as gating content dependency; this blocks design work |
+| Phase 1 (Design / Hierarchy) | 2 (Authority Split), 6 (Hero Voice), 10 (Outshining), 12 (Metrics Attribution) | Establish hierarchy and voice rules as design tokens / style-guide entries, not per-section decisions |
+| Phase 2 (Implementation) | 5 (Bolted-On), 7 (Nav), 8 (CTAs), 9 (Bio Consistency), 11 (Anchor Offset), 14 (Companies Section), 17 (H-levels) | Component-level discipline — reuse patterns with deliberate variation; treat every Lachlan decision as "deliberate de-escalation check" |
+| Phase 3 (Polish / QA) | 13 (Fighter), 15 (Testimonial Attribution), 16 (Meta/OG) | Content audit + meta pass + 5-person cold-read test before launch |
 
-### Verified (MEDIUM confidence)
-- [Boldist: Over-Engineering vs Simplified Website Design](https://boldist.co/web-design/overengineering-vs-simplified-website-design/) -- Over-engineering marketing sites
-- [Vareweb: The Dark Side of Dark Mode](https://vareweb.com/blog/the-dark-side-of-dark-mode-in-web-design/) -- Dark mode pitfalls
-- [GetResponse: Best Lead Magnets Study](https://www.getresponse.com/blog/best-lead-magnets-study) -- Lead magnet conversion data
-- [Encharge: Lead Magnet Data](https://encharge.io/lead-magnet-examples/) -- Email conversion rate benchmarks
-- [Getsitecontrol: Email Popup Signup Rates](https://getsitecontrol.com/blog/email-popup-signup-rates-test/) -- A/B test data on signup forms
-- [Search Engine Land: Thought Leadership Content](https://searchengineland.com/guide/thought-leadership-content) -- E-E-A-T and authority content
-- [FTC: Business Coaching Scams](https://consumer.ftc.gov/articles/when-business-offer-or-coaching-program-scam) -- Consumer trust signals for coaching sites
-- [Shopify: Coming Soon Page Examples](https://www.shopify.com/blog/coming-soon-page) -- Pre-launch page best practices
-- [LaunchBoom: Pre-launch Landing Pages](https://www.launchboom.com/crowdfunding-tips/best-pre-launch-landing-page-examples) -- Pre-launch conversion strategies
+---
 
-### Informing Context (LOW confidence -- used for pattern identification, not specific claims)
-- Various WebSearch results on personal branding, authority building, and high-ticket sales patterns
-- Community discussions on over-engineering marketing sites
+## Meta-Pitfall: "The Silent Promotion"
+
+The most dangerous pattern across all pitfalls above is **unintended co-equality** — the milestone explicitly states Allan remains primary, but default developer and designer instincts (symmetry, fairness, treating the second person "professionally") produce visual and narrative parity. Every design decision must be actively tested against the question: **"Does this reinforce Allan as primary, or does it silently equalize?"**
+
+If there's no explicit hierarchy rule, symmetry wins by default. Hierarchy must be deliberate.
+
+A second meta-lens: **the milestone is a brand identity question masquerading as a design task.** Treating it as "add a section" produces all the pitfalls above. Treating it as "redefine what Mentorship Ltd is, then express that visually" avoids them. Pitfalls 1, 3, and 6 are root causes; everything else is downstream.
+
+---
+
+## Sources (Aggregated)
+
+### Primary Research Sources (external)
+- [Why Inconsistent Team Photos Are Costing Your Business Clients (m2mpics)](https://www.m2mpics.com/post/why-inconsistent-team-photos-are-costing-your-alpharetta-business-clients-and-how-to-fix-it) — HIGH confidence
+- [How to Get Matching Headshots for Your Entire Remote Team (headshotphoto.io)](https://www.headshotphoto.io/blogs/matching-team-headshots-remote-team) — MEDIUM confidence
+- [Positioning Your Coaching Business When You're A Jack Of All Trades (herincomeedit)](https://www.herincomeedit.com/post/positioning-your-coaching-business-when-you-re-a-jack-of-all-trades) — MEDIUM confidence
+- [Anchors OK? Re-Assessing In-Page Links (NN/g)](https://www.nngroup.com/articles/in-page-links/) — HIGH confidence
+- [How to Avoid Brand Dilution in Multi-Brand Organizations (Claromentis)](https://www.claromentis.com/blog/how-to-avoid-brand-dilution-in-multi-brand-organizations) — MEDIUM confidence
+- [Brand Dilution: What It Is and How to Avoid It (Website Builder Expert)](https://www.websitebuilderexpert.com/brand/brand-dilution/) — MEDIUM confidence
+- [Interior Design Team Recognition: Bios, Tags, and Credit](https://interiordesigncommunity.com/recognition-credit-team/) — MEDIUM confidence
+- [Meet the Team Pages Best Practices (Smashing Magazine)](https://www.smashingmagazine.com/2010/06/meet-the-team-pages-examples-and-trends/) — MEDIUM confidence
+- [Five Best Practices for Single-Page UX Design (Designmodo)](https://designmodo.com/ux-single-page-websites/) — MEDIUM confidence
+- [7 Tips to Transition into a Personal Brand Website (Jammy Digital)](https://jammydigital.com/transitioning-personal-brand/) — MEDIUM confidence
+
+### Internal Sources
+- `.planning/research/SUMMARY.md` (prior milestone — audience characteristics baseline) — HIGH confidence on audience profile
+- `.planning/PROJECT.md` (milestone brief defining Allan-primary constraint) — HIGH confidence
+- Direct inspection of `src/pages/index.astro` (current site structure, voice, metrics, CTAs) — HIGH confidence
+- Direct inspection of `public/Lachlan Pictures/Portrait.JPG` and `Picture_with_War_Room_members.JPG` (actual available photos) — HIGH confidence
