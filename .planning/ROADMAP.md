@@ -136,5 +136,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 3. About Page + Brand Refresh | 2/2 | Complete | 2026-02-12 |
 | 4. Courses + Email Integration | 2/2 | Complete | 2026-04-23 (backfilled) |
 | 5. Animation + Polish | 2/2 | Complete | 2026-04-23 (backfilled) |
-| 6. Lachlan Image Pipeline + MentorIntro Component | 0/? | Not started | - |
+| 6. Lachlan Image Pipeline + MentorIntro Component | 1/2 | In Progress|  |
 | 7. Lachlan Section Integration + Navigation Anchors | 0/? | Not started | - |

@@ -85,7 +85,7 @@
 - [ ] **MENTOR-05**: Visitor sees three specialty/focus cards highlighting Lachlan's core angles (solo agency scaling, co-founder work, AI/automation)
 - [ ] **MENTOR-06**: Visitor can identify if Lachlan is the right mentor for them via a "Who Lachlan works with" block
 - [ ] **MENTOR-07**: Visitor can book a call via a CTA button on Lachlan's section (routes to Allan's Calendly link as placeholder)
-- [ ] **MENTOR-08**: Lachlan's portrait is processed to WebP (~150–300 KB) and renders consistently with the site's existing image quality
+- [x] **MENTOR-08**: Lachlan's portrait is processed to WebP (~150–300 KB) and renders consistently with the site's existing image quality
 
 ### Navigation
 
@@ -121,7 +121,7 @@
 | MENTOR-05 | Phase 7: Lachlan Section Integration + Navigation Anchors | Pending |
 | MENTOR-06 | Phase 7: Lachlan Section Integration + Navigation Anchors | Pending |
 | MENTOR-07 | Phase 7: Lachlan Section Integration + Navigation Anchors | Pending |
-| MENTOR-08 | Phase 6: Lachlan Image Pipeline + MentorIntro Component | Pending |
+| MENTOR-08 | Phase 6: Lachlan Image Pipeline + MentorIntro Component | Complete |
 | NAV-04 | Phase 7: Lachlan Section Integration + Navigation Anchors | Pending |
 
 **Coverage:**

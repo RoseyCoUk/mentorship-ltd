@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Roadmap defined, awaiting plan-phase
-stopped_at: Phase 6 context gathered
-last_updated: "2026-04-24T04:58:59.680Z"
-last_activity: 2026-04-23 — v1.1 roadmap created (Phases 6, 7 added)
+status: executing
+stopped_at: Completed 06-02-PLAN.md
+last_updated: "2026-04-24T18:29:17.133Z"
+last_activity: 2026-04-24
 progress:
   total_phases: 7
   completed_phases: 3
-  total_plans: 7
-  completed_plans: 7
+  total_plans: 9
+  completed_plans: 8
   percent: 71
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-23)
 
 **Core value:** Business owners land on Mentorship Ltd and immediately see Allan Chan (primary) and Lachlan MacDonald (secondary) as credible mentors they can book calls with.
-**Current focus:** Milestone v1.1 — Add Lachlan MacDonald. Roadmap defined (Phases 6 and 7). Ready for plan-phase on Phase 6.
+**Current focus:** Phase 06 — lachlan-image-pipeline-mentorintro-component
 
 ## Current Position
 
-Phase: 6 — Lachlan Image Pipeline + MentorIntro Component
-Plan: —
-Status: Roadmap defined, awaiting plan-phase
-Last activity: 2026-04-23 — v1.1 roadmap created (Phases 6, 7 added)
+Phase: 06 (lachlan-image-pipeline-mentorintro-component) — EXECUTING
+Plan: 2 of 2
+Status: Ready to execute
+Last activity: 2026-04-24
 
 Progress: [############......] 71% (5 of 7 phases complete)
 
@@ -57,6 +57,7 @@ Progress: [############......] 71% (5 of 7 phases complete)
 - v1.0 shipped. v1.1 just started.
 
 *Updated after each plan completion*
+| Phase 06-lachlan-image-pipeline-mentorintro-component P02 | 8 | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -83,6 +84,8 @@ Recent decisions affecting current work:
 - [Pivot]: Site pivoted from Elevateo Co (3 pages) to Mentorship Ltd (single-page)
 - [Pivot]: Email provider changed from Kit/ConvertKit to Resend (RESEND_API_KEY, RESEND_AUDIENCE_ID env vars required)
 - [Pivot]: Animation library: GSAP → Motion One + Lenis + SplitType
+- [Phase 06-lachlan-image-pipeline-mentorintro-component]: flip boolean prop uses DOM ordering (two conditional blocks) not flex-row-reverse for image-left/right swap in lg+ grid
+- [Phase 06-lachlan-image-pipeline-mentorintro-component]: MentorIntro.astro typed map callbacks (para: string, s: Specialty, item: AudienceItem) required by TypeScript strict mode
 
 ### Pending Todos
 
@@ -115,6 +118,6 @@ None blocking Phase 6 planning. Phase 7 carries two soft risks:
 
 ## Session Continuity
 
-Last session: 2026-04-24T04:58:59.675Z
-Stopped at: Phase 6 context gathered
-Resume file: .planning/phases/06-lachlan-image-pipeline-mentorintro-component/06-CONTEXT.md
+Last session: 2026-04-24T18:29:17.129Z
+Stopped at: Completed 06-02-PLAN.md
+Resume file: None
