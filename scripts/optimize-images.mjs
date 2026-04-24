@@ -24,6 +24,7 @@ async function toWebp(src, dest, opts) {
   const meta = await img.metadata();
 
   let pipeline = img;
+  pipeline = pipeline.rotate();  // Auto-orient per EXIF; no-op when no orientation flag is present
 
   if (opts.width && meta.width > opts.width) {
     pipeline = pipeline.resize({ width: opts.width, withoutEnlargement: true });
