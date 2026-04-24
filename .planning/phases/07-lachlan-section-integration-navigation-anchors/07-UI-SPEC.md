@@ -66,22 +66,27 @@ Tailwind CSS 4's default spacing scale is used via `--spacing: 0.25rem` (`global
 
 ## Typography
 
-Phase 7 inherits the site's existing type scale. No new type roles introduced. All values below are defined in `global.css:47-58` and `global.css:120-139`.
+Phase 7 inherits the site's existing type scale. No new type roles introduced. The table below declares the **4 size roles** Phase 7 actively uses. Unused inherited tokens (`--text-body-lg`, `--text-sm`) are collapsed into the roles below — their computed ranges overlap with `body` and the distinction is not load-bearing for Phase 7. All values are defined in `global.css:47-58` and `global.css:120-139`.
 
 | Role | Size (CSS var) | Computed range | Weight | Line Height | Where Phase 7 uses it |
 |------|---------------|----------------|--------|-------------|------------------------|
-| H2 (section headline) | `--text-h2` = `clamp(2rem, 4vw + 0.25rem, 3.5rem)` | 32–56 px | 700 (bold) serif | 1.2 | "Meet Lachlan" headline inside MentorIntro bio |
-| H3 (card / subsection heading) | `--text-h3` = `clamp(1.5rem, 2vw + 1rem, 2rem)` | 24–32 px | 700 (bold) serif | 1.2 | Specialty card titles; "Who Lachlan works with" heading |
-| Body (default paragraph) | `--text-body` = `clamp(1rem, 1.25vw, 1.125rem)` | 16–18 px | 400 (regular) sans | 1.7 (body default) / 1.6 (`leading-relaxed`) | Lachlan's credentials paragraphs; audience-item description |
-| Body-lg (emphasis paragraph) | `--text-body-lg` = `clamp(1.125rem, 1.5vw, 1.25rem)` | 18–20 px | 400 sans + 700 on `<strong>` | 1.6 | Audience-list item line (`<strong>title</strong> — desc`) |
-| Small (label / meta) | `--text-sm` = `0.875rem` | 14 px | 400 sans | 1.6 | Specialty card description |
-| XS (eyebrow / nav) | `--text-xs` = `0.75rem` | 12 px | 700 (bold) sans, uppercase, tracking `0.2em` (eyebrow) / `widest` (nav) | 1.5 | "The Specialist" eyebrow label; 3 header nav link labels |
+| h2 (section headline) | `--text-h2` = `clamp(2rem, 4vw + 0.25rem, 3.5rem)` | 32–56 px | 700 (bold) serif | 1.2 | "Meet Lachlan" headline inside MentorIntro bio |
+| h3 (card / subsection heading) | `--text-h3` = `clamp(1.5rem, 2vw + 1rem, 2rem)` | 24–32 px | 700 (bold) serif | 1.2 | Specialty card titles; "Who Lachlan works with" heading |
+| body | `--text-body` = `clamp(1rem, 1.25vw, 1.125rem)` (also covers the emphasis-body range via `<strong>` weight flip) | 16–18 px | 400 (regular) sans; `<strong>` flips to 700 inside audience items | 1.7 (body default) / 1.6 (`leading-relaxed`) | Lachlan's credentials paragraphs; audience-item descriptions (with `<strong>title</strong>` emphasis); specialty card descriptions |
+| xs (eyebrow / nav) | `--text-xs` = `0.75rem` | 12 px | 700 (bold) sans, uppercase, tracking `0.2em` (eyebrow) / `widest` (nav) | 1.5 | "The Specialist" eyebrow label; 3 header nav link labels |
 
-**Weight usage declared:** Exactly two weights — **400 (regular)** for all body copy and inactive nav; **700 (bold)** for all headings, active nav, eyebrow labels, and `<strong>` emphasis within audience items. No other weights introduced.
+**Weights declared (exactly two):**
+
+| Weight | Usage |
+|--------|-------|
+| 400 (regular) | All body copy, inactive nav links, default paragraph flow |
+| 700 (bold) | All headings (h2, h3), active nav, eyebrow labels, `<strong>` emphasis within audience items |
+
+No other weights are introduced or extended by Phase 7.
+
+**Inherited markup note (first-name italic span):** The `MentorIntro.astro:91` component renders the first name inside h2 with `<span class="text-white italic font-light">`. This is **inherited, pre-existing markup** shipped in Phase 6 — Phase 7 does not introduce or extend this class. The executor MUST NOT modify the `<span class="font-light italic">` on the first-name token, and MUST NOT apply `font-light` anywhere else in Phase 7's output. It remains a scoped, one-location legacy flourish on the `{name}` token only.
 
 **Letter-spacing:** All caps/uppercase text uses either `tracking-widest` (nav links, per `Header.astro:29`) or `tracking-[0.2em]` (eyebrow, per `MentorIntro.astro:88`). Headings use `letter-spacing: -0.02em` (`global.css:137`).
-
-**Italic:** The first name inside MentorIntro's H2 (`{name}`) is wrapped in `<span class="text-white italic font-light">` (`MentorIntro.astro:91`). This is the one place `font-light` (300) appears — a stylistic cinematic flourish isolated to the first-name token only. Consistent with Allan's About section styling (already shipped). **Do not extend light weight to other elements.**
 
 ---
 
@@ -130,7 +135,7 @@ Phase 7's largest risk is **tone of voice in Lachlan's bio copy** (RESEARCH Pitf
 | Element | Copy |
 |---------|------|
 | Eyebrow (above H2) | `The Specialist` |
-| H2 headline | `Meet Lachlan` (MentorIntro splits on `name="Lachlan"` so "Meet " renders regular serif and "Lachlan" renders italic light) |
+| H2 headline | `Meet Lachlan` (MentorIntro splits on `name="Lachlan"` so "Meet " renders regular serif and "Lachlan" renders italic light via the inherited first-name span — see Typography note above) |
 | Section ID | `lachlan` (on outer `<section>`; enables `#lachlan` anchor target) |
 
 ### Credentials paragraphs (`credentials: string[]` prop — 3 paragraphs)
@@ -304,7 +309,7 @@ Inherited entirely from existing components. Phase 7 ships no new breakpoint log
 - [ ] Dimension 1 Copywriting: PASS (fighting reference passes Pitfall 4 banned-words check; boltloop framing passes Pitfall 5 double-claim check; all 3 CTAs, 3 specialty descriptions, 3 audience items, and 3 nav labels declared verbatim)
 - [ ] Dimension 2 Visuals: PASS (zero new visual patterns; hair-line divider spec matches existing Companies section border convention; MentorIntro flip direction verified)
 - [ ] Dimension 3 Color: PASS (60/30/10 declared against `navy-900` / `navy-800 + white/5` / `gold` with 5 explicit gold-usage sites)
-- [ ] Dimension 4 Typography: PASS (2 weights declared — 400/700 — with documented italic `font-light` exception limited to first-name span; 6 sizes declared all from existing `--text-*` tokens)
+- [ ] Dimension 4 Typography: PASS (exactly 2 weights declared — 400/700; exactly 4 sizes declared — h2, h3, body, xs; inherited first-name italic `font-light` span documented as pre-existing markup, NOT a declared role, scoped to `MentorIntro.astro:91` only)
 - [ ] Dimension 5 Spacing: PASS (all values multiples of 4; 9 tokens declared; header height 72 px used to derive Lenis offset)
 - [ ] Dimension 6 Registry Safety: PASS (no registries, no third-party imports, gate N/A)
 
