@@ -1,16 +1,16 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: milestone
-status: completed
-stopped_at: Phase 7 complete — Lachlan section integration committed (e01b4da), 07-02-SUMMARY.md written
-last_updated: "2026-04-26T18:42:08.954Z"
+milestone: v1.1
+milestone_name: Add Lachlan MacDonald
+status: milestone_complete
+stopped_at: v1.1 milestone archived — MILESTONES.md, ROADMAP.md, PROJECT.md, RETROSPECTIVE.md updated; REQUIREMENTS.md deleted
+last_updated: "2026-04-26T00:00:00.000Z"
 last_activity: 2026-04-26
 progress:
   total_phases: 7
-  completed_phases: 5
-  total_plans: 11
-  completed_plans: 11
+  completed_phases: 7
+  total_plans: 15
+  completed_plans: 15
   percent: 100
 ---
 
@@ -18,87 +18,30 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-02-11)
+See: .planning/PROJECT.md (updated 2026-04-26)
 
-**Core value:** Business owners land on Alan Chan's personal site, immediately see him as a credible digital marketing educator, and sign up to stay connected.
-**Current focus:** Phase 7 complete — Lachlan section integrated, NAV-04 anchors resolved end-to-end
+**Core value:** Established business owners land on the site, immediately see Mentorship Ltd as a credible authority on scaling, and sign up to stay connected — or book a call directly.
+**Current focus:** v1.1 milestone complete — start next milestone with `/gsd:new-milestone`
 
 ## Current Position
 
-Phase: 07 of 7 (Lachlan Section Integration + Navigation Anchors)
-Plan: Not started
-Status: Milestone complete
+Phase: 7 of 7 (all complete)
+Status: Both v1.0 and v1.1 milestones shipped
 Last activity: 2026-04-26
 
-Progress: [############] 100%
-
-## Performance Metrics
-
-**Velocity:**
-
-- Total plans completed: 12
-- Average duration: ~7 min
-- Total execution time: ~85 min
-
-**By Phase:**
-
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| 1. Foundation | 3/3 | 18 min | 6 min |
-| 2. Home Page | 2/2 | 7 min | 3.5 min |
-| 3. About Page + Brand Refresh | 2/2 | 2 min | 1 min |
-| 6. Lachlan Image Pipeline + MentorIntro | 2/2 | ~30 min | ~15 min |
-| 7. Lachlan Section Integration + Nav Anchors | 2/2 | ~30 min | ~15 min |
-
-**Recent Trend:**
-
-- Last 5 plans: 06-01, 06-02, 07-01, 07-02 — all completed 2026-04-24
-- Trend: Fast execution
-
-*Updated after each plan completion*
+Progress: [####################] 100%
 
 ## Accumulated Context
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
+See PROJECT.md Key Decisions table for full log.
 
+Most recent notable decisions (v1.1):
 - [07-02]: Lenis offset -72 (negative) empirically verified — Lachlan eyebrow visible below fixed 72px header on smooth-scroll
-- [07-02]: Lachlan CTA uses Allan's Calendly URL as placeholder (MENTOR-07) — swap when Lachlan provides his own booking link
+- [07-02]: Lachlan CTA uses Allan's Calendly URL as placeholder (MENTOR-07) — tracked in Pending Todos
 - [07-02]: boltloop.co framed as "a division of Elevateo Co" — resolves double-claim against Companies section
-- [07-02]: em dashes removed from all Lachlan copy blocks per human reviewer request
-- [Roadmap]: Astro 5.x + Tailwind CSS 4.x + GSAP + Kit (ConvertKit) + Cloudflare Pages stack per research
-- [Roadmap]: Email integration consolidated into Phase 4 (Kit API + form states finalized with courses page)
-- [Roadmap]: GSAP animations deferred to Phase 5 (can't animate pages that don't exist)
-- [01-01]: Gold (#D4A843) selected as accent color for premium authority feel
-- [01-01]: Inter Variable as single font for heading + body (performance + readability)
-- [01-01]: Reset default Tailwind colors to enforce brand-only palette
-- [01-01]: CSS-first Tailwind v4 with @theme directive -- no tailwind.config.js
-- [01-02]: Header spacer div for fixed header offset (not body padding-top)
-- [01-02]: Button dynamic Tag renders as <a> or <button> based on href prop
-- [01-02]: Footer social links are placeholder text (Twitter, LinkedIn, YouTube) until real URLs provided
-- [01-03]: Course "Coming Soon" badges as styled inline elements
-- [02-01]: Single CTA per section (one button in hero, not two like Phase 1)
-- [02-01]: bg-navy-950 for problem section visual separation from navy-900 body
-- [02-01]: Solution uses checkmark pattern (not cards) for contrast with problem section
-- [02-01]: AccordionItem uses class-based querySelectorAll for Astro script dedup compatibility
-- [02-02]: 6 FAQ items covering courses, experience level, differentiation, duration, templates, and launch timing
-- [02-02]: Email form uses placeholder success logic -- Phase 4 replaces with Kit API fetch call
-- [02-02]: Script re-runs setupEmailForm on astro:after-swap for View Transitions compatibility
-- [03-01]: Union type for FormInput type prop instead of astroHTML.JSX.HTMLInputTypeAttribute
-- [Brand Refresh]: Color palette shifted from cold navy (#0B1120) to warm charcoal (#101010) to match gold line-art assets
-- [Brand Refresh]: Gold accent updated from #D4A843 to #C9A132 (richer, warmer, matches logo gradient)
-- [Brand Refresh]: Text colors shifted from blue-gray to warm gray (text-secondary: #9B9590, text-tertiary: #6E6862)
-- [Brand Refresh]: All page content rewritten from corporate "Elevateo Co" voice to Alan Chan's personal first-person voice
-- [Brand Refresh]: Footer simplified from 3-column corporate grid to single-row personal (copyright + social links)
-- [Brand Refresh]: Header updated with logo-icon.webp next to "Elevateo" text
-- [Brand Refresh]: Favicon changed from SVG to PNG (logo-icon-32.png) with apple-touch-icon
-- [Brand Refresh]: Home page: hero with illustration (flowryse-1), 6-icon skills grid, personal FAQ, "Get on My List" CTA
-- [Brand Refresh]: About page: "Hey, I'm Alan", first-person story, "How I Teach" philosophy, illustration (flowryse-2)
-- [Brand Refresh]: Courses page: 6 digital marketing courses with icons, banner, "How It Works" section, email form
-- [Brand Refresh]: Image optimization: sharp converts PNGs to WebP, per-page payload 78-91KB
-- [Brand Refresh]: Course grid (COURSE-01, COURSE-02) completed early — Phase 4 now only needs Kit API integration
+- [06-01]: EXIF fix in shared toWebp() — all future iPhone-sourced photos auto-orient
 
 ### Pending Todos
 
@@ -106,10 +49,10 @@ Recent decisions affecting current work:
 
 ### Blockers/Concerns
 
-None — Phase 7 complete. Site is production-ready with dual-mentor layout.
+None — site is production-ready with dual-mentor layout.
 
 ## Session Continuity
 
-Last session: 2026-04-24T00:00Z
-Stopped at: Phase 7 complete — Lachlan section integration committed (e01b4da), 07-02-SUMMARY.md written
+Last session: 2026-04-26
+Stopped at: v1.1 milestone archived — start next milestone with `/gsd:new-milestone`
 Resume file: None
