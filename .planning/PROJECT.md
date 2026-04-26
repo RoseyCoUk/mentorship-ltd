@@ -14,6 +14,8 @@ Established business owners land on the site, immediately see Elevateo Co as a c
 
 - [x] Lachlan mentor image pipeline — optimized WebPs in deploy bundle, EXIF auto-rotate for iPhone photos (Validated in Phase 06: lachlan-image-pipeline-mentorintro-component)
 - [x] MentorIntro component shell — props-driven Astro component with split-grid bio, specialty cards, audience list, Motion One integration (Validated in Phase 06: lachlan-image-pipeline-mentorintro-component)
+- [x] Lachlan section live in single-page site — MentorIntro wired into index.astro with id="lachlan" anchor, hair-line divider, Calendly CTA (Validated in Phase 07: lachlan-section-integration-navigation-anchors)
+- [x] Anchor navigation — header links #allan / #lachlan / #faq with Lenis -72px offset for fixed header (Validated in Phase 07: lachlan-section-integration-navigation-anchors)
 
 ### Active
 
