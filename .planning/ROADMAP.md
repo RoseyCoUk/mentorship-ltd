@@ -2,9 +2,9 @@
 
 ## Overview
 
-Elevateo launched as Alan Chan's personal brand site, pivoted to Mentorship Ltd as a single-page cinematic site — dark charcoal/gold aesthetics, Motion One scroll animations, and Resend email integration. v1.0 (Phases 1-5) is complete.
+Elevateo launched as Alan Chan's personal brand site, pivoted to Mentorship Ltd as a single-page cinematic site — dark charcoal/gold aesthetics, Motion One scroll animations, and Resend email integration. v1.0 (Phases 1-5) is complete. v1.1 adds Lachlan MacDonald as a second mentor (Phases 6-7).
 
-**Milestone v1.1 — Add Lachlan MacDonald:** Expand the single-page site to feature Lachlan MacDonald as a second mentor positioned below Allan. Two phases: image pipeline + component scaffolding, then full section integration + nav anchors.
+**Milestone v1.1 — Add Lachlan MacDonald:** Expand the single-page site to feature Lachlan MacDonald as a second mentor positioned below Allan. Two phases: image pipeline + component scaffolding, then full section integration + nav anchors. COMPLETE as of 2026-04-24.
 
 ## Phases
 
@@ -20,7 +20,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 4: Courses + Email Integration** - Resend API integration and form states across all pages (completed outside GSD, 0560d37)
 - [x] **Phase 5: Animation + Polish** - Motion One scroll animations, Lenis smooth scroll, kinetic typography (completed outside GSD, 6babaf6)
 - [x] **Phase 6: Lachlan Image Pipeline + MentorIntro Component** - Move raw JPGs out of public/, extend optimize-images.mjs for Lachlan, build reusable MentorIntro component (completed 2026-04-24)
-- [ ] **Phase 7: Lachlan Section Integration + Navigation Anchors** - Insert full Lachlan section into index.astro between Allan and Companies, add Allan/Lachlan/FAQ anchor links to header
+- [x] **Phase 7: Lachlan Section Integration + Navigation Anchors** - Insert full Lachlan section into index.astro between Allan and Companies, add Allan/Lachlan/FAQ anchor links to header (completed 2026-04-24)
 
 ## Phase Details
 
@@ -108,8 +108,11 @@ Plans:
   2. `scripts/optimize-images.mjs` has a `processLachlan()` step that produces an optimized WebP of Lachlan's portrait sized between ~150-300 KB at the site's existing quality bar
   3. The optimized Lachlan WebP exists on disk in the site's image output directory and renders without distortion in a standalone test (dimensions, aspect ratio, colour fidelity match source)
   4. A new `src/components/MentorIntro.astro` exists — props-driven (name, credentials, image, CTA target, flip direction), reusing `SectionWrapper` and the site's data-attribute animation system — and can be rendered in isolation without breaking the page
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 2 plans
+
+Plans:
+- [x] 06-01-PLAN.md -- Extend optimize-images.mjs with processLachlan(), move raw JPGs to _zip_temp
+- [x] 06-02-PLAN.md -- Build MentorIntro.astro props-driven component shell
 
 ### Phase 7: Lachlan Section Integration + Navigation Anchors
 **Goal**: A visitor to the live site sees Allan at the top as the primary mentor, scrolls to a clearly-separated Lachlan section (flipped split-grid, credentials, specialty cards, "who he works with", CTA), and can jump directly to Allan / Lachlan / FAQ via anchor links in the site header
@@ -122,11 +125,10 @@ Plans:
   4. Visitor can click a CTA button on Lachlan's section and is routed to Allan's Calendly link (documented placeholder until Lachlan's own booking link is provided)
   5. Visitor using the site header can click "Allan", "Lachlan", or "FAQ" and the page smoothly scrolls to the corresponding section via `#allan`, `#lachlan`, `#faq` anchors — on both desktop and mobile nav
 **Plans**: 2 plans
-**UI hint**: yes
 
 Plans:
-- [x] 07-01-PLAN.md — Enable Lenis anchor navigation, add Allan/Lachlan/FAQ header nav links, add id="allan" + id="faq" section anchors (NAV-04)
-- [ ] 07-02-PLAN.md — Insert Lachlan MentorIntro section with locked-copy bio + 3 specialty cards + audience block + Calendly CTA + hair-line divider (MENTOR-01..07)
+- [x] 07-01-PLAN.md -- Enable Lenis anchor navigation, add Allan/Lachlan/FAQ header nav links, add id="allan" + id="faq" section anchors (NAV-04)
+- [x] 07-02-PLAN.md -- Insert Lachlan MentorIntro section with locked-copy bio + 3 specialty cards + audience block + Calendly CTA + hair-line divider (MENTOR-01..07)
 
 ## Progress
 
@@ -141,4 +143,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 4. Courses + Email Integration | 2/2 | Complete | 2026-04-23 (backfilled) |
 | 5. Animation + Polish | 2/2 | Complete | 2026-04-23 (backfilled) |
 | 6. Lachlan Image Pipeline + MentorIntro Component | 2/2 | Complete | 2026-04-24 |
-| 7. Lachlan Section Integration + Navigation Anchors | 1/2 | In progress | - |
+| 7. Lachlan Section Integration + Navigation Anchors | 2/2 | Complete | 2026-04-24 |
