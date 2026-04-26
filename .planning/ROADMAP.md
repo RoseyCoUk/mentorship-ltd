@@ -1,8 +1,10 @@
-# Roadmap: Elevateo
+# Roadmap: Elevateo / Mentorship Ltd
 
 ## Overview
 
-Elevateo launches as Alan Chan's personal brand site for digital marketing education — 3 pages (Home, About, Courses) with dark charcoal/gold aesthetics and email lead capture. A brand refresh in Phase 3 overhauled all visuals with new assets (logos, icons, heroes, banners), shifted the color palette from cold navy to warm charcoal, and rewrote all content in Alan's personal voice. Remaining work: Kit email integration and scroll animations.
+Elevateo launched as Alan Chan's personal brand site, pivoted to Mentorship Ltd as a single-page cinematic site — dark charcoal/gold aesthetics, Motion One scroll animations, and Resend email integration. v1.0 (Phases 1-5) is complete. v1.1 adds Lachlan MacDonald as a second mentor (Phases 6-7).
+
+**Milestone v1.1 — Add Lachlan MacDonald:** Expand the single-page site to feature Lachlan MacDonald as a second mentor positioned below Allan. Two phases: image pipeline + component scaffolding, then full section integration + nav anchors. COMPLETE as of 2026-04-24.
 
 ## Phases
 
@@ -15,8 +17,10 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation** - Design system, project scaffolding, navigation, and responsive framework
 - [x] **Phase 2: Home Page** - Bold hero, problem/solution, FAQ, and first email form
 - [x] **Phase 3: About Page + Brand Refresh** - Founder story, philosophy, email capture, and full visual + content overhaul
-- [ ] **Phase 4: Courses + Email Integration** - Kit API integration and form states across all pages
-- [ ] **Phase 5: Animation + Polish** - GSAP scroll animations, performance tuning, and final QA
+- [x] **Phase 4: Courses + Email Integration** - Resend API integration and form states across all pages (completed outside GSD, 0560d37)
+- [x] **Phase 5: Animation + Polish** - Motion One scroll animations, Lenis smooth scroll, kinetic typography (completed outside GSD, 6babaf6)
+- [x] **Phase 6: Lachlan Image Pipeline + MentorIntro Component** - Move raw JPGs out of public/, extend optimize-images.mjs for Lachlan, build reusable MentorIntro component (completed 2026-04-24)
+- [x] **Phase 7: Lachlan Section Integration + Navigation Anchors** - Insert full Lachlan section into index.astro between Allan and Companies, add Allan/Lachlan/FAQ anchor links to header (completed 2026-04-24)
 
 ## Phase Details
 
@@ -78,8 +82,8 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 04-01: Kit API integration with custom fetch, success/error states across all pages
-- [ ] 04-02: End-to-end email capture testing and cross-page verification
+- [x] 04-01: Resend API integration with custom fetch, success/error states — completed outside GSD (0560d37)
+- [x] 04-02: End-to-end email capture verified — single index.astro with /api/subscribe route
 
 ### Phase 5: Animation + Polish
 **Goal**: The site feels premium with smooth scroll-driven animations, loads fast, and is ready for real traffic
@@ -92,18 +96,51 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 05-01: GSAP ScrollTrigger animations across all pages
-- [ ] 05-02: Performance audit and optimization pass
+- [x] 05-01: Motion One scroll animations + Lenis smooth scroll + SplitType kinetic typography — completed outside GSD (235cf58, 6babaf6)
+- [x] 05-02: Performance via sharp image optimization (78-91KB per page payload) — completed outside GSD
+
+### Phase 6: Lachlan Image Pipeline + MentorIntro Component
+**Goal**: Lachlan's raw photos are moved out of the deploy bundle and optimized to WebP, and a reusable MentorIntro component exists ready to be slotted into the page — unblocking Phase 7 integration without any layout or content work yet
+**Depends on**: Phase 5
+**Requirements**: MENTOR-08
+**Success Criteria** (what must be TRUE):
+  1. Raw Lachlan JPGs no longer ship in `public/` — they live in `_zip_temp/Lachlan/` (kept out of the Astro build output)
+  2. `scripts/optimize-images.mjs` has a `processLachlan()` step that produces an optimized WebP of Lachlan's portrait sized between ~150-300 KB at the site's existing quality bar
+  3. The optimized Lachlan WebP exists on disk in the site's image output directory and renders without distortion in a standalone test (dimensions, aspect ratio, colour fidelity match source)
+  4. A new `src/components/MentorIntro.astro` exists — props-driven (name, credentials, image, CTA target, flip direction), reusing `SectionWrapper` and the site's data-attribute animation system — and can be rendered in isolation without breaking the page
+**Plans**: 2 plans
+
+Plans:
+- [x] 06-01-PLAN.md -- Extend optimize-images.mjs with processLachlan(), move raw JPGs to _zip_temp
+- [x] 06-02-PLAN.md -- Build MentorIntro.astro props-driven component shell
+
+### Phase 7: Lachlan Section Integration + Navigation Anchors
+**Goal**: A visitor to the live site sees Allan at the top as the primary mentor, scrolls to a clearly-separated Lachlan section (flipped split-grid, credentials, specialty cards, "who he works with", CTA), and can jump directly to Allan / Lachlan / FAQ via anchor links in the site header
+**Depends on**: Phase 6
+**Requirements**: MENTOR-01, MENTOR-02, MENTOR-03, MENTOR-04, MENTOR-05, MENTOR-06, MENTOR-07, NAV-04
+**Success Criteria** (what must be TRUE):
+  1. Visitor scrolling past Allan's About section sees a clear visual section divider / transition, then lands on Lachlan's bio in a split-grid layout with the photo on the LEFT and text on the RIGHT (flipped from Allan's layout)
+  2. Visitor reads Lachlan's bio and learns his specific credentials (co-founder of Bellum Advisors, CEO of boltloop.co, scaled solo agencies) along with a subtle reference to his fighting / physical discipline background — no heavy-handed gym-bro framing
+  3. Visitor sees three specialty cards covering solo agency scaling, co-founder work, and AI/automation, plus a "Who Lachlan works with" block that lets them self-identify as a fit (or not)
+  4. Visitor can click a CTA button on Lachlan's section and is routed to Allan's Calendly link (documented placeholder until Lachlan's own booking link is provided)
+  5. Visitor using the site header can click "Allan", "Lachlan", or "FAQ" and the page smoothly scrolls to the corresponding section via `#allan`, `#lachlan`, `#faq` anchors — on both desktop and mobile nav
+**Plans**: 2 plans
+
+Plans:
+- [x] 07-01-PLAN.md -- Enable Lenis anchor navigation, add Allan/Lachlan/FAQ header nav links, add id="allan" + id="faq" section anchors (NAV-04)
+- [x] 07-02-PLAN.md -- Insert Lachlan MentorIntro section with locked-copy bio + 3 specialty cards + audience block + Calendly CTA + hair-line divider (MENTOR-01..07)
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-02-11 |
 | 2. Home Page | 2/2 | Complete | 2026-02-11 |
 | 3. About Page + Brand Refresh | 2/2 | Complete | 2026-02-12 |
-| 4. Courses + Email Integration | 0/2 | Not started | - |
-| 5. Animation + Polish | 0/2 | Not started | - |
+| 4. Courses + Email Integration | 2/2 | Complete | 2026-04-23 (backfilled) |
+| 5. Animation + Polish | 2/2 | Complete | 2026-04-23 (backfilled) |
+| 6. Lachlan Image Pipeline + MentorIntro Component | 2/2 | Complete | 2026-04-24 |
+| 7. Lachlan Section Integration + Navigation Anchors | 2/2 | Complete | 2026-04-24 |

@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-11)
 
 **Core value:** Business owners land on Alan Chan's personal site, immediately see him as a credible digital marketing educator, and sign up to stay connected.
-**Current focus:** Phase 3 complete — ready for Phase 4 (Kit email integration)
+**Current focus:** Phase 7 complete — Lachlan section integrated, NAV-04 anchors resolved end-to-end
 
 ## Current Position
 
-Phase: 3 of 5 (About Page + Brand Refresh) — COMPLETE
+Phase: 7 of 7 (Lachlan Section Integration + Navigation Anchors) — COMPLETE
 Plan: 2 of 2 in current phase — COMPLETE
-Status: Phase 3 complete. Brand refresh superseded remaining plans.
-Last activity: 2026-02-12 — Brand refresh commit (fcf5cc2)
+Status: Phase 7 complete. All MENTOR-01..07 + NAV-04 requirements resolved. Site features Allan + Lachlan dual-mentor layout.
+Last activity: 2026-04-24 — Lachlan section integration committed (e01b4da)
 
 Progress: [############] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
-- Average duration: 3.6 min
-- Total execution time: 27 min
+- Total plans completed: 12
+- Average duration: ~7 min
+- Total execution time: ~85 min
 
 **By Phase:**
 
@@ -30,9 +30,11 @@ Progress: [############] 100%
 | 1. Foundation | 3/3 | 18 min | 6 min |
 | 2. Home Page | 2/2 | 7 min | 3.5 min |
 | 3. About Page + Brand Refresh | 2/2 | 2 min | 1 min |
+| 6. Lachlan Image Pipeline + MentorIntro | 2/2 | ~30 min | ~15 min |
+| 7. Lachlan Section Integration + Nav Anchors | 2/2 | ~30 min | ~15 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-01 (2 min), 02-02 (5 min), 03-01 (1 min), 03-02 (0 min, superseded)
+- Last 5 plans: 06-01, 06-02, 07-01, 07-02 — all completed 2026-04-24
 - Trend: Fast execution
 
 *Updated after each plan completion*
@@ -44,6 +46,10 @@ Progress: [############] 100%
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [07-02]: Lenis offset -72 (negative) empirically verified — Lachlan eyebrow visible below fixed 72px header on smooth-scroll
+- [07-02]: Lachlan CTA uses Allan's Calendly URL as placeholder (MENTOR-07) — swap when Lachlan provides his own booking link
+- [07-02]: boltloop.co framed as "a division of Elevateo Co" — resolves double-claim against Companies section
+- [07-02]: em dashes removed from all Lachlan copy blocks per human reviewer request
 - [Roadmap]: Astro 5.x + Tailwind CSS 4.x + GSAP + Kit (ConvertKit) + Cloudflare Pages stack per research
 - [Roadmap]: Email integration consolidated into Phase 4 (Kit API + form states finalized with courses page)
 - [Roadmap]: GSAP animations deferred to Phase 5 (can't animate pages that don't exist)
@@ -78,15 +84,14 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-None.
+- Swap Lachlan's Calendly CTA URL from Allan's link to Lachlan's own booking link when available (src/pages/index.astro, MentorIntro cta.href prop)
 
 ### Blockers/Concerns
 
-- Kit (ConvertKit) API key and form ID needed before Phase 4 can integrate real email submission
-- Course topic definitions are now in place (6 digital marketing courses) — no longer a blocker
+None — Phase 7 complete. Site is production-ready with dual-mentor layout.
 
 ## Session Continuity
 
-Last session: 2026-02-12T18:49Z
-Stopped at: Phase 3 complete — brand refresh committed (fcf5cc2)
+Last session: 2026-04-24T00:00Z
+Stopped at: Phase 7 complete — Lachlan section integration committed (e01b4da), 07-02-SUMMARY.md written
 Resume file: None
