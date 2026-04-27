@@ -51,8 +51,14 @@ Most recent notable decisions (v1.1):
 
 None — site is production-ready with dual-mentor layout.
 
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 260427-mfr | Update bluepillar logo | 2026-04-27 | ed2b70e | [260427-mfr-update-bluepillar-logo](./quick/260427-mfr-update-bluepillar-logo/) |
+
 ## Session Continuity
 
-Last session: 2026-04-26
-Stopped at: v1.1 milestone archived — start next milestone with `/gsd:new-milestone`
+Last session: 2026-04-27
+Stopped at: Quick task 260427-mfr complete — bluepillar logo updated
 Resume file: None
